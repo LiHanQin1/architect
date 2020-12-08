@@ -27,7 +27,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b13ad053-a000-40de-a0ab-25d268140bbd" name="Default Changelist" comment="简单框架" />
+    <list default="true" id="b13ad053-a000-40de-a0ab-25d268140bbd" name="Default Changelist" comment="简单框架">
+      <change afterPath="$PROJECT_DIR$/src/com/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/dao/impl/UserDaoImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/service/impl/UserSerciceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/servlet/UserServlet.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,6 +43,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -191,7 +199,7 @@
       <updated>1607136817637</updated>
       <workItem from="1607136818823" duration="6398000" />
       <workItem from="1607337493708" duration="1619000" />
-      <workItem from="1607413399260" duration="1643000" />
+      <workItem from="1607413399260" duration="2000000" />
     </task>
     <task id="LOCAL-00001" summary="测试2">
       <created>1607138702128</created>
@@ -214,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607414783725</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="简单框架">
+      <created>1607415083267</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1607415083267</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -302,13 +317,13 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1607413612701" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1607414808766">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1607415089466">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607414808766" />
-    <state x="574" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607138822724">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607415089466" />
+    <state x="574" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607415067013">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1607138822724" />
+    <state x="574" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1607415067013" />
   </component>
 </project>
