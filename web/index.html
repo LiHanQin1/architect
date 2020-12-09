@@ -108,7 +108,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!-- Large modal -->
             <a href="login.html">管理员登陆</a>
             <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                Login
+                Login/Register
             </button>
             <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
                  aria-hidden="true">
@@ -163,14 +163,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             </form>
                                         </div>
                                         <div class="tab-pane" id="Registration">
-                                            <form role="form" class="form-horizontal">
+                                            <form role="form" class="form-horizontal" method="post" action="/architect/vip.do">
+                                                <input name="action" type="hidden" value="register"/>
                                                 <div class="form-group">
                                                     <label for="email" class="col-sm-2 control-label">
                                                         用户名</label>
                                                     <div class="col-sm-10">
                                                         <div class="row">
                                                             <div class="col-md-9">
-                                                                <input type="text" class="form-control"
+                                                                <input type="text" name="registername" class="form-control"
                                                                        placeholder="Name"/>
                                                             </div>
                                                         </div>
@@ -180,7 +181,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     <label for="email" class="col-sm-2 control-label">
                                                         密码</label>
                                                     <div class="col-sm-10">
-                                                        <input type="email" class="form-control" id="email"
+                                                        <input type="password" name="registerpassword" class="form-control" id="registerpassword"
                                                                placeholder="Password"/>
                                                     </div>
                                                 </div>
@@ -188,7 +189,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     <label for="email" class="col-sm-2 control-label">
                                                         确认密码</label>
                                                     <div class="col-sm-10">
-                                                        <input type="email" class="form-control" id="email"
+                                                        <input type="password" class="form-control" name="confirmregisterpassword" id="confirmregisterpassword"
                                                                placeholder="Password"/>
                                                     </div>
                                                 </div>
@@ -196,7 +197,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     <label for="mobile" class="col-sm-2 control-label">
                                                         手机</label>
                                                     <div class="col-sm-10">
-                                                        <input type="email" class="form-control" id="mobile"
+                                                        <input type="tel" class="form-control" id="tel" name="tel"
                                                                placeholder="Tel"/>
                                                     </div>
                                                 </div>
@@ -204,7 +205,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     <label for="mobile" class="col-sm-2 control-label">
                                                         QQ</label>
                                                     <div class="col-sm-10">
-                                                        <input type="email" class="form-control" id="mobile"
+                                                        <input type="text" class="form-control" name="qq" id="qq"
                                                                placeholder="QQ"/>
                                                     </div>
                                                 </div>
@@ -212,7 +213,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     <label for="mobile" class="col-sm-2 control-label">
                                                         邮箱</label>
                                                     <div class="col-sm-10">
-                                                        <input type="email" class="form-control" id="mobile"
+                                                        <input type="email" name="email" class="form-control" id="email"
                                                                placeholder="Email"/>
                                                     </div>
                                                 </div>
@@ -222,10 +223,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     <div class="col-sm-10">
                                                         <div class="row">
                                                             <div class="col-md-3">
-                                                                <select class="form-control">
-                                                                    <option>男</option>
-                                                                    <option>女</option>
-                                                                    <option>阴阳人</option>
+                                                                <select name="sex" class="form-control">
+                                                                    <option value="男">男</option>
+                                                                    <option value="女">女</option>
+                                                                    <option value="阴阳人">阴阳人</option>
                                                                 </select>
                                                             </div>
                                                             <!-- <div class="col-md-9">
@@ -239,11 +240,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     <div class="col-sm-2">
                                                     </div>
                                                     <div class="col-sm-10">
-                                                        <button type="button" class="btn btn-primary btn-sm">
+                                                        <button type="submit" class="btn btn-primary btn-sm">
                                                             提交
                                                         </button>
                                                         &nbsp;&nbsp;&nbsp;&nbsp;
-                                                        <button type="button" class="btn btn-primary btn-sm">
+                                                        <button type="reset" class="btn btn-primary btn-sm">
                                                             重置
                                                         </button>
                                                         &nbsp;&nbsp;&nbsp;&nbsp;

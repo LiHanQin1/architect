@@ -39,13 +39,38 @@ public class VipServlet extends BaseServlet {
             HttpSession session=request.getSession();
             session.setAttribute("vip",vip1);
             response.getWriter().write("登陆成功！");
-            response.sendRedirect(request.getContextPath()+"/index.html");
+            //response.sendRedirect(request.getContextPath()+"/index.html");
         }else {
             response.getWriter().write("用户名或密码错误");
             response.sendRedirect(request.getContextPath()+"/index.html");
         }
 
+    }
 
-
+    public void register(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String username=request.getParameter("registername");
+        String password=request.getParameter("registerpassword");
+        String confirmpassword=request.getParameter("confirmregisterpassword");
+        String tel=request.getParameter("tel");
+        String qq=request.getParameter("qq");
+        String email=request.getParameter("email");
+        String sex=request.getParameter("sex");
+        if (password.equals(confirmpassword)){
+            Vip vip=new Vip();
+            vip.setUserName(username);
+            vip.setUserPwd(password);
+            vip.setTel(tel);
+            vip.setQQ(qq);
+            vip.setEmail(email);
+            vip.setSex(sex);
+            Integer result=vipService.insert(vip);
+            if (result==1){
+                response.getWriter().write("注册成功！");
+            }else {
+                response.getWriter().write("注册失败！");
+            }
+        }else {
+            response.getWriter().write("密码与确认密码不一致");
+        }
     }
 }
