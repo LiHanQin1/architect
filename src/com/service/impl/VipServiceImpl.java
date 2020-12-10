@@ -38,4 +38,9 @@ public class VipServiceImpl implements VipService {
     public Vip queryUserByNameAndPassword(Vip vip) {
         return vipDao.queryUserByNameAndPassword(vip);
     }
+
+    @Override
+    public Vip queryUserByName(Vip vip) {
+        return vipDao.queryUserByName(vip);
+    }
 }
