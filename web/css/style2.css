@@ -10,6 +10,11 @@ body{
 	background:#eee;
 	font-family: 'Open Sans', sans-serif;
 }
+.gonggao{
+	font-size: 20px;
+	color: #003B64;
+}
+
 body a{
     transition:0.5s all;
 	-webkit-transition:0.5s all;
