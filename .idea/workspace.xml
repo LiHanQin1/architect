@@ -28,122 +28,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b13ad053-a000-40de-a0ab-25d268140bbd" name="Default Changelist" comment="简单框架">
+      <change afterPath="$PROJECT_DIR$/src/com/servlet/FileUploadServlet1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/admin/addannouncement.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/admin/addmovie.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/admin/addposter.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/admin/addtrailer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/admin/announcementquery.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/admin/moviequery.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/admin/posterquery.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/admin/trailerquery.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/html.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/list.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/addadmin.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/addfirm.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/cha.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/chaadmin.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/chafirm.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/index2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/layui.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/layui.mobile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/modules/code.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/modules/laydate/default/font.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/modules/laydate/default/laydate.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/modules/layer/default/icon-ext.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/modules/layer/default/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/modules/layer/default/layer.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/modules/layer/default/loading-0.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/modules/layer/default/loading-1.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/modules/layer/default/loading-2.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/0.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/1.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/10.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/11.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/12.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/13.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/14.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/15.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/16.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/17.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/18.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/19.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/2.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/20.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/21.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/22.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/23.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/24.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/25.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/26.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/27.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/28.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/29.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/3.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/30.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/31.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/32.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/33.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/34.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/35.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/36.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/37.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/38.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/39.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/4.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/40.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/41.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/42.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/43.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/44.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/45.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/46.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/47.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/48.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/49.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/5.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/50.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/51.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/52.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/53.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/54.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/55.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/56.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/57.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/58.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/59.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/6.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/60.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/61.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/62.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/63.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/64.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/65.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/66.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/67.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/68.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/69.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/7.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/70.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/71.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/8.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/9.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lay/all-mobile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lay/all.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lay/modules/carousel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lay/modules/code.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lay/modules/colorpicker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lay/modules/element.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lay/modules/flow.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lay/modules/form.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lay/modules/jquery.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lay/modules/laydate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lay/modules/layedit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lay/modules/layer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lay/modules/laypage.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lay/modules/laytpl.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lay/modules/mobile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lay/modules/mobile/layer-mobile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lay/modules/mobile/layim-mobile-open.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lay/modules/mobile/zepto.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lay/modules/rate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lay/modules/slider.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lay/modules/table.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lay/modules/transfer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lay/modules/tree.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lay/modules/upload.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/lay/modules/util.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/architect_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/architect_war_exploded/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/admin/addadmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/addadmin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/admin/addfirm.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/addfirm.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/admin/cha.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/Userquery.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/admin/chaadmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/adminquery.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/admin/chafirm.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/firmqurey.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/admin/index2.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/admin/index2.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,9 +71,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="Jsp File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -224,6 +129,7 @@
       <recent name="D:\Day1205\web\images" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.servlet" />
       <recent name="com.utils" />
       <recent name="com.dao" />
     </key>
@@ -359,7 +265,7 @@
       <workItem from="1607518286894" duration="3347000" />
       <workItem from="1607564251827" duration="5875000" />
       <workItem from="1607649492738" duration="5491000" />
-      <workItem from="1607667830032" duration="851000" />
+      <workItem from="1607667830032" duration="10316000" />
     </task>
     <task id="LOCAL-00001" summary="测试2">
       <created>1607138702128</created>
@@ -403,7 +309,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607521280886</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="简单框架">
+      <created>1607668983272</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1607668983272</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
@@ -438,10 +351,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="简单框架" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="223" y="33" width="1089" height="791" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607655409811">
+    <state x="223" y="33" width="1089" height="791" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1607675957527">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="223" y="33" width="1089" height="791" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1607655409811" />
+    <state x="223" y="33" width="1089" height="791" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1607675957527" />
     <state x="546" y="281" key="DetectedRootsChooserDialog" timestamp="1607413579857">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -454,150 +367,77 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="445" y="152" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1607413610668" />
-    <state width="1024" height="172" key="GridCell.Tab.0.bottom" timestamp="1607667816464">
+    <state width="1024" height="402" key="GridCell.Tab.0.bottom" timestamp="1607676761445">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="172" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607667816464" />
-    <state width="1024" height="172" key="GridCell.Tab.0.center" timestamp="1607667816464">
+    <state width="1024" height="402" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607676761445" />
+    <state width="1024" height="402" key="GridCell.Tab.0.center" timestamp="1607676761445">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="172" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607667816464" />
-    <state width="1024" height="172" key="GridCell.Tab.0.left" timestamp="1607667816464">
+    <state width="1024" height="402" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607676761445" />
+    <state width="1024" height="402" key="GridCell.Tab.0.left" timestamp="1607676761445">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="172" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607667816464" />
-    <state width="1024" height="172" key="GridCell.Tab.0.right" timestamp="1607667816464">
+    <state width="1024" height="402" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607676761445" />
+    <state width="1024" height="402" key="GridCell.Tab.0.right" timestamp="1607676761445">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="172" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607667816464" />
-    <state width="1024" height="172" key="GridCell.Tab.1.bottom" timestamp="1607667816464">
+    <state width="1024" height="402" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607676761445" />
+    <state width="1024" height="402" key="GridCell.Tab.1.bottom" timestamp="1607676761335">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="172" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607667816464" />
-    <state width="1024" height="172" key="GridCell.Tab.1.center" timestamp="1607667816464">
+    <state width="1024" height="402" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607676761335" />
+    <state width="1024" height="402" key="GridCell.Tab.1.center" timestamp="1607676761335">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="172" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1607667816464" />
-    <state width="1024" height="172" key="GridCell.Tab.1.left" timestamp="1607667816464">
+    <state width="1024" height="402" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1607676761335" />
+    <state width="1024" height="402" key="GridCell.Tab.1.left" timestamp="1607676761335">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="172" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1607667816464" />
-    <state width="1024" height="172" key="GridCell.Tab.1.right" timestamp="1607667816464">
+    <state width="1024" height="402" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1607676761335" />
+    <state width="1024" height="402" key="GridCell.Tab.1.right" timestamp="1607676761335">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="172" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1607667816464" />
-    <state width="1024" height="172" key="GridCell.Tab.2.bottom" timestamp="1607667816464">
+    <state width="1024" height="402" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1607676761335" />
+    <state width="1024" height="402" key="GridCell.Tab.2.bottom" timestamp="1607676761335">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="172" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607667816464" />
-    <state width="1024" height="172" key="GridCell.Tab.2.center" timestamp="1607667816464">
+    <state width="1024" height="402" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607676761335" />
+    <state width="1024" height="402" key="GridCell.Tab.2.center" timestamp="1607676761335">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="172" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1607667816464" />
-    <state width="1024" height="172" key="GridCell.Tab.2.left" timestamp="1607667816464">
+    <state width="1024" height="402" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1607676761335" />
+    <state width="1024" height="402" key="GridCell.Tab.2.left" timestamp="1607676761335">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="172" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1607667816464" />
-    <state width="1024" height="172" key="GridCell.Tab.2.right" timestamp="1607667816464">
+    <state width="1024" height="402" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1607676761335" />
+    <state width="1024" height="402" key="GridCell.Tab.2.right" timestamp="1607676761335">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1024" height="172" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1607667816464" />
-    <state x="147" y="64" key="MergeDialog" timestamp="1607655823554">
+    <state width="1024" height="402" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1607676761335" />
+    <state x="147" y="64" key="MergeDialog" timestamp="1607673379907">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="147" y="64" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1607655823554" />
-    <state x="403" y="172" key="MultipleFileMergeDialog" timestamp="1607655823564">
+    <state x="147" y="64" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1607673379907" />
+    <state x="403" y="172" key="MultipleFileMergeDialog" timestamp="1607673379931">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="403" y="172" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1607655823564" />
-    <state x="249" y="0" key="SettingsEditor" timestamp="1607413612701">
+    <state x="403" y="172" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1607673379931" />
+    <state x="249" y="0" key="SettingsEditor" timestamp="1607670124818">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1607413612701" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1607655910733">
+    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1607670124818" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1607668985365">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607655910733" />
-    <state x="574" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607655804974">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607668985365" />
+    <state x="574" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1607673404254">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1607655804974" />
-  </component>
-  <component name="masterDetails">
-    <states>
-      <state key="ArtifactsStructureConfigurable.UI">
-        <settings>
-          <artifact-editor />
-          <last-edited>architect:war exploded</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.39425287" />
-                <option value="0.5" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="FacetStructureConfigurable.UI">
-        <settings>
-          <last-edited>Web</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.39425287" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="GlobalLibrariesConfigurable.UI">
-        <settings>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="JdkListConfigurable.UI">
-        <settings>
-          <last-edited>1.8</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ModuleStructureConfigurable.UI">
-        <settings>
-          <last-edited>architect</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.2" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-      <state key="ProjectLibrariesConfigurable.UI">
-        <settings>
-          <last-edited>Maven: com.alibaba:druid:1.1.9</last-edited>
-          <splitter-proportions>
-            <option name="proportions">
-              <list>
-                <option value="0.39425287" />
-              </list>
-            </option>
-          </splitter-proportions>
-        </settings>
-      </state>
-    </states>
+    <state x="574" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1607673404254" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1607669990315">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1607669990315" />
   </component>
 </project>
