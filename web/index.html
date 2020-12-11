@@ -122,13 +122,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     success:function (data){
                                         if (data>0){
                                             alert("用户名已存在")
-
                                         }
                                     }
                                 })
                             }
                         })
 
+                    $("#quxiao").on('click',function () {
+                        $("#myModal").modal("hide");
+                    })
                         $("#registerpassword").on('blur',function () {
                             var registerpassword=$("#registerpassword").val();
                             if (registerpassword==""){
@@ -178,10 +180,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 $("#emailtips").hide();
                             }
                         })
-
                 })
-
-
             </script>
             <!-- Large modal -->
             <a href="login.html">管理员登陆</a>
@@ -331,7 +330,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                             重置
                                                         </button>
                                                         &nbsp;&nbsp;&nbsp;&nbsp;
-                                                        <button type="button" class="btn btn-default btn-sm">
+                                                        <button type="button" class="btn btn-default btn-sm" id="quxiao">
                                                             取消
                                                         </button>
                                                     </div>
@@ -378,7 +377,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <!-- Mega Menu -->
                         <li class="dropdown w3_megamenu-fw"><a href="moviereview.html"  class="dropdown-toggle">网站影评</a>
                         </li>
-                        <li class="dropdown w3_megamenu-fw"><a href="movies.html" class="dropdown-toggle">电影海报与预告
+                        <li class="dropdown w3_megamenu-fw"><a href="../../qq/movies.html" class="dropdown-toggle">电影海报与预告
                             <!-- <b class="caret"></b> --></a>
                         </li>
 
@@ -444,7 +443,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="nbs-flexisel-inner">
             <ul id="flexiselDemo1" class="nbs-flexisel-ul" style="left: -228px; display: block;">
                 <li class="nbs-flexisel-item" style="width: 228px;">
-                    <a href="movies.html"><img src="images/r1.jpg" alt=""></a>
+                    <a href="../../qq/movies.html"><img src="images/r1.jpg" alt=""></a>
                     <div class="slide-title">
                         <h4>looked up one of the more Contrary to popular </h4>
                     </div>
@@ -452,12 +451,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h5>Dec 12-15</h5>
                         <h6>Multi-city</h6>
                         <div class="buy-tickets">
-                            <a href="movie-select-show.html">BUY TICKETS</a>
+                            <a href="../../qq/movie-select-show.html">BUY TICKETS</a>
                         </div>
                     </div>
                 </li>
                 <li class="nbs-flexisel-item" style="width: 228px;">
-                    <a href="movies.html"><img src="images/r2.jpg" alt=""></a>
+                    <a href="../../qq/movies.html"><img src="images/r2.jpg" alt=""></a>
                     <div class="slide-title">
                         <h4>There are many 'variations' belief</h4>
                     </div>
@@ -465,12 +464,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h5>Dec 12-15</h5>
                         <h6>Multi-city</h6>
                         <div class="buy-tickets">
-                            <a href="movie-select-show.html">BUY TICKETS</a>
+                            <a href="../../qq/movie-select-show.html">BUY TICKETS</a>
                         </div>
                     </div>
                 </li>
                 <li class="nbs-flexisel-item" style="width: 228px;">
-                    <a href="movies.html"><img src="images/r3.jpg" alt=""></a>
+                    <a href="../../qq/movies.html"><img src="images/r3.jpg" alt=""></a>
                     <div class="slide-title">
                         <h4>Finibus Bonorum et Malorum more 'Contrary'</h4>
                     </div>
@@ -478,12 +477,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h5>Dec 12-15</h5>
                         <h6>Multi-city</h6>
                         <div class="buy-tickets">
-                            <a href="movie-select-show.html">BUY TICKETS</a>
+                            <a href="../../qq/movie-select-show.html">BUY TICKETS</a>
                         </div>
                     </div>
                 </li>
                 <li class="nbs-flexisel-item" style="width: 228px;">
-                    <a href="movies.html"><img src="images/r4.jpg" alt=""></a>
+                    <a href="../../qq/movies.html"><img src="images/r4.jpg" alt=""></a>
                     <div class="slide-title">
                         <h4>Lorem Ipsum is simply Bonorum</h4>
                     </div>
@@ -491,12 +490,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h5>Dec 12-15</h5>
                         <h6>Multi-city</h6>
                         <div class="buy-tickets">
-                            <a href="movie-select-show.html">BUY TICKETS</a>
+                            <a href="../../qq/movie-select-show.html">BUY TICKETS</a>
                         </div>
                     </div>
                 </li>
                 <li class="nbs-flexisel-item" style="width: 228px;">
-                    <a href="movies.html"><img src="images/r5.jpg" alt=""></a>
+                    <a href="../../qq/movies.html"><img src="images/r5.jpg" alt=""></a>
                     <div class="slide-title">
                         <h4>Lorem Ipsum is simply Bonorum</h4>
                     </div>
@@ -504,12 +503,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h5>Dec 12-15</h5>
                         <h6>Multi-city</h6>
                         <div class="buy-tickets">
-                            <a href="movie-select-show.html">BUY TICKETS</a>
+                            <a href="../../qq/movie-select-show.html">BUY TICKETS</a>
                         </div>
                     </div>
                 </li>
                 <li class="nbs-flexisel-item" style="width: 228px;">
-                    <a href="movies.html"><img src="images/r6.jpg" alt=""></a>
+                    <a href="../../qq/movies.html"><img src="images/r6.jpg" alt=""></a>
                     <div class="slide-title">
                         <h4>Lorem Ipsum is simply Bonorum</h4>
                     </div>
@@ -517,12 +516,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h5>Dec 12-15</h5>
                         <h6>Multi-city</h6>
                         <div class="buy-tickets">
-                            <a href="movie-select-show.html">BUY TICKETS</a>
+                            <a href="../../qq/movie-select-show.html">BUY TICKETS</a>
                         </div>
                     </div>
                 </li>
                 <li class="nbs-flexisel-item" style="width: 228px;">
-                    <a href="movies.html"><img src="images/r1.jpg" alt=""></a>
+                    <a href="../../qq/movies.html"><img src="images/r1.jpg" alt=""></a>
                     <div class="slide-title">
                         <h4>looked up one of the more Contrary to popular </h4>
                     </div>
@@ -530,12 +529,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h5>Dec 12-15</h5>
                         <h6>Multi-city</h6>
                         <div class="buy-tickets">
-                            <a href="movie-select-show.html">BUY TICKETS</a>
+                            <a href="../../qq/movie-select-show.html">BUY TICKETS</a>
                         </div>
                     </div>
                 </li>
                 <li class="nbs-flexisel-item" style="width: 228px;">
-                    <a href="movies.html"><img src="images/r2.jpg" alt=""></a>
+                    <a href="../../qq/movies.html"><img src="images/r2.jpg" alt=""></a>
                     <div class="slide-title">
                         <h4>There are many 'variations' belief</h4>
                     </div>
@@ -543,12 +542,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h5>Dec 12-15</h5>
                         <h6>Multi-city</h6>
                         <div class="buy-tickets">
-                            <a href="movie-select-show.html">BUY TICKETS</a>
+                            <a href="../../qq/movie-select-show.html">BUY TICKETS</a>
                         </div>
                     </div>
                 </li>
                 <li class="nbs-flexisel-item" style="width: 228px;">
-                    <a href="movies.html"><img src="images/r3.jpg" alt=""></a>
+                    <a href="../../qq/movies.html"><img src="images/r3.jpg" alt=""></a>
                     <div class="slide-title">
                         <h4>Finibus Bonorum et Malorum more 'Contrary'</h4>
                     </div>
@@ -556,12 +555,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h5>Dec 12-15</h5>
                         <h6>Multi-city</h6>
                         <div class="buy-tickets">
-                            <a href="movie-select-show.html">BUY TICKETS</a>
+                            <a href="../../qq/movie-select-show.html">BUY TICKETS</a>
                         </div>
                     </div>
                 </li>
                 <li class="nbs-flexisel-item" style="width: 228px;">
-                    <a href="movies.html"><img src="images/r4.jpg" alt=""></a>
+                    <a href="../../qq/movies.html"><img src="images/r4.jpg" alt=""></a>
                     <div class="slide-title">
                         <h4>Lorem Ipsum is simply Bonorum</h4>
                     </div>
@@ -569,12 +568,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h5>Dec 12-15</h5>
                         <h6>Multi-city</h6>
                         <div class="buy-tickets">
-                            <a href="movie-select-show.html">BUY TICKETS</a>
+                            <a href="../../qq/movie-select-show.html">BUY TICKETS</a>
                         </div>
                     </div>
                 </li>
                 <li class="nbs-flexisel-item" style="width: 228px;">
-                    <a href="movies.html"><img src="images/r5.jpg" alt=""></a>
+                    <a href="../../qq/movies.html"><img src="images/r5.jpg" alt=""></a>
                     <div class="slide-title">
                         <h4>Lorem Ipsum is simply Bonorum</h4>
                     </div>
@@ -582,12 +581,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h5>Dec 12-15</h5>
                         <h6>Multi-city</h6>
                         <div class="buy-tickets">
-                            <a href="movie-select-show.html">BUY TICKETS</a>
+                            <a href="../../qq/movie-select-show.html">BUY TICKETS</a>
                         </div>
                     </div>
                 </li>
                 <li class="nbs-flexisel-item" style="width: 228px;">
-                    <a href="movies.html"><img src="images/r6.jpg" alt=""></a>
+                    <a href="../../qq/movies.html"><img src="images/r6.jpg" alt=""></a>
                     <div class="slide-title">
                         <h4>Lorem Ipsum is simply Bonorum</h4>
                     </div>
@@ -595,7 +594,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h5>Dec 12-15</h5>
                         <h6>Multi-city</h6>
                         <div class="buy-tickets">
-                            <a href="movie-select-show.html">BUY TICKETS</a>
+                            <a href="../../qq/movie-select-show.html">BUY TICKETS</a>
                         </div>
                     </div>
                 </li>
@@ -606,7 +605,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="review-slider">
             <ul id="flexiselDemo1">
                 <li>
-                    <a href="movies.html"><img src="images/r1.jpg" alt=""/></a>
+                    <a href="../../qq/movies.html"><img src="images/r1.jpg" alt=""/></a>
                     <div class="slide-title">
                         <h4>looked up one of the more Contrary to popular
                     </div>
@@ -614,12 +613,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h5>Dec 12-15</h5>
                         <h6>Multi-city</h6>
                         <div class="buy-tickets">
-                            <a href="movie-select-show.html">BUY TICKETS</a>
+                            <a href="../../qq/movie-select-show.html">BUY TICKETS</a>
                         </div>
                     </div>
                 </li>
                 <li>
-                    <a href="movies.html"><img src="images/r2.jpg" alt=""/></a>
+                    <a href="../../qq/movies.html"><img src="images/r2.jpg" alt=""/></a>
                     <div class="slide-title">
                         <h4>There are many 'variations' belief</h4>
                     </div>
@@ -627,12 +626,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h5>Dec 12-15</h5>
                         <h6>Multi-city</h6>
                         <div class="buy-tickets">
-                            <a href="movie-select-show.html">BUY TICKETS</a>
+                            <a href="../../qq/movie-select-show.html">BUY TICKETS</a>
                         </div>
                     </div>
                 </li>
                 <li>
-                    <a href="movies.html"><img src="images/r3.jpg" alt=""/></a>
+                    <a href="../../qq/movies.html"><img src="images/r3.jpg" alt=""/></a>
                     <div class="slide-title">
                         <h4>Finibus Bonorum et Malorum more 'Contrary'</h4>
                     </div>
@@ -640,12 +639,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h5>Dec 12-15</h5>
                         <h6>Multi-city</h6>
                         <div class="buy-tickets">
-                            <a href="movie-select-show.html">BUY TICKETS</a>
+                            <a href="../../qq/movie-select-show.html">BUY TICKETS</a>
                         </div>
                     </div>
                 </li>
                 <li>
-                    <a href="movies.html"><img src="images/r4.jpg" alt=""/></a>
+                    <a href="../../qq/movies.html"><img src="images/r4.jpg" alt=""/></a>
                     <div class="slide-title">
                         <h4>Lorem Ipsum is simply Bonorum</h4>
                     </div>
@@ -653,12 +652,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h5>Dec 12-15</h5>
                         <h6>Multi-city</h6>
                         <div class="buy-tickets">
-                            <a href="movie-select-show.html">BUY TICKETS</a>
+                            <a href="../../qq/movie-select-show.html">BUY TICKETS</a>
                         </div>
                     </div>
                 </li>
                 <li>
-                    <a href="movies.html"><img src="images/r5.jpg" alt=""/></a>
+                    <a href="../../qq/movies.html"><img src="images/r5.jpg" alt=""/></a>
                     <div class="slide-title">
                         <h4>Lorem Ipsum is simply Bonorum</h4>
                     </div>
@@ -666,12 +665,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h5>Dec 12-15</h5>
                         <h6>Multi-city</h6>
                         <div class="buy-tickets">
-                            <a href="movie-select-show.html">BUY TICKETS</a>
+                            <a href="../../qq/movie-select-show.html">BUY TICKETS</a>
                         </div>
                     </div>
                 </li>
                 <li>
-                    <a href="movies.html"><img src="images/r6.jpg" alt=""/></a>
+                    <a href="../../qq/movies.html"><img src="images/r6.jpg" alt=""/></a>
                     <div class="slide-title">
                         <h4>Lorem Ipsum is simply Bonorum</h4>
                     </div>
@@ -679,7 +678,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h5>Dec 12-15</h5>
                         <h6>Multi-city</h6>
                         <div class="buy-tickets">
-                            <a href="movie-select-show.html">BUY TICKETS</a>
+                            <a href="../../qq/movie-select-show.html">BUY TICKETS</a>
                         </div>
                     </div>
                 </li>
@@ -732,14 +731,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <ul class="tab_img">
                                         <li>
                                             <div class="view view-first">
-                                                <a href="movie-select-show.html"> <img src="images/pic-1.jpg"
-                                                                                       class="img-responsive"
-                                                                                       alt=""/></a>
+                                                <a href="../../qq/movie-select-show.html"> <img src="images/pic-1.jpg"
+                                                                                                class="img-responsive"
+                                                                                                alt=""/></a>
                                                 <div class="info1"></div>
                                                 <div class="mask">
                                                 </div>
                                                 <div class="tab_desc">
-                                                    <a href="movie-select-show.html">Book Now</a>
+                                                    <a href="../../qq/movie-select-show.html">Book Now</a>
                                                     <div class="percentage-w-t-s">
                                                         <h5>97</h5>
                                                         <p>% <br> Want to see</p>
@@ -750,14 +749,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         </li>
                                         <li>
                                             <div class="view view-first">
-                                                <a href="movie-select-show.html"><img src="images/pic-2.jpg"
-                                                                                      class="img-responsive"
-                                                                                      alt=""/></a>
+                                                <a href="../../qq/movie-select-show.html"><img src="images/pic-2.jpg"
+                                                                                               class="img-responsive"
+                                                                                               alt=""/></a>
                                                 <div class="info1"></div>
                                                 <div class="mask">
                                                 </div>
                                                 <div class="tab_desc">
-                                                    <a href="movie-select-show.html">Book Now</a>
+                                                    <a href="../../qq/movie-select-show.html">Book Now</a>
                                                     <div class="percentage-w-t-s">
                                                         <h5>98</h5>
                                                         <p>% <br> Want to see</p>
@@ -768,14 +767,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         </li>
                                         <li>
                                             <div class="view view-first">
-                                                <a href="movie-select-show.html"><img src="images/pic-10.jpg"
-                                                                                      class="img-responsive"
-                                                                                      alt=""/></a>
+                                                <a href="../../qq/movie-select-show.html"><img src="images/pic-10.jpg"
+                                                                                               class="img-responsive"
+                                                                                               alt=""/></a>
                                                 <div class="mask">
                                                     <div class="info1"></div>
                                                 </div>
                                                 <div class="tab_desc">
-                                                    <a href="movie-select-show.html">Book Now</a>
+                                                    <a href="../../qq/movie-select-show.html">Book Now</a>
                                                     <div class="percentage-w-t-s">
                                                         <h5>100</h5>
                                                         <p>% <br> Want to see</p>
@@ -791,14 +790,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <ul class="tab_img">
                                         <li>
                                             <div class="view view-first">
-                                                <a href="movie-select-show.html"><img src="images/pic-8.jpg"
-                                                                                      class="img-responsive"
-                                                                                      alt=""/></a>
+                                                <a href="../../qq/movie-select-show.html"><img src="images/pic-8.jpg"
+                                                                                               class="img-responsive"
+                                                                                               alt=""/></a>
                                                 <div class="mask">
                                                     <div class="info1"></div>
                                                 </div>
                                                 <div class="tab_desc">
-                                                    <a href="movie-select-show.html">Book Now</a>
+                                                    <a href="../../qq/movie-select-show.html">Book Now</a>
                                                     <div class="percentage-w-t-s">
                                                         <h5>92</h5>
                                                         <p>% <br> Want to see</p>
@@ -809,14 +808,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         </li>
                                         <li>
                                             <div class="view view-first">
-                                                <a href="movie-select-show.html"> <img src="images/pic-3.jpg"
-                                                                                       class="img-responsive"
-                                                                                       alt=""/></a>
+                                                <a href="../../qq/movie-select-show.html"> <img src="images/pic-3.jpg"
+                                                                                                class="img-responsive"
+                                                                                                alt=""/></a>
                                                 <div class="mask">
                                                     <div class="info1"></div>
                                                 </div>
                                                 <div class="tab_desc">
-                                                    <a href="movie-select-show.html">Book Now</a>
+                                                    <a href="../../qq/movie-select-show.html">Book Now</a>
                                                     <div class="percentage-w-t-s">
                                                         <h5>100</h5>
                                                         <p>% <br> Want to see</p>
@@ -827,14 +826,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         </li>
                                         <li class="last">
                                             <div class="view view-first">
-                                                <a href="movie-select-show.html"><img src="images/pic-9.jpg"
-                                                                                      class="img-responsive"
-                                                                                      alt=""/></a>
+                                                <a href="../../qq/movie-select-show.html"><img src="images/pic-9.jpg"
+                                                                                               class="img-responsive"
+                                                                                               alt=""/></a>
                                                 <div class="mask">
                                                     <div class="info1"></div>
                                                 </div>
                                                 <div class="tab_desc">
-                                                    <a href="movie-select-show.html">Book Now</a>
+                                                    <a href="../../qq/movie-select-show.html">Book Now</a>
                                                     <div class="percentage-w-t-s">
                                                         <h5>74</h5>
                                                         <p>% <br> Want to see</p>
@@ -850,14 +849,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <ul class="tab_img">
                                         <li>
                                             <div class="view view-first">
-                                                <a href="movie-select-show.html"> <img src="images/pic-4.jpg"
-                                                                                       class="img-responsive"
-                                                                                       alt=""/></a>
+                                                <a href="../../qq/movie-select-show.html"> <img src="images/pic-4.jpg"
+                                                                                                class="img-responsive"
+                                                                                                alt=""/></a>
                                                 <div class="mask">
                                                     <div class="info1"></div>
                                                 </div>
                                                 <div class="tab_desc">
-                                                    <a href="movie-select-show.html">Book Now</a>
+                                                    <a href="../../qq/movie-select-show.html">Book Now</a>
                                                     <div class="percentage-w-t-s">
                                                         <h5>88</h5>
                                                         <p>% <br> Want to see</p>
@@ -868,14 +867,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         </li>
                                         <li>
                                             <div class="view view-first">
-                                                <a href="movie-select-show.html"> <img src="images/pic-12.jpg"
-                                                                                       class="img-responsive"
-                                                                                       alt=""/></a>
+                                                <a href="../../qq/movie-select-show.html"> <img src="images/pic-12.jpg"
+                                                                                                class="img-responsive"
+                                                                                                alt=""/></a>
                                                 <div class="mask">
                                                     <div class="info1"></div>
                                                 </div>
                                                 <div class="tab_desc">
-                                                    <a href="movie-select-show.html">Book Now</a>
+                                                    <a href="../../qq/movie-select-show.html">Book Now</a>
                                                     <div class="percentage-w-t-s">
                                                         <h5>100</h5>
                                                         <p>% <br> Want to see</p>
@@ -886,14 +885,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         </li>
                                         <li class="last">
                                             <div class="view view-first">
-                                                <a href="movie-select-show.html"><img src="images/pic-5.jpg"
-                                                                                      class="img-responsive"
-                                                                                      alt=""/></a>
+                                                <a href="../../qq/movie-select-show.html"><img src="images/pic-5.jpg"
+                                                                                               class="img-responsive"
+                                                                                               alt=""/></a>
                                                 <div class="mask">
                                                     <div class="info1"></div>
                                                 </div>
                                                 <div class="tab_desc">
-                                                    <a href="movie-select-show.html">Book Now</a>
+                                                    <a href="../../qq/movie-select-show.html">Book Now</a>
                                                     <div class="percentage-w-t-s">
                                                         <h5>90</h5>
                                                         <p>% <br> Want to see</p>
@@ -909,40 +908,40 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <ul class="tab_img">
                                         <li>
                                             <div class="view view-first">
-                                                <a href="movie-select-show.html"> <img src="images/pic-6.jpg"
-                                                                                       class="img-responsive"
-                                                                                       alt=""/></a>
+                                                <a href="../../qq/movie-select-show.html"> <img src="images/pic-6.jpg"
+                                                                                                class="img-responsive"
+                                                                                                alt=""/></a>
                                                 <div class="mask">
                                                     <div class="info1"></div>
                                                 </div>
                                                 <div class="tab_desc">
-                                                    <a href="movie-select-show.html">Book Now</a>
+                                                    <a href="../../qq/movie-select-show.html">Book Now</a>
                                                 </div>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="view view-first">
-                                                <a href="movie-select-show.html"> <img src="images/pic-1.jpg"
-                                                                                       class="img-responsive"
-                                                                                       alt=""/></a>
+                                                <a href="../../qq/movie-select-show.html"> <img src="images/pic-1.jpg"
+                                                                                                class="img-responsive"
+                                                                                                alt=""/></a>
                                                 <div class="mask">
                                                     <div class="info1"></div>
                                                 </div>
                                                 <div class="tab_desc">
-                                                    <a href="movie-select-show.html">Book Now</a>
+                                                    <a href="../../qq/movie-select-show.html">Book Now</a>
                                                 </div>
                                             </div>
                                         </li>
                                         <li>
                                             <div class="view view-first">
-                                                <a href="movie-select-show.html"> <img src="images/pic-9.jpg"
-                                                                                       class="img-responsive"
-                                                                                       alt=""/></a>
+                                                <a href="../../qq/movie-select-show.html"> <img src="images/pic-9.jpg"
+                                                                                                class="img-responsive"
+                                                                                                alt=""/></a>
                                                 <div class="mask">
                                                     <div class="info1"></div>
                                                 </div>
                                                 <div class="tab_desc">
-                                                    <a href="movie-select-show.html">Book Now</a>
+                                                    <a href="../../qq/movie-select-show.html">Book Now</a>
                                                 </div>
                                             </div>
                                         </li>
