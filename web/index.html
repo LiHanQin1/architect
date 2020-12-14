@@ -17,7 +17,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700,300' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
     <!-- start menu -->
-    <link href="css/megamenu.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="css/menu.css" rel="stylesheet" type="text/css" media="all"/>
     <script type="text/javascript" src="js/megamenu.js"></script>
     <script>
         $(document).ready(function () {
@@ -56,24 +56,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 data: {action: "queryPicAddress"},
                 type: "GET",
                 dataType: "text",
+
                 success: function (data) {
                     address(data);
                 }
             });
+
             function address(data) {
+
                 let jsonObj = JSON.parse(data);
                 for (let i = 0; i < 4; i++) {
                     let trNode = $("<li></li>");
                     let imgpath = jsonObj[i].PicAddress;
-                    imgpath = "http://localhost:8000" + imgpath.substring(2).replaceAll("\\", "/");
+                        imgpath = "http://localhost:8000" + imgpath.substring(2).replaceAll("\\", "/");
                     // imgpath = imgpath.replaceAll("\\", "/");
                     // imgpath = "http://localhost:8000" + imgpath;
                     console.log(imgpath)
-                    trNode.append('<img src="' + imgpath + '" class="img-responsive"/>');
+                    trNode.append("<img  class='img-responsive' src=\'"+imgpath+"\'>");
                     $("#tbody1").append(trNode);
+
                 }
+
             }
+
+
         })
+
     </script>
     <!---- start-smoth-scrolling---->
 </head>
@@ -414,7 +422,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="main-banner">
             <div class="banner col-md-8">
                 <section class="slider">
-                    <div class="flexslider">
+                    <div  class="flexslider">
                         <ul id="tbody1" class="slides">
 
 
@@ -464,9 +472,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="clearfix"></div>
         </div>
         <link href="css/moviereview.css" rel="stylesheet" type="text/css">
-       <br />
+        <br/>
         <span class="ttncspa">热门影片</span>
-
 
 
         <div class="nbs-flexisel-inner">

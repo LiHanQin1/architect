@@ -263,156 +263,186 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </li>
                     </ul><!-- end nav navbar-nav navbar-right -->
                 </div><!-- end #navbar-collapse-1 -->
-
             </nav><!-- end navbar navbar-default w3_megamenu -->
         </div><!-- end container -->
+        <script>
+            $(function (){
+                $.ajax({
+                    url:"http://localhost:8000/architect/FilmServlet",
+                    data:{action:"queryAll"},
+                    type:"GET",
+                    dataType:"text",
+                    success:function (data){
+                        // alert(data);
+                        address(data);
+                    }
+                })
+                function address(data){
+                    let jsonObj = JSON.parse(data);
+                        for (let i=0;i<jsonObj.length;i++){
+                            let trNode=$("<table style=\"border: white 0px solid\"></table>");
+                            let moviename = jsonObj[i].MovieName;
+                            // alert(moviename);
+                            let imgpath = jsonObj[i].PicAddress;
+                            trNode.append("<tr><td>" +"<span class=\"ttncspa\">" + moviename+ "</span>"+"</td></tr>");
+                            var strs = jsonObj[i].Content.substring(0,400);
+                            imgpath = "http://localhost:8000"+imgpath.substring(2).replaceAll("\\","/");
+                            trNode.append("<tr><td>" +"<div class=\"ttncspa1\" id=\"test"+i+"\" style=\"width:900px;height:100px;overflow-y:hidden;\">"+strs+"</div>"+"</td>"+"<td><img class='ttncmovie' src=\'"+imgpath+"\'></td>"+"</tr>");
+                            trNode.append("<a href=\"javascript:void(0)\" id=\"show"+i+"\" style=\"display:block\" onclick=\"document.getElementById('test"+i+"').style.height='auto';document.getElementById('hidden"+i+"').style.display='block';document.getElementById('show"+i+"').style.display='none'\">展开</a>\n");
+                            trNode.append("<a href=\"javascript:void(0)\" id=\"hidden"+i+"\" style=\"display:none;\" onclick=\"document.getElementById('test"+i+"').style.height='100px';document.getElementById('hidden"+i+"').style.display='none';document.getElementById('show"+i+"').style.display='block'\">关闭</a>\n");
+                            trNode.append("<hr style=\"height:1px;border:none;border-top:1px solid #555555;\" />");
+                            // trNode.append("<td>" + jsonObj.items[i].MovieName + "</td>")
+                            // trNode.append("<td>" + jsonObj.items[i].MovieName + "</td>")
+                            $("#tbody1").append(trNode);
+                        }
+                    }
+
+
+            })
+        </script>
         <script type="text/javascript">
             // <!-- 设置页面加载时执行 -->
             window.onload=function() {
 
                 onload1();
-                onload2();
+                // onload2();
                 onload3();
                 onload4();
             }
         </script>
-        <div>
-            <table style="border: white 0px solid">
-                <tr>
-                    <td>
-                        <span class="ttncspa">泰坦尼克号</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="ttncspa1" id="test2" style="width:900px;height:100px;overflow-y:hidden;">
-                        </div>
-                    </td>
-                    <td>
-                        <img class="ttncmovie" src="images/ttnc.jpg">
-                    </td>
-                </tr>
+        <div  id="tbody1" >
 
-            </table>
-            <a href="javascript:void(0)" id="show" style="display:block" onclick="document.getElementById('test2').style.height='auto';document.getElementById('hidden').style.display='block';document.getElementById('show').style.display='none'">展开</a>
-            <a href="javascript:void(0)" id="hidden" style="display:none;" onclick="document.getElementById('test2').style.height='100px';document.getElementById('hidden').style.display='none';document.getElementById('show').style.display='block'">关闭</a>
-            <script type="text/javascript">
-                // <!-- 设置页面加载时执行 -->
-                function onload2(){
-                    var stra = "1912年4月10日，号称 “世界工业史上的奇迹”的豪华客轮泰坦尼克号开始了自己的处女航，从英国的南安普顿出发驶往美国纽约。富家少女罗丝（凯特•温丝莱特）与母亲及未婚夫卡尔坐上了头等舱；另一边，放荡不羁的少年画家杰克（莱昂纳多·迪卡普里奥）也在码头的一场赌博中赢得了下等舱的船票。\n" +
-                        "罗丝厌倦了上流社会虚伪的生活，不愿嫁给卡尔，打算投海自尽，被杰克救起。很快，美丽活泼的罗丝与英俊开朗的杰克相爱，杰克带罗丝参加下等舱的舞会、为她画像，二人的感情逐渐升温。\n" +
-                        "1912年4月14日，星期天晚上，一个风平浪静的夜晚。泰坦尼克号撞上了冰山，“永不沉没的”泰坦尼克号面临沉船的命运，罗丝和杰克刚萌芽的爱情也将经历生死的考验。";
-                    var strs = stra.substring(0,400);
-                    document.getElementById("test2").innerText=strs;
-                }
-            </script>
+                <!--<tr>-->
+                    <!--<td>-->
+                        <!--<span class="ttncspa">泰坦尼克号</span>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td>-->
+                        <!--<div class="ttncspa1" id="test2" style="width:900px;height:100px;overflow-y:hidden;">-->
+                        <!--</div>-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--<img class="ttncmovie" src="images/ttnc.jpg">-->
+                    <!--</td>-->
+                <!--</tr>-->
+            <!--<script type="text/javascript">-->
+                <!--// &lt;!&ndash; 设置页面加载时执行 &ndash;&gt;-->
+                <!--// function onload2(){-->
+                <!--//     var stra = "1912年4月10日，号称 “世界工业史上的奇迹”的豪华客轮泰坦尼克号开始了自己的处女航，从英国的南安普顿出发驶往美国纽约。富家少女罗丝（凯特•温丝莱特）与母亲及未婚夫卡尔坐上了头等舱；另一边，放荡不羁的少年画家杰克（莱昂纳多·迪卡普里奥）也在码头的一场赌博中赢得了下等舱的船票。\n" +-->
+                <!--//         "罗丝厌倦了上流社会虚伪的生活，不愿嫁给卡尔，打算投海自尽，被杰克救起。很快，美丽活泼的罗丝与英俊开朗的杰克相爱，杰克带罗丝参加下等舱的舞会、为她画像，二人的感情逐渐升温。\n" +-->
+                <!--//         "1912年4月14日，星期天晚上，一个风平浪静的夜晚。泰坦尼克号撞上了冰山，“永不沉没的”泰坦尼克号面临沉船的命运，罗丝和杰克刚萌芽的爱情也将经历生死的考验。";-->
+                <!--//     var strs = stra.substring(0,400);-->
+                <!--//     document.getElementById("test2").innerText=strs;-->
+                <!--// }-->
+            <!--</script>-->
         </div>
-        <hr style="height:1px;border:none;border-top:1px solid #555555;" />
-        <div>
-            <table style=" margin-top: 30px;border-top: white 0px solid">
-                <tr>
-                    <td>
-                        <span class="ttncspa">肖申克的救赎</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="ttncspa1" id="test1" style="width:900px;height:79px;overflow-y:hidden;">
-                        </div>
-                    </td>
-                    <td>
-                        <img class="ttncmovie" src="images/xxk.jpg">
-                    </td>
-                </tr>
+        <!--<hr style="height:1px;border:none;border-top:1px solid #555555;" />-->
+        <!--<div>-->
+            <!--<table style=" margin-top: 30px;border-top: white 0px solid">-->
+                <!--<tr>-->
+                    <!--<td>-->
+                        <!--<span class="ttncspa">肖申克的救赎</span>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td>-->
+                        <!--<div class="ttncspa1" id="test1" style="width:900px;height:79px;overflow-y:hidden;">-->
+                        <!--</div>-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--<img class="ttncmovie" src="images/xxk.jpg">-->
+                    <!--</td>-->
+                <!--</tr>-->
 
-            </table>
-            <a href="javascript:void(0)" id="show1" style="display:block" onclick="document.getElementById('test1').style.height='auto';document.getElementById('hidden1').style.display='block';document.getElementById('show1').style.display='none'">展开</a>
-            <a href="javascript:void(0)" id="hidden1" style="display:none;" onclick="document.getElementById('test1').style.height='79px';document.getElementById('hidden1').style.display='none';document.getElementById('show1').style.display='block'">关闭</a>
-            <script type="text/javascript">
-                // <!-- 设置页面加载时执行 -->
-               function  onload1() {
-                   var str = "这是一部男人必看的电影。”人人都这么说。但单纯从性别区分，就会让这电影变狭隘。" +
-                       "《肖申克的救赎》突破了男人电影的局限，通篇几乎充满令人难以置信的温馨基调，而电影里最伟大的主题是“希望”。 " +
-                       "当我们无奈地遇到了如同肖申克一般囚禁了心灵自由的那种囹圄，我们是无奈的老布鲁克，灰心的瑞德，" +
-                       "还是智慧的安迪？运用智慧，信任希望，并且勇敢面对恐惧心理，去打败它？ 经典的电影之所以经典，" +
-                       "因为他们都在做同一件事——让你从不同的角度来欣赏希望的美好。";
-                   var str1 = str.substring(0,400);
-                   document.getElementById("test1").innerText=str1;
-               }
-            </script>
-        </div>
-        <hr style="height:1px;border:none;border-top:1px solid #555555;" />
-        <div>
-            <table style=" margin-top: 30px;border-top: white 0px solid">
-                <tr>
-                    <td>
-                        <span class="ttncspa">阿甘正传</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="ttncspa1" id="test3" style="width:900px;height:79px;overflow-y:hidden;">
-                        </div>
-                    </td>
-                    <td>
-                        <img class="ttncmovie" src="images/agzz.jpg">
-                    </td>
-                </tr>
+            <!--</table>-->
+            <!--<a href="javascript:void(0)" id="show1" style="display:block" onclick="document.getElementById('test1').style.height='auto';document.getElementById('hidden1').style.display='block';document.getElementById('show1').style.display='none'">展开</a>-->
+            <!--<a href="javascript:void(0)" id="hidden1" style="display:none;" onclick="document.getElementById('test1').style.height='79px';document.getElementById('hidden1').style.display='none';document.getElementById('show1').style.display='block'">关闭</a>-->
+            <!--<script type="text/javascript">-->
+                <!--// &lt;!&ndash; 设置页面加载时执行 &ndash;&gt;-->
+               <!--function  onload1() {-->
+                   <!--var str = "这是一部男人必看的电影。”人人都这么说。但单纯从性别区分，就会让这电影变狭隘。" +-->
+                       <!--"《肖申克的救赎》突破了男人电影的局限，通篇几乎充满令人难以置信的温馨基调，而电影里最伟大的主题是“希望”。 " +-->
+                       <!--"当我们无奈地遇到了如同肖申克一般囚禁了心灵自由的那种囹圄，我们是无奈的老布鲁克，灰心的瑞德，" +-->
+                       <!--"还是智慧的安迪？运用智慧，信任希望，并且勇敢面对恐惧心理，去打败它？ 经典的电影之所以经典，" +-->
+                       <!--"因为他们都在做同一件事——让你从不同的角度来欣赏希望的美好。";-->
+                   <!--var str1 = str.substring(0,400);-->
+                   <!--document.getElementById("test1").innerText=str1;-->
+               <!--}-->
+            <!--</script>-->
+        <!--</div>-->
+        <!--<hr style="height:1px;border:none;border-top:1px solid #555555;" />-->
+        <!--<div>-->
+            <!--<table style=" margin-top: 30px;border-top: white 0px solid">-->
+                <!--<tr>-->
+                    <!--<td>-->
+                        <!--<span class="ttncspa">阿甘正传</span>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td>-->
+                        <!--<div class="ttncspa1" id="test3" style="width:900px;height:79px;overflow-y:hidden;">-->
+                        <!--</div>-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--<img class="ttncmovie" src="images/agzz.jpg">-->
+                    <!--</td>-->
+                <!--</tr>-->
 
-            </table>
-            <a href="javascript:void(0)" id="show2" style="display:block" onclick="document.getElementById('test3').style.height='auto';document.getElementById('hidden2').style.display='block';document.getElementById('show2').style.display='none'">展开</a>
-            <a href="javascript:void(0)" id="hidden2" style="display:none;" onclick="document.getElementById('test3').style.height='79px';document.getElementById('hidden2').style.display='none';document.getElementById('show2').style.display='block'">关闭</a>
-            <script type="text/javascript">
-                // <!-- 设置页面加载时执行 -->
-                function  onload3() {
-                    var str = "《阿甘正传》，这部奥斯卡获奖影片，很多人都看过，不管是什么样的人，在这部电影里，" +
-                        "都会看到自己的影子，人生，爱情，友谊等等，无一不闪耀着人性的光芒，无时无刻不在激励着人们努力奋斗，永不放弃。\n" +
-                        "阿甘让无数的影迷从阿甘的经历中看到了自己的影子，尤其是他勇敢的追求爱情的样子，真的没法不让人动容，" +
-                        "落泪，这份单纯的爱，就像我们每一个人的初恋一样，炽热、美好却又刻骨铭心。正是通过阿甘，" +
-                        "我们才对爱情有了更深刻的理解和感悟。" ;
+            <!--</table>-->
+            <!--<a href="javascript:void(0)" id="show2" style="display:block" onclick="document.getElementById('test3').style.height='auto';document.getElementById('hidden2').style.display='block';document.getElementById('show2').style.display='none'">展开</a>-->
+            <!--<a href="javascript:void(0)" id="hidden2" style="display:none;" onclick="document.getElementById('test3').style.height='79px';document.getElementById('hidden2').style.display='none';document.getElementById('show2').style.display='block'">关闭</a>-->
+            <!--<script type="text/javascript">-->
+                <!--// &lt;!&ndash; 设置页面加载时执行 &ndash;&gt;-->
+                <!--function  onload3() {-->
+                    <!--var str = "《阿甘正传》，这部奥斯卡获奖影片，很多人都看过，不管是什么样的人，在这部电影里，" +-->
+                        <!--"都会看到自己的影子，人生，爱情，友谊等等，无一不闪耀着人性的光芒，无时无刻不在激励着人们努力奋斗，永不放弃。\n" +-->
+                        <!--"阿甘让无数的影迷从阿甘的经历中看到了自己的影子，尤其是他勇敢的追求爱情的样子，真的没法不让人动容，" +-->
+                        <!--"落泪，这份单纯的爱，就像我们每一个人的初恋一样，炽热、美好却又刻骨铭心。正是通过阿甘，" +-->
+                        <!--"我们才对爱情有了更深刻的理解和感悟。" ;-->
 
-                    var str1 = str.substring(0,400);
-                    document.getElementById("test3").innerText=str1;
-                }
-            </script>
-        </div>
-        <hr style="height:1px;border:none;border-top:1px solid #555555;" />
-        <div>
-            <table style=" margin-top: 30px;border-top: white 0px solid">
-                <tr>
-                    <td>
-                        <span class="ttncspa">这个杀手不太冷</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="ttncspa1" id="test4" style="width:900px;height:79px;overflow-y:hidden;">
-                        </div>
-                    </td>
-                    <td>
-                        <img class="ttncmovie" src="images/zgssbtl.jpg">
-                    </td>
-                </tr>
+                    <!--var str1 = str.substring(0,400);-->
+                    <!--document.getElementById("test3").innerText=str1;-->
+                <!--}-->
+            <!--</script>-->
+        <!--</div>-->
+        <!--<hr style="height:1px;border:none;border-top:1px solid #555555;" />-->
+        <!--<div>-->
+            <!--<table style=" margin-top: 30px;border-top: white 0px solid">-->
+                <!--<tr>-->
+                    <!--<td>-->
+                        <!--<span class="ttncspa">这个杀手不太冷</span>-->
+                    <!--</td>-->
+                <!--</tr>-->
+                <!--<tr>-->
+                    <!--<td>-->
+                        <!--<div class="ttncspa1" id="test4" style="width:900px;height:79px;overflow-y:hidden;">-->
+                        <!--</div>-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--<img class="ttncmovie" src="images/zgssbtl.jpg">-->
+                    <!--</td>-->
+                <!--</tr>-->
 
-            </table>
-            <a href="javascript:void(0)" id="show3" style="display:block" onclick="document.getElementById('test4').style.height='auto';document.getElementById('hidden3').style.display='block';document.getElementById('show3').style.display='none'">展开</a>
-            <a href="javascript:void(0)" id="hidden3" style="display:none;" onclick="document.getElementById('test4').style.height='79px';document.getElementById('hidden3').style.display='none';document.getElementById('show3').style.display='block'">关闭</a>
-            <script type="text/javascript">
-                // <!-- 设置页面加载时执行 -->
-                function  onload4() {
-                    var str = "《这个杀手不太冷》的主题是多样的，可以概括为个人与外界的格格不入、人与人之间的关系，" +
-                        "文化的激烈碰撞和对生命的尊重，以及救赎。\n" +
-                        "“个人”指的是该片中的两位主人公，他们面对的世界是一个冷漠的、被扭曲了的空间。" +
-                        "城市中的景象则有点像是置身笼中，不规则的、歪曲的、变形的城市构图随处可见，整体色调偏于暗色。" +
-                        "城市、高楼，这些都是人类发展的结果，但伴随它们而来的，除了先进的科学技术，也有不断滋生、蔓延着的罪恶。\n" +
-                        "最具反讽意味的是，传统意义上代表了正义与秩序的警察局，在这里成了邪恶与暴力的源头。" +
-                        "警察局同样也是高楼中的一座，是整个社会的权威，却成了邪恶世界的主阵地之一。该片表达出了导演对世界、" +
-                        "对社会的控诉和不信任。那看似无关紧要的叙述其实是在探讨着人类自身所共存的终极话题。";
+            <!--</table>-->
+            <!--<a href="javascript:void(0)" id="show3" style="display:block" onclick="document.getElementById('test4').style.height='auto';document.getElementById('hidden3').style.display='block';document.getElementById('show3').style.display='none'">展开</a>-->
+            <!--<a href="javascript:void(0)" id="hidden3" style="display:none;" onclick="document.getElementById('test4').style.height='79px';document.getElementById('hidden3').style.display='none';document.getElementById('show3').style.display='block'">关闭</a>-->
+            <!--<script type="text/javascript">-->
+                <!--// &lt;!&ndash; 设置页面加载时执行 &ndash;&gt;-->
+                <!--function  onload4() {-->
+                    <!--var str = "《这个杀手不太冷》的主题是多样的，可以概括为个人与外界的格格不入、人与人之间的关系，" +-->
+                        <!--"文化的激烈碰撞和对生命的尊重，以及救赎。\n" +-->
+                        <!--"“个人”指的是该片中的两位主人公，他们面对的世界是一个冷漠的、被扭曲了的空间。" +-->
+                        <!--"城市中的景象则有点像是置身笼中，不规则的、歪曲的、变形的城市构图随处可见，整体色调偏于暗色。" +-->
+                        <!--"城市、高楼，这些都是人类发展的结果，但伴随它们而来的，除了先进的科学技术，也有不断滋生、蔓延着的罪恶。\n" +-->
+                        <!--"最具反讽意味的是，传统意义上代表了正义与秩序的警察局，在这里成了邪恶与暴力的源头。" +-->
+                        <!--"警察局同样也是高楼中的一座，是整个社会的权威，却成了邪恶世界的主阵地之一。该片表达出了导演对世界、" +-->
+                        <!--"对社会的控诉和不信任。那看似无关紧要的叙述其实是在探讨着人类自身所共存的终极话题。";-->
 
-                    var str1 = str.substring(0,400);
-                    document.getElementById("test4").innerText=str1;
-                }
-            </script>
+                    <!--var str1 = str.substring(0,400);-->
+                    <!--document.getElementById("test4").innerText=str1;-->
+                <!--}-->
+            <!--</script>-->
         </div>
         <div class="clearfix"></div>
     </div>
