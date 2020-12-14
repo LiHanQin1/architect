@@ -280,7 +280,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="mobile" class="col-sm-2 control-label">
+                                                    <label  class="col-sm-2 control-label">
                                                         手机</label>
                                                     <div class="col-sm-10">
                                                         <input type="tel" class="form-control" id="tel" name="tel"
@@ -289,7 +289,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="mobile" class="col-sm-2 control-label">
+                                                    <label class="col-sm-2 control-label">
                                                         QQ</label>
                                                     <div class="col-sm-10">
                                                         <input type="text" class="form-control" name="qq" id="qq"
@@ -298,7 +298,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="mobile" class="col-sm-2 control-label">
+                                                    <label class="col-sm-2 control-label">
                                                         邮箱</label>
                                                     <div class="col-sm-10">
                                                         <input type="email" name="email" class="form-control" id="email"
@@ -399,23 +399,51 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             </nav><!-- end navbar navbar-default w3_megamenu -->
         </div><!-- end container -->
+        <script>
+            $(function () {
+                $.ajax({
+                    url: "http://localhost:8000/architect/FilmServlet",
+                    data: {action: "queryPicAddress"},
+                    type: "GET",
+                    dataType: "text",
+                    success: function (data) {
+                        address(data);
+                    }
+                })
+                function address(jsonObj) {
+                    if (jsonObj.items){
+                        for (var i = 1; i < jsonObj.items.length ; i++) {
+                            let trNode = $("<li></li>");
+                            let imgpath = jsonObj.items[i].PicAddress;
+                            imgpath = "http://localhost:8000//"+ imgpath;
+                            console.log(imgpath);
+                            trNode.append("<img src='"+ imgpath +"' class='img-responsive'/>")
+                            $("#tbody1").append(trNode);
+                        }
+                    }
+                    }
+            })
+        </script>
         <div class="main-banner">
             <div class="banner col-md-8">
                 <section class="slider">
                     <div class="flexslider">
-                        <ul class="slides">
-                            <li>
-                                <img src="images/pic1.jpg" class="img-responsive" alt=""/>
-                            </li>
-                            <li>
-                                <img src="images/pic2.jpg" class="img-responsive" alt=""/>
-                            </li>
-                            <li>
-                                <img src="images/pic3.jpg" class="img-responsive" alt=""/>
-                            </li>
-                            <li>
-                                <img src="images/pic4.jpg" class="img-responsive" alt=""/>
-                            </li>
+                        <ul id="tbody1" class="slides">
+
+                            <!---->
+                            <!--<li>-->
+                            <!--<img src="http://localhost:8000//1.jpg" class="img-responsive"/>-->
+                                <!--<img src="images/pic1.jpg" class="img-responsive" alt=""/>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<img src="images/pic2.jpg" class="img-responsive" alt=""/>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<img src="images/pic3.jpg" class="img-responsive" alt=""/>-->
+                            <!--</li>-->
+                            <!--<li>-->
+                                <!--<img src="images/pic4.jpg" class="img-responsive" alt=""/>-->
+                            <!--</li>-->
                         </ul>
                     </div>
                 </section>
