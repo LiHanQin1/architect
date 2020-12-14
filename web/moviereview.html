@@ -276,22 +276,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 onload4();
             }
         </script>
+        <script>
+            $(function (){
+                $.ajax({
+                    url:"http://localhost:8000/architect/FilmServlet",
+                    data:{action:"queryAll"},
+                    type:"GET",
+                    dataType:"text",
+                    success:function (data){
+                        address(data);
+                    }
+                })
+                function address(data){
+                    let jsonObj =JSON.parse(data);
+                    for (let i=0;i<jsonObj.length;i++){
+                        let trNode=$("<tr></tr>");
+                        trNode.append("<td>"+" <span class=\"ttncspa\">"+jsonObj[i].MovieName +"</span>"+ "</td>")
+                        // trNode.append("<td>" + jsonObj.items[i].MovieName + "</td>")
+                        // trNode.append("<td>" + jsonObj.items[i].MovieName + "</td>")
+                        $("#tbdoy1").append(trNode);
+                    }
+                }
+            })
+
+        </script>
         <div>
-            <table style="border: white 0px solid">
-                <tr>
-                    <td>
-                        <span class="ttncspa">泰坦尼克号</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <div class="ttncspa1" id="test2" style="width:900px;height:100px;overflow-y:hidden;">
-                        </div>
-                    </td>
-                    <td>
-                        <img class="ttncmovie" src="images/ttnc.jpg">
-                    </td>
-                </tr>
+            <table id="tbdoy1" style="border: white 0px solid">
+<!--                <tr>-->
+<!--                    <td>-->
+<!--                        <span class="ttncspa">泰坦尼克号</span>-->
+<!--                    </td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>-->
+<!--                        <div class="ttncspa1" id="test2" style="width:900px;height:100px;overflow-y:hidden;">-->
+<!--                        </div>-->
+<!--                    </td>-->
+<!--                    <td>-->
+<!--                        <img class="ttncmovie" src="images/ttnc.jpg">-->
+<!--                    </td>-->
+<!--                </tr>-->
 
             </table>
             <a href="javascript:void(0)" id="show" style="display:block" onclick="document.getElementById('test2').style.height='auto';document.getElementById('hidden').style.display='block';document.getElementById('show').style.display='none'">展开</a>
@@ -310,11 +334,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <hr style="height:1px;border:none;border-top:1px solid #555555;" />
         <div>
             <table style=" margin-top: 30px;border-top: white 0px solid">
-                <tr>
-                    <td>
-                        <span class="ttncspa">肖申克的救赎</span>
-                    </td>
-                </tr>
+<!--                <tr>-->
+<!--                    <td>-->
+<!--                        <span class="ttncspa">肖申克的救赎</span>-->
+<!--                    </td>-->
+<!--                </tr>-->
                 <tr>
                     <td>
                         <div class="ttncspa1" id="test1" style="width:900px;height:79px;overflow-y:hidden;">
@@ -344,11 +368,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <hr style="height:1px;border:none;border-top:1px solid #555555;" />
         <div>
             <table style=" margin-top: 30px;border-top: white 0px solid">
-                <tr>
-                    <td>
-                        <span class="ttncspa">阿甘正传</span>
-                    </td>
-                </tr>
+<!--                <tr>-->
+<!--                    <td>-->
+<!--                        <span class="ttncspa">阿甘正传</span>-->
+<!--                    </td>-->
+<!--                </tr>-->
                 <tr>
                     <td>
                         <div class="ttncspa1" id="test3" style="width:900px;height:79px;overflow-y:hidden;">

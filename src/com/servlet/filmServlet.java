@@ -20,10 +20,12 @@ import java.util.List;
  */
 @WebServlet("/FilmServlet")
 public class filmServlet extends BaseServlet {
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request,response);
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         super.doGet(request,response);
     }
@@ -34,6 +36,6 @@ public class filmServlet extends BaseServlet {
         Gson gson = new Gson();
         String jsonStr = gson.toJson(film);
         response.getWriter().write(jsonStr);
-        System.out.println(film.toString());
+       // System.out.println(film.toString());
     }
 }

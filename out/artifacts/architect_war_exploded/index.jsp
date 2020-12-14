@@ -417,7 +417,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           <div class="flexslider">
             <ul class="slides">
               <li>
-                <img src="D:\upload\timg (1).jfif" class="img-responsive" alt=""/>
+                <img src="images/pic1.jpg" class="img-responsive" alt=""/>
               </li>
               <li>
                 <img src="images/pic2.jpg" class="img-responsive" alt=""/>

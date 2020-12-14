@@ -26,10 +26,12 @@ import java.util.logging.SimpleFormatter;
 @WebServlet("/vip.do")
 public class VipServlet extends BaseServlet {
     VipService vipService=new VipServiceImpl();
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request,response);
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         super.doGet(request,response);
     }
@@ -113,6 +115,8 @@ public class VipServlet extends BaseServlet {
         vip.setTel(TEL);
         vip.setEmail(Email);
         vip.setSex(sex);
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        vip.setRegTime(String.valueOf(simpleDateFormat.format(new Date())));
         int result=vipService.insert(vip);
         String message="注册失败";
         if (result>0){
@@ -128,10 +132,16 @@ public class VipServlet extends BaseServlet {
 
     //查询全部普通用户信息
     public void queryAll(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
         List<Vip> vipList=vipService.queryAll();
         Gson gson=new Gson();
         String jsonStr=gson.toJson(vipList);
         response.getWriter().write(jsonStr);
+        System.out.println(vipList.toString());
+    }
+    public void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        Integer userId= Integer.valueOf(request.getParameter("userId"));
+        Integer result=vipService.delete(userId);
+//        String message=(result >0 ) ?"删除成功":"删除失败";
+        response.getWriter().write(result.toString());
     }
 }

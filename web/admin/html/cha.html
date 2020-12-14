@@ -4,6 +4,68 @@
 		<meta charset="utf-8">
 		<title></title>
 		<link rel="stylesheet" href="../layuiadmin/layui/css/layui.css" />
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function (){
+				function load() {
+					$.ajax({
+						url: "http://localhost:8000/architect/vip.do",
+						data: {action: "queryAll"},
+						type: "GET",
+						dataType: "text",
+						success: function (data) {
+							initData(data);
+						}
+
+					})
+				}
+				load(1);
+				function initData(data) {
+					var jsonObj = JSON.parse(data);
+					var buttons ="<td>\n" +
+							"<button class=\"layui-btn layui-btn-radius\">编辑</button>\n" +
+							"<button  class=\" layui-btn layui-btn-radius\" id=\"delbtn\">删除</button>\n" +
+							"</td>";
+					for (var i = 0; i < jsonObj.length; i++) {
+						var trNode = $("<tr></tr>");
+						trNode.append("<td>" + jsonObj[i].MemberId + "</td>");
+						trNode.append("<td>" + jsonObj[i].UserName + "</td>");
+						trNode.append("<td>" + jsonObj[i].UserPwd+ "</td>");
+						trNode.append("<td>" + jsonObj[i].Sex + "</td>");
+						trNode.append("<td>" + jsonObj[i].QQ + "</td>");
+						trNode.append("<td>" + jsonObj[i].Email + "</td>");
+						trNode.append("<td>" + jsonObj[i].Tel + "</td>");
+						trNode.append("<td>" + jsonObj[i].RegTime + "</td>");
+						trNode.append("<td>" + jsonObj[i].LoginCount + "</td>");
+						trNode.append(buttons);
+						$("#tbdoy1").append(trNode);
+					}
+					$("#delbtn").on("click", function () {
+						 var id = $($(this).parents("tr").children("td")[0]).html().trim();
+
+						//询问是否删除的弹窗
+						$(function() {
+							$.ajax({
+								url: "http://localhost:8000/architect/vip.do",
+								data: {action: "delete", userId: id},
+								type: "GET",
+								dataType: "text",
+								success: function (data) {
+									if (data > 0) {
+										alert("删除成功!");
+										load(jsonObj);
+									} else {
+										alert("删除失败!");
+									}
+								}
+							});
+						});
+						initData(data);
+					});
+
+				}
+			})
+		</script>
 	</head>
 	<body>
 		<div class="layui-body">
@@ -25,46 +87,46 @@
 						<th lay-data="{field:'joinTime', width:150}"></th>
 					</tr>
 				</thead>
-				<tbody>
-					<tr>
-						<td></td>
-						<td>贤心1</td>
-						<td>2016-11-28</td>
-						<td>人生就像是一场修行a</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td><button class="layui-btn layui-btn-radius">编辑</button> </td>
-						<td><button class="layui-btn layui-btn-radius">删除</button> </td>
-					</tr>
-					<tr>
-						<td></td>
-						<td>贤心2</td>
-						<td>2016-11-29</td>
-						<td>人生就像是一场修行b</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td><button class="layui-btn layui-btn-radius">编辑</button> </td>
-						<td><button class="layui-btn layui-btn-radius">删除</button> </td>
-					</tr>
-					<tr>
-						<td></td>
-						<td>贤心3</td>
-						<td>2016-11-30</td>
-						<td>人生就像是一场修行c</td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						<td><button class="layui-btn layui-btn-radius">编辑</button> </td>
-						<td><button class="layui-btn layui-btn-radius">删除</button> </td>
-					</tr>
+				<tbody id="tbdoy1">
+<!--					<tr>-->
+<!--						<td></td>-->
+<!--						<td>贤心1</td>-->
+<!--						<td>2016-11-28</td>-->
+<!--						<td>人生就像是一场修行a</td>-->
+<!--						<td></td>-->
+<!--						<td></td>-->
+<!--						<td></td>-->
+<!--						<td></td>-->
+<!--						<td></td>-->
+<!--						<td><button class="layui-btn layui-btn-radius">编辑</button> </td>-->
+<!--						<td><button class="layui-btn layui-btn-radius">删除</button> </td>-->
+<!--					</tr>-->
+<!--					<tr>-->
+<!--						<td></td>-->
+<!--						<td>贤心2</td>-->
+<!--						<td>2016-11-29</td>-->
+<!--						<td>人生就像是一场修行b</td>-->
+<!--						<td></td>-->
+<!--						<td></td>-->
+<!--						<td></td>-->
+<!--						<td></td>-->
+<!--						<td></td>-->
+<!--						<td><button class="layui-btn layui-btn-radius">编辑</button> </td>-->
+<!--						<td><button class="layui-btn layui-btn-radius">删除</button> </td>-->
+<!--					</tr>-->
+<!--					<tr>-->
+<!--						<td></td>-->
+<!--						<td>贤心3</td>-->
+<!--						<td>2016-11-30</td>-->
+<!--						<td>人生就像是一场修行c</td>-->
+<!--						<td></td>-->
+<!--						<td></td>-->
+<!--						<td></td>-->
+<!--						<td></td>-->
+<!--						<td></td>-->
+<!--						<td><button class="layui-btn layui-btn-radius">编辑</button> </td>-->
+<!--						<td><button class="layui-btn layui-btn-radius">删除</button> </td>-->
+<!--					</tr>-->
 				</tbody>
 			</table>
 

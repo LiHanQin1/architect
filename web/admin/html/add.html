@@ -6,20 +6,6 @@
 		<link rel="stylesheet" href="../layuiadmin/layui/css/layui.css" />
 		<script type="text/javascript" src="/js/jquery.min.js"></script>
 		<script type="text/javascript">
-			$(function () {
-
-                $.ajax({
-                    url: "http://localhost:8000/architect/user.do",
-                    data: {action: "registers",formvalue:$("#form").serialize() },
-                    type: "GET",
-                    dataType: "text",
-                    success: function (data) {
-                      alert(data);
-                    }
-                });
-            })
-			
-			
 		</script>
 	</head>
 	<body>
@@ -74,7 +60,7 @@
 
 					<div class="layui-form-item">
 						<div class="layui-input-block">
-							<button type="submit" class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+							<button type="submit" class="layui-btn" >立即提交</button>
 							<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 						</div>
 					</div>
