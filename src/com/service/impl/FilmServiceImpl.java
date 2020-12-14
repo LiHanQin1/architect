@@ -1,5 +1,7 @@
 package com.service.impl;
 
+import com.dao.FilmDao;
+import com.dao.impl.FilmDaoImpl;
 import com.entity.Film;
 import com.service.FilmService;
 
@@ -11,44 +13,51 @@ import java.util.List;
  * @Date 2020/12/9 15:22
  **/
 public class FilmServiceImpl implements FilmService {
-    FilmService filmService=new FilmServiceImpl();
+    FilmDao filmDao = new FilmDaoImpl();
     @Override
     public int insert(Film film) {
-        return filmService.insert(film);
+        return filmDao.insert(film);
     }
 
     @Override
     public int delete(int id) {
-        return filmService.delete(id);
+        return filmDao.delete(id);
     }
 
     @Override
     public int update(Film film) {
-        return filmService.update(film);
+        return filmDao.update(film);
     }
 
     @Override
     public List<Film> queryAll() {
-        return filmService.queryAll();
+        return filmDao.queryAll();
     }
 
     @Override
     public Film queryMovieByMovieName(Film film) {
-        return filmService.queryMovieByMovieName(film);
+        return filmDao.queryMovieByMovieName(film);
     }
 
     @Override
     public Film queryMovieByTypeId(Film film) {
-        return filmService.queryMovieByTypeId(film);
+        return filmDao.queryMovieByTypeId(film);
     }
 
     @Override
     public Film queryMovieByDaoYan(Film film) {
-        return filmService.queryMovieByDaoYan(film);
+        return filmDao.queryMovieByDaoYan(film);
     }
 
     @Override
     public Film queryMovieByZhuYan(Film film) {
-        return filmService.queryMovieByZhuYan(film);
+        return filmDao.queryMovieByZhuYan(film);
     }
+
+    @Override
+    public Film queryAddress() {
+        return filmDao.queryAddress();
+    }
+
+
 }
