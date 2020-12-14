@@ -11,15 +11,14 @@
     <title>Title</title>
 </head>
 <body>
-<form method="post" enctype="multipart/form-data" action="/architect/FileUploadServlet">
-    影评名称:<input type="text" name="MovieName" id="MovieName">
-    影评类别:<input type="text" name="TypeId" id="TypeId">
-    导演:<input type="text" name="DaoYan" id="DaoYan">
-    主演:<input type="text" name="ZhuYan" id="ZhuYan">
-    上影年份:<input type="text" name="ShowTime" id="ShowTime">
-    图片:<input type="file" name="PicAddress" id="PicAddressTypeId">
-    详细介绍:<input type="text" name="Content" id="Content">
-    添加时间:<input type="text" name="AddTime" id="AddTime">
+<form method="post" enctype="multipart/form-data" action="/architect/FileUploadServlet"><br/>
+    影评名称:<input type="text" name="MovieName" id="MovieName"><br/>
+    影评类别:<input type="text" name="TypeId" id="TypeId"><br/>
+    导演:<input type="text" name="DaoYan" id="DaoYan"><br/>
+    主演:<input type="text" name="ZhuYan" id="ZhuYan"><br/>
+    上影年份:<input type="text" name="ShowTime" id="ShowTime"><br/>
+    图片:<input type="file" name="PicAddress" id="PicAddressTypeId"><br/>
+    详细介绍:<input type="text" name="Content" id="Content"><br/>
     <input type="submit">
 </form>
 </body>
