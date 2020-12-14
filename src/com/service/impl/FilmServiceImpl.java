@@ -55,7 +55,7 @@ public class FilmServiceImpl implements FilmService {
     }
 
     @Override
-    public Film queryAddress() {
+    public List<Film> queryAddress() {
         return filmDao.queryAddress();
     }
 

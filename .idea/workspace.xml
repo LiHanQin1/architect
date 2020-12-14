@@ -8,6 +8,9 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/web/index.html" line="71" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -28,98 +31,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b13ad053-a000-40de-a0ab-25d268140bbd" name="Default Changelist" comment="后台管理员前端">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/add.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/addadmin.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/addfirm.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/cha.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/chaadmin.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/chafirm.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/admin/index2.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/layui.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/layui.mobile.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/modules/code.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/modules/laydate/default/font.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/modules/laydate/default/laydate.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/modules/layer/default/icon-ext.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/modules/layer/default/icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/modules/layer/default/layer.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/modules/layer/default/loading-0.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/modules/layer/default/loading-1.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/modules/layer/default/loading-2.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/0.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/1.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/10.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/11.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/12.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/13.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/14.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/15.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/16.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/17.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/18.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/19.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/2.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/20.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/21.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/22.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/23.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/24.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/25.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/26.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/27.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/28.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/29.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/3.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/30.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/31.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/32.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/33.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/34.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/35.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/36.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/37.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/38.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/39.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/4.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/40.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/41.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/42.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/43.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/44.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/45.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/46.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/47.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/48.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/49.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/5.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/50.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/51.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/52.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/53.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/54.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/55.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/56.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/57.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/58.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/59.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/6.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/60.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/61.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/62.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/63.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/64.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/65.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/66.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/67.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/68.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/69.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/7.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/70.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/71.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/8.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/images/face/9.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/js/layui.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/architect_war_exploded/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/architect_war_exploded/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/architect_war_exploded/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/architect_war_exploded/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/dao/FilmDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/dao/FilmDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/dao/impl/FilmDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/dao/impl/FilmDaoImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/service/FilmService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/service/FilmService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/service/impl/FilmServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/service/impl/FilmServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/servlet/FileUploadServlet1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/servlet/FileUploadServlet1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/servlet/UserServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/servlet/UserServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/servlet/filmServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/servlet/filmServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -144,8 +67,42 @@
     <expand />
     <select />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="architect" />
+  </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="456" column="38" selection-start-line="456" selection-start-column="38" selection-end-line="456" selection-end-column="38" />
+              <folding>
+                <element signature="e#4157#4165#0" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#4;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#5;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#form#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#form#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#1;n#form#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#2;n#form#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#3;n#form#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#5;n#form#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#6;n#form#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#7;n#form#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#ul#0;n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#0;n#ul#0;n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#1;n#ul#0;n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#li#11;n#ul#0;n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -181,6 +138,12 @@
       <find>js</find>
       <find>lay</find>
       <find>男</find>
+      <find>table</find>
+      <find>img</find>
+      <find>jq</find>
+      <find>tbdoy1</find>
+      <find>tbody1</find>
+      <find>Lorem Ipsum is simply Bonorum</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -198,7 +161,6 @@
         <option value="$PROJECT_DIR$/web/movies.html" />
         <option value="$PROJECT_DIR$/web/moviereview.html" />
         <option value="$PROJECT_DIR$/web/add.html" />
-        <option value="$PROJECT_DIR$/web/index.html" />
         <option value="$PROJECT_DIR$/web/admin/cha.html" />
         <option value="$PROJECT_DIR$/web/admin/addfirm.html" />
         <option value="$PROJECT_DIR$/web/admin/add.html" />
@@ -207,6 +169,14 @@
         <option value="$PROJECT_DIR$/web/admin/index2.html" />
         <option value="$PROJECT_DIR$/web/admin/addadmin.html" />
         <option value="$PROJECT_DIR$/web/326/add.html" />
+        <option value="$PROJECT_DIR$/src/com/servlet/FileUploadServlet1.java" />
+        <option value="$PROJECT_DIR$/src/com/servlet/UserServlet.java" />
+        <option value="$PROJECT_DIR$/src/com/dao/FilmDao.java" />
+        <option value="$PROJECT_DIR$/src/com/dao/impl/FilmDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/com/service/FilmService.java" />
+        <option value="$PROJECT_DIR$/src/com/service/impl/FilmServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/com/servlet/filmServlet.java" />
+        <option value="$PROJECT_DIR$/web/index.html" />
       </list>
     </option>
   </component>
@@ -235,6 +205,17 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="architect" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
@@ -261,7 +242,61 @@
             <path>
               <item name="architect" type="b2602c69:ProjectViewProjectNode" />
               <item name="Day1205" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="architect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Day1205" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="architect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Day1205" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="architect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Day1205" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="architect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Day1205" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="architect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Day1205" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="architect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Day1205" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="com" type="462c0819:PsiDirectoryNode" />
+              <item name="servlet" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="architect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Day1205" type="462c0819:PsiDirectoryNode" />
               <item name="web" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="architect" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Day1205" type="462c0819:PsiDirectoryNode" />
+              <item name="web" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -281,7 +316,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="D:/JavaWeb02" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -359,6 +394,11 @@
             <option name="CONTEXT_PATH" value="/architect" />
           </settings>
         </artifact>
+        <file path="$PROJECT_DIR$/../upload">
+          <settings>
+            <option name="CONTEXT_PATH" value="/upload" />
+          </settings>
+        </file>
       </deployment>
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_architect_2" />
@@ -451,6 +491,8 @@
       <workItem from="1607669852681" duration="1559000" />
       <workItem from="1607675563666" duration="1075000" />
       <workItem from="1607908372302" duration="3233000" />
+      <workItem from="1607914272038" duration="4156000" />
+      <workItem from="1607918502905" duration="10942000" />
     </task>
     <task id="LOCAL-00001" summary="测试2">
       <created>1607138702128</created>
@@ -519,7 +561,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48459000" />
+    <option name="totallyTimeSpent" value="63557000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -534,37 +576,37 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info anchor="right" id="Palette" order="5" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5013405" side_tool="true" weight="0.32956153" />
+      <window_info anchor="bottom" id="Application Servers" order="0" sideWeight="0.49932975" weight="0.32956153" />
+      <window_info anchor="right" id="Maven Projects" order="6" weight="0.3297587" />
+      <window_info anchor="bottom" id="Database Changes" order="4" show_stripe_button="false" />
+      <window_info id="Capture Tool" order="2" />
+      <window_info id="Designer" order="0" />
+      <window_info anchor="right" id="Database" order="7" weight="0.3297587" />
+      <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="8" weight="0.25" />
+      <window_info id="UI Designer" order="1" />
+      <window_info anchor="bottom" id="Debug" order="9" weight="0.6746818" />
       <window_info anchor="bottom" id="TODO" order="12" sideWeight="0.49932975" weight="0.32956153" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="bottom" id="Messages" order="13" />
+      <window_info anchor="right" id="Palette&#9;" order="1" />
       <window_info id="Image Layers" order="6" />
       <window_info anchor="bottom" id="Java Enterprise" order="3" sideWeight="0.49798927" weight="0.32956153" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.5013405" side_tool="true" weight="0.32956153" />
-      <window_info anchor="bottom" id="Application Servers" order="0" sideWeight="0.49932975" weight="0.32956153" />
-      <window_info anchor="right" id="Maven Projects" order="1" />
-      <window_info anchor="bottom" id="Database Changes" order="4" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="5" sideWeight="0.49932975" weight="0.46958983" />
-      <window_info anchor="bottom" id="Run" order="8" weight="0.5049505" />
+      <window_info anchor="bottom" id="Run" order="8" sideWeight="0.49865952" weight="0.26449788" />
       <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49865952" weight="0.5586987" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="Designer" order="0" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.21715818" />
-      <window_info id="Web" order="4" side_tool="true" />
-      <window_info anchor="right" id="Database" order="2" weight="0.3297587" />
-      <window_info id="Structure" order="7" side_tool="true" weight="0.25" />
-      <window_info anchor="right" id="Ant Build" order="7" weight="0.25" />
-      <window_info id="UI Designer" order="1" />
-      <window_info anchor="right" id="Theme Preview" order="4" />
-      <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="13" />
+      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.4992928" visible="true" weight="0.1883378" />
+      <window_info id="Web" order="4" sideWeight="0.5007072" side_tool="true" weight="0.1541555" />
+      <window_info anchor="bottom" id="Find" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="2" />
+      <window_info id="Favorites" order="3" sideWeight="0.5007072" side_tool="true" weight="0.1883378" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="6" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="4" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="6" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="7" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="5" weight="0.25" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -674,7 +716,58 @@
     </state>
     <state x="574" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1607415067013" />
   </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="20" />
+    </breakpoint-manager>
+  </component>
+  <component name="antWorkspaceConfiguration">
+    <option name="IS_AUTOSCROLL_TO_SOURCE" value="false" />
+    <option name="FILTER_TARGETS" value="false" />
+  </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/web/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1820">
+          <caret line="70" column="93" lean-forward="true" selection-start-line="70" selection-start-column="93" selection-end-line="70" selection-end-column="93" />
+          <folding>
+            <element signature="e#4157#4165#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#4;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#5;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#form#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#1;n#form#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#2;n#form#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#3;n#form#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#5;n#form#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#6;n#form#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#7;n#form#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#1;n#ul#0;n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#11;n#ul#0;n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/servlet/filmServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="598">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/servlet/FileUploadServlet1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1638">
+          <caret line="85" column="68" selection-start-line="85" selection-start-column="62" selection-end-line="85" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/web/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5226">
@@ -815,34 +908,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/movies.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="80" column="30" selection-start-line="80" selection-start-column="30" selection-end-line="80" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/movie-select-show.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="148" column="50" selection-start-line="148" selection-start-column="32" selection-end-line="148" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/servlet/BaseServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/servlet/UserServlet.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="884">
-          <caret line="42" column="28" lean-forward="true" selection-start-line="42" selection-start-column="28" selection-end-line="42" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/servlet/VipServlet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -857,13 +922,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="122" column="12" lean-forward="true" selection-start-line="122" selection-start-column="12" selection-end-line="122" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/admin/cha.html" />
     <entry file="file://$PROJECT_DIR$/web/admin/addfirm.html" />
     <entry file="file://$PROJECT_DIR$/web/admin/chaadmin.html" />
@@ -871,17 +929,140 @@
     <entry file="file://$PROJECT_DIR$/web/admin/add.html" />
     <entry file="file://$PROJECT_DIR$/web/admin/index2.html" />
     <entry file="file://$PROJECT_DIR$/web/admin/addadmin.html" />
-    <entry file="file://$PROJECT_DIR$/web/326/add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="16" column="69" selection-start-line="16" selection-start-column="69" selection-end-line="16" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/web/326/add.html" />
     <entry file="file://$PROJECT_DIR$/architect.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-518">
           <caret line="30" column="29" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/movies.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17416">
+          <caret line="80" column="30" selection-start-line="80" selection-start-column="30" selection-end-line="80" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-100">
+          <caret line="3" column="18" lean-forward="true" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/movie-select-show.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10852">
+          <caret line="148" column="50" selection-start-line="148" selection-start-column="32" selection-end-line="148" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/service/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="15" column="18" lean-forward="true" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/service/impl/UserSerciceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+          <folding>
+            <element signature="e#650#651#0" expanded="true" />
+            <element signature="e#691#692#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/servlet/UserServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/servlet/BaseServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dao/FilmDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="9" column="24" lean-forward="true" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/dao/impl/FilmDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="67" column="28" selection-start-line="67" selection-start-column="28" selection-end-line="67" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/service/FilmService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/service/impl/FilmServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="55" lean-forward="true" selection-start-line="55" selection-end-line="55" />
+          <folding>
+            <element signature="e#998#999#0" expanded="true" />
+            <element signature="e#1053#1054#0" expanded="true" />
+            <element signature="e#1116#1117#0" expanded="true" />
+            <element signature="e#1171#1172#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/servlet/FileUploadServlet1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-22">
+          <caret line="85" column="58" selection-start-line="85" selection-start-column="58" selection-end-line="85" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/servlet/filmServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="32" column="24" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="456" column="38" selection-start-line="456" selection-start-column="38" selection-end-line="456" selection-end-column="38" />
+          <folding>
+            <element signature="e#4157#4165#0" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#3;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#4;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#5;n#form#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#form#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#form#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#1;n#form#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#2;n#form#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#3;n#form#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#5;n#form#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#6;n#form#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#7;n#form#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#ul#0;n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#1;n#ul#0;n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#11;n#ul#0;n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#3;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

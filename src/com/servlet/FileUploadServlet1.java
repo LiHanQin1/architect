@@ -83,7 +83,6 @@ public class FileUploadServlet1 extends HttpServlet {
                         System.out.println("表单项的name = " + fileItem.getFieldName());
                         System.out.println("上传的文件名:" + fileItem.getName());
                         String str=fileItem.getName();
-
                         StringBuffer sb=new StringBuffer("D:\\upload\\");
                         sb.append( fileItem.getName());
                         String path=sb.toString();

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 /**
  * 作者：czw
@@ -18,7 +19,7 @@ import java.io.IOException;
  * 描述:
  */
 @WebServlet("/FilmServlet")
-public class FilmServlet extends BaseServlet {
+public class filmServlet extends BaseServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request,response);
     }
@@ -29,7 +30,7 @@ public class FilmServlet extends BaseServlet {
 
     public void queryPicAddress(HttpServletRequest request, HttpServletResponse response) throws IOException {
         FilmService filmService = new FilmServiceImpl();
-        Film film = filmService.queryAddress();
+        List<Film> film=filmService.queryAddress();
         Gson gson = new Gson();
         String jsonStr = gson.toJson(film);
         response.getWriter().write(jsonStr);
