@@ -2,6 +2,7 @@ package com.servlet;
 
 import com.entity.User;
 import com.entity.Vip;
+import com.google.gson.Gson;
 import com.service.VipService;
 import com.service.impl.VipServiceImpl;
 
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.logging.SimpleFormatter;
 
 /**
@@ -93,5 +95,43 @@ public class VipServlet extends BaseServlet {
         Vip vip1 = vipService.queryUserByName(vip);
         String message = (vip1 == null) ? null : "1";
         response.getWriter().write(message);
+    }
+
+
+    //管理员界面注册普通用户
+    public void registers(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String username=request.getParameter("username");
+        String password=request.getParameter("password");
+        String QQ=request.getParameter("QQ");
+        String TEL=request.getParameter("TEL");
+        String Email=request.getParameter("Email");
+        String sex=request.getParameter("sex");
+        Vip vip=new Vip();
+        vip.setUserName(username);
+        vip.setUserPwd(password);
+        vip.setQQ(QQ);
+        vip.setTel(TEL);
+        vip.setEmail(Email);
+        vip.setSex(sex);
+        int result=vipService.insert(vip);
+        String message="注册失败";
+        if (result>0){
+            message="注册成功";
+            response.getWriter().write(message);
+        }else{
+            response.getWriter().write(message);
+        }
+
+
+    }
+
+
+    //查询全部普通用户信息
+    public void queryAll(HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+        List<Vip> vipList=vipService.queryAll();
+        Gson gson=new Gson();
+        String jsonStr=gson.toJson(vipList);
+        response.getWriter().write(jsonStr);
     }
 }
