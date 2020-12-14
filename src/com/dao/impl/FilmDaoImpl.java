@@ -63,9 +63,9 @@ public class FilmDaoImpl extends BaseDao implements FilmDao {
     }
 
     @Override
-    public Film queryAddress() {
+    public List<Film> queryAddress() {
         String sql="select PicAddress from film";
-        return queryForOne(Film.class,sql);
+        return queryForList(Film.class,sql);
     }
 
 

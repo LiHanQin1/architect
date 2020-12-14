@@ -18,5 +18,5 @@ public interface FilmService {
     Film  queryMovieByTypeId(Film film);
     Film  queryMovieByDaoYan(Film film);
     Film  queryMovieByZhuYan(Film film);
-    Film queryAddress();
+    List<Film> queryAddress();
 }
