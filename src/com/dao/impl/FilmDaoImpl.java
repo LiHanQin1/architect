@@ -61,4 +61,12 @@ public class FilmDaoImpl extends BaseDao implements FilmDao {
         String sql = "select * from film where ZhuYan=?";
         return queryForOne(Film.class, sql, film.getZhuYan());
     }
+
+    @Override
+    public Film queryAddress() {
+        String sql="select PicAddress from film";
+        return queryForOne(Film.class,sql);
+    }
+
+
 }
