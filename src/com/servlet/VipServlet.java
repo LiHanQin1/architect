@@ -26,58 +26,59 @@ import java.util.logging.SimpleFormatter;
  **/
 @WebServlet("/vip.do")
 public class VipServlet extends BaseServlet {
-    VipService vipService=new VipServiceImpl();
+    VipService vipService = new VipServiceImpl();
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request,response);
+        doGet(request, response);
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        super.doGet(request,response);
+        super.doGet(request, response);
     }
 
     public void login(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String username=request.getParameter("username");
-        String password=request.getParameter("password");
-        Vip vip=new Vip();
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        Vip vip = new Vip();
         vip.setUserName(username);
         vip.setUserPwd(password);
-        Vip vip1=vipService.queryUserByNameAndPassword(vip);
-        if (vip1!=null){
-            vip1.setLoginCount(vip1.getLoginCount()+1);
-            HttpSession session=request.getSession();
-            session.setAttribute("vip",vip1);
+        Vip vip1 = vipService.queryUserByNameAndPassword(vip);
+        if (vip1 != null) {
+            vip1.setLoginCount(vip1.getLoginCount() + 1);
+            HttpSession session = request.getSession();
+            session.setAttribute("vip", vip1);
             response.getWriter().write("登陆成功！");
             //response.sendRedirect(request.getContextPath()+"/index.html");
-        }else {
+        } else {
             response.getWriter().write("用户名或密码错误");
-            response.sendRedirect(request.getContextPath()+"/index.html");
+            response.sendRedirect(request.getContextPath() + "/index.html");
         }
 
     }
 
     public void register(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String username=request.getParameter("registername");
-        String password=request.getParameter("registerpassword");
-        String confirmpassword=request.getParameter("confirmregisterpassword");
-        String tel=request.getParameter("tel");
-        String qq=request.getParameter("qq");
-        String email=request.getParameter("email");
-        String sex=request.getParameter("sex");
+        String username = request.getParameter("registername");
+        String password = request.getParameter("registerpassword");
+        String confirmpassword = request.getParameter("confirmregisterpassword");
+        String tel = request.getParameter("tel");
+        String qq = request.getParameter("qq");
+        String email = request.getParameter("email");
+        String sex = request.getParameter("sex");
 
-        Vip vip=new Vip();
+        Vip vip = new Vip();
         vip.setUserName(username);
         vip.setUserPwd(password);
         vip.setTel(tel);
         vip.setQQ(qq);
         vip.setEmail(email);
         vip.setSex(sex);
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         vip.setRegTime(String.valueOf(simpleDateFormat.format(new Date())));
 
-        Vip vip1=vipService.queryUserByName(vip);
-        if (vip1==null){
+        Vip vip1 = vipService.queryUserByName(vip);
+        if (vip1 == null) {
             Integer result = vipService.insert(vip);
             if (result > 0) {
                 response.getWriter().write("注册成功！");
@@ -94,37 +95,36 @@ public class VipServlet extends BaseServlet {
         response.setContentType("textml;charset=utf-8");
         request.setCharacterEncoding("utf-8");
         String registername = request.getParameter("registername");
-        Vip vip=new Vip();
+        Vip vip = new Vip();
         vip.setUserName(registername);
         Vip vip1 = vipService.queryUserByName(vip);
         String message = (vip1 == null) ? null : "1";
         response.getWriter().write(message);
     }
 
-
     //管理员界面注册普通用户
     public void registers(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String username=request.getParameter("username");
-        String password=request.getParameter("password");
-        String QQ=request.getParameter("QQ");
-        String TEL=request.getParameter("TEL");
-        String Email=request.getParameter("Email");
-        String sex=request.getParameter("sex");
-        Vip vip=new Vip();
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String QQ = request.getParameter("QQ");
+        String TEL = request.getParameter("TEL");
+        String Email = request.getParameter("Email");
+        String sex = request.getParameter("sex");
+        Vip vip = new Vip();
         vip.setUserName(username);
         vip.setUserPwd(password);
         vip.setQQ(QQ);
         vip.setTel(TEL);
         vip.setEmail(Email);
         vip.setSex(sex);
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         vip.setRegTime(String.valueOf(simpleDateFormat.format(new Date())));
-        int result=vipService.insert(vip);
-        String message="注册失败";
-        if (result>0){
-            message="注册成功";
+        int result = vipService.insert(vip);
+        String message = "注册失败";
+        if (result > 0) {
+            message = "注册成功";
             response.getWriter().write(message);
-        }else{
+        } else {
             response.getWriter().write(message);
         }
 
@@ -134,37 +134,39 @@ public class VipServlet extends BaseServlet {
 
     //查询全部普通用户信息
     public void queryAll(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        List<Vip> vipList=vipService.queryAll();
-        Gson gson=new Gson();
-        String jsonStr=gson.toJson(vipList);
+        List<Vip> vipList = vipService.queryAll();
+        Gson gson = new Gson();
+        String jsonStr = gson.toJson(vipList);
         response.getWriter().write(jsonStr);
-     //   System.out.println(vipList.toString());
+        //   System.out.println(vipList.toString());
     }
 
     //删除
     public void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        if (request.getParameter("userId")!=null){
-            String userId= request.getParameter("userId");
-            Integer result=vipService.delete(Integer.parseInt(userId));
+        if (request.getParameter("userId") != null) {
+            String userId = request.getParameter("userId");
+            Integer result = vipService.delete(Integer.parseInt(userId));
 //        String message=(result >0 ) ?"删除成功":"删除失败";
             response.getWriter().write(result.toString());
         }
 
     }
+
     //分页查询
     public void queryPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Integer pageNo=Integer.valueOf(request.getParameter("pageNo"));
-        Page<Vip> page=vipService.queryByPage(pageNo,Page.PAGE_SIZE);
-        Gson gson=new Gson();
-        String jsonStr=gson.toJson(page);
+        Integer pageNo = Integer.valueOf(request.getParameter("pageNo"));
+        Page<Vip> page = vipService.queryByPage(pageNo, Page.PAGE_SIZE);
+        Gson gson = new Gson();
+        String jsonStr = gson.toJson(page);
         response.getWriter().write(jsonStr);
     }
+
     public void queryByUsername(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String username=request.getParameter("username");
-        Vip vip=new Vip();
+        String username = request.getParameter("username");
+        Vip vip = new Vip();
         vip.setUserName(username);
-        Vip vip1=vipService.queryUserByName(vip);
-        String str1=(vip1==null)? "":"1";
+        Vip vip1 = vipService.queryUserByName(vip);
+        String str1 = (vip1 == null) ? "" : "1";
         response.getWriter().write(str1);
     }
 }
