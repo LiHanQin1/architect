@@ -9,7 +9,8 @@
 		<div class="layui-body">
 			<!-- 内容主体区域 -->
 			<div style="padding: 15px;">
-				<form class="layui-form" action="">
+				<form class="layui-form" action="/architect/user.do">
+					<input type="hidden" name="action" value="register">
 					<div class="layui-form-item">
 						<label class="layui-form-label">账号说明</label>
 						<div class="layui-input-inline">
@@ -37,7 +38,7 @@
 		
 					<div class="layui-form-item">
 						<div class="layui-input-block">
-							<button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+							<button class="layui-btn" type="submit">立即提交</button>
 							<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 						</div>
 					</div>
@@ -53,10 +54,10 @@
 				var form = layui.form;
 				form.render(); //刷新所有渲染效果，也可以单独熟悉某个效果
 				//监听提交
-				form.on('submit(formDemo)', function(data) {
-					layer.msg(JSON.stringify(data.field));
-					return false;
-				});
+				// form.on('submit(formDemo)', function(data) {
+				// 	layer.msg(JSON.stringify(data.field));
+				// 	return false;
+				// });
 		
 				layui.use('element', function() {
 					var element = layui.element;

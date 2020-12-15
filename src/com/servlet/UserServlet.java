@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import static com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY;
 
@@ -52,6 +54,27 @@ public class UserServlet extends BaseServlet {
         } else {
             response.getWriter().write("验证码错误！！！");
         }
+    }
+
+    public void register(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String mean=request.getParameter("mean");
+        String username=request.getParameter("username");
+        String password=request.getParameter("password");
+        User user=new User();
+        user.setTitle(mean);
+        user.setUserName(username);
+        user.setPwd(password);
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        user.setAddTime(String.valueOf(simpleDateFormat.format(new Date())));
+        int result=userService.insert(user);
+        String message="注册失败";
+        if (result>0){
+            message="注册成功";
+            response.getWriter().write(message);
+        }else {
+            response.getWriter().write(message);
+        }
+
     }
 
 
