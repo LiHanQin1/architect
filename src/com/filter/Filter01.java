@@ -14,7 +14,7 @@ import java.io.IOException;
  * 日期: 2020/12/14 15:12
  * 描述:
  */
-@WebFilter("/admin/*")
+//@WebFilter("/admin/*")
 public class Filter01 implements Filter {
     public void destroy() {
     }

@@ -5,6 +5,7 @@ import com.entity.Vip;
 import com.google.gson.Gson;
 import com.service.VipService;
 import com.service.impl.VipServiceImpl;
+import com.utils.Page;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -136,12 +137,22 @@ public class VipServlet extends BaseServlet {
         Gson gson=new Gson();
         String jsonStr=gson.toJson(vipList);
         response.getWriter().write(jsonStr);
-        System.out.println(vipList.toString());
+     //   System.out.println(vipList.toString());
     }
+
+    //删除
     public void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Integer userId= Integer.valueOf(request.getParameter("userId"));
         Integer result=vipService.delete(userId);
 //        String message=(result >0 ) ?"删除成功":"删除失败";
         response.getWriter().write(result.toString());
+    }
+    //分页查询
+    public void queryPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Integer pageNo=Integer.valueOf(request.getParameter("pageNo"));
+        Page<Vip> page=vipService.queryByPage(pageNo,Page.PAGE_SIZE);
+        Gson gson=new Gson();
+        String jsonStr=gson.toJson(page);
+        response.getWriter().write(jsonStr);
     }
 }

@@ -1,6 +1,7 @@
 package com.service;
 
 import com.entity.Vip;
+import com.utils.Page;
 
 import java.util.List;
 
@@ -16,4 +17,11 @@ public interface VipService {
     List<Vip> queryAll();
     Vip queryUserByNameAndPassword(Vip vip);
     Vip queryUserByName(Vip vip);
+    /**
+     *
+     * @param pageNo 当前页码
+     * @param pageSize 每页展示数量
+     * @return
+     */
+    Page<Vip> queryByPage(int pageNo, int pageSize);
 }
