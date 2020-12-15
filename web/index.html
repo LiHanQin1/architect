@@ -61,9 +61,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     address(data);
                 }
             });
-
             function address(data) {
-
                 let jsonObj = JSON.parse(data);
                 for (let i = 0; i < 4; i++) {
                     let trNode = $("<li></li>");
@@ -127,11 +125,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         removalDelay: 300,
                         mainClass: 'my-mfp-zoom-in'
                     });
-
-
                 });
                 $(function () {
-
                     $("#registername").on('blur', function () {
                         var registername = $("#registername").val();
                         if (registername == "") {

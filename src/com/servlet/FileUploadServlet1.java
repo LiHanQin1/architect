@@ -75,8 +75,6 @@ public class FileUploadServlet1 extends HttpServlet {
                             case "Content":
                                 film.setContent(fileItem.getString("utf-8"));
                                 break;
-
-
                         }
                     } else {
                         //上传的文件
