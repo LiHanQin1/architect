@@ -43,7 +43,7 @@
 					var jsonObj = JSON.parse(data);
 					var buttons ="<td>\n" +
 							"<button class=\"layui-btn layui-btn-radius\">编辑</button>\n" +
-							"<button  class=\" layui-btn layui-btn-radius\" id=\"delbtn\">删除</button>\n" +
+							"<button  class=\"delbtn layui-btn layui-btn-radius\" >删除</button>\n" +
 							"</td>";
 					$("#tbdoy1").empty();
 					page(jsonObj);
@@ -61,7 +61,7 @@
 						trNode.append(buttons);
 						$("#tbdoy1").append(trNode);
 					}
-					$("#delbtn").on("click", function () {
+					$(".delbtn").on("click", function () {
 						 var id = $($(this).parents("tr").children("td")[0]).html().trim();
 						sweetAlert({
 									title: "是否确认删除?",

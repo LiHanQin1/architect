@@ -2,6 +2,7 @@ package com.tset;
 
 import com.dao.UserDao;
 import com.dao.VipDao;
+import com.dao.impl.UserDaoImpl;
 import com.dao.impl.VipDaoImpl;
 import org.junit.Test;
 
@@ -12,8 +13,13 @@ import org.junit.Test;
  **/
 public class Viptest {
     VipDao vipDao=new VipDaoImpl();
+    UserDao userDao=new UserDaoImpl();
+//    @Test
+//    public void test(){
+//        System.out.println(vipDao.queryUserBypage(0,5));
+//    }
     @Test
-    public void test(){
-        System.out.println(vipDao.queryUserBypage(0,5));
+    public void test1(){
+        System.out.println(userDao.queryUserBypage(0,5));
     }
 }

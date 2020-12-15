@@ -45,14 +45,21 @@ public class UserDaoImpl extends BaseDao implements UserDao {
     }
 
     @Override
+    public User queryUserByUsername(User user) {
+
+        String sql = "select *from user where UserName=? ";
+        return queryForOne(User.class, sql, user.getUserName());
+    }
+
+    @Override
     public Integer queryCounts() {
         String sql="select count(1) from user";
         return Math.toIntExact((long)queryForSingleValue(sql));
     }
 
     @Override
-    public List<Vip> queryUserBypage(int begin, int pageSize) {
+    public List<User> queryUserBypage(int begin, int pageSize) {
         String sql="select * from user limit ?,?";
-        return queryForList(Vip.class,sql,begin,pageSize);
+        return queryForList(User.class,sql,begin,pageSize);
     }
 }

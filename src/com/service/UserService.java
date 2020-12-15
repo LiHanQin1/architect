@@ -1,6 +1,8 @@
 package com.service;
 
 import com.entity.User;
+import com.entity.Vip;
+import com.utils.Page;
 
 import java.util.List;
 
@@ -15,4 +17,12 @@ public interface UserService {
     int update(User user);
     List<User> queryAll();
     User queryUserByNameAndPassword(User user);
+    User queryUserByUsername(User user);
+
+    //查询当前表的总记录条数
+    Integer queryCounts();
+
+    //分页查询
+    Page<User> queryByPage(int pageNo, int pageSize);
+
 }

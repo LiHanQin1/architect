@@ -142,7 +142,7 @@ public class VipServlet extends BaseServlet {
 
     //删除
     public void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Integer userId= Integer.valueOf(request.getParameter("userId"));
+        Integer userId= Integer.valueOf(request.getParameter("id"));
         Integer result=vipService.delete(userId);
 //        String message=(result >0 ) ?"删除成功":"删除失败";
         response.getWriter().write(result.toString());
@@ -154,5 +154,14 @@ public class VipServlet extends BaseServlet {
         Gson gson=new Gson();
         String jsonStr=gson.toJson(page);
         response.getWriter().write(jsonStr);
+    }
+    public void queryByUsername(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String username=request.getParameter("username");
+        Vip vip=new Vip();
+        vip.setUserName(username);
+        Vip vip1=vipService.queryUserByName(vip);
+        String str1=(vip1==null)? null:"1";
+        response.getWriter().write(str1);
+
     }
 }

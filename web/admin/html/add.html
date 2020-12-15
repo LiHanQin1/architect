@@ -4,8 +4,31 @@
 		<meta charset="utf-8">
 		<title></title>
 		<link rel="stylesheet" href="../layuiadmin/layui/css/layui.css" />
-		<script type="text/javascript" src="/js/jquery.min.js"></script>
+		<script type="text/javascript" src="../../js/jquery.min.js"></script>
 		<script type="text/javascript">
+			$(function () {
+
+                $("#username").on("blur", function () {
+                    var username=$("#username").val();
+                    $.ajax({
+                        url: "http://localhost:8000/architect/vip.do",
+                        data: {action: "queryByUsername",username:username},
+                        type: "GET",
+                        dataType: "text",
+                        success: function (data) {
+                            if (data>0){
+                                $("#usernametips").html("用户名已存在");
+                                return false;
+                            } else{
+                                $("#usernametips").html("");
+                                return true;
+                            }
+                        }
+                    });
+                })
+            })
+			
+			
 		</script>
 	</head>
 	<body>
@@ -17,8 +40,10 @@
 					<div class="layui-form-item">
 						<label class="layui-form-label">用户名</label>
 						<div class="layui-input-inline">
-							<input type="text" name="username" required lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+							<input type="text" id="username" name="username" required lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+							<span id="usernametips"></span>
 						</div>
+
 						<!-- <div class="layui-form-mid layui-word-aux">辅助文字</div> -->
 					</div>
 					<div class="layui-form-item">
@@ -75,10 +100,10 @@
 				var form = layui.form;
 				form.render(); //刷新所有渲染效果，也可以单独熟悉某个效果
 				//监听提交
-				form.on('submit(formDemo)', function(data) {
-					layer.msg(JSON.stringify(data.field));
-					return false;
-				});
+				// form.on('submit(formDemo)', function(data) {
+				// 	layer.msg(JSON.stringify(data.field));
+				// 	return false;
+				// });
 
 				layui.use('element', function() {
 					var element = layui.element;

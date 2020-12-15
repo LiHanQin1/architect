@@ -2,8 +2,11 @@ package com.servlet;
 
 import com.dao.BaseDao;
 import com.entity.User;
+import com.entity.Vip;
+import com.google.gson.Gson;
 import com.service.UserService;
 import com.service.impl.UserSerciceImpl;
+import com.utils.Page;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -57,26 +60,50 @@ public class UserServlet extends BaseServlet {
     }
 
     public void register(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String mean=request.getParameter("mean");
-        String username=request.getParameter("username");
-        String password=request.getParameter("password");
-        User user=new User();
+        String mean = request.getParameter("mean");
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        User user = new User();
         user.setTitle(mean);
         user.setUserName(username);
         user.setPwd(password);
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         user.setAddTime(String.valueOf(simpleDateFormat.format(new Date())));
-        int result=userService.insert(user);
-        String message="注册失败";
-        if (result>0){
-            message="注册成功";
+        int result = userService.insert(user);
+        String message = "注册失败";
+        if (result > 0) {
+            message = "注册成功";
             response.getWriter().write(message);
-        }else {
+        } else {
             response.getWriter().write(message);
         }
 
     }
+    //删除
+    public void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        Integer userId= Integer.valueOf(request.getParameter("id"));
+        Integer result=userService.delete(userId);
+//        String message=(result >0 ) ?"删除成功":"删除失败";
+        response.getWriter().write(result.toString());
+    }
+    //分页查询
+    public void queryPage1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+            Integer pageNo = Integer.valueOf(request.getParameter("pageNo"));
+            Page<User> page = userService.queryByPage(pageNo, Page.PAGE_SIZE);
+            Gson gson = new Gson();
+            String jsonStr = gson.toJson(page);
+            response.getWriter().write(jsonStr);
 
+        }
 
+        //查询
+    public void queryByUsername(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String username=request.getParameter("username");
+        User user=new User();
+        user.setUserName(username);
+        User user1=userService.queryUserByUsername(user);
+        String message = (user1 == null) ? null : "1";
+        response.getWriter().write(message);
 
+    }
 }
