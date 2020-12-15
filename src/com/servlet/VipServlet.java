@@ -45,6 +45,7 @@ public class VipServlet extends BaseServlet {
         vip.setUserPwd(password);
         Vip vip1=vipService.queryUserByNameAndPassword(vip);
         if (vip1!=null){
+            vip1.setLoginCount(vip1.getLoginCount()+1);
             HttpSession session=request.getSession();
             session.setAttribute("vip",vip1);
             response.getWriter().write("登陆成功！");
@@ -142,10 +143,13 @@ public class VipServlet extends BaseServlet {
 
     //删除
     public void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Integer userId= Integer.valueOf(request.getParameter("id"));
-        Integer result=vipService.delete(userId);
+        if (request.getParameter("userId")!=null){
+            String userId= request.getParameter("userId");
+            Integer result=vipService.delete(Integer.parseInt(userId));
 //        String message=(result >0 ) ?"删除成功":"删除失败";
-        response.getWriter().write(result.toString());
+            response.getWriter().write(result.toString());
+        }
+
     }
     //分页查询
     public void queryPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -160,7 +164,7 @@ public class VipServlet extends BaseServlet {
         Vip vip=new Vip();
         vip.setUserName(username);
         Vip vip1=vipService.queryUserByName(vip);
-        String str1=(vip1==null)? null:"1";
+        String str1=(vip1==null)? "":"1";
         response.getWriter().write(str1);
     }
 }

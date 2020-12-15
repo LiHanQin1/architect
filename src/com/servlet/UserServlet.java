@@ -48,6 +48,7 @@ public class UserServlet extends BaseServlet {
         User user = userService.queryUserByNameAndPassword(new User(username, password));//根据账号密码从数据查询
         if (token.equals(code)) {
             if (user != null) {
+                user.setLogCount(user.getLogCount()+1);
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
                 response.sendRedirect(request.getContextPath() + "/administrator.jsp");
@@ -81,7 +82,8 @@ public class UserServlet extends BaseServlet {
     }
     //删除
     public void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Integer userId= Integer.valueOf(request.getParameter("id"));
+
+        Integer userId= Integer.valueOf(request.getParameter("userId"));
         Integer result=userService.delete(userId);
 //        String message=(result >0 ) ?"删除成功":"删除失败";
         response.getWriter().write(result.toString());
