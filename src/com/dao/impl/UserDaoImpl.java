@@ -3,6 +3,7 @@ package com.dao.impl;
 import com.dao.BaseDao;
 import com.dao.UserDao;
 import com.entity.User;
+import com.entity.Vip;
 
 import java.util.List;
 
@@ -41,5 +42,17 @@ public class UserDaoImpl extends BaseDao implements UserDao {
     public User queryUserByNameAndPassword(User user) {
         String sql = "select *from user where UserName=? and  Pwd=?";
         return queryForOne(User.class, sql, user.getUserName(), user.getPwd());
+    }
+
+    @Override
+    public Integer queryCounts() {
+        String sql="select count(1) from user";
+        return Math.toIntExact((long)queryForSingleValue(sql));
+    }
+
+    @Override
+    public List<Vip> queryUserBypage(int begin, int pageSize) {
+        String sql="select * from user limit ?,?";
+        return queryForList(Vip.class,sql,begin,pageSize);
     }
 }

@@ -19,7 +19,8 @@ import java.util.List;
  * 描述:
  */
 @WebServlet("/FilmServlet")
-public class filmServlet extends BaseServlet {
+public class FilmServlet extends BaseServlet {
+    FilmService filmService = new FilmServiceImpl();
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request,response);
@@ -31,11 +32,19 @@ public class filmServlet extends BaseServlet {
     }
 
     public void queryPicAddress(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        FilmService filmService = new FilmServiceImpl();
+
         List<Film> film=filmService.queryAddress();
         Gson gson = new Gson();
         String jsonStr = gson.toJson(film);
         response.getWriter().write(jsonStr);
        // System.out.println(film.toString());
+
+    }
+    public void queryAll(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        List<Film> film=filmService.queryAll();
+        Gson gson=new Gson();
+        String jsonStr=gson.toJson(film);
+        response.getWriter().write(jsonStr);
+//        System.out.println(film.toString());
     }
 }

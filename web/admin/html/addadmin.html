@@ -49,19 +49,19 @@
 		
 		<script src="../layuiadmin/layui/layui.js"></script>
 		<script type="text/javascript">
-			//Demo
+			Demo
 			layui.use('form', function() { //声明使用layUI的form
 				var form = layui.form;
 				form.render(); //刷新所有渲染效果，也可以单独熟悉某个效果
-				//监听提交
-				// form.on('submit(formDemo)', function(data) {
-				// 	layer.msg(JSON.stringify(data.field));
-				// 	return false;
-				// });
-		
+				监听提交
+				form.on('submit(formDemo)', function(data) {
+					layer.msg(JSON.stringify(data.field));
+					return false;
+				});
+
 				layui.use('element', function() {
 					var element = layui.element;
-		
+
 				});
 			});
 		</script>

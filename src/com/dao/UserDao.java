@@ -1,6 +1,7 @@
 package com.dao;
 
 import com.entity.User;
+import com.entity.Vip;
 
 import java.util.List;
 
@@ -15,5 +16,12 @@ public interface UserDao {
     int update(User user);
     List<User> queryAll();
     User queryUserByNameAndPassword(User user);
+
+    //查询当前表的总记录条数
+    Integer queryCounts();
+
+    //分页查询
+    List<Vip> queryUserBypage(int begin, int pageSize);
+
 
 }
