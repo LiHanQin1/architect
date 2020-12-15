@@ -19,7 +19,6 @@ public interface VipDao {
 
     //查询当前表的总记录条数
     Integer queryCounts();
-
     //分页查询
     List<Vip> queryUserBypage(int begin,int pageSize);
 

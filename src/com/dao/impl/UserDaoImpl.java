@@ -46,7 +46,6 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 
     @Override
     public User queryUserByUsername(User user) {
-
         String sql = "select *from user where UserName=? ";
         return queryForOne(User.class, sql, user.getUserName());
     }

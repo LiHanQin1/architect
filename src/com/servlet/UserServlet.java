@@ -104,6 +104,5 @@ public class UserServlet extends BaseServlet {
         User user1=userService.queryUserByUsername(user);
         String message = (user1 == null) ? null : "1";
         response.getWriter().write(message);
-
     }
 }

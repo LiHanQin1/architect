@@ -162,6 +162,5 @@ public class VipServlet extends BaseServlet {
         Vip vip1=vipService.queryUserByName(vip);
         String str1=(vip1==null)? null:"1";
         response.getWriter().write(str1);
-
     }
 }
