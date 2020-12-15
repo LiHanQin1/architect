@@ -266,49 +266,50 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </nav><!-- end navbar navbar-default w3_megamenu -->
         </div><!-- end container -->
         <script>
-            $(function (){
+            $(function () {
                 $.ajax({
-                    url:"http://localhost:8000/architect/FilmServlet",
-                    data:{action:"queryAll"},
-                    type:"GET",
-                    dataType:"text",
-                    success:function (data){
+                    url: "http://localhost:8000/architect/FilmServlet",
+                    data: {action: "queryAll"},
+                    type: "GET",
+                    dataType: "text",
+                    success: function (data) {
                         // alert(data);
                         address(data);
                     }
                 })
-                function address(data){
+
+                function address(data) {
                     let jsonObj = JSON.parse(data);
-                        for (let i=0;i<jsonObj.length;i++){
-                            let trNode=$("<table style=\"border: white 0px solid\"></table>");
-                            let moviename = jsonObj[i].MovieName;
-                            let imgpath = jsonObj[i].PicAddress;
-                            trNode.append("<tr><td>" +"<span class=\"ttncspa\">" + moviename+ "</span>"+"</td></tr>");
-                            var strs = jsonObj[i].Content.substring(0,400);
-                            imgpath = "http://localhost:8000"+imgpath.substring(2).replaceAll("\\","/");
-                            trNode.append("<tr><td>" +"<div class=\"ttncspa1\" id=\"test"+i+"\" style=\"width:900px;height:100px;overflow-y:hidden;\">"+strs+"</div>"+"</td>"+"<td><img class='ttncmovie' src=\'"+imgpath+"\'></td>"+"</tr>");
-                            trNode.append("<a href=\"javascript:void(0)\" id=\"show"+i+"\" style=\"display:block\" onclick=\"document.getElementById('test"+i+"').style.height='auto';document.getElementById('hidden"+i+"').style.display='block';document.getElementById('show"+i+"').style.display='none'\">展开</a>\n");
-                            trNode.append("<a href=\"javascript:void(0)\" id=\"hidden"+i+"\" style=\"display:none;\" onclick=\"document.getElementById('test"+i+"').style.height='100px';document.getElementById('hidden"+i+"').style.display='none';document.getElementById('show"+i+"').style.display='block'\">关闭</a>\n");
-                            trNode.append("<hr style=\"height:1px;border:none;border-top:1px solid #555555;\" />");
-                            $("#tbody1").append(trNode);
-                        }
+                    for (let i = 0; i < jsonObj.length; i++) {
+                        let trNode = $("<table style=\"border: white 0px solid\"></table>");
+                        let moviename = jsonObj[i].MovieName;
+                        let imgpath = jsonObj[i].PicAddress;
+                        trNode.append("<tr><td>" + "<span class=\"ttncspa\">" + moviename + "</span>" + "</td></tr>");
+                        var strs = jsonObj[i].Content.substring(0, 400);
+                        imgpath = "http://localhost:8000" + imgpath.substring(2).replaceAll("\\", "/");
+                        trNode.append("<tr><td>" + "<div class=\"ttncspa1\" id=\"test" + i + "\" style=\"width:900px;height:100px;overflow-y:hidden;\">" + strs + "</div>" + "</td>" + "<td><img class='ttncmovie' src=\'" + imgpath + "\'></td>" + "</tr>");
+                        trNode.append("<a href=\"javascript:void(0)\" id=\"show" + i + "\" style=\"display:block\" onclick=\"document.getElementById('test" + i + "').style.height='auto';document.getElementById('hidden" + i + "').style.display='block';document.getElementById('show" + i + "').style.display='none'\">展开</a>\n");
+                        trNode.append("<a href=\"javascript:void(0)\" id=\"hidden" + i + "\" style=\"display:none;\" onclick=\"document.getElementById('test" + i + "').style.height='100px';document.getElementById('hidden" + i + "').style.display='none';document.getElementById('show" + i + "').style.display='block'\">关闭</a>\n");
+                        trNode.append("<hr style=\"height:1px;border:none;border-top:1px solid #555555;\" />");
+                        $("#tbody1").append(trNode);
                     }
+                }
 
 
             })
         </script>
 
-        <div  id="tbody1" >
+        <div id="tbody1">
 
 
         </div>
 
-        </div>
-        <div class="clearfix"></div>
     </div>
-    <div class="copy-rights text-center">
-        <p>© 2015 My Show. All Rights Reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
-    </div>
+    <div class="clearfix"></div>
+</div>
+<div class="copy-rights text-center">
+    <p>© 2015 My Show. All Rights Reserved | Design by <a href="http://w3layouts.com/">W3layouts</a></p>
+</div>
 </div>
 <script src="js/responsive-tabs.js"></script>
 <script type="text/javascript">

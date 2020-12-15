@@ -47,4 +47,6 @@ public class FilmServlet extends BaseServlet {
         response.getWriter().write(jsonStr);
 //        System.out.println(film.toString());
     }
+
+
 }

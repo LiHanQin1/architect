@@ -24,11 +24,7 @@
 								<i class="layui-icon layui-icon-shrink-right" id="LAY_app_flexible"></i>
 							</a>
 						</li>
-						<li class="layui-nav-item layui-hide-xs" lay-unselect>
-							<a href="http://www.layui.com/admin/" target="_blank" title="前台">
-								<i class="layui-icon layui-icon-website"></i>
-							</a>
-						</li>
+
 						<li class="layui-nav-item" lay-unselect>
 							<a href="javascript:;" layadmin-event="refresh" title="刷新">
 								<i class="layui-icon layui-icon-refresh-3"></i>
@@ -50,34 +46,24 @@
 							</a>
 						</li>
 						<li class="layui-nav-item layui-hide-xs" lay-unselect>
-							<a href="javascript:;" layadmin-event="theme">
-								<i class="layui-icon layui-icon-theme"></i>
-							</a>
-						</li>
-						<li class="layui-nav-item layui-hide-xs" lay-unselect>
-							<a href="javascript:;" layadmin-event="note">
-								<i class="layui-icon layui-icon-note"></i>
-							</a>
-						</li>
-						<li class="layui-nav-item layui-hide-xs" lay-unselect>
-							<a href="javascript:;" layadmin-event="fullscreen">
+							<a href="#" layadmin-event="fullscreen">
 								<i class="layui-icon layui-icon-screen-full"></i>
 							</a>
 						</li>
 						<li class="layui-nav-item" lay-unselect>
-							<a href="javascript:;">
-								<cite>贤心</cite>
+							<a href="#">
+								<cite>超级管理员</cite>
 							</a>
 							<dl class="layui-nav-child">
-								<dd><a lay-href="set/user/info.html">基本资料</a></dd>
-								<dd><a lay-href="set/user/password.html">修改密码</a></dd>
+								<dd><a lay-href="#">基本资料</a></dd>
+								<dd><a lay-href="#">修改密码</a></dd>
 								<hr>
 								<dd layadmin-event="logout" style="text-align: center;"><a>退出</a></dd>
 							</dl>
 						</li>
 
 						<li class="layui-nav-item layui-hide-xs" lay-unselect>
-							<a href="javascript:;" layadmin-event="about"><i class="layui-icon layui-icon-more-vertical"></i></a>
+							<a href="#" layadmin-event="about"><i class="layui-icon layui-icon-more-vertical"></i></a>
 						</li>
 						<!--          <li class="layui-nav-item layui-show-xs-inline-block layui-hide-sm" lay-unselect>
             <a href="javascript:;" layadmin-event="more"><i class="layui-icon layui-icon-more-vertical"></i></a>
@@ -157,31 +143,16 @@
 							<li data-name="component" class="layui-nav-item ">
 								<a href="javascript:;" lay-tips="组件" lay-direction="2">
 									<i class="layui-icon layui-icon-component"></i>
-									<cite>海报管理</cite>
+									<cite>弹幕评论管理</cite>
 								</a>
 								<dl class="layui-nav-child">
 									<dd data-name="button" class="layui-this">
-										<a lay-href="component/button/index.html">海报信息添加</a>
+										<a lay-href="comment.html">弹幕评论过滤</a>
 									</dd>
-									<dd data-name="nav">
-										<a lay-href="component/nav/index.html">海报信息查询</a>
-									</dd>
+
 								</dl>
 							</li>
-							<li data-name="component" class="layui-nav-item ">
-								<a href="javascript:;" lay-tips="组件" lay-direction="2">
-									<i class="layui-icon layui-icon-component"></i>
-									<cite>电影管理</cite>
-								</a>
-								<dl class="layui-nav-child">
-									<dd data-name="button" class="layui-this">
-										<a lay-href="component/button/index.html">电影信息添加</a>
-									</dd>
-									<dd data-name="nav">
-										<a lay-href="component/nav/index.html">电影信息查询</a>
-									</dd>
-								</dl>
-							</li>
+
 							<li data-name="component" class="layui-nav-item ">
 								<a href="javascript:;" lay-tips="组件" lay-direction="2">
 									<i class="layui-icon layui-icon-component"></i>
@@ -228,7 +199,7 @@
 				<!-- 主体内容,正文显示的东西 -->
 				<div class="layui-body" id="LAY_app_body">
 					<div class="layadmin-tabsbody-item layui-show">
-						<iframe src="home/console.html" frameborder="0" class="layadmin-iframe"></iframe>
+						<iframe src="03.html" frameborder="0" class="layadmin-iframe"></iframe>
 					</div>
 				</div>
 

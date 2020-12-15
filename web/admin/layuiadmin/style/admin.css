@@ -307,7 +307,7 @@ html{background-color: #f2f2f2; color: #666;}
 .layadmin-backlog-body:hover{background-color: #f2f2f2; color: #888;}
 
 /* æ•°æ®æ¦‚è§ˆ */
-.layadmin-dataview{height: 332px !important;}
+.layadmin-dataview{height: 500px !important;}
 .layadmin-dataview>*[carousel-item]:before{display: none;}
 .layadmin-dataview>*[carousel-item]>div{height: 332px;}
 
