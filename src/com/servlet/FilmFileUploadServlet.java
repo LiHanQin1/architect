@@ -56,22 +56,22 @@ public class FilmFileUploadServlet extends HttpServlet {
                         String str = fileItem.getFieldName();
                         switch (str) {
                             case "MovieName":
-                                film.setMovieName(fileItem.getString());
+                                film.setMovieName(fileItem.getString("utf-8"));
                                 break;
                             case "TypeId":
-                                film.setTypeId(fileItem.getString());
+                                film.setTypeId(fileItem.getString("utf-8"));
                                 break;
                             case "DaoYan":
-                                film.setDaoYan(fileItem.getString());
+                                film.setDaoYan(fileItem.getString("utf-8"));
                                 break;
                             case "ZhuYan":
-                                film.setZhuYan(fileItem.getString());
+                                film.setZhuYan(fileItem.getString("utf-8"));
                                 break;
                             case "ShowTime":
-                                film.setShowTime(fileItem.getString());
+                                film.setShowTime(fileItem.getString("utf-8"));
                                 break;
                             case "Content":
-                                film.setContent(fileItem.getString());
+                                film.setContent(fileItem.getString("utf-8"));
                                 break;
                         }
                     } else {
