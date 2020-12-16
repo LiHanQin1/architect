@@ -7,11 +7,11 @@
 </head>
 <body>
 <div style="padding: 15px;">
-    <form class="layui-form" action="">
+    <form class="layui-form" action="http://localhost:8000/architect/filmfileupload" method="post" enctype="multipart/form-data">
         <div class="layui-form-item">
             <label class="layui-form-label">影评名称</label>
             <div class="layui-input-inline">
-                <input type="text" name="username" required lay-verify="required" placeholder="请输入影评名称"
+                <input type="text" name="MovieName" required lay-verify="required" placeholder="请输入影评名称"
                        autocomplete="off" class="layui-input">
             </div>
             <!-- <div class="layui-form-mid layui-word-aux">辅助文字</div> -->
@@ -20,9 +20,9 @@
         <div class="layui-inline">
             <label class="layui-form-label">影评类别</label>
             <div class="layui-input-inline layui-form-item" style="width: 200px;">
-                <select name="interest" lay-filter="aihao" id="superviseDept">
-                    <option value="">监管部门</option>
-                    <option value="0">写作</option>
+                <select name="TypeId" lay-filter="aihao" id="superviseDept">
+                    <option value="0">监管部门</option>
+                    <option value="1">写作</option>
                     <option value="2">游戏</option>
                     <option value="3">音乐</option>
                     <option value="4">旅行</option>
@@ -32,7 +32,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">导演</label>
             <div class="layui-input-inline">
-                <input type="text" name="username" required lay-verify="required" placeholder="请输入导演姓名"
+                <input type="text" name="DaoYan" required lay-verify="required" placeholder="请输入导演姓名"
                        autocomplete="off" class="layui-input">
             </div>
             <!-- <div class="layui-form-mid layui-word-aux">辅助文字</div> -->
@@ -40,15 +40,15 @@
         <div class="layui-form-item">
             <label class="layui-form-label">主演</label>
             <div class="layui-input-inline">
-                <input type="text" name="TEL" required lay-verify="required" placeholder="请输入主演" autocomplete="off"
+                <input type="text" name="ZhuYan" required lay-verify="required" placeholder="请输入主演" autocomplete="off"
                        class="layui-input">
             </div>
             <!-- <div class="layui-form-mid layui-word-aux">辅助文字</div> -->
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">截止时间：</label>
+            <label class="layui-form-label">上映年份</label>
             <div class="layui-input-block" style="width: 198px">
-                <input type="text" id="borrowtimebox" name="lasttime"
+                <input type="date" id="borrowtimebox" name="ShowTime"
                        class="layui-input" placeholder="请输入">
             </div>
         </div>
@@ -56,14 +56,14 @@
         <div class="layui-form-item">
             <label class="layui-form-label">详细介绍</label>
             <div class="layui-input-block" style="width: 35%">
-                <textarea id="vod_content" name="<?php echo $info['Field'];?>" type="text/plain"
+                <textarea id="vod_content" name="Content" type="text/plain"
                           style="width:99%;height:250px"></textarea>
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">影评缩略图片地址</label>
             <div class="layui-input-block" style="width: 35%">
-                <input name="file" class="layui-btn layui-btn-primary" type="file"/>
+                <input name="PicAddress" class="layui-btn layui-btn-primary" type="file"/>
             </div>
 
         </div>
