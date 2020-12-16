@@ -70,18 +70,20 @@ public class UserServlet extends BaseServlet {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         user.setAddTime(String.valueOf(simpleDateFormat.format(new Date())));
         int result = userService.insert(user);
-        String message = "注册失败";
-        if (result > 0) {
-            message = "注册成功";
-            response.getWriter().write(message);
-        } else {
-            response.getWriter().write(message);
+        if (result>0){
+            response.getWriter().print("<script> alert(\"注册成功!\");" +
+                    "window.location.href=\"http://localhost:8000/architect/admin/html/addadmin.html\""+
+                    " </script>");
+        }else{
+            response.getWriter().print("<script> alert(\"注册失败!\");" +
+                    "window.location.href=\"http://localhost:8000/architect/admin/html/addadmin.html\""+
+                    " </script>");
         }
 
     }
     //删除
     public void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Integer userId= Integer.valueOf(request.getParameter("id"));
+        Integer userId= Integer.valueOf(request.getParameter("userId"));
         Integer result=userService.delete(userId);
 //        String message=(result >0 ) ?"删除成功":"删除失败";
         response.getWriter().write(result.toString());
@@ -104,5 +106,19 @@ public class UserServlet extends BaseServlet {
         User user1=userService.queryUserByUsername(user);
         String message = (user1 == null) ? null : "1";
         response.getWriter().write(message);
+    }
+    public void updata(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        Integer userId= Integer.valueOf(request.getParameter("userId"));
+        User user=userService.query(userId);
+        System.out.println(user);
+        String UserName=request.getParameter("username");
+        String UserPwd=request.getParameter("password");
+        String Tel=request.getParameter("title");
+        user.setUserName(UserName);
+        user.setPwd(UserPwd);
+        user.setTitle(Tel);
+        Integer user1=userService.update(user);
+        String str=(user1==1)?"1":"";
+        response.getWriter().write(str);
     }
 }

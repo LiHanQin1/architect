@@ -36,6 +36,11 @@ public class VipServiceImpl implements VipService {
     }
 
     @Override
+    public Vip query(int id) {
+        return vipDao.query(id);
+    }
+
+    @Override
     public Vip queryUserByNameAndPassword(Vip vip) {
         return vipDao.queryUserByNameAndPassword(vip);
     }

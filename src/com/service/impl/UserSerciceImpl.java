@@ -47,6 +47,11 @@ public class UserSerciceImpl implements UserService {
     }
 
     @Override
+    public User query(int id) {
+        return userDao.query(id);
+    }
+
+    @Override
     public Integer queryCounts() {
         return userDao.queryCounts();
     }

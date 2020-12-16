@@ -1,6 +1,7 @@
 package com.dao;
 
 import com.entity.Vip;
+import org.yaml.snakeyaml.events.Event;
 
 import java.util.List;
 
@@ -16,7 +17,7 @@ public interface VipDao {
     List<Vip> queryAll();
     Vip queryUserByNameAndPassword(Vip vip);
     Vip queryUserByName(Vip vip);
-
+    Vip query(int id);
     //查询当前表的总记录条数
     Integer queryCounts();
     //分页查询
