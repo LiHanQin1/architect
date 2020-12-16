@@ -59,7 +59,7 @@ public class FilmFileUploadServlet extends HttpServlet {
                                 film.setMovieName(fileItem.getString());
                                 break;
                             case "TypeId":
-                                film.setTypeId(Integer.valueOf(fileItem.getString()));
+                                film.setTypeId(fileItem.getString());
                                 break;
                             case "DaoYan":
                                 film.setDaoYan(fileItem.getString());
