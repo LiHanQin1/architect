@@ -1352,8 +1352,8 @@ h3.m-head {
 }
 a.mask {
   text-decoration: none;
-  overflow: hidden;
-  display: block;
+	overflow: hidden;
+	display: block;
 }
 img.zoom-img {
   -webkit-transform: scale(1, 1);

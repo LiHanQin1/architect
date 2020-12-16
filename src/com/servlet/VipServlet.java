@@ -45,6 +45,7 @@ public class VipServlet extends BaseServlet {
         vip.setUserPwd(password);
         Vip vip1=vipService.queryUserByNameAndPassword(vip);
         if (vip1!=null){
+            vip1.setLoginCount(vip1.getLoginCount()+1);
             HttpSession session=request.getSession();
             session.setAttribute("vip",vip1);
             response.getWriter().write("登陆成功！");
@@ -119,6 +120,7 @@ public class VipServlet extends BaseServlet {
         SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         vip.setRegTime(String.valueOf(simpleDateFormat.format(new Date())));
         int result=vipService.insert(vip);
+        String message="注册失败";
         if (result>0){
             response.getWriter().print("<script> alert(\"注册成功!\");" +
                     "window.location.href=\"http://localhost:8000/architect/admin/html/add.html\""+

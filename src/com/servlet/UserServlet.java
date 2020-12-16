@@ -48,6 +48,7 @@ public class UserServlet extends BaseServlet {
         User user = userService.queryUserByNameAndPassword(new User(username, password));//根据账号密码从数据查询
         if (token.equals(code)) {
             if (user != null) {
+                user.setLogCount(user.getLogCount()+1);
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
                 response.sendRedirect(request.getContextPath() + "/administrator.jsp");
