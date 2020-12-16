@@ -80,7 +80,6 @@ public class UserServlet extends BaseServlet {
                     "window.location.href=\"http://localhost:8000/architect/admin/html/addadmin.html\""+
                     " </script>");
         }
-
     }
     //删除
     public void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {

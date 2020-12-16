@@ -130,8 +130,6 @@ public class VipServlet extends BaseServlet {
                     "window.location.href=\"http://localhost:8000/architect/admin/html/add.html\""+
                     " </script>");
         }
-
-
     }
 
 
