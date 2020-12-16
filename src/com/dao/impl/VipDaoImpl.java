@@ -49,6 +49,12 @@ public class VipDaoImpl extends BaseDao implements VipDao {
     }
 
     @Override
+    public Vip query(int id) {
+        String sql="select * from vip where MemberId=?";
+        return queryForOne(Vip.class,sql,id);
+    }
+
+    @Override
     public Integer queryCounts() {
         String sql="select count(1) from vip";
         return Math.toIntExact((long)queryForSingleValue(sql));

@@ -15,6 +15,7 @@ public interface VipService {
     int delete(int id);
     int update(Vip vip);
     List<Vip> queryAll();
+    Vip query(int id);
     Vip queryUserByNameAndPassword(Vip vip);
     Vip queryUserByName(Vip vip);
     /**

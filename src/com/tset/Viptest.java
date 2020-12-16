@@ -18,8 +18,12 @@ public class Viptest {
 //    public void test(){
 //        System.out.println(vipDao.queryUserBypage(0,5));
 //    }
+//    @Test
+//    public void test1(){
+//        System.out.println(userDao.queryUserBypage(0,5));
+//    }
     @Test
-    public void test1(){
-        System.out.println(userDao.queryUserBypage(0,5));
+    public void tese2(){
+        System.out.println(userDao.query(1));
     }
 }

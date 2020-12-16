@@ -17,6 +17,7 @@ public interface UserDao {
     List<User> queryAll();
     User queryUserByNameAndPassword(User user);
     User queryUserByUsername(User user);
+    User query(int id);
     //查询当前表的总记录条数
     Integer queryCounts();
     //分页查询
