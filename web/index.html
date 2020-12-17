@@ -60,6 +60,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     address(data);
                 }
             });
+
             function address(data) {
                 let jsonObj = JSON.parse(data);
                 for (let i = 0; i < 4; i++) {
@@ -73,6 +74,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     $("#tbody1").append(trNode);
                 }
             }
+            $.ajax({
+                url: "http://localhost:8000/architect/notice.do",
+                data: {action: "queryNoticeAll"},
+                type: "GET",
+                dataType: "text",
+                success: function (data) {
+                    adadadsa(data);
+                }
+            });
+            function adadadsa(data) {
+                let jsonObj = JSON.parse(data);
+                for (let i = 0; i < jsonObj.length; i++) {
+                    let title1 = jsonObj[i].title;
+                    let neirong2 = jsonObj[i].neirong;
+                    let time = jsonObj[i].time;
+                    // let trNode = "<div></div>";
+                    let trNode=("<a style='float:left;color: dimgray;font-size: 15px'>"+title1 + "</a><a style=''>" + neirong2 + "</a><a  style='float: right'>" + time + "</a><br>");
+
+                    $("#tbody2").append(trNode);
+                }
+
+            }
+
+
         })
     </script>
     <!---- start-smoth-scrolling---->
@@ -444,18 +469,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </form>
 
                 </div>
+
                 <div>
                     <span style="left: 1100px;top: 290px;position: absolute;font-size: 25px;color: #3B5998;">网站公告</span><br>
-                    <form style=" margin-top: 70px;text-align: center;line-height: 30px;border: 1px solid lightgrey;height: 300px">
-                        <a style="font-size: 20px;color: cornflowerblue;" href="#">哈哈哈哈哈哈哈哈哈哈哈</a><br>
-                        <a style="font-size: 20px;color: cornflowerblue;" href="#">哈哈哈哈哈哈哈哈哈哈哈</a><br>
-                        <a style="font-size: 20px;color: cornflowerblue;" href="#">哈哈哈哈哈哈哈哈哈哈哈</a><br>
-                        <a style="font-size: 20px;color: cornflowerblue;" href="#">哈哈哈哈哈哈哈哈哈哈哈</a><br>
-                        <a style="font-size: 20px;color: cornflowerblue;" href="#">哈哈哈哈哈哈哈哈哈哈哈</a><br>
-                        <a style="font-size: 20px;color: cornflowerblue;" href="#">哈哈哈哈哈哈哈哈哈哈哈</a><br>
-                        <a style="font-size: 20px;color: cornflowerblue;" href="#">哈哈哈哈哈哈哈哈哈哈哈</a><br>
-                        <a style="font-size: 20px;color: cornflowerblue;" href="#">哈哈哈哈哈哈哈哈哈哈哈</a><br>
-                    </form>
+                    <ul  style=" margin-top: 70px;text-align: center;line-height: 30px;border: 1px solid lightgrey;height: 300px">
+                        <div id="tbody2"></div>
+
+                    </ul>
                 </div>
             </div>
             <div class="clearfix"></div>

@@ -26,13 +26,31 @@ public class NoticeImpl extends BaseDao implements NoticeDao {
 
     @Override
     public int update(Notice notice) {
-        String sql="update notice set title=?,neirong=?,time=?";
-        return update(sql,notice.getTitle(),notice.getNeirong(),notice.getTime());
+        String sql="update notice set title=?,neirong=?,time=? where id=?";
+        return update(sql,notice.getTitle(),notice.getNeirong(),notice.getTime(),notice.getId());
     }
 
     @Override
     public List<Notice> queryAll() {
         String sql="select * from notice";
         return queryForList(Notice.class,sql);
+    }
+
+    @Override
+    public Notice query(int id) {
+        String sql="select * from notice where id=?";
+        return queryForOne(Notice.class,sql,id);
+    }
+
+    @Override
+    public Integer queryCounts() {
+        String sql="select count(1) from notice";
+        return Math.toIntExact((long)queryForSingleValue(sql));
+    }
+
+    @Override
+    public List<Notice> queryUserBypage(int begin, int pageSize) {
+        String sql="select * from notice limit ?,?";
+        return queryForList(Notice.class,sql,begin,pageSize);
     }
 }

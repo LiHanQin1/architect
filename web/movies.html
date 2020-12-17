@@ -170,13 +170,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <!-- Tab panes -->
                                     <div class="tab-content">
                                         <div class="tab-pane active" id="Login">
-                                            <form role="form" class="form-horizontal" method="post" action="/architect/vip.do">
+                                            <form role="form" class="form-horizontal" method="post"
+                                                  action="/architect/vip.do">
                                                 <input name="action" type="hidden" value="login"/>
                                                 <div class="form-group">
                                                     <label for="email" class="col-sm-2 control-label">
                                                         用户名</label>
                                                     <div class="col-sm-10">
-                                                        <input type="text" name="username" class="form-control" id="username"
+                                                        <input type="text" name="username" class="form-control"
+                                                               id="username"
                                                                placeholder="username"/>
                                                     </div>
                                                 </div>
@@ -201,7 +203,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             </form>
                                         </div>
                                         <div class="tab-pane" id="Registration">
-                                            <form role="form" class="form-horizontal" method="post" action="/architect/vip.do">
+                                            <form role="form" class="form-horizontal" method="post"
+                                                  action="/architect/vip.do">
                                                 <input name="action" type="hidden" value="register"/>
                                                 <div class="form-group">
                                                     <label for="email" class="col-sm-2 control-label">
@@ -209,7 +212,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     <div class="col-sm-10">
                                                         <div class="row">
                                                             <div class="col-md-9">
-                                                                <input type="text" name="registername" class="form-control"
+                                                                <input type="text" name="registername"
+                                                                       class="form-control"
                                                                        placeholder="Name"/>
                                                             </div>
                                                         </div>
@@ -219,7 +223,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     <label for="email" class="col-sm-2 control-label">
                                                         密码</label>
                                                     <div class="col-sm-10">
-                                                        <input type="password" name="registerpassword" class="form-control" id="registerpassword"
+                                                        <input type="password" name="registerpassword"
+                                                               class="form-control" id="registerpassword"
                                                                placeholder="Password"/>
                                                     </div>
                                                 </div>
@@ -227,7 +232,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     <label for="email" class="col-sm-2 control-label">
                                                         确认密码</label>
                                                     <div class="col-sm-10">
-                                                        <input type="password" class="form-control" name="confirmregisterpassword" id="confirmregisterpassword"
+                                                        <input type="password" class="form-control"
+                                                               name="confirmregisterpassword"
+                                                               id="confirmregisterpassword"
                                                                placeholder="Password"/>
                                                     </div>
                                                 </div>
@@ -346,12 +353,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                                       class="dropdown-toggle">电影海报与预告</a>
 
                         <li class="dropdown"><a href="ticket.html" class="dropdown-toggle">参考投票</a>
-
                         </li>
                         <li class="dropdown"><a href="#" data-toggle="dropdown" class="dropdown-toggle">联系我们<b
                                 class="caret"></b></a>
                             <ul class="dropdown-menu" role="menu">
-
                                 <li><a href="about.html">About</a></li>
                                 <li><a href="blog.html">Blog</a></li>
                                 <li><a href="404.html">404</a></li>
@@ -414,25 +419,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <script>
             $(function () {
                 $.ajax({
-                    url:"http://localhost:8000/architect/FilmServlet",
-                    data:{action:"queryAll"},
-                    type:"GET",
-                    dataType:"text",
-                    success:function (data){
+                    url: "http://localhost:8000/architect/FilmServlet",
+                    data: {action: "queryAll"},
+                    type: "GET",
+                    dataType: "text",
+                    success: function (data) {
                         // alert(data);
                         movies(data);
                     }
                 })
+
                 function movies(data) {
                     let jsonObj = JSON.parse(data);
                     for (var i = 0; i < jsonObj.length; i++) {
                         let trNode = $("<div class=\"col-md-4 movie-preview\"></div>");
                         trNode.append("");
                         let imgpath = jsonObj[i].PicAddress;
-                        imgpath = "http://localhost:8000"+imgpath.substring(2).replaceAll("\\","/");
+                        imgpath = "http://localhost:8000" + imgpath.substring(2).replaceAll("\\", "/");
                         trNode.append("");
-                        trNode.append("<a href=\"movie-single.html\" class=\"mask\"><img src=\'"+imgpath+"\' id='imgpath' class=\"img-responsive zoom-img\" alt=\"\"/><a class=\"m-movie-title\"><a class=\"m-movie-link\" href=\"movie-select-show.html\">"+jsonObj[i].MovieName+"</a>" +
-                            "<div class=\"clearfix\"></div><div class=\"m-r-date\"></div><p><i class=\"fa fa-calendar-o\"></i>"+jsonObj[i].ShowTime+"</p>" +
+                        trNode.append("<a href=\"movie-single.html\" class=\"mask\"><img src=\'" + imgpath + "\' id='imgpath' class=\"img-responsive zoom-img\" alt=\"\"/><a class=\"m-movie-title\"><a class=\"m-movie-link\" href=\"movie-select-show.html\">" + jsonObj[i].MovieName + "</a>" +
+                            "<div class=\"clearfix\"></div><div class=\"m-r-date\"></div><p><i class=\"fa fa-calendar-o\"></i>" + jsonObj[i].ShowTime + "</p>" +
                             "<div class=\"m-r-like\"><i class=\"fa fa-thumbs-up\"></i><p>rocking</p></div><div class=\"clearfix\"></div></a></div>");
 
                         $("#tbody").append(trNode);
@@ -445,198 +451,47 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div id="tbody">
 
             </div>
-
         </div>
-
         <script>
             $(function () {
                 $.ajax({
-                    url:"http://localhost:8000/architect/YuGaoServlet",
-                    data:{action:"queryAll"},
-                    type:"GET",
-                    dataType:"text",
-                    success:function (data){
+                    url: "http://localhost:8000/architect/YuGaoServlet",
+                    data: {action: "queryAll"},
+                    type: "GET",
+                    dataType: "text",
+                    success: function (data) {
                         // alert(data);
                         movies(data);
                     }
                 })
+
                 function movies(data) {
                     let jsonObj = JSON.parse(data);
                     for (var i = 0; i < jsonObj.length; i++) {
-                            let trNode = $("<div class=\"col-md-4 movie-preview\"></div>");
-                            trNode.append("");
-                            let imgpath = jsonObj[i].PicAddress;
-                            imgpath = "http://localhost:8000"+imgpath.substring(2).replaceAll("\\","/");
-                            trNode.append("");
-                            trNode.append("<a href=\"movie-single.html\" class=\"mask\"><img src=\'"+imgpath+"\' id='imgpath' class=\"img-responsive zoom-img\" alt=\"\"/><div class=\"m-movie-title\"><a class=\"m-movie-link\" href=\"movie-select-show.html\">"+jsonObj[i].MovieName+"</a>" +
-                                "<div class=\"clearfix\"></div><div class=\"m-r-date\"></div><p><i class=\"fa fa-calendar-o\"></i>"+jsonObj[i].ShowTime+"</p>" +
-                                "<div class=\"m-r-like\"><p>want to see <span>96</span>%</p></div><div class=\"clearfix\"></div></a></div>");
+                        let trNode = $("<div class=\"col-md-4 movie-preview\"></div>");
+                        trNode.append("");
+                        let imgpath = jsonObj[i].PicAddress;
+                        imgpath = "http://localhost:8000" + imgpath.substring(2).replaceAll("\\", "/");
+                        trNode.append("");
+                        trNode.append("<a href=\"movie-single.html\" class=\"mask\"><img src=\'" + imgpath + "\' id='imgpath' class=\"img-responsive zoom-img\" alt=\"\"/><div class=\"m-movie-title\"><a class=\"m-movie-link\" href=\"movie-select-show.html\">" + jsonObj[i].MovieName + "</a>" +
+                            "<div class=\"clearfix\"></div><div class=\"m-r-date\"></div><p><i class=\"fa fa-calendar-o\"></i>" + jsonObj[i].ShowTime + "</p>" +
+                            "<div class=\"m-r-like\"><p>want to see <span>96</span>%</p></div><div class=\"clearfix\"></div></a></div>");
 
-                            $("#tbody1").append(trNode);
+                        $("#tbody1").append(trNode);
                     }
                 }
             })
         </script>
         <div class="now-showing-movies">
             <h3 class="m-head">即将上映</h3>
-            <div  id="tbody1">
-
+            <div id="tbody1">
 
             </div>
-            <!--<div class="col-md-4 movie-preview">-->
-                <!--<a href="movie-single.html" class="mask">-->
-                    <!--<img src="images/m7.jpg" class="img-responsive zoom-img" alt=""/>-->
-                    <!--<div class="m-movie-title">-->
-                        <!--<a class="m-movie-link" href="movie-single.html">Magic Mike XXL</a>-->
-                        <!--<div class="clearfix"></div>-->
-                        <!--<div class="m-r-date">-->
-                            <!--<p><i class="fa fa-calendar-o"></i>1 Jul, 2015</p>-->
-                        <!--</div>-->
-                        <!--<div class="m-r-like">-->
-                            <!--<p>want to see <span>96</span>%</p>-->
-                        <!--</div>-->
-                        <!--<div class="clearfix"></div>-->
-                    <!--</div>-->
-                <!--</a>-->
-            <!--</div>-->
-            <!--<div class="col-md-4 movie-preview">-->
-                <!--<a href="movie-single.html" class="mask">-->
-                    <!--<img src="images/m8.jpg" class="img-responsive zoom-img" alt=""/>-->
-                    <!--<div class="m-movie-title">-->
-                        <!--<a class="m-movie-link" href="movie-single.html">Amy</a>-->
-                        <!--<div class="clearfix"></div>-->
-                        <!--<div class="m-r-date">-->
-                            <!--<p><i class="fa fa-calendar-o"></i>3 Jul, 2015</p>-->
-                        <!--</div>-->
-                        <!--<div class="m-r-like">-->
-                            <!--<p>want to see <span>90</span>%</p>-->
-                        <!--</div>-->
-                        <!--<div class="clearfix"></div>-->
-                    <!--</div>-->
-                <!--</a>-->
-            <!--</div>-->
-            <!--<div class="col-md-4 movie-preview">-->
-                <!--<a href="movie-single.html" class="mask">-->
-                    <!--<img src="images/m9.jpg" class="img-responsive zoom-img" alt=""/>-->
-                    <!--<div class="m-movie-title">-->
-                        <!--<a class="m-movie-link" href="movie-single.html">Baby</a>-->
-                        <!--<div class="clearfix"></div>-->
-                        <!--<div class="m-r-date">-->
-                            <!--<p><i class="fa fa-calendar-o"></i>3 Jul, 2015</p>-->
-                        <!--</div>-->
-                        <!--<div class="m-r-like">-->
-                            <!--<p>want to see <span>87</span>%</p>-->
-                        <!--</div>-->
-                        <!--<div class="clearfix"></div>-->
-                    <!--</div>-->
-                <!--</a>-->
-            <!--</div>-->
-            <!--<div class="col-md-4 movie-preview">-->
-                <!--<a href="movie-single.html" class="mask">-->
-                    <!--<img src="images/m10.jpg" class="img-responsive zoom-img" alt=""/>-->
-                    <!--<div class="m-movie-title">-->
-                        <!--<a class="m-movie-link" href="movie-single.html">Bezubaan Ishq (U)</a>-->
-                        <!--<div class="clearfix"></div>-->
-                        <!--<div class="m-r-date">-->
-                            <!--<p><i class="fa fa-calendar-o"></i>3 Jul, 2015</p>-->
-                        <!--</div>-->
-                        <!--<div class="m-r-like">-->
-                            <!--<p>want to see <span>75</span>%</p>-->
-                        <!--</div>-->
-                        <!--<div class="clearfix"></div>-->
-                    <!--</div>-->
-                <!--</a>-->
-            <!--</div>-->
-            <!--<div class="col-md-4 movie-preview">-->
-                <!--<a href="movie-single.html" class="mask">-->
-                    <!--<img src="images/m11.jpg" class="img-responsive zoom-img" alt=""/>-->
-                    <!--<div class="m-movie-title">-->
-                        <!--<a class="m-movie-link" href="movie-single.html">Guddu Rangeela (U/A)</a>-->
-                        <!--<div class="clearfix"></div>-->
-                        <!--<div class="m-r-date">-->
-                            <!--<p><i class="fa fa-calendar-o"></i>3 Jul, 2015</p>-->
-                        <!--</div>-->
-                        <!--<div class="m-r-like">-->
-                            <!--<p>want to see <span>94</span>%</p>-->
-                        <!--</div>-->
-                        <!--<div class="clearfix"></div>-->
-                    <!--</div>-->
-                <!--</a>-->
-            <!--</div>-->
-            <!--<div class="col-md-4 movie-preview">-->
-                <!--<a href="movie-single.html" class="mask">-->
-                    <!--<img src="images/m12.jpg" class="img-responsive zoom-img" alt=""/>-->
-                    <!--<div class="m-movie-title">-->
-                        <!--<a class="m-movie-link" href="movie-single.html">James Bond</a>-->
-                        <!--<div class="clearfix"></div>-->
-                        <!--<div class="m-r-date">-->
-                            <!--<p><i class="fa fa-calendar-o"></i>3 Jul, 2015</p>-->
-                        <!--</div>-->
-                        <!--<div class="m-r-like">-->
-                            <!--<p>want to see <span>91</span>%</p>-->
-                        <!--</div>-->
-                        <!--<div class="clearfix"></div>-->
-                    <!--</div>-->
-                <!--</a>-->
-            <!--</div>-->
-            <!--<div class="col-md-4 movie-preview">-->
-                <!--<a href="movie-single.html" class="mask">-->
-                    <!--<img src="images/m13.jpg" class="img-responsive zoom-img" alt=""/>-->
-                    <!--<div class="m-movie-title">-->
-                        <!--<a class="m-movie-link" href="#">Malupu</a>-->
-                        <!--<div class="clearfix"></div>-->
-                        <!--<div class="m-r-date">-->
-                            <!--<p><i class="fa fa-calendar-o"></i>3 Jul, 2015</p>-->
-                        <!--</div>-->
-                        <!--<div class="m-r-like">-->
-                            <!--<p>want to see <span>90</span>%</p>-->
-                        <!--</div>-->
-                        <!--<div class="clearfix"></div>-->
-                    <!--</div>-->
-                <!--</a>-->
-            <!--</div>-->
-            <!--<div class="col-md-4 movie-preview">-->
-                <!--<a href="movie-single.html" class="mask">-->
-                    <!--<img src="images/m14.jpg" class="img-responsive zoom-img" alt=""/>-->
-                    <!--<div class="m-movie-title">-->
-                        <!--<a class="m-movie-link" href="movie-single.html">Online Binline</a>-->
-                        <!--<div class="clearfix"></div>-->
-                        <!--<div class="m-r-date">-->
-                            <!--<p><i class="fa fa-calendar-o"></i>3 Jul, 2015</p>-->
-                        <!--</div>-->
-                        <!--<div class="m-r-like">-->
-                            <!--<p>want to see <span>92</span>%</p>-->
-                        <!--</div>-->
-                        <!--<div class="clearfix"></div>-->
-                    <!--</div>-->
-                <!--</a>-->
-            <!--</div>-->
-            <!--<div class="col-md-4 movie-preview">-->
-                <!--<a href="movie-single.html" class="mask">-->
-                    <!--<img src="images/m15.jpg" class="img-responsive zoom-img" alt=""/>-->
-                    <!--<div class="m-movie-title">-->
-                        <!--<a class="m-movie-link" href="movie-single.html">Oru Thozan Oru Thozi</a>-->
-                        <!--<div class="clearfix"></div>-->
-                        <!--<div class="m-r-date">-->
-                            <!--<p><i class="fa fa-calendar-o"></i>3 Jul, 2015</p>-->
-                        <!--</div>-->
-                        <!--<div class="m-r-like">-->
-                            <!--<p>want to see <span>20</span></p>-->
-                        <!--</div>-->
-                        <!--<div class="clearfix"></div>-->
-                    <!--</div>-->
-                <!--</a>-->
-            <!--</div>-->
-            <!--<div class="clearfix"></div>-->
+
         </div>
-
-
     </div>
-
     <script type="text/javascript">
         $(document).ready(function () {
-
-
             $().UItoTop({easingType: 'easeOutQuart'});
 
         });
