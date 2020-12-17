@@ -164,13 +164,15 @@ public class VipServlet extends BaseServlet {
         //根据用户名查询
 
         public void queryByUsername (HttpServletRequest request, HttpServletResponse response) throws IOException {
-            String username = request.getParameter("username");
-            Vip vip = new Vip();
-            vip.setUserName(username);
-            Vip vip1 = vipService.queryUserByName(vip);
-            String str1 = (vip1 == null) ? null : "1";
+            if (request.getParameter("username")!=null){
+                String username = request.getParameter("username");
+                Vip vip = new Vip();
+                vip.setUserName(username);
+                Vip vip1 = vipService.queryUserByName(vip);
+                String str1 = (vip1 == null) ? "" : "1";
+                response.getWriter().write(str1);
+            }
 
-            response.getWriter().write(str1);
         }
         public void updata (HttpServletRequest request, HttpServletResponse response) throws IOException {
             Integer MemberId = Integer.valueOf(request.getParameter("userId"));
