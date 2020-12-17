@@ -23,10 +23,12 @@ import java.util.List;
 public class CommentServlet extends BaseServlet {
     CommentService commentService = new CommentServiceImpl();
 
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         super.doGet(request, response);
     }

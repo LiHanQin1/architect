@@ -98,13 +98,7 @@ public class FileUploadServlet1 extends HttpServlet {
                         } else {
                             film.setPicAddress(oldPath);
                         }
-
-
-
-//                        String str1=(result==1)?"1":"";
-//                        response.getWriter().write(str1);
                     }
-
 
 
                 }
@@ -115,6 +109,8 @@ public class FileUploadServlet1 extends HttpServlet {
             }
 
             Integer result=filmService.update(film);
+            String str1=(result==1)?"1":"";
+            response.getWriter().write(str1);
         }
     }
 

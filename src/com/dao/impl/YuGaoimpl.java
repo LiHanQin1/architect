@@ -3,6 +3,7 @@ package com.dao.impl;
 import com.dao.BaseDao;
 import com.dao.YuGaoDao;
 
+import com.entity.Film;
 import com.entity.YuGao;
 
 import java.util.List;
@@ -65,6 +66,24 @@ public class YuGaoimpl extends BaseDao implements YuGaoDao {
     public List<YuGao> queryAddress() {
         String sql="select PicAddress from yugao";
         return queryForList(YuGao.class,sql);
+    }
+
+    @Override
+    public YuGao query(int id) {
+        String sql="select * from yugao where MovieId=?";
+        return queryForOne(YuGao.class,sql,id);
+    }
+
+    @Override
+    public Integer queryCounts() {
+        String sql="select count(1) from yugao";
+        return Math.toIntExact((long)queryForSingleValue(sql));
+    }
+
+    @Override
+    public List<YuGao> queryUserBypage(int begin, int pageSize) {
+        String sql="select * from yugao limit ?,?";
+        return queryForList(YuGao.class,sql,begin,pageSize);
     }
 
 }

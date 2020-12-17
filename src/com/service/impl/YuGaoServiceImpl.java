@@ -2,8 +2,10 @@ package com.service.impl;
 
 import com.dao.YuGaoDao;
 import com.dao.impl.YuGaoimpl;
+import com.entity.Film;
 import com.entity.YuGao;
 import com.service.YuGaoService;
+import com.utils.Page;
 
 import java.util.List;
 
@@ -57,5 +59,40 @@ public class YuGaoServiceImpl implements YuGaoService {
     @Override
     public List<YuGao> queryAddress() {
         return yuGaoDao.queryAddress();
+    }
+
+    @Override
+    public YuGao query(int id) {
+        return yuGaoDao.query(id);
+    }
+
+    @Override
+    public Integer queryCounts() {
+        return yuGaoDao.queryCounts();
+    }
+
+    @Override
+    public Page<YuGao> queryByPage(int pageNo, int pageSize) {
+        Page<YuGao> page=new Page<>();
+        //设置当前页码
+        page.setPageNo(pageNo);
+        //设置每页展示的数量
+        page.setPageSize(pageSize);
+        //求总记录数
+        Integer pageTotalCount=yuGaoDao.queryCounts();
+        //设置总记录数
+        page.setPageTotalCount(Math.toIntExact(pageTotalCount));
+        //求总页码数
+        Integer pageTotal=pageTotalCount/pageSize;
+        if (pageTotalCount%pageSize>0){
+            pageTotal+=1;
+        }
+        //配置总页码
+        page.setPageTotal(pageTotal);
+        //求当前的页数据的开始索引
+        int begin=(page.getPageNo()-1)*pageSize;
+        List<YuGao> items=yuGaoDao.queryUserBypage(begin,pageSize);
+        page.setItems(items);
+        return page;
     }
 }

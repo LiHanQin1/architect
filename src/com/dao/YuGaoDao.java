@@ -1,5 +1,6 @@
 package com.dao;
 
+import com.entity.Film;
 import com.entity.YuGao;
 import com.entity.YuGao;
 
@@ -20,4 +21,9 @@ public interface YuGaoDao {
     YuGao  queryMovieByDaoYan(YuGao yuGao);
     YuGao  queryMovieByZhuYan(YuGao yuGao);
     List<YuGao> queryAddress();
+    YuGao query(int id);
+    //查询当前表的总记录条数
+    Integer queryCounts();
+    //分页查询
+    List<YuGao> queryUserBypage(int begin, int pageSize);
 }
