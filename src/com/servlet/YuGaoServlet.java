@@ -32,6 +32,12 @@ public class YuGaoServlet extends BaseServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         super.doGet(request,response);
     }
+    public void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        Integer userId= Integer.valueOf(request.getParameter("userId"));
+        Integer result=yuGaoService.delete(userId);
+//        String message=(result >0 ) ?"删除成功":"删除失败";
+        response.getWriter().write(result.toString());
+    }
 
     public void queryPicAddress(HttpServletRequest request, HttpServletResponse response) throws IOException {
         List<YuGao> film=yuGaoService.queryAddress();
