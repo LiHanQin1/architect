@@ -98,7 +98,7 @@ public class FilmFileUploadServlet extends HttpServlet {
                         "window.location.href=\"http://localhost:8000/architect/admin/html/addfirm.html\""+
                         " </script>");
             }else{
-                response.getWriter().print("<script> alert(\"添加成功!\");" +
+                response.getWriter().print("<script> alert(\"添加失败!\");" +
                         "window.location.href=\"http://localhost:8000/architect/admin/html/addfirm.html\""+
                         " </script>");
             }
