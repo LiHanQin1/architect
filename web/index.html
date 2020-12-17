@@ -72,33 +72,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     console.log(imgpath)
                     trNode.append("<img  class='img-responsive' src=\'" + imgpath + "\'>");
                     $("#tbody1").append(trNode);
+
                 }
+
             }
-            $.ajax({
-                url: "http://localhost:8000/architect/notice.do",
-                data: {action: "queryNoticeAll"},
-                type: "GET",
-                dataType: "text",
-                success: function (data) {
-                    adadadsa(data);
-                }
-            });
-            function adadadsa(data) {
+
+
+                $.ajax({
+                    url:"http://localhost:8000/architect/notice.do",
+                    data:{action:"queryAll"},
+                    type:"GET",
+                    dataType:"text",
+                    success:function (data){
+                        notice(data);
+                    }
+                })
+                function notice(data) {
                 let jsonObj = JSON.parse(data);
-                for (let i = 0; i < jsonObj.length; i++) {
-                    let title1 = jsonObj[i].title;
-                    let neirong2 = jsonObj[i].neirong;
-                    let time = jsonObj[i].time;
-                    // let trNode = "<div></div>";
-                    let trNode=("<a style='float:left;color: dimgray;font-size: 15px'>"+title1 + "</a><a style=''>" + neirong2 + "</a><a  style='float: right'>" + time + "</a><br>");
-
-                    $("#tbody2").append(trNode);
-                }
+                for (var i = 0; i < jsonObj.length; i++) {
+                let trNode = "<div style='line-height: 35px'><a style='float: left' href=\"#\">"+jsonObj[i].title+"</a>" +
+                    "<a style='position: absolute;left: 1080px' href=\"#\">"+jsonObj[i].neirong+"</a>" +
+                    "<a style='float: right' >"+jsonObj[i].time+"</a><br></div>"
+                $("#tbody").append(trNode);
+            }
 
             }
 
 
-        })
+
+
+
+    })
+
     </script>
     <!---- start-smoth-scrolling---->
 </head>
@@ -436,7 +441,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="main-banner">
             <div class="banner col-md-8">
                 <section class="slider">
-                    <div class="flexslider">
+                    <div  class="flexslider">
                         <ul id="tbody1" class="slides">
 
 
@@ -460,6 +465,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     });
                 </script>
             </div>
+
+
             <div class="search" style="margin-right: 20px">
                 <div class="search2">
                     <form>
@@ -472,14 +479,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <div>
                     <span style="left: 1100px;top: 290px;position: absolute;font-size: 25px;color: #3B5998;">网站公告</span><br>
-                    <ul  style=" margin-top: 70px;text-align: center;line-height: 30px;border: 1px solid lightgrey;height: 300px">
-                        <div id="tbody2"></div>
 
+                    <ul style=" margin-top: 70px;text-align: center;line-height: 30px;border: 1px solid lightgrey;height: 300px">
+                        <div id="tbody">
+                            <th>
+                                <span style="position: absolute;left: 925px">标题 </span>
+                                <span style='position: absolute;left: 1080px' >内容</span>
+                                <span style="position: absolute;left: 1240px">上传时间</span>
+                                <br>
+                            </th>
+
+                        </div> <!--<a style="font-size: 20px;color: cornflowerblue;" href="#">哈哈哈哈哈哈哈哈哈哈哈</a><br>-->
+                        <!--<a style="font-size: 20px;color: cornflowerblue;" href="#">哈哈哈哈哈哈哈哈哈哈哈</a><br>-->
+                        <!--<a style="font-size: 20px;color: cornflowerblue;" href="#">哈哈哈哈哈哈哈哈哈哈哈</a><br>-->
+                        <!--<a style="font-size: 20px;color: cornflowerblue;" href="#">哈哈哈哈哈哈哈哈哈哈哈</a><br>-->
+                        <!--<a style="font-size: 20px;color: cornflowerblue;" href="#">哈哈哈哈哈哈哈哈哈哈哈</a><br>-->
+                        <!--<a style="font-size: 20px;color: cornflowerblue;" href="#">哈哈哈哈哈哈哈哈哈哈哈</a><br>-->
+                        <!--<a style="font-size: 20px;color: cornflowerblue;" href="#">哈哈哈哈哈哈哈哈哈哈哈</a><br>-->
+                        <!--<a style="font-size: 20px;color: cornflowerblue;" href="#">哈哈哈哈哈哈哈哈哈哈哈</a><br>-->
                     </ul>
                 </div>
             </div>
             <div class="clearfix"></div>
         </div>
+
         <link href="css/moviereview.css" rel="stylesheet" type="text/css">
         <br/>
         <span class="ttncspa">热门影片</span>

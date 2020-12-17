@@ -4,8 +4,6 @@ import com.dao.BaseDao;
 import com.dao.CommentDao;
 import com.entity.Comment;
 import com.entity.User;
-import com.utils.Page;
-import org.junit.Test;
 
 import java.util.List;
 
@@ -38,6 +36,15 @@ public class CommentDaoImpl extends BaseDao implements CommentDao {
         String sql="select film.MovieName,comment.* from comment,film where comment.MovieId=film.MovieId";
         return queryForList(Comment.class,sql);
     }
+
+    @Override
+    public  List<Comment> queryCommentByMovieId(Comment comment) {
+        String sql = "select c.* from comment c, film f where f.MovieId = c.MovieId AND f.MovieId = ?";
+        return queryForList(Comment.class,sql,comment.getMovieId());
+    }
+
+
+
 
     @Override
     public Comment query(int id) {

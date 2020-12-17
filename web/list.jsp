@@ -11,7 +11,7 @@
     <title>Title</title>
 </head>
 <body>
-<form method="post" enctype="multipart/form-data" action="/architect/FileUploadServlet"><br/>
+<form method="post" enctype="multipart/form-data" action="FileUploadServlet"><br/>
     影评名称:<input type="text" name="MovieName" id="MovieName"><br/>
     影评类别:<input type="text" name="TypeId" id="TypeId"><br/>
     导演:<input type="text" name="DaoYan" id="DaoYan"><br/>

@@ -20,6 +20,7 @@ public interface FilmService {
     Film  queryMovieByTypeId(Film film);
     Film  queryMovieByDaoYan(Film film);
     Film  queryMovieByZhuYan(Film film);
+    Film  queryMovieByMovieId(Film film);
     List<Film> queryAddress();
 
     Film query(int id);

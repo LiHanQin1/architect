@@ -280,23 +280,86 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 function address(data) {
                     let jsonObj = JSON.parse(data);
                     for (let i = 0; i < jsonObj.length; i++) {
+                        var movieId = jsonObj[i].MovieId;
                         let trNode = $("<table style=\"border: white 0px solid\"></table>");
                         let moviename = jsonObj[i].MovieName;
                         let imgpath = jsonObj[i].PicAddress;
+                        let hits = jsonObj[i].Hits;
+                        let time = jsonObj[i].AddTime;
+                        time = time.substring(0, 10);
                         trNode.append("<tr><td>" + "<span class=\"ttncspa\">" + moviename + "</span>" + "</td></tr>");
                         var strs = jsonObj[i].Content.substring(0, 400);
                         imgpath = "http://localhost:8000" + imgpath.substring(2).replaceAll("\\", "/");
                         trNode.append("<tr><td>" + "<div class=\"ttncspa1\" id=\"test" + i + "\" style=\"width:900px;height:100px;overflow-y:hidden;\">" + strs + "</div>" + "</td>" + "<td><img class='ttncmovie' src=\'" + imgpath + "\'></td>" + "</tr>");
                         trNode.append("<a href=\"javascript:void(0)\" id=\"show" + i + "\" style=\"display:block\" onclick=\"document.getElementById('test" + i + "').style.height='auto';document.getElementById('hidden" + i + "').style.display='block';document.getElementById('show" + i + "').style.display='none'\">展开</a>\n");
                         trNode.append("<a href=\"javascript:void(0)\" id=\"hidden" + i + "\" style=\"display:none;\" onclick=\"document.getElementById('test" + i + "').style.height='100px';document.getElementById('hidden" + i + "').style.display='none';document.getElementById('show" + i + "').style.display='block'\">关闭</a>\n");
+                        trNode.append("<span  id='read" + i + "' style='float: right'>" + time + "" + "|" + "<span>阅读(" + hits + ")" + "|" + "</span></span>");
+                        trNode.append("<br><div  id='comment" + i + "'></div>")
                         trNode.append("<hr style=\"height:1px;border:none;border-top:1px solid #555555;\" />");
                         $("#tbody1").append(trNode);
+                        window.onload = $(eval("show" + i)).click(function () {
+                            var movieId = jsonObj[i].MovieId;
+                            $.ajax({
+                                url: "http://localhost:8000/architect/FilmServlet",
+                                data: {action: "updateHit", MovieId: movieId},
+                                type: "GET",
+                                dataType: "text",
+                                success: function (data) {
+                                    hits(data)
+                                }
+                            })
+                            function hits(data) {
+                                let jsonObj = JSON.parse(data);
+                                hits = jsonObj[i].Hits;
+                            }
+                        });
+                        $.ajax({
+                            url: "http://localhost:8000/architect/Comment.do",
+                            data: {action: "queryCommentByMovieId", MovieId: movieId},
+                            type: "GET",
+                            dataType: "text",
+                            success: function (data) {
+                                count(data);
+                                comment(data)
+                            }
+                        })
+                        function comment(data) {
+                            let jsonObj = JSON.parse(data);
+                            for (var j = 0; j < jsonObj.length; j++) {
+                                // trNode = "<ifram ></ifram>"
+                                let commentUser = jsonObj[j].CommentUser;
+                                let commentContent = jsonObj[j].CommentContent;
+                                let commentTime = jsonObj[j].CommentTime;
+                                commentTime = commentTime.substring(0, 10);
+                                let trNode = ("<iframe id='a" + i + "' class='a" + i + "' style='display: none'><table style=\"margin-left: 60px;border: 1px lightgrey solid;width: 900px;height: 200px\">" +
+                                    "<tr><td style=\"position: absolute;left: 260px\">" + commentUser + "</td></tr>" +
+                                    "<tr><td style=\"padding-bottom: 100px;padding-left: 50px\"><label>" + commentContent + "</label></td></tr>" +
+                                    "<tr><td style='float: right'><label>" + commentTime + "</label></td></tr></table></iframe>");
+                                $(eval("comment" + i)).append(trNode);
+                            }
+                        }
+                        function count(data) {
+                            let jsonObj = JSON.parse(data);
+                            let trNode = "<a id='re" + i + "' onclick='"+node("a"+i)+"' href='javascript:void(0)'>回复（" + jsonObj.length + "）</a>";
+                            $(eval("read" + i)).append(trNode);
+
+                        }
+                        function node(id) {
+                            my(id).style.display = "block";
+                        }
+
+                        function my(id) {
+                            return document.getElementById(id);
+                        }
                     }
                 }
             })
         </script>
+        <script>
 
+        </script>
         <div id="tbody1">
+
         </div>
 
     </div>
@@ -329,6 +392,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 <script type="text/javascript">
     $(document).ready(function () {
+
 
         $().UItoTop({easingType: 'easeOutQuart'});
 

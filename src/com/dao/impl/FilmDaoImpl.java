@@ -29,8 +29,9 @@ public class FilmDaoImpl extends BaseDao implements FilmDao {
 
     @Override
     public int update(Film film) {
-        String sql="update film set MovieName=?,TypeId=?,DaoYan=?,ZhuYan=?,ShowTime=?,PicAddress=?,Content=? where MovieId=?";
-        return update(sql,film.getMovieName(),film.getTypeId(),film.getDaoYan(),film.getZhuYan(),film.getShowTime(),film.getPicAddress(),film.getContent(),film.getMovieId());
+        String sql="update film set MovieName=?,TypeId=?,DaoYan=?,ZhuYan=?,ShowTime=?,PicAddress=?,Content=?,Hits=?  where MovieId=?";
+        return update(sql,film.getMovieName(),film.getTypeId(),film.getDaoYan(),film.getZhuYan(),film.getShowTime(),film.getPicAddress(),film.getContent(),film.getHits(),film.getMovieId());
+
     }
 
     @Override
@@ -61,6 +62,12 @@ public class FilmDaoImpl extends BaseDao implements FilmDao {
     public Film queryMovieByZhuYan(Film film) {
         String sql = "select * from film where ZhuYan=?";
         return queryForOne(Film.class, sql, film.getZhuYan());
+    }
+
+    @Override
+    public Film queryMovieByMovieId(Film film) {
+        String sql = "select * from film where MovieId = ?";
+        return queryForOne(Film.class,sql,film.getMovieId());
     }
 
     @Override

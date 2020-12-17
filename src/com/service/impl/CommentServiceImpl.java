@@ -32,6 +32,12 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
+    public  List<Comment> queryCommentByMovieId(Comment comment) {
+        return commentDao.queryCommentByMovieId(comment);
+    }
+
+
+    @Override
     public Comment query(int id) {
         return commentDao.query(id);
     }
