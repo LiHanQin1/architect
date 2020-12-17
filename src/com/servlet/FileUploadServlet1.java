@@ -23,10 +23,8 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @author Lihanqin
- * @Description
- * @date 2020-11-27 9:34
- **/
+ * 影评
+ */
 @WebServlet("/FileUploadServlet")
 public class FileUploadServlet1 extends HttpServlet {
     FilmDao filmDao=null;
@@ -61,7 +59,7 @@ public class FileUploadServlet1 extends HttpServlet {
                                 film.setMovieName(fileItem.getString("utf-8"));
                                 break;
                             case "TypeId":
-                                film.setTypeId(Integer.valueOf(fileItem.getString("utf-8")));
+                                film.setTypeId(fileItem.getString("utf-8"));
                                 break;
                             case "DaoYan":
                                 film.setDaoYan(fileItem.getString("utf-8"));
