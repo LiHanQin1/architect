@@ -55,8 +55,12 @@
 						trNode.append("<td>" + jsonObj.items[i].DaoYan + "</td>");
 						trNode.append("<td>" + jsonObj.items[i].ZhuYan + "</td>");
 						trNode.append("<td>" + jsonObj.items[i].ShowTime + "</td>");
-						trNode.append("<td>" + jsonObj.items[i].PicAddress + "</td>");
-						trNode.append("<td>" + jsonObj.items[i].Content + "</td>");
+                        let imgpath = jsonObj.items[i].PicAddress;
+                        imgpath = imgpath.substring(2);
+                        imgpath = imgpath.replaceAll("\\", "/");
+                        imgpath = "http://localhost:8000" + imgpath;
+                        trNode.append("<td><img width='160px' height='100px' src='" + imgpath + "'/></td>");
+						trNode.append("<td>"+"<div style='width: 150px;height: 150px;overflow-y:auto'>" + jsonObj.items[i].Content +"</div>"+ "</td>");
 						trNode.append("<td>" + jsonObj.items[i].AddTime + "</td>");
 						trNode.append("<td>" + jsonObj.items[i].Hits + "</td>");
 						trNode.append(buttons);
@@ -133,8 +137,6 @@
 						});
 
 					});
-                });
-
             }
         })
     </script>
