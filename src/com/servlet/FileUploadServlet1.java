@@ -6,6 +6,8 @@ import com.dao.impl.FilmDaoImpl;
 import com.dao.impl.UserDaoImpl;
 import com.entity.Film;
 import com.entity.User;
+import com.service.FilmService;
+import com.service.impl.FilmServiceImpl;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileItemFactory;
 import org.apache.commons.fileupload.FileUploadException;
@@ -29,21 +31,23 @@ import java.util.List;
  **/
 @WebServlet("/FileUploadServlet")
 public class FileUploadServlet1 extends HttpServlet {
-    FilmDao filmDao=null;
+   FilmService filmService=null;
     public FileUploadServlet1(){
-        filmDao=new FilmDaoImpl();
+        filmService=new FilmServiceImpl();
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
         request.setCharacterEncoding("utf-8");
+        Integer userId= Integer.valueOf(request.getParameter("userId"));
+        Film film=filmService.query(userId);
         //1 先判断上传的数据是否多段数据 （只有是多段的数据，才是文件上传的）
         if (ServletFileUpload.isMultipartContent(request)) {
             // 创建FileItemFactory 工厂实现类
             FileItemFactory fileItemFactory = new DiskFileItemFactory();
             //创建用于解析上传数据的工具类
             ServletFileUpload servletFileUpload = new ServletFileUpload(fileItemFactory);
-            Film film=new Film();
+
             try {
                 //解析上传的数据 得到每一个表单项FileItem
                 List<FileItem> list = servletFileUpload.parseRequest(request);
@@ -61,7 +65,7 @@ public class FileUploadServlet1 extends HttpServlet {
                                 film.setMovieName(fileItem.getString("utf-8"));
                                 break;
                             case "TypeId":
-                                film.setTypeId(Integer.valueOf(fileItem.getString("utf-8")));
+                                film.setTypeId(fileItem.getString("utf-8"));
                                 break;
                             case "DaoYan":
                                 film.setDaoYan(fileItem.getString("utf-8"));
@@ -95,7 +99,9 @@ public class FileUploadServlet1 extends HttpServlet {
                 e.printStackTrace();
             }
 
-            int result=filmDao.insert(film);
+            Integer result=filmService.update(film);
+            String str=(result==1)?"1":"";
+            response.getWriter().write(str);
         }
     }
 

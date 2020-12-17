@@ -21,10 +21,12 @@ import java.util.List;
 @WebServlet("/YuGaoServlet")
 public class YuGaoServlet extends BaseServlet {
     YuGaoService yuGaoService = new YuGaoServiceImpl();
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request,response);
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         super.doGet(request,response);
     }

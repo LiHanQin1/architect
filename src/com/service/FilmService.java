@@ -1,6 +1,8 @@
 package com.service;
 
 import com.entity.Film;
+import com.entity.User;
+import com.utils.Page;
 
 import java.util.List;
 
@@ -19,4 +21,10 @@ public interface FilmService {
     Film  queryMovieByDaoYan(Film film);
     Film  queryMovieByZhuYan(Film film);
     List<Film> queryAddress();
+
+    Film query(int id);
+    //查询当前表的总记录条数
+    Integer queryCounts();
+    //分页查询
+    Page<Film> queryByPage(int pageNo, int pageSize);
 }

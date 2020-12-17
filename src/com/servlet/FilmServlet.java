@@ -1,9 +1,11 @@
 package com.servlet;
 
 import com.entity.Film;
+import com.entity.User;
 import com.google.gson.Gson;
 import com.service.FilmService;
 import com.service.impl.FilmServiceImpl;
+import com.utils.Page;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -48,5 +50,20 @@ public class FilmServlet extends BaseServlet {
 //        System.out.println(film.toString());
     }
 
+    public void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        Integer userId= Integer.valueOf(request.getParameter("userId"));
+        Integer result=filmService.delete(userId);
+//        String message=(result >0 ) ?"删除成功":"删除失败";
+        response.getWriter().write(result.toString());
+    }
+    //分页查询
+    public void queryPage1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Integer pageNo = Integer.valueOf(request.getParameter("pageNo"));
+        Page<Film> page = filmService.queryByPage(pageNo, Page.PAGE_SIZE);
+        System.out.println(page.toString());
+        Gson gson = new Gson();
+        String jsonStr = gson.toJson(page);
+        response.getWriter().write(jsonStr);
+    }
 
 }

@@ -3,6 +3,7 @@ package com.dao.impl;
 import com.dao.BaseDao;
 import com.dao.FilmDao;
 import com.entity.Film;
+import com.entity.User;
 import com.entity.Vip;
 
 import java.util.List;
@@ -66,6 +67,24 @@ public class FilmDaoImpl extends BaseDao implements FilmDao {
     public List<Film> queryAddress() {
         String sql="select PicAddress from film";
         return queryForList(Film.class,sql);
+    }
+
+    @Override
+    public Film query(int id) {
+        String sql="select * from film where MovieId=?";
+        return queryForOne(Film.class,sql,id);
+    }
+
+    @Override
+    public Integer queryCounts() {
+        String sql="select count(1) from film";
+        return Math.toIntExact((long)queryForSingleValue(sql));
+    }
+
+    @Override
+    public List<Film> queryUserBypage(int begin, int pageSize) {
+        String sql="select * from film limit ?,?";
+        return queryForList(Film.class,sql,begin,pageSize);
     }
 
 
