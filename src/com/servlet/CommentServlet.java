@@ -1,6 +1,7 @@
 package com.servlet;
 
 import com.entity.Comment;
+import com.entity.Film;
 import com.google.gson.Gson;
 import com.service.CommentService;
 import com.service.impl.CommentServiceImpl;
@@ -35,7 +36,6 @@ public class CommentServlet extends BaseServlet {
 
     public void queryAll(HttpServletRequest request, HttpServletResponse response) throws IOException {
         List<Comment> comments = commentService.queryAll();
-        System.out.println(comments);
         Gson gson = new Gson();
         String jsonStr = gson.toJson(comments);
         response.getWriter().write(jsonStr);
@@ -60,6 +60,30 @@ public class CommentServlet extends BaseServlet {
 //        String message=(result >0 ) ?"删除成功":"删除失败";
             response.getWriter().write(result.toString());
         }
+
+
     }
+
+    public void queryCommentByMovieId(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String movieId = request.getParameter("MovieId");
+        Comment comment = new Comment();
+        comment.setMovieId(Integer.valueOf(movieId));
+        List<Comment> list = commentService.queryCommentByMovieId(comment);
+        Gson gson = new Gson();
+        String jsonStr = gson.toJson(list);
+        response.getWriter().write(jsonStr);
+    }
+
+    public void queryByKeyword (HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String keyword = request.getParameter("keyword");
+        Film film = new Film();
+        film.setMovieName(keyword);
+        Integer pageNo = Integer.valueOf(request.getParameter("pageNo"));
+        Page<Comment> page = commentService.queryKeyWordByPage(film,pageNo, Page.PAGE_SIZE);
+        Gson gson = new Gson();
+        String jsonStr = gson.toJson(page);
+        response.getWriter().write(jsonStr);
+    }
+
 
 }

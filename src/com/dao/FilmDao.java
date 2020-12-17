@@ -19,6 +19,7 @@ public interface FilmDao {
     Film  queryMovieByTypeId(Film film);
     Film  queryMovieByDaoYan(Film film);
     Film  queryMovieByZhuYan(Film film);
+    Film  queryMovieByMovieId(Film film);
     List<Film> queryAddress();
 
     Film query(int id);
@@ -26,4 +27,7 @@ public interface FilmDao {
     Integer queryCounts();
     //分页查询
     List<Film> queryUserBypage(int begin, int pageSize);
+
+    List<Film> queryUserByKeywordForPage(Film film,int begin, int pageSize);
+    List<Film>  filmList(Film film);
 }

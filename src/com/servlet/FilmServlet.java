@@ -47,9 +47,23 @@ public class FilmServlet extends BaseServlet {
         Gson gson=new Gson();
         String jsonStr=gson.toJson(film);
         response.getWriter().write(jsonStr);
-//        System.out.println(film.toString());
     }
 
+    public void updateHit(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String movieId = request.getParameter("MovieId");
+        Film film = new Film();
+        film.setMovieId(Integer.valueOf(movieId));
+        Film film1 = filmService.queryMovieByMovieId(film);
+        Integer hits = film1.getHits();
+        hits++;
+        film1.setHits(hits);
+        Gson gson = new Gson();
+        String jsonStr = gson.toJson(film1);
+        response.getWriter().write(jsonStr);
+        filmService.update(film1);
+
+
+    }
     public void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Integer userId= Integer.valueOf(request.getParameter("userId"));
         Integer result=filmService.delete(userId);
@@ -61,6 +75,17 @@ public class FilmServlet extends BaseServlet {
         Integer pageNo = Integer.valueOf(request.getParameter("pageNo"));
         Page<Film> page = filmService.queryByPage(pageNo, Page.PAGE_SIZE);
         System.out.println(page.toString());
+        Gson gson = new Gson();
+        String jsonStr = gson.toJson(page);
+        response.getWriter().write(jsonStr);
+    }
+
+    public void queryByKeyword (HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String keyword = request.getParameter("keyword");
+        Film film = new Film();
+        film.setMovieName(keyword);
+        Integer pageNo = Integer.valueOf(request.getParameter("pageNo"));
+        Page<Film> page = filmService.queryKeyWordByPage(film,pageNo, Page.PAGE_SIZE);
         Gson gson = new Gson();
         String jsonStr = gson.toJson(page);
         response.getWriter().write(jsonStr);

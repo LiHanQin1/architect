@@ -3,9 +3,8 @@ package com.dao.impl;
 import com.dao.BaseDao;
 import com.dao.CommentDao;
 import com.entity.Comment;
+import com.entity.Film;
 import com.entity.User;
-import com.utils.Page;
-import org.junit.Test;
 
 import java.util.List;
 
@@ -40,6 +39,15 @@ public class CommentDaoImpl extends BaseDao implements CommentDao {
     }
 
     @Override
+    public  List<Comment> queryCommentByMovieId(Comment comment) {
+        String sql = "select c.* from comment c, film f where f.MovieId = c.MovieId AND f.MovieId = ?";
+        return queryForList(Comment.class,sql,comment.getMovieId());
+    }
+
+
+
+
+    @Override
     public Comment query(int id) {
         String sql="select * from comment where id=?";
         return queryForOne(Comment.class,sql,id);
@@ -57,6 +65,18 @@ public class CommentDaoImpl extends BaseDao implements CommentDao {
     public List<Comment> queryUserBypage(int begin, int pageSize) {
         String sql="select film.MovieName,comment.* from film,comment where comment.MovieId=film.MovieId limit ?,?";
         return queryForList(Comment.class,sql,begin,pageSize);
+    }
+
+    @Override
+    public List<Comment> queryUserByKeywordForPage(Film film, int begin, int pageSize) {
+        String sql = "select film.MovieName,comment.* from comment,film where comment.MovieId=film.MovieId AND  film.MovieName like concat(\'%\', ?,\'%\') limit ?,?";
+        return queryForList(Comment.class, sql, film.getMovieName(),begin,pageSize);
+    }
+
+    @Override
+    public List<Comment> commentList(Film film) {
+        String sql="select film.MovieName,comment.* from comment,film where comment.MovieId=film.MovieId AND  film.MovieName like concat(\'%\', ?,\'%\')";
+        return  queryForList(Comment.class, sql, film.getMovieName());
     }
 
 

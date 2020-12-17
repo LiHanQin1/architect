@@ -86,4 +86,16 @@ public class YuGaoimpl extends BaseDao implements YuGaoDao {
         return queryForList(YuGao.class,sql,begin,pageSize);
     }
 
+    @Override
+    public List<YuGao> queryUserByKeywordForPage(YuGao yuGao, int begin, int pageSize) {
+        String sql = "select * from yugao where MovieName like concat(\'%\', ?,\'%\') limit ?,?";
+        return queryForList(YuGao.class, sql, yuGao.getMovieName(),begin,pageSize);
+    }
+
+    @Override
+    public List<YuGao> yuGaoList(YuGao yuGao) {
+        String sql="select * from yugao where MovieName like concat(\'%\', ?,\'%\')";
+        return  queryForList(YuGao.class, sql, yuGao.getMovieName());
+    }
+
 }

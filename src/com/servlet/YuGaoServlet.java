@@ -60,4 +60,15 @@ public class YuGaoServlet extends BaseServlet {
         String jsonStr = gson.toJson(page);
         response.getWriter().write(jsonStr);
     }
+
+    public void queryByKeyword (HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String keyword = request.getParameter("keyword");
+        YuGao yuGao = new YuGao();
+        yuGao.setMovieName(keyword);
+        Integer pageNo = Integer.valueOf(request.getParameter("pageNo"));
+        Page<YuGao> page = yuGaoService.queryKeyWordByPage(yuGao,pageNo, Page.PAGE_SIZE);
+        Gson gson = new Gson();
+        String jsonStr = gson.toJson(page);
+        response.getWriter().write(jsonStr);
+    }
 }

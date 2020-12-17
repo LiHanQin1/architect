@@ -1,5 +1,13 @@
 package com.servlet;
 
+import com.entity.Film;
+import com.entity.Notice;
+import com.google.gson.Gson;
+import com.service.NoticeService;
+import com.service.impl.NoticeServiceImpl;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 import com.dao.NoticeDao;
 import com.dao.impl.NoticeImpl;
 import com.entity.Notice;
@@ -15,9 +23,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
+
+
 
 /**
  * 作者：chenbingfeng
@@ -41,6 +49,14 @@ public class NoticeServlet extends BaseServlet {
         List<Notice> list = noticeService.queryAll();
         Gson gson = new Gson();
         String jsonStr = gson.toJson(list);
+        response.getWriter().write(jsonStr);
+
+    }
+
+    public void queryAll(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        List<Notice> notices = noticeService.queryAll();
+        Gson gson=new Gson();
+        String jsonStr = gson.toJson(notices);
         response.getWriter().write(jsonStr);
 
     }
@@ -103,6 +119,17 @@ public class NoticeServlet extends BaseServlet {
         Integer integer = noticeService.update(notice);
         String str = (integer == 1) ? "1" : "";
         response.getWriter().write(str);
+    }
+
+    public void queryByKeyword (HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String keyword = request.getParameter("keyword");
+        Notice notice = new Notice();
+        notice.setTitle(keyword);
+        Integer pageNo = Integer.valueOf(request.getParameter("pageNo"));
+        Page<Notice> page = noticeService.queryKeyWordByPage(notice,pageNo, Page.PAGE_SIZE);
+        Gson gson = new Gson();
+        String jsonStr = gson.toJson(page);
+        response.getWriter().write(jsonStr);
     }
 
 }

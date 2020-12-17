@@ -29,8 +29,9 @@ public class FilmDaoImpl extends BaseDao implements FilmDao {
 
     @Override
     public int update(Film film) {
-        String sql="update film set MovieName=?,TypeId=?,DaoYan=?,ZhuYan=?,ShowTime=?,PicAddress=?,Content=? where MovieId=?";
-        return update(sql,film.getMovieName(),film.getTypeId(),film.getDaoYan(),film.getZhuYan(),film.getShowTime(),film.getPicAddress(),film.getContent(),film.getMovieId());
+        String sql="update film set MovieName=?,TypeId=?,DaoYan=?,ZhuYan=?,ShowTime=?,PicAddress=?,Content=?,Hits=?  where MovieId=?";
+        return update(sql,film.getMovieName(),film.getTypeId(),film.getDaoYan(),film.getZhuYan(),film.getShowTime(),film.getPicAddress(),film.getContent(),film.getHits(),film.getMovieId());
+
     }
 
     @Override
@@ -64,6 +65,12 @@ public class FilmDaoImpl extends BaseDao implements FilmDao {
     }
 
     @Override
+    public Film queryMovieByMovieId(Film film) {
+        String sql = "select * from film where MovieId = ?";
+        return queryForOne(Film.class,sql,film.getMovieId());
+    }
+
+    @Override
     public List<Film> queryAddress() {
         String sql="select PicAddress from film";
         return queryForList(Film.class,sql);
@@ -85,6 +92,18 @@ public class FilmDaoImpl extends BaseDao implements FilmDao {
     public List<Film> queryUserBypage(int begin, int pageSize) {
         String sql="select * from film limit ?,?";
         return queryForList(Film.class,sql,begin,pageSize);
+    }
+
+    @Override
+    public List<Film> queryUserByKeywordForPage(Film film, int begin, int pageSize) {
+        String sql = "select * from film where MovieName like concat(\'%\', ?,\'%\') limit ?,?";
+        return queryForList(Film.class, sql, film.getMovieName(),begin,pageSize);
+    }
+
+    @Override
+    public List<Film> filmList(Film film) {
+        String sql="select * from film where MovieName like concat(\'%\', ?,\'%\')";
+        return  queryForList(Film.class, sql, film.getMovieName());
     }
 
 

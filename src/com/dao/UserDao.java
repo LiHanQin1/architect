@@ -22,6 +22,8 @@ public interface UserDao {
     Integer queryCounts();
     //分页查询
     List<User> queryUserBypage(int begin, int pageSize);
+    List<User> queryUserByKeywordForPage(User user,int begin, int pageSize);
+    List<User>  userList(User user);
 
 
 }

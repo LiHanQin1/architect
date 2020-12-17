@@ -15,12 +15,12 @@ public class Film {
     private String PicAddress;
     private String Content;
     private String AddTime;
-    private String Hits;
+    private Integer Hits;
 
     public Film() {
     }
 
-    public Film(Integer movieId, String movieName, String typeId, String daoYan, String zhuYan, String showTime, String picAddress, String content, String addTime, String hits) {
+    public Film(Integer movieId, String movieName, String typeId, String daoYan, String zhuYan, String showTime, String picAddress, String content, String addTime, Integer hits) {
         MovieId = movieId;
         MovieName = movieName;
         TypeId = typeId;
@@ -121,11 +121,11 @@ public class Film {
         AddTime = addTime;
     }
 
-    public String getHits() {
+    public Integer getHits() {
         return Hits;
     }
 
-    public void setHits(String hits) {
+    public void setHits(Integer hits) {
         Hits = hits;
     }
 

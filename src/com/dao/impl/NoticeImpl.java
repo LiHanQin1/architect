@@ -2,7 +2,10 @@ package com.dao.impl;
 
 import com.dao.BaseDao;
 import com.dao.NoticeDao;
+import com.entity.Film;
 import com.entity.Notice;
+import com.service.NoticeService;
+import com.service.impl.NoticeServiceImpl;
 import org.junit.Test;
 
 import java.util.List;
@@ -56,4 +59,17 @@ public class NoticeImpl extends BaseDao implements NoticeDao {
         String sql = "select * from notice limit ?,?";
         return queryForList(Notice.class, sql, begin, pageSize);
     }
+
+    @Override
+    public List<Notice> queryUserByKeywordForPage(Notice notice, int begin, int pageSize) {
+        String sql = "select * from notice where title like concat(\'%\', ?,\'%\') limit ?,?";
+        return queryForList(Notice.class, sql, notice.getTitle(),begin,pageSize);
+    }
+
+    @Override
+    public List<Notice> noticeList(Notice notice) {
+        String sql="select * from notice where title like concat(\'%\', ?,\'%\')";
+        return  queryForList(Notice.class, sql, notice.getTitle());
+    }
+
 }

@@ -20,6 +20,7 @@ public interface FilmService {
     Film  queryMovieByTypeId(Film film);
     Film  queryMovieByDaoYan(Film film);
     Film  queryMovieByZhuYan(Film film);
+    Film  queryMovieByMovieId(Film film);
     List<Film> queryAddress();
 
     Film query(int id);
@@ -27,4 +28,7 @@ public interface FilmService {
     Integer queryCounts();
     //分页查询
     Page<Film> queryByPage(int pageNo, int pageSize);
+
+    Page<Film> queryKeyWordByPage(Film film,int pageNo, int pageSize);
+    List<Film>  filmList(Film film);
 }

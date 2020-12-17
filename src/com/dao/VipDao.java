@@ -20,7 +20,10 @@ public interface VipDao {
     Vip query(int id);
     //查询当前表的总记录条数
     Integer queryCounts();
+
     //分页查询
     List<Vip> queryUserBypage(int begin,int pageSize);
+    List<Vip> queryUserByKeywordForPage(Vip vip,int begin, int pageSize);
+    List<Vip>  vipList(Vip vip);
 
 }

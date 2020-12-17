@@ -4,6 +4,7 @@ import com.dao.BaseDao;
 import com.dao.VipDao;
 import com.entity.User;
 import com.entity.Vip;
+import org.junit.Test;
 
 import java.util.List;
 
@@ -61,8 +62,23 @@ public class VipDaoImpl extends BaseDao implements VipDao {
     }
 
     @Override
+    public List<Vip> vipList(Vip vip) {
+        String sql="select * from vip where UserName like concat(\'%\', ?,\'%\')";
+        return  queryForList(Vip.class, sql, vip.getUserName());
+    }
+
+
+    @Override
     public List<Vip> queryUserBypage(int begin, int pageSize) {
         String sql="select * from vip limit ?,?";
         return queryForList(Vip.class,sql,begin,pageSize);
     }
+
+    @Override
+    public List<Vip> queryUserByKeywordForPage(Vip vip,int begin, int pageSize) {
+        String sql = "select * from vip where UserName like concat(\'%\', ?,\'%\') limit ?,?";
+        return queryForList(Vip.class, sql, vip.getUserName(),begin,pageSize);
+    }
+
+
 }

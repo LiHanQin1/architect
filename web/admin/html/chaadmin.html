@@ -123,6 +123,27 @@
 				  });
 
 		  }
+
+
+          if ($("#keyword").val() != null) {
+              $("#keywordbtn").on("click",function () {
+                  var keyword=$("#keyword").val();
+                  function loads(pageNo){
+                      $.ajax({
+                          url: "http://localhost:8000/architect/user.do",
+                          data: {action: "queryByKeyword",pageNo: pageNo,keyword:keyword},
+                          type: "GET",
+                          dataType: "text",
+                          success: function (data) {
+                              initData(data);
+                          }
+                      })
+                  }
+                  loads(1);
+              })
+          }else{
+              load(1);
+          }
 	  })
 		</script>
 	</head>
@@ -140,7 +161,7 @@
 						<th lay-data="{field:'joinTime', width:150}">添加时间</th>
 						<th lay-data="{field:'joinTime', width:150}">最后一次登录时间</th>
 						<th lay-data="{field:'joinTime', width:150}">登录次数</th>
-						<th lay-data="{field:'joinTime', width:150}"></th>
+						<th lay-data="{field:'joinTime', width:150}"><input type="text" id="keyword" style="width: 100px"><button id="keywordbtn" style="width: 50px" >搜  索</button></th>
 						<th lay-data="{field:'joinTime', width:150}"></th>
 
 					</tr>
