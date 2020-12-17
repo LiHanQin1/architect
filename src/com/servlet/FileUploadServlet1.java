@@ -101,8 +101,7 @@ public class FileUploadServlet1 extends HttpServlet {
 
 
 
-//                        String str1=(result==1)?"1":"";
-//                        response.getWriter().write(str1);
+
                     }
 
 
@@ -115,6 +114,8 @@ public class FileUploadServlet1 extends HttpServlet {
             }
 
             Integer result=filmService.update(film);
+            String str1=(result==1)?"1":"";
+            response.getWriter().write(str1);
         }
     }
 

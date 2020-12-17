@@ -168,8 +168,7 @@ public class VipServlet extends BaseServlet {
             Vip vip = new Vip();
             vip.setUserName(username);
             Vip vip1 = vipService.queryUserByName(vip);
-            String str1 = (vip1 == null) ? null : "1";
-
+            String str1 = (vip1 == null) ? "" : "1";
             response.getWriter().write(str1);
         }
         public void updata (HttpServletRequest request, HttpServletResponse response) throws IOException {
