@@ -47,6 +47,7 @@
 
         function initData(data) {
             var jsonObj = JSON.parse(data);
+            console.log(jsonObj);
             var buttons = "<td>\n" +
                 "<button class=\"updatebtn layui-btn layui-btn-radius\" data-toggle=\"modal\" data-target=\"#myModal\">编辑</button>\n" +
                 "<button  class=\"delbtn layui-btn layui-btn-radius\" >删除</button>\n" +
@@ -101,6 +102,7 @@
                 $("#title").val(title);
                 $("#neirong").val(neirong);
                 $("#time").val(time);
+                $(".submit").unbind();
                 $(".submit").on("click", function () {
                     var title = $("#title").val();
                     let neirong = $("#neirong").val();
@@ -111,6 +113,7 @@
                         type: "GET",
                         dataType: "text",
                         success: function (data) {
+                            console.log(data);
                             if (data > 0) {
                                 swal("修改成功!", "", "success");
                                 load(jsonObj.pageNo);
@@ -121,10 +124,9 @@
                         }
                     });
                 });
-
             });
-
         }
+
     })
 </script>
 <body>

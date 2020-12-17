@@ -25,10 +25,8 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @author Lihanqin
- * @Description
- * @date 2020-11-27 9:34
- **/
+ * 影评
+ */
 @WebServlet("/FileUploadServlet")
 public class FileUploadServlet1 extends HttpServlet {
    FilmService filmService=null;

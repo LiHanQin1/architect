@@ -3,6 +3,7 @@ package com.dao.impl;
 import com.dao.BaseDao;
 import com.dao.NoticeDao;
 import com.entity.Notice;
+import org.junit.Test;
 
 import java.util.List;
 
@@ -14,43 +15,45 @@ import java.util.List;
 public class NoticeImpl extends BaseDao implements NoticeDao {
     @Override
     public int insert(Notice notice) {
-        String sql="insert into notice(title,neirong,time) values(?,?,?)";
-        return update(sql,notice.getTitle(),notice.getNeirong(),notice.getTime());
+        String sql = "insert into notice(title,neirong,time) values(?,?,?)";
+        return update(sql, notice.getTitle(), notice.getNeirong(), notice.getTime());
     }
 
     @Override
     public int delete(int id) {
-        String sql="delete from notice where id=?";
-        return update(sql,id);
+        String sql = "delete from notice where id=?";
+        return update(sql, id);
     }
 
     @Override
     public int update(Notice notice) {
-        String sql="update notice set title=?,neirong=?,time=? where id=?";
-        return update(sql,notice.getTitle(),notice.getNeirong(),notice.getTime(),notice.getId());
+        String sql = "update notice set title=?,neirong=?,time=? where id=?";
+        return update(sql, notice.getTitle(), notice.getNeirong(), notice.getTime(), notice.getId());
     }
+
+
 
     @Override
     public List<Notice> queryAll() {
-        String sql="select * from notice";
-        return queryForList(Notice.class,sql);
+        String sql = "select * from notice";
+        return queryForList(Notice.class, sql);
     }
 
     @Override
     public Notice query(int id) {
-        String sql="select * from notice where id=?";
-        return queryForOne(Notice.class,sql,id);
+        String sql = "select * from notice where id=?";
+        return queryForOne(Notice.class, sql, id);
     }
 
     @Override
     public Integer queryCounts() {
-        String sql="select count(1) from notice";
-        return Math.toIntExact((long)queryForSingleValue(sql));
+        String sql = "select count(1) from notice";
+        return Math.toIntExact((long) queryForSingleValue(sql));
     }
 
     @Override
     public List<Notice> queryUserBypage(int begin, int pageSize) {
-        String sql="select * from notice limit ?,?";
-        return queryForList(Notice.class,sql,begin,pageSize);
+        String sql = "select * from notice limit ?,?";
+        return queryForList(Notice.class, sql, begin, pageSize);
     }
 }

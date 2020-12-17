@@ -20,10 +20,8 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * @author Lihanqin
- * @Description
- * @date 2020-11-27 9:34
- **/
+ * 预告片
+ */
 @WebServlet("/FileUploadServlet1")
 public class FileUploadServlet2 extends HttpServlet {
     YuGaoDao yuGaoDao=null;
@@ -89,7 +87,6 @@ public class FileUploadServlet2 extends HttpServlet {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
             int result=yuGaoDao.insert(yuGao);
         }
     }
