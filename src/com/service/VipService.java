@@ -18,6 +18,8 @@ public interface VipService {
     Vip query(int id);
     Vip queryUserByNameAndPassword(Vip vip);
     Vip queryUserByName(Vip vip);
+    List<Vip>  vipList(Vip vip);
+
     /**
      *
      * @param pageNo 当前页码
@@ -25,4 +27,5 @@ public interface VipService {
      * @return
      */
     Page<Vip> queryByPage(int pageNo, int pageSize);
+    Page<Vip> queryKeyWordByPage(Vip vip,int pageNo, int pageSize);
 }

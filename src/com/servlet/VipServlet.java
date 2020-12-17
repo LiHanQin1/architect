@@ -192,4 +192,14 @@ public class VipServlet extends BaseServlet {
             response.getWriter().write(str);
 
         }
+    public void queryByKeyword (HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String keyword = request.getParameter("keyword");
+        Vip vip = new Vip();
+        vip.setUserName(keyword);
+        Integer pageNo = Integer.valueOf(request.getParameter("pageNo"));
+        Page<Vip> page = vipService.queryKeyWordByPage(vip,pageNo, Page.PAGE_SIZE);
+        Gson gson = new Gson();
+        String jsonStr = gson.toJson(page);
+        response.getWriter().write(jsonStr);
+    }
     }

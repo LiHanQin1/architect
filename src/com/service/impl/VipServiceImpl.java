@@ -51,6 +51,12 @@ public class VipServiceImpl implements VipService {
     }
 
     @Override
+    public List<Vip> vipList(Vip vip) {
+        return vipDao.vipList(vip);
+    }
+
+
+    @Override
     public Page<Vip> queryByPage(int pageNo, int pageSize) {
         Page<Vip> page=new Page<>();
         //设置当前页码
@@ -71,6 +77,33 @@ public class VipServiceImpl implements VipService {
         //求当前的页数据的开始索引
         int begin=(page.getPageNo()-1)*pageSize;
         List<Vip> items=vipDao.queryUserBypage(begin,pageSize);
+        page.setItems(items);
+        return page;
+    }
+
+    @Override
+    public Page<Vip> queryKeyWordByPage(Vip vip, int pageNo, int pageSize) {
+        Page<Vip> page=new Page<>();
+        //设置当前页码
+        page.setPageNo(pageNo);
+        //设置每页展示的数量
+        page.setPageSize(pageSize);
+        //求总记录数
+        List<Vip> vipList=vipDao.vipList(vip);
+
+        Integer pageTotalCount= vipList.size();
+        //设置总记录数
+        page.setPageTotalCount(Math.toIntExact(pageTotalCount));
+        //求总页码数
+        Integer pageTotal=pageTotalCount/pageSize;
+        if (pageTotalCount%pageSize>0){
+            pageTotal+=1;
+        }
+        //配置总页码
+        page.setPageTotal(pageTotal);
+        //求当前的页数据的开始索引
+        int begin=(page.getPageNo()-1)*pageSize;
+        List<Vip> items=vipDao.queryUserByKeywordForPage(vip,begin,pageSize);
         page.setItems(items);
         return page;
     }
