@@ -27,8 +27,8 @@ public class YuGaoimpl extends BaseDao implements YuGaoDao {
 
     @Override
     public int update(YuGao yuGao) {
-        String sql="update yugao set MovieName=?,TypeId=?,DaoYan=?,ZhuYan=?,ShowTime=?,PicAddress=?";
-        return update(sql,yuGao.getMovieName(),yuGao.getTypeId(),yuGao.getDaoYan(),yuGao.getZhuYan(),yuGao.getShowTime(),yuGao.getPicAddress());
+        String sql="update yugao set MovieName=?,TypeId=?,DaoYan=?,ZhuYan=?,ShowTime=?,PicAddress=? where MovieId=?";
+        return update(sql,yuGao.getMovieName(),yuGao.getTypeId(),yuGao.getDaoYan(),yuGao.getZhuYan(),yuGao.getShowTime(),yuGao.getPicAddress(),yuGao.getMovieId());
     }
 
     @Override

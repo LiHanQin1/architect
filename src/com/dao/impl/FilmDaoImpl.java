@@ -29,8 +29,8 @@ public class FilmDaoImpl extends BaseDao implements FilmDao {
 
     @Override
     public int update(Film film) {
-        String sql="update film set MovieName=?,TypeId=?,DaoYan=?,ZhuYan=?,ShowTime=?,PicAddress=?,Content=?";
-        return update(sql,film.getMovieName(),film.getTypeId(),film.getDaoYan(),film.getZhuYan(),film.getShowTime(),film.getPicAddress(),film.getContent());
+        String sql="update film set MovieName=?,TypeId=?,DaoYan=?,ZhuYan=?,ShowTime=?,PicAddress=?,Content=? where MovieId=?";
+        return update(sql,film.getMovieName(),film.getTypeId(),film.getDaoYan(),film.getZhuYan(),film.getShowTime(),film.getPicAddress(),film.getContent(),film.getMovieId());
     }
 
     @Override

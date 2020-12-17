@@ -102,6 +102,7 @@
 						let ShowTime = $($(this).parents("tr").children("td")[5]).html().trim();
 						let Content = $($(this).parents("tr").children("td")[7]).html().trim();
 
+						$("#MovieId").val(id);
 						$("#MovieName").val(MovieName);
 						$("#TypeId").val(TypeId);
 						$("#DaoYan").val(DaoYan);
@@ -109,36 +110,36 @@
 						$("#ShowTime").val(ShowTime);
 						$("#Content").val(Content);
 
-						$(".submit").on("click", function () {
-							// var formData = new FormData();
-							// formData.append('PicAddress',$("#PicAddress")[0].files[0]);    //将文件转成二进制形式
-							// let movieName=$("#MovieName").val();
-							// let typeId=$("#TypeId").val();
-							// let daoYan=$("#DaoYan").val();
-							// let zhuYan=$("#ZhuYan").val();
-							// let showTime=$("#ShowTime").val();
-							// let picAddress=$("#PicAddress").val();
-							// let content=$("#Content").val();
-						// ,MovieName:movieName,TypeId:typeId,DaoYan:daoYan,ZhuYan:zhuYan,ShowTime:showTime,Content:content
-							$.ajax({
-								url: "http://localhost:8000/FileUploadServlet",
-								// async:false,
-								// contentType: false,    //这个一定要写
-								// processData: false, //这个也一定要写，不然会报错
-								data: {userId: id},
-								type: "post",
-								dataType: "text",
-								success: function (data) {
-									if (data>0) {
-										swal("修改成功!", "", "success");
-										load(jsonObj.pageNo);
-
-									}else {
-										swal("修改失败!", "", "error");
-									}
-								}
-							});
-						});
+						// $(".submit").on("click", function () {
+						// 	// var formData = new FormData();
+						// 	// formData.append('PicAddress',$("#PicAddress")[0].files[0]);    //将文件转成二进制形式
+						// 	// let movieName=$("#MovieName").val();
+						// 	// let typeId=$("#TypeId").val();
+						// 	// let daoYan=$("#DaoYan").val();
+						// 	// let zhuYan=$("#ZhuYan").val();
+						// 	// let showTime=$("#ShowTime").val();
+						// 	// let picAddress=$("#PicAddress").val();
+						// 	// let content=$("#Content").val();
+						// // ,MovieName:movieName,TypeId:typeId,DaoYan:daoYan,ZhuYan:zhuYan,ShowTime:showTime,Content:content
+						// 	$.ajax({
+						// 		url: "http://localhost:8000/FileUploadServlet",
+						// 		// async:false,
+						// 		// contentType: false,    //这个一定要写
+						// 		// processData: false, //这个也一定要写，不然会报错
+						// 		data: {},
+						// 		type: "post",
+						// 		dataType: "text",
+						// 		success: function (data) {
+						// 			if (data>0) {
+						// 				swal("修改成功!", "", "success");
+						// 				load(jsonObj.pageNo);
+						//
+						// 			}else {
+						// 				swal("修改失败!", "", "error");
+						// 			}
+						// 		}
+						// 	});
+						// });
 
 					});
 
@@ -188,7 +189,7 @@
 					</div>
 					<div class="modal-body">
 						<form method="post" enctype="multipart/form-data" action="/architect/FileUploadServlet">
-							<!--							<input type="hidden" name="action" value="updata">-->
+														<input type="hidden" name="MovieId" value="" id="MovieId">
 							<!--<input type="hidden" name="id" class="form-control" id="id">-->
 							<div class="form-group">
 								<label for="MovieName">影评名称</label>

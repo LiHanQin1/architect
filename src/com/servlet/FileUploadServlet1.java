@@ -37,15 +37,15 @@ public class FileUploadServlet1 extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=utf-8");
         request.setCharacterEncoding("utf-8");
-        Integer userId= Integer.valueOf(request.getParameter("userId"));
-        Film film=filmService.query(userId);
+
         //1 先判断上传的数据是否多段数据 （只有是多段的数据，才是文件上传的）
         if (ServletFileUpload.isMultipartContent(request)) {
             // 创建FileItemFactory 工厂实现类
             FileItemFactory fileItemFactory = new DiskFileItemFactory();
             //创建用于解析上传数据的工具类
             ServletFileUpload servletFileUpload = new ServletFileUpload(fileItemFactory);
-
+             Film film=new Film();
+             String oldPath="";
             try {
                 //解析上传的数据 得到每一个表单项FileItem
                 List<FileItem> list = servletFileUpload.parseRequest(request);
@@ -59,8 +59,14 @@ public class FileUploadServlet1 extends HttpServlet {
                         System.out.println("value = " + fileItem.getString());
                         String str=fileItem.getFieldName();
                         switch (fileItem.getFieldName()){
+
                             case "MovieName":
                                 film.setMovieName(fileItem.getString("utf-8"));
+                                break;
+                            case "MovieId":
+                                film.setMovieId(Integer.valueOf(fileItem.getString("utf-8")));
+                                Integer id=(Integer.valueOf(fileItem.getString("utf-8")));
+                                oldPath=filmService.query(id).getPicAddress();
                                 break;
                             case "TypeId":
                                 film.setTypeId(fileItem.getString("utf-8"));
@@ -80,16 +86,27 @@ public class FileUploadServlet1 extends HttpServlet {
                         }
                     } else {
                         //上传的文件
-                        System.out.println("表单项的name = " + fileItem.getFieldName());
-                        System.out.println("上传的文件名:" + fileItem.getName());
-                        String str=fileItem.getName();
-                        StringBuffer sb=new StringBuffer("D:\\upload\\");
-                        sb.append( fileItem.getName());
-                        String path=sb.toString();
-                        film.setPicAddress(path);
-                        fileItem.write(new File(path));
+                        if (!fileItem.getName().equals("")) {
+                            System.out.println("表单项的name = " + fileItem.getFieldName());
+                            System.out.println("上传的文件名:" + fileItem.getName());
+                            String str = fileItem.getName();
+                            StringBuffer sb = new StringBuffer("D:\\upload\\");
+                            sb.append(fileItem.getName());
+                            String path = sb.toString();
+                            film.setPicAddress(path);
+                            fileItem.write(new File(path));
+                        } else {
+                            film.setPicAddress(oldPath);
+                        }
 
+
+
+//                        String str1=(result==1)?"1":"";
+//                        response.getWriter().write(str1);
                     }
+
+
+
                 }
             } catch (FileUploadException e) {
                 e.printStackTrace();
@@ -98,8 +115,6 @@ public class FileUploadServlet1 extends HttpServlet {
             }
 
             Integer result=filmService.update(film);
-            String str=(result==1)?"1":"";
-            response.getWriter().write(str);
         }
     }
 
