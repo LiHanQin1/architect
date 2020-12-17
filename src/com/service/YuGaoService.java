@@ -1,6 +1,8 @@
 package com.service;
 
+import com.entity.Film;
 import com.entity.YuGao;
+import com.utils.Page;
 
 import java.util.List;
 
@@ -19,4 +21,9 @@ public interface YuGaoService {
     YuGao  queryMovieByDaoYan(YuGao yuGao);
     YuGao  queryMovieByZhuYan(YuGao yuGao);
     List<YuGao> queryAddress();
+    YuGao query(int id);
+    //查询当前表的总记录条数
+    Integer queryCounts();
+    //分页查询
+    Page<YuGao> queryByPage(int pageNo, int pageSize);
 }

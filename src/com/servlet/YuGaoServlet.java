@@ -1,10 +1,12 @@
 package com.servlet;
 
 
+import com.entity.Film;
 import com.entity.YuGao;
 import com.google.gson.Gson;
 import com.service.YuGaoService;
 import com.service.impl.YuGaoServiceImpl;
+import com.utils.Page;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -42,6 +44,14 @@ public class YuGaoServlet extends BaseServlet {
         List<YuGao> film=yuGaoService.queryAll();
         Gson gson = new Gson();
         String jsonStr = gson.toJson(film);
+        response.getWriter().write(jsonStr);
+    }
+    public void queryPage1(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        Integer pageNo = Integer.valueOf(request.getParameter("pageNo"));
+        Page<YuGao> page = yuGaoService.queryByPage(pageNo, Page.PAGE_SIZE);
+        System.out.println(page.toString());
+        Gson gson = new Gson();
+        String jsonStr = gson.toJson(page);
         response.getWriter().write(jsonStr);
     }
 }
