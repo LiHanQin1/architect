@@ -67,4 +67,16 @@ public class UserDaoImpl extends BaseDao implements UserDao {
         String sql="select * from user limit ?,?";
         return queryForList(User.class,sql,begin,pageSize);
     }
+
+    @Override
+    public List<User> queryUserByKeywordForPage(User user, int begin, int pageSize) {
+        String sql = "select * from user where UserName like concat(\'%\', ?,\'%\') limit ?,?";
+        return queryForList(User.class, sql, user.getUserName(),begin,pageSize);
+    }
+
+    @Override
+    public List<User> userList(User user) {
+        String sql="select * from user where UserName like concat(\'%\', ?,\'%\')";
+        return  queryForList(User.class, sql, user.getUserName());
+    }
 }

@@ -121,4 +121,14 @@ public class UserServlet extends BaseServlet {
         String str=(user1==1)?"1":"";
         response.getWriter().write(str);
     }
+    public void queryByKeyword (HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String keyword = request.getParameter("keyword");
+        User user = new User();
+        user.setUserName(keyword);
+        Integer pageNo = Integer.valueOf(request.getParameter("pageNo"));
+        Page<User> page = userService.queryKeyWordByPage(user,pageNo, Page.PAGE_SIZE);
+        Gson gson = new Gson();
+        String jsonStr = gson.toJson(page);
+        response.getWriter().write(jsonStr);
+    }
 }

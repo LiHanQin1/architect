@@ -24,5 +24,7 @@ public interface UserService {
 
     //分页查询
     Page<User> queryByPage(int pageNo, int pageSize);
+    Page<User> queryKeyWordByPage(User user,int pageNo, int pageSize);
+    List<User>  userList(User user);
 
 }
