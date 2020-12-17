@@ -8,7 +8,7 @@ package com.entity;
 public class Film {
     private Integer MovieId;
     private String MovieName;
-    private Integer TypeId;
+    private String TypeId;
     private String DaoYan;
     private String ZhuYan;
     private String ShowTime;
@@ -20,7 +20,7 @@ public class Film {
     public Film() {
     }
 
-    public Film(Integer movieId, String movieName, Integer typeId, String daoYan, String zhuYan, String showTime, String picAddress, String content, String addTime, String hits) {
+    public Film(Integer movieId, String movieName, String typeId, String daoYan, String zhuYan, String showTime, String picAddress, String content, String addTime, String hits) {
         MovieId = movieId;
         MovieName = movieName;
         TypeId = typeId;
@@ -65,11 +65,11 @@ public class Film {
         MovieName = movieName;
     }
 
-    public Integer getTypeId() {
+    public String getTypeId() {
         return TypeId;
     }
 
-    public void setTypeId(Integer typeId) {
+    public void setTypeId(String typeId) {
         TypeId = typeId;
     }
 

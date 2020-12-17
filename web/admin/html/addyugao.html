@@ -7,7 +7,7 @@
 </head>
 <body>
 <div style="padding: 15px;">
-    <form class="layui-form" action="http://localhost:8000/architect/filmfileupload" method="post" enctype="multipart/form-data">
+    <form class="layui-form" action="http://localhost:8000/architect/YuGaoFileUploadServlet" method="post" enctype="multipart/form-data">
         <div class="layui-form-item">
             <label class="layui-form-label">影评名称</label>
             <div class="layui-input-inline">
@@ -53,13 +53,6 @@
             </div>
         </div>
 
-        <div class="layui-form-item">
-            <label class="layui-form-label">详细介绍</label>
-            <div class="layui-input-block" style="width: 35%">
-                <textarea id="vod_content" name="Content" type="text/plain"
-                          style="width:99%;height:250px"></textarea>
-            </div>
-        </div>
         <div class="layui-form-item">
             <label class="layui-form-label">影评缩略图片地址</label>
             <div class="layui-input-block" style="width: 35%">
