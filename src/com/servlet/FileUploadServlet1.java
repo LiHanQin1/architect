@@ -98,12 +98,7 @@ public class FileUploadServlet1 extends HttpServlet {
                         } else {
                             film.setPicAddress(oldPath);
                         }
-
-
-
-
                     }
-
 
 
                 }
