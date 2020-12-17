@@ -1,6 +1,7 @@
 package com.dao;
 
 import com.entity.Comment;
+import com.entity.Film;
 import com.entity.User;
 
 import java.util.List;
@@ -22,4 +23,7 @@ public interface CommentDao {
     Integer queryCounts();
     //分页查询
     List<Comment> queryUserBypage(int begin, int pageSize);
+
+    List<Comment> queryUserByKeywordForPage(Film film, int begin, int pageSize);
+    List<Comment>  commentList(Film film);
 }
