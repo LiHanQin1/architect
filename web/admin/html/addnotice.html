@@ -4,14 +4,19 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="../layuiadmin/layui/css/layui.css"/>
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript">
+
+    </script>
 </head>
 <body>
 <div style="padding: 15px;">
-    <form class="layui-form" action="">
+    <form class="layui-form" action="/architect/notice.do">
+        <input type="hidden" name="action" value="registers">
         <div class="layui-form-item">
             <label class="layui-form-label">公告标题</label>
             <div class="layui-input-inline">
-                <input type="text" name="username" required lay-verify="required" placeholder="请输入公告标题"
+                <input type="text" id="name" name="title" required lay-verify="required" placeholder="请输入公告标题"
                        autocomplete="off" class="layui-input">
             </div>
             <!-- <div class="layui-form-mid layui-word-aux">辅助文字</div> -->
@@ -20,7 +25,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">发表时间</label>
             <div class="layui-input-block" style="width: 198px">
-                <input type="text" id="borrowtimebox" name="lasttime"
+                <input type="text"  id="borrowtimebox" name="lasttime"
                        class="layui-input">
             </div>
         </div>
@@ -28,14 +33,14 @@
         <div class="layui-form-item">
             <label class="layui-form-label">公告内容</label>
             <div class="layui-input-block" style="width: 35%">
-                <textarea id="vod_content" name="<?php echo $info['Field'];?>" type="text/plain"
+                <textarea id="neirong" name="neirong" type="text/plain"
                           style="width:99%;height:250px"></textarea>
             </div>
         </div>
 
         <div class="layui-form-item">
             <div class="layui-input-block">
-                <button type="submit" class="layui-btn" >立即提交</button>
+                <button type="submit" class="layui-btn">立即提交</button>
                 <button type="reset" class="layui-btn layui-btn-primary">重置</button>
             </div>
         </div>

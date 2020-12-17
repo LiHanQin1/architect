@@ -15,4 +15,10 @@ public interface NoticeDao {
     int delete(int id);
     int update(Notice notice);
     List<Notice> queryAll();
+    Notice query(int id);
+    //查询当前表的总记录条数
+    Integer queryCounts();
+    //分页查询
+    List<Notice> queryUserBypage(int begin, int pageSize);
+
 }

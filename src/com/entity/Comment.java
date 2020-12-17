@@ -1,5 +1,7 @@
 package com.entity;
 
+import java.security.Principal;
+
 /**
  * @author Lihanqin
  * @Description
@@ -12,6 +14,28 @@ public class Comment {
     private String CommentUser;
     private String CommentContent;
     private String CommentTime;
+    private String MovieName;
+
+    public String getMovieName() {
+        return MovieName;
+    }
+
+    public void setMovieName(String movieName) {
+        MovieName = movieName;
+    }
+
+
+    public Comment(Integer commentId, Integer commentTypeId, Integer movieId, String commentUser, String commentContent, String commentTime) {
+        CommentId = commentId;
+        CommentTypeId = commentTypeId;
+        MovieId = movieId;
+        CommentUser = commentUser;
+        CommentContent = commentContent;
+        CommentTime = commentTime;
+    }
+
+    public Comment() {
+    }
 
     @Override
     public String toString() {
@@ -22,19 +46,18 @@ public class Comment {
                 ", CommentUser='" + CommentUser + '\'' +
                 ", CommentContent='" + CommentContent + '\'' +
                 ", CommentTime='" + CommentTime + '\'' +
+                ", MovieName='" + MovieName + '\'' +
                 '}';
     }
 
-    public Comment() {
-    }
-
-    public Comment(Integer commentId, Integer commentTypeId, Integer movieId, String commentUser, String commentContent, String commentTime) {
+    public Comment(Integer commentId, Integer commentTypeId, Integer movieId, String commentUser, String commentContent, String commentTime, String movieName) {
         CommentId = commentId;
         CommentTypeId = commentTypeId;
         MovieId = movieId;
         CommentUser = commentUser;
         CommentContent = commentContent;
         CommentTime = commentTime;
+        MovieName = movieName;
     }
 
     public Integer getCommentId() {
