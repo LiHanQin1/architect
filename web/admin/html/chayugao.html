@@ -72,7 +72,7 @@
                         },
                         function() {
                             $.ajax({
-                                url: "http://localhost:8000/architect/FilmServlet",
+                                url: "http://localhost:8000/architect/YuGaoServlet",
                                 data: {action: "delete", userId: id},
                                 type: "GET",
                                 dataType: "text",
@@ -107,7 +107,27 @@
                     $("#ShowTime").val(ShowTime);
                     $("#Content").val(Content);
 
+                    $(".submit").on("click", function () {
+                        var formData = new FormData(document.getElementById("form1"));
+                        console.log(document.getElementById("form1"));
+                        $.ajax({
+                            url: "http://localhost:8000/architect/yugao",
+                            data: formData,
+                            type: "post",
+                            contentType: false,
+                            processData: false,
+                            dataType: "text",
+                            success: function (data) {
+                                if (data>0) {
+                                    swal("修改成功!", "", "success");
+                                    load(jsonObj.pageNo);
 
+                                }else {
+                                    swal("修改失败!", "", "error");
+                                }
+                            }
+                        });
+                    });
 
                 });
 
@@ -153,7 +173,7 @@
                 </h4>
             </div>
             <div class="modal-body">
-                <form method="post" enctype="multipart/form-data" action="/architect/FileUploadServlet">
+                <form method="post" enctype="multipart/form-data" id="form1" action="/architect/FileUploadServlet">
                     <input type="hidden" name="MovieId" value="" id="MovieId">
                     <!--<input type="hidden" name="id" class="form-control" id="id">-->
                     <div class="form-group">
@@ -184,7 +204,7 @@
 
                     <button type="button" class="btn btn-default" data-dismiss="modal">关闭
                     </button>
-                    <button type="submit" class="submit btn btn-default" >提交</button>
+                    <button type="button" class="submit btn btn-default" data-dismiss="modal" >提交</button>
                 </form>
             </div>
             <div class="modal-footer">
