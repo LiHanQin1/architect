@@ -26,4 +26,8 @@ public interface YuGaoService {
     Integer queryCounts();
     //分页查询
     Page<YuGao> queryByPage(int pageNo, int pageSize);
+
+
+    Page<YuGao> queryKeyWordByPage(YuGao yuGao,int pageNo, int pageSize);
+    List<YuGao>  yuGaoList(YuGao yuGao);
 }

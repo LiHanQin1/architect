@@ -47,6 +47,7 @@ public class VipServlet extends BaseServlet {
         Vip vip1 = vipService.queryUserByNameAndPassword(vip);
         if (vip1 != null) {
             vip1.setLoginCount(vip1.getLoginCount() + 1);
+            vipService.update(vip1);
             HttpSession session = request.getSession();
             session.setAttribute("vip", vip1);
             response.getWriter().write("登陆成功！");
@@ -75,6 +76,7 @@ public class VipServlet extends BaseServlet {
         vip.setSex(sex);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         vip.setRegTime(String.valueOf(simpleDateFormat.format(new Date())));
+        vip.setLoginCount(0);
 
         Vip vip1 = vipService.queryUserByName(vip);
         if (vip1 == null) {
@@ -116,6 +118,7 @@ public class VipServlet extends BaseServlet {
         vip.setSex(sex);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         vip.setRegTime(String.valueOf(simpleDateFormat.format(new Date())));
+        vip.setLoginCount(0);
         int result = vipService.insert(vip);
         String message = "注册失败";
         if (result > 0) {
@@ -192,4 +195,14 @@ public class VipServlet extends BaseServlet {
             response.getWriter().write(str);
 
         }
+    public void queryByKeyword (HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String keyword = request.getParameter("keyword");
+        Vip vip = new Vip();
+        vip.setUserName(keyword);
+        Integer pageNo = Integer.valueOf(request.getParameter("pageNo"));
+        Page<Vip> page = vipService.queryKeyWordByPage(vip,pageNo, Page.PAGE_SIZE);
+        Gson gson = new Gson();
+        String jsonStr = gson.toJson(page);
+        response.getWriter().write(jsonStr);
+    }
     }

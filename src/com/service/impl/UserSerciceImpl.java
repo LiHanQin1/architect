@@ -81,4 +81,37 @@ public class UserSerciceImpl implements UserService {
         return page;
     }
 
+    @Override
+    public Page<User> queryKeyWordByPage(User user, int pageNo, int pageSize) {
+        Page<User> page=new Page<>();
+        //设置当前页码
+        page.setPageNo(pageNo);
+        //设置每页展示的数量
+        page.setPageSize(pageSize);
+        //求总记录数
+        List<User> userList=userDao.userList(user);
+
+        Integer pageTotalCount= userList.size();
+        //设置总记录数
+        page.setPageTotalCount(Math.toIntExact(pageTotalCount));
+        //求总页码数
+        Integer pageTotal=pageTotalCount/pageSize;
+        if (pageTotalCount%pageSize>0){
+            pageTotal+=1;
+        }
+        //配置总页码
+        page.setPageTotal(pageTotal);
+        //求当前的页数据的开始索引
+        int begin=(page.getPageNo()-1)*pageSize;
+        List<User> items=userDao.queryUserByKeywordForPage(user,begin,pageSize);
+        page.setItems(items);
+        return page;
+    }
+
+
+    @Override
+    public List<User> userList(User user) {
+        return userDao.userList(user);
+    }
+
 }

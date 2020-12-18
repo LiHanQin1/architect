@@ -1392,7 +1392,7 @@ a.m-movie-link{
 }
 .m-movie-title {
 	padding:10px;
-	  border:1px solid #D6D8DB;
+	  /*border:1px solid #D6D8DB;*/
 }
 .movie-preview {
 	margin:1.5em 0;  

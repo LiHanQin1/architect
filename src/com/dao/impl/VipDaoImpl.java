@@ -4,6 +4,7 @@ import com.dao.BaseDao;
 import com.dao.VipDao;
 import com.entity.User;
 import com.entity.Vip;
+import org.junit.Test;
 
 import java.util.List;
 
@@ -15,8 +16,8 @@ import java.util.List;
 public class VipDaoImpl extends BaseDao implements VipDao {
     @Override
     public int insert(Vip vip) {
-        String sql="insert into vip(UserName,UserPwd,Tel,QQ,Email,Sex,RegTime) values(?,?,?,?,?,?,?)";
-        return update(sql,vip.getUserName(),vip.getUserPwd(),vip.getTel(),vip.getQQ(),vip.getEmail(),vip.getSex(),vip.getRegTime());
+        String sql="insert into vip(UserName,UserPwd,Tel,QQ,Email,Sex,RegTime,LoginCount) values(?,?,?,?,?,?,?,?)";
+        return update(sql,vip.getUserName(),vip.getUserPwd(),vip.getTel(),vip.getQQ(),vip.getEmail(),vip.getSex(),vip.getRegTime(),vip.getLoginCount());
     }
 
     @Override
@@ -61,8 +62,23 @@ public class VipDaoImpl extends BaseDao implements VipDao {
     }
 
     @Override
+    public List<Vip> vipList(Vip vip) {
+        String sql="select * from vip where UserName like concat(\'%\', ?,\'%\')";
+        return  queryForList(Vip.class, sql, vip.getUserName());
+    }
+
+
+    @Override
     public List<Vip> queryUserBypage(int begin, int pageSize) {
         String sql="select * from vip limit ?,?";
         return queryForList(Vip.class,sql,begin,pageSize);
     }
+
+    @Override
+    public List<Vip> queryUserByKeywordForPage(Vip vip,int begin, int pageSize) {
+        String sql = "select * from vip where UserName like concat(\'%\', ?,\'%\') limit ?,?";
+        return queryForList(Vip.class, sql, vip.getUserName(),begin,pageSize);
+    }
+
+
 }

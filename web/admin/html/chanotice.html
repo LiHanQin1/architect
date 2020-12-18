@@ -22,7 +22,7 @@
                 dataType: "text",
                 success: function (data) {
                     initData(data);
-                    console.log(data)
+                    // console.log(data)
                 }
             })
         }
@@ -47,7 +47,7 @@
 
         function initData(data) {
             var jsonObj = JSON.parse(data);
-            console.log(jsonObj);
+            // console.log(jsonObj);
             var buttons = "<td>\n" +
                 "<button class=\"updatebtn layui-btn layui-btn-radius\" data-toggle=\"modal\" data-target=\"#myModal\">编辑</button>\n" +
                 "<button  class=\"delbtn layui-btn layui-btn-radius\" >删除</button>\n" +
@@ -127,6 +127,27 @@
             });
         }
 
+
+        if ($("#keyword").val() != null) {
+            $("#keywordbtn").on("click",function () {
+                var keyword=$("#keyword").val();
+                function loads(pageNo){
+                    $.ajax({
+                        url: "http://localhost:8000/architect/notice.do",
+                        data: {action: "queryByKeyword",pageNo: pageNo,keyword:keyword},
+                        type: "GET",
+                        dataType: "text",
+                        success: function (data) {
+                            initData(data);
+                        }
+                    })
+                }
+                loads(1);
+            })
+        }else{
+            load(1);
+        }
+
     })
 </script>
 <body>
@@ -140,7 +161,9 @@
             <th lay-data="{field:'joinTime', width:150}">公告标题</th>
             <th lay-data="{field:'joinTime', width:150}">公告内容</th>
             <th lay-data="{field:'username', width:150}">时间</th>
-            <th lay-data="{field:'username', width:150}"></th>
+            <th width="150px" lay-data="{field:'joinTime', width:150}"><input type="text" id="keyword"  class="layui-input" style="height: 45px;width: auto;margin-top: 18px" placeholder="输入要查询的标题">&nbsp;&nbsp;</th>
+            <th lay-data="{field:'joinTime', width:150}"><button class="layui-btn layui-btn-radius" id="keywordbtn" style="width: 50px;padding: 1px" >搜 索</button></th>
+
 
         </tr>
         </thead>

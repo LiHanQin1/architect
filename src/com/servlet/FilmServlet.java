@@ -82,4 +82,15 @@ public class FilmServlet extends BaseServlet {
         response.getWriter().write(jsonStr);
     }
 
+    public void queryByKeyword (HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String keyword = request.getParameter("keyword");
+        Film film = new Film();
+        film.setMovieName(keyword);
+        Integer pageNo = Integer.valueOf(request.getParameter("pageNo"));
+        Page<Film> page = filmService.queryKeyWordByPage(film,pageNo, Page.PAGE_SIZE);
+        Gson gson = new Gson();
+        String jsonStr = gson.toJson(page);
+        response.getWriter().write(jsonStr);
+    }
+
 }

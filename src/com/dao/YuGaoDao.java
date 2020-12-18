@@ -26,4 +26,7 @@ public interface YuGaoDao {
     Integer queryCounts();
     //分页查询
     List<YuGao> queryUserBypage(int begin, int pageSize);
+
+    List<YuGao> queryUserByKeywordForPage(YuGao yuGao,int begin, int pageSize);
+    List<YuGao>  yuGaoList(YuGao yuGao);
 }

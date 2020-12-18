@@ -102,5 +102,37 @@ public class FilmServiceImpl implements FilmService {
         return page;
     }
 
+    @Override
+    public Page<Film> queryKeyWordByPage(Film film, int pageNo, int pageSize) {
+        Page<Film> page=new Page<>();
+        //设置当前页码
+        page.setPageNo(pageNo);
+        //设置每页展示的数量
+        page.setPageSize(pageSize);
+        //求总记录数
+        List<Film> filmList=filmDao.filmList(film);
+
+        Integer pageTotalCount= filmList.size();
+        //设置总记录数
+        page.setPageTotalCount(Math.toIntExact(pageTotalCount));
+        //求总页码数
+        Integer pageTotal=pageTotalCount/pageSize;
+        if (pageTotalCount%pageSize>0){
+            pageTotal+=1;
+        }
+        //配置总页码
+        page.setPageTotal(pageTotal);
+        //求当前的页数据的开始索引
+        int begin=(page.getPageNo()-1)*pageSize;
+        List<Film> items=filmDao.queryUserByKeywordForPage(film,begin,pageSize);
+        page.setItems(items);
+        return page;
+    }
+
+    @Override
+    public List<Film> filmList(Film film) {
+        return filmDao.filmList(film);
+    }
+
 
 }

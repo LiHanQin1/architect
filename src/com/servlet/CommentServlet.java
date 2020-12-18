@@ -1,6 +1,7 @@
 package com.servlet;
 
 import com.entity.Comment;
+import com.entity.Film;
 import com.google.gson.Gson;
 import com.service.CommentService;
 import com.service.impl.CommentServiceImpl;
@@ -70,6 +71,17 @@ public class CommentServlet extends BaseServlet {
         List<Comment> list = commentService.queryCommentByMovieId(comment);
         Gson gson = new Gson();
         String jsonStr = gson.toJson(list);
+        response.getWriter().write(jsonStr);
+    }
+
+    public void queryByKeyword (HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String keyword = request.getParameter("keyword");
+        Film film = new Film();
+        film.setMovieName(keyword);
+        Integer pageNo = Integer.valueOf(request.getParameter("pageNo"));
+        Page<Comment> page = commentService.queryKeyWordByPage(film,pageNo, Page.PAGE_SIZE);
+        Gson gson = new Gson();
+        String jsonStr = gson.toJson(page);
         response.getWriter().write(jsonStr);
     }
 

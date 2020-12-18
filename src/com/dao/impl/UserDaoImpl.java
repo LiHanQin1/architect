@@ -16,8 +16,8 @@ public class UserDaoImpl extends BaseDao implements UserDao {
 
     @Override
     public int insert(User user) {
-        String sql="insert into user(Title,UserName,Pwd,AddTime) values(?,?,?,?)";
-        return update(sql,user.getTitle(),user.getUserName(),user.getPwd(),user.getAddTime());
+        String sql="insert into user(Title,UserName,Pwd,AddTime,LogCount) values(?,?,?,?,?)";
+        return update(sql,user.getTitle(),user.getUserName(),user.getPwd(),user.getAddTime(),user.getLogCount());
     }
 
     @Override
@@ -66,5 +66,17 @@ public class UserDaoImpl extends BaseDao implements UserDao {
     public List<User> queryUserBypage(int begin, int pageSize) {
         String sql="select * from user limit ?,?";
         return queryForList(User.class,sql,begin,pageSize);
+    }
+
+    @Override
+    public List<User> queryUserByKeywordForPage(User user, int begin, int pageSize) {
+        String sql = "select * from user where UserName like concat(\'%\', ?,\'%\') limit ?,?";
+        return queryForList(User.class, sql, user.getUserName(),begin,pageSize);
+    }
+
+    @Override
+    public List<User> userList(User user) {
+        String sql="select * from user where UserName like concat(\'%\', ?,\'%\')";
+        return  queryForList(User.class, sql, user.getUserName());
     }
 }
