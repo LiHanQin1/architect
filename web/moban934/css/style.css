@@ -9,6 +9,7 @@ html, body{
 body a{
 	transition:0.5s all;
 	-webkit-transition:0.5s all;
+
 	-moz-transition:0.5s all;
 	-o-transition:0.5s all;
 	-ms-transition:0.5s all;
@@ -520,7 +521,6 @@ span.m_1 img{
 i.icon1, i.icon2, i.icon3{
 	width: 20px;
 height: 20px;
-background: url(../images/img_sprite.png) -7px -42px;
 float: left;
 margin-right: 8%;
 }
@@ -534,10 +534,10 @@ ul.list_2 li p, ul.list_4 li p{
 	float: left;
 }
 i.icon2{
-	background: url(../images/img_sprite.png) -33px -42px;
+
 }
 i.icon3{
-	background: url(../images/img_sprite.png) -60px -42px;
+
 }
 .content{
 	background:#edeff0;
@@ -605,7 +605,7 @@ ul.list_3 li p, ul.list_5 li p{
 i.icon4{
 	width: 20px;
 height: 20px;
-background: url(../images/img_sprite.png) -85px -46px;
+
 display: inline-block;
 position: absolute;
 top: -184px;
@@ -615,7 +615,7 @@ right: 15px;
 i.icon5 {
 width: 20px;
 height: 20px;
-background: url(../images/img_sprite.png) -7px -42px;
+
 float: left;
 margin-right:4%;
 }
