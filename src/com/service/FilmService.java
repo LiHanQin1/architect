@@ -28,4 +28,7 @@ public interface FilmService {
     Integer queryCounts();
     //分页查询
     Page<Film> queryByPage(int pageNo, int pageSize);
+
+    Page<Film> queryKeyWordByPage(Film film,int pageNo, int pageSize);
+    List<Film>  filmList(Film film);
 }

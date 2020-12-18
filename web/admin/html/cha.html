@@ -135,6 +135,29 @@
 
 					});
 				}
+
+
+				if ($("#keyword").val() != null) {
+                    $("#keywordbtn").on("click",function () {
+                        var keyword=$("#keyword").val();
+                        function loads(pageNo){
+                            $.ajax({
+                                url: "http://localhost:8000/architect/vip.do",
+                                data: {action: "queryByKeyword",pageNo: pageNo,keyword:keyword},
+                                type: "GET",
+                                dataType: "text",
+                                success: function (data) {
+                                    initData(data);
+                                }
+                            })
+                        }
+                        loads(1);
+                    })
+				}else{
+				    load(1);
+				}
+
+
 			})
 		</script>
 	</head>
@@ -154,7 +177,8 @@
 						<th lay-data="{field:'joinTime', width:150}">性别</th>
 						<th lay-data="{field:'joinTime', width:150}">注册时间</th>
 						<th lay-data="{field:'joinTime', width:150}">登录次数</th>
-						<th lay-data="{field:'joinTime', width:150}"></th>
+						<th lay-data="{field:'joinTime', width:150}"><input type="text" id="keyword"  class="layui-input" style="height: 45px;margin-top: 18px" placeholder="输入要查询的账号名">&nbsp;&nbsp;</th>
+						<th lay-data="{field:'joinTime', width:150}"><button class="layui-btn layui-btn-radius" id="keywordbtn" style="width: 50px;padding: 1px" >搜 索</button></th>
 						<th lay-data="{field:'joinTime', width:150}"></th>
 					</tr>
 				</thead>
@@ -216,11 +240,7 @@
 						</form>
 					</div>
 					<div class="modal-footer">
-						<!--<button type="button" class="btn btn-default" data-dismiss="modal">关闭-->
-						<!--</button>-->
-						<!--<button type="button" class="submit-btn btn btn-primary">-->
-						<!--提交-->
-						<!--</button>-->
+
 
 					</div>
 				</div><!-- /.modal-content -->

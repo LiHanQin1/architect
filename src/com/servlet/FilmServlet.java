@@ -33,12 +33,14 @@ public class FilmServlet extends BaseServlet {
         super.doGet(request,response);
     }
 
-    public void queryPicAddress(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void queryPicAddress(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         List<Film> film=filmService.queryAddress();
-        Gson gson = new Gson();
-        String jsonStr = gson.toJson(film);
-        response.getWriter().write(jsonStr);
+        request.getSession().setAttribute("film",film);
+        request.getRequestDispatcher("/moban934/index.jsp").forward(request,response);
+//        Gson gson = new Gson();
+//        String jsonStr = gson.toJson(film);
+//        response.getWriter().write(jsonStr);
        // System.out.println(film.toString());
 
     }
@@ -75,6 +77,17 @@ public class FilmServlet extends BaseServlet {
         Integer pageNo = Integer.valueOf(request.getParameter("pageNo"));
         Page<Film> page = filmService.queryByPage(pageNo, Page.PAGE_SIZE);
         System.out.println(page.toString());
+        Gson gson = new Gson();
+        String jsonStr = gson.toJson(page);
+        response.getWriter().write(jsonStr);
+    }
+
+    public void queryByKeyword (HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String keyword = request.getParameter("keyword");
+        Film film = new Film();
+        film.setMovieName(keyword);
+        Integer pageNo = Integer.valueOf(request.getParameter("pageNo"));
+        Page<Film> page = filmService.queryKeyWordByPage(film,pageNo, Page.PAGE_SIZE);
         Gson gson = new Gson();
         String jsonStr = gson.toJson(page);
         response.getWriter().write(jsonStr);

@@ -1,5 +1,6 @@
 package com.servlet;
 
+import com.entity.Film;
 import com.entity.Notice;
 import com.google.gson.Gson;
 import com.service.NoticeService;
@@ -118,6 +119,17 @@ public class NoticeServlet extends BaseServlet {
         Integer integer = noticeService.update(notice);
         String str = (integer == 1) ? "1" : "";
         response.getWriter().write(str);
+    }
+
+    public void queryByKeyword (HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String keyword = request.getParameter("keyword");
+        Notice notice = new Notice();
+        notice.setTitle(keyword);
+        Integer pageNo = Integer.valueOf(request.getParameter("pageNo"));
+        Page<Notice> page = noticeService.queryKeyWordByPage(notice,pageNo, Page.PAGE_SIZE);
+        Gson gson = new Gson();
+        String jsonStr = gson.toJson(page);
+        response.getWriter().write(jsonStr);
     }
 
 }

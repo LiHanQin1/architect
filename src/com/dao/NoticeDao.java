@@ -1,5 +1,6 @@
 package com.dao;
 
+import com.entity.Film;
 import com.entity.Notice;
 import org.apache.tools.ant.taskdefs.Delete;
 
@@ -20,5 +21,8 @@ public interface NoticeDao {
     Integer queryCounts();
     //分页查询
     List<Notice> queryUserBypage(int begin, int pageSize);
+
+    List<Notice> queryUserByKeywordForPage(Notice notice, int begin, int pageSize);
+    List<Notice>  noticeList(Notice notice);
 
 }

@@ -27,4 +27,7 @@ public interface FilmDao {
     Integer queryCounts();
     //分页查询
     List<Film> queryUserBypage(int begin, int pageSize);
+
+    List<Film> queryUserByKeywordForPage(Film film,int begin, int pageSize);
+    List<Film>  filmList(Film film);
 }

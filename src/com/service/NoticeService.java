@@ -20,4 +20,7 @@ public interface NoticeService {
     Integer queryCounts();
     //分页查询
     Page<Notice> queryUserBypage(int pageNo, int pageSize);
+
+    Page<Notice> queryKeyWordByPage(Notice notice, int pageNo, int pageSize);
+    List<Notice>  noticeList(Notice notice);
 }

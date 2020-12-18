@@ -94,5 +94,17 @@ public class FilmDaoImpl extends BaseDao implements FilmDao {
         return queryForList(Film.class,sql,begin,pageSize);
     }
 
+    @Override
+    public List<Film> queryUserByKeywordForPage(Film film, int begin, int pageSize) {
+        String sql = "select * from film where MovieName like concat(\'%\', ?,\'%\') limit ?,?";
+        return queryForList(Film.class, sql, film.getMovieName(),begin,pageSize);
+    }
+
+    @Override
+    public List<Film> filmList(Film film) {
+        String sql="select * from film where MovieName like concat(\'%\', ?,\'%\')";
+        return  queryForList(Film.class, sql, film.getMovieName());
+    }
+
 
 }
