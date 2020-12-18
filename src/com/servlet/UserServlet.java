@@ -49,6 +49,7 @@ public class UserServlet extends BaseServlet {
         if (token.equals(code)) {
             if (user != null) {
                 user.setLogCount(user.getLogCount()+1);
+                userService.update(user);
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
                 response.sendRedirect(request.getContextPath() + "/admin/html/index2.html");
@@ -75,6 +76,7 @@ public class UserServlet extends BaseServlet {
         user.setPwd(password);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         user.setAddTime(String.valueOf(simpleDateFormat.format(new Date())));
+        user.setLogCount(0);
         int result = userService.insert(user);
         if (result>0){
             response.getWriter().print("<script> alert(\"注册成功!\");" +
