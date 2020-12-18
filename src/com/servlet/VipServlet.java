@@ -47,6 +47,7 @@ public class VipServlet extends BaseServlet {
         Vip vip1 = vipService.queryUserByNameAndPassword(vip);
         if (vip1 != null) {
             vip1.setLoginCount(vip1.getLoginCount() + 1);
+            vipService.update(vip1);
             HttpSession session = request.getSession();
             session.setAttribute("vip", vip1);
             response.getWriter().write("登陆成功！");
