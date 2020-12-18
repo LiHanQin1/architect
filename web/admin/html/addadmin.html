@@ -22,7 +22,7 @@
                                     $("#usernametips").html("用户名已存在");
                                     return false;
                                 } else {
-                                    $("#usernametips").html("");
+                                    $("#usernametips").html("用户名合法✔");
                                     return true;
                                 }
                             }
@@ -31,6 +31,18 @@
                         $("#usernametips").html("用户名长度在6-11,包括字母，数字，下划线");
                         return false;
 					}
+                })
+
+                $("#password").on("blur",function () {
+                    var password=$("#password").val();
+                    var uPattern =/^[a-zA-Z0-9_]{6,12}$/;
+                    if (uPattern.test(password)){
+                        $("#passwordtips").html("密码合法✔");
+                        return true;
+                    }else{
+                        $("#passwordtips").html("密码长度在6-12,包括字母，数字，下划线");
+                        return false;
+                    }
                 })
             })
 
@@ -61,8 +73,9 @@
 					<div class="layui-form-item">
 						<label class="layui-form-label">密码</label>
 						<div class="layui-input-inline">
-							<input type="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off"
+							<input type="password" id="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off"
 							 class="layui-input">
+							<span id="passwordtips"></span>
 						</div>
 						<!-- <div class="layui-form-mid layui-word-aux">辅助文字</div> -->
 					</div>
