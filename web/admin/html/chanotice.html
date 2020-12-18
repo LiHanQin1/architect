@@ -22,7 +22,7 @@
                 dataType: "text",
                 success: function (data) {
                     initData(data);
-                    console.log(data)
+                    // console.log(data)
                 }
             })
         }
@@ -47,7 +47,7 @@
 
         function initData(data) {
             var jsonObj = JSON.parse(data);
-            console.log(jsonObj);
+            // console.log(jsonObj);
             var buttons = "<td>\n" +
                 "<button class=\"updatebtn layui-btn layui-btn-radius\" data-toggle=\"modal\" data-target=\"#myModal\">编辑</button>\n" +
                 "<button  class=\"delbtn layui-btn layui-btn-radius\" >删除</button>\n" +
