@@ -59,10 +59,11 @@ public class FilmServlet extends BaseServlet {
         Integer hits = film1.getHits();
         hits++;
         film1.setHits(hits);
+        filmService.update(film1);
         Gson gson = new Gson();
         String jsonStr = gson.toJson(film1);
         response.getWriter().write(jsonStr);
-        filmService.update(film1);
+
 
 
     }
