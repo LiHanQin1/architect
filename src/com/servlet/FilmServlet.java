@@ -33,12 +33,14 @@ public class FilmServlet extends BaseServlet {
         super.doGet(request,response);
     }
 
-    public void queryPicAddress(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void queryPicAddress(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
         List<Film> film=filmService.queryAddress();
-        Gson gson = new Gson();
-        String jsonStr = gson.toJson(film);
-        response.getWriter().write(jsonStr);
+        request.getSession().setAttribute("film",film);
+        request.getRequestDispatcher("/moban934/index.jsp").forward(request,response);
+//        Gson gson = new Gson();
+//        String jsonStr = gson.toJson(film);
+//        response.getWriter().write(jsonStr);
        // System.out.println(film.toString());
 
     }
