@@ -51,12 +51,17 @@ public class UserServlet extends BaseServlet {
                 user.setLogCount(user.getLogCount()+1);
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
-                response.sendRedirect(request.getContextPath() + "/administrator.jsp");
+                response.sendRedirect(request.getContextPath() + "/admin/html/index2.html");
             } else {
-                response.sendRedirect(request.getContextPath() + "/login.html");
+                response.getWriter().print("<script> alert(\"密码错误!\");" +
+                        "window.location.href=\"http://localhost:8000/architect/login.html\""+
+                        " </script>");
+//                response.sendRedirect(request.getContextPath() + "/login.html");
             }
         } else {
-            response.getWriter().write("验证码错误！！！");
+            response.getWriter().print("<script> alert(\"验证码错误!\");" +
+                    "window.location.href=\"http://localhost:8000/architect/login.html\""+
+                    " </script>");
         }
     }
 
