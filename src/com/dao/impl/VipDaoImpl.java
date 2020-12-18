@@ -16,8 +16,8 @@ import java.util.List;
 public class VipDaoImpl extends BaseDao implements VipDao {
     @Override
     public int insert(Vip vip) {
-        String sql="insert into vip(UserName,UserPwd,Tel,QQ,Email,Sex,RegTime) values(?,?,?,?,?,?,?)";
-        return update(sql,vip.getUserName(),vip.getUserPwd(),vip.getTel(),vip.getQQ(),vip.getEmail(),vip.getSex(),vip.getRegTime());
+        String sql="insert into vip(UserName,UserPwd,Tel,QQ,Email,Sex,RegTime,LoginCount) values(?,?,?,?,?,?,?,?)";
+        return update(sql,vip.getUserName(),vip.getUserPwd(),vip.getTel(),vip.getQQ(),vip.getEmail(),vip.getSex(),vip.getRegTime(),vip.getLoginCount());
     }
 
     @Override

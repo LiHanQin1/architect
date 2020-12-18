@@ -75,6 +75,7 @@ public class VipServlet extends BaseServlet {
         vip.setSex(sex);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         vip.setRegTime(String.valueOf(simpleDateFormat.format(new Date())));
+        vip.setLoginCount(0);
 
         Vip vip1 = vipService.queryUserByName(vip);
         if (vip1 == null) {
@@ -116,6 +117,7 @@ public class VipServlet extends BaseServlet {
         vip.setSex(sex);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         vip.setRegTime(String.valueOf(simpleDateFormat.format(new Date())));
+        vip.setLoginCount(0);
         int result = vipService.insert(vip);
         String message = "注册失败";
         if (result > 0) {
