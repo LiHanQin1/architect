@@ -9,23 +9,32 @@
 			$(function () {
 
                 $("#username").on("blur", function () {
+                    //用户名校验
                     var username=$("#username").val();
-                    $.ajax({
-                        url: "http://localhost:8000/architect/vip.do",
-                        data: {action: "queryByUsername",username:username},
-                        type: "GET",
-                        dataType: "text",
-                        success: function (data) {
-                            if (data>0){
-                                $("#usernametips").html("用户名已存在");
-                                return false;
-                            } else{
-                                $("#usernametips").html("");
-                                return true;
+                    var uPattern = /^[a-zA-Z0-9_-]{6,11}$/;
+                    if (uPattern.test(username)) {
+                        $.ajax({
+                            url: "http://localhost:8000/architect/vip.do",
+                            data: {action: "queryByUsername",username:username},
+                            type: "GET",
+                            dataType: "text",
+                            success: function (data) {
+                                if (data>0){
+                                    $("#usernametips").html("用户名已存在");
+                                    return false;
+                                } else{
+                                    $("#usernametips").html("");
+                                    return true;
+                                }
                             }
-                        }
-                    });
+                        });
+					}else{
+                        $("#usernametips").html("用户名长度在6-11,包括字母，数字，下划线");
+                        return false;
+					}
                 })
+
+
             })
 		</script>
 	</head>
@@ -62,14 +71,14 @@
 					<div class="layui-form-item">
 						<label class="layui-form-label">TEL</label>
 						<div class="layui-input-inline">
-							<input type="text" name="TEL" required lay-verify="required" placeholder="请输入电话" autocomplete="off" class="layui-input">
+							<input type="tel" name="TEL" required lay-verify="required" placeholder="请输入电话" autocomplete="off" class="layui-input">
 						</div>
 						<!-- <div class="layui-form-mid layui-word-aux">辅助文字</div> -->
 					</div>
 					<div class="layui-form-item">
 						<label class="layui-form-label">Email</label>
 						<div class="layui-input-inline">
-							<input type="text" name="Email" required lay-verify="required" placeholder="请输入邮箱" autocomplete="off" class="layui-input">
+							<input type="email" name="Email" required lay-verify="required" placeholder="请输入邮箱" autocomplete="off" class="layui-input">
 						</div>
 						<!-- <div class="layui-form-mid layui-word-aux">辅助文字</div> -->
 					</div>
