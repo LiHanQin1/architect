@@ -23,7 +23,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="container">
     <div class="container_wrap">
         <div class="header_top">
-            <div class="col-sm-3 logo"><a href="index.html"><img src="images/logo.png" alt=""/></a></div>
+            <div class="col-sm-3 logo"><a href="index.jsp"><img src="images/logo.png" alt=""/></a></div>
             <div class="col-sm-6 nav">
                 <ul>
                     <li><span class="simptip-position-bottom simptip-movable" data-tooltip="comic"><a
@@ -67,15 +67,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     movies(data);
                                 }
                             })
+
                             function movies(data) {
                                 let jsonObj = JSON.parse(data);
-                                for (var i = 0; i < jsonObj.length; i++) {
+                                for (var i = 3; i < jsonObj.length; i++) {
                                     let imgpath = jsonObj[i].PicAddress;
                                     let Hits = jsonObj[i].Hits;
                                     let movieId = jsonObj[i].MovieId;
                                     imgpath = "http://localhost:8000" + imgpath.substring(2).replaceAll("\\", "/");
                                     let trNode = $("<div class=\"movie movie-test movie-test-dark movie-test-left\">");
-                                    trNode.append("<div class=\"movie__images\"><a href=\"single.html\" id='show"+i+"' class=\"movie-beta__link\">" +
+                                    trNode.append("<div class=\"movie__images\"><a href=\"http://localhost:8000/architect/FilmServlet?action=queryOne&MovieId="+movieId+"\" id='show"+i+"' class=\"movie-beta__link\">" +
                                         " <img alt=\"\" style='width: 250px;height: 240px;' src=\"" + imgpath + "\" class=\"img-responsive\" alt=\"\"/></a></div>" +
                                         "<div class=\"movie__info\"><a href=\"single.html\" style='font-size:19px' class=\"movie__title\">" + jsonObj[i].MovieName + "</a><br/>" +
                                         "<ul class=\"list_6\"><li><p>导演：" + jsonObj[i].DaoYan + "</p></li><li><p>主演：" + jsonObj[i].ZhuYan + "</p></li>" +
@@ -87,7 +88,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             url: "http://localhost:8000/architect/FilmServlet",
                                             data: {action: "updateHit", MovieId: movieId},
                                             type: "GET",
-
                                             dataType: "text",
                                             success: function (data) {
                                                 hits(data);

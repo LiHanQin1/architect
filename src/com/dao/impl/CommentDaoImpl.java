@@ -39,9 +39,9 @@ public class CommentDaoImpl extends BaseDao implements CommentDao {
     }
 
     @Override
-    public  List<Comment> queryCommentByMovieId(Comment comment) {
+    public  List<Comment> queryCommentByMovieId(Integer movieId) {
         String sql = "select c.* from comment c, film f where f.MovieId = c.MovieId AND f.MovieId = ?";
-        return queryForList(Comment.class,sql,comment.getMovieId());
+        return queryForList(Comment.class,sql,movieId);
     }
 
 

@@ -1017,7 +1017,7 @@ float: left;
 }
 .movie_image {
 position: relative;
-border: 2px solid #d8232a;
+border: 2px solid darkgrey;
 }
 .movie_rating {
 width: 47px;
@@ -1116,7 +1116,7 @@ p.movie_option a{
 }
 
 p.m_4{
-	color: #888;
+	color: dimgrey;
 font-size: 1em;
 line-height: 1.8em;
 margin:3em 0;

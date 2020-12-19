@@ -16,7 +16,7 @@ public interface CommentDao {
     int delete(int CommentId);
     int update(Comment comment);
     List<Comment> queryAll();
-    List<Comment>  queryCommentByMovieId(Comment comment);
+    List<Comment>  queryCommentByMovieId(Integer movieId);
 
     Comment query(int id);
     //查询当前表的总记录条数

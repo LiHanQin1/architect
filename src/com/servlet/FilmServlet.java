@@ -63,9 +63,17 @@ public class FilmServlet extends BaseServlet {
         Gson gson = new Gson();
         String jsonStr = gson.toJson(film1);
         response.getWriter().write(jsonStr);
-
-
-
+    }
+    public void queryOne(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        Integer movieId = Integer.valueOf(request.getParameter("MovieId"));
+        Film film = new Film();
+        film.setMovieId(movieId);
+        Film film1=filmService.queryMovieByMovieId(film);
+        Gson gson=new Gson();
+        String jsonStr=gson.toJson(film1);
+        response.getWriter().write(jsonStr);
+        request.getSession().setAttribute("film1",film1);
+        request.getRequestDispatcher("/moban934/single.jsp").forward(request,response);
     }
     public void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Integer userId= Integer.valueOf(request.getParameter("userId"));

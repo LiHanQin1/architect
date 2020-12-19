@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 作者：chenbingfeng
@@ -60,15 +61,10 @@ public class CommentServlet extends BaseServlet {
 //        String message=(result >0 ) ?"删除成功":"删除失败";
             response.getWriter().write(result.toString());
         }
-
-
     }
-
     public void queryCommentByMovieId(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String movieId = request.getParameter("MovieId");
-        Comment comment = new Comment();
-        comment.setMovieId(Integer.valueOf(movieId));
-        List<Comment> list = commentService.queryCommentByMovieId(comment);
+        List<Comment> list = commentService.queryCommentByMovieId(Integer.valueOf(movieId));
         Gson gson = new Gson();
         String jsonStr = gson.toJson(list);
         response.getWriter().write(jsonStr);
@@ -84,6 +80,7 @@ public class CommentServlet extends BaseServlet {
         String jsonStr = gson.toJson(page);
         response.getWriter().write(jsonStr);
     }
+
 
 
 }
