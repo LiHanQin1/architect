@@ -60,6 +60,7 @@
                     imgpath = imgpath.replaceAll("\\", "/");
                     imgpath = "http://localhost:8000" + imgpath;
                     trNode.append("<td><img width='160px' height='100px' src='" + imgpath + "'/></td>");
+                    trNode.append("<td></td>")
                     trNode.append(buttons);
                     $("#tbdoy1").append(trNode);
                 }

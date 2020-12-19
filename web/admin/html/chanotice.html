@@ -60,6 +60,7 @@
                 trNode.append("<td>" + jsonObj.items[i].title + "</td>");
                 trNode.append("<td>" + jsonObj.items[i].neirong + "</td>");
                 trNode.append("<td>" + jsonObj.items[i].time + "</td>");
+                trNode.append("<td></td>")
                 trNode.append(buttons);
                 $("#tbdoy1").append(trNode);
             }
@@ -162,7 +163,8 @@
             <th lay-data="{field:'joinTime', width:150}">公告内容</th>
             <th lay-data="{field:'username', width:150}">时间</th>
             <th width="150px" lay-data="{field:'joinTime', width:150}"><input type="text" id="keyword"  class="layui-input" style="height: 45px;width: auto;margin-top: 18px" placeholder="输入要查询的标题">&nbsp;&nbsp;</th>
-            <th lay-data="{field:'joinTime', width:150}"><button class="layui-btn layui-btn-radius" id="keywordbtn" style="width: 50px;padding: 1px" >搜 索</button></th>
+
+            <th lay-data="{field:'joinTime', width:150}"><button class="layui-btn layui-btn-radius" id="keywordbtn" style="width: 50px;padding: 1px" >&nbsp;搜 索&nbsp; </button></th>
 
 
         </tr>

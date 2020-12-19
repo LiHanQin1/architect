@@ -64,7 +64,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <body>
 <%
     List<Film> films=(List<Film>) request.getSession().getAttribute("film");
-    System.out.println(films.get(0).getPicAddress());
+//    System.out.println(films.get(0).getPicAddress());
 %>
 <div class="container">
     <div class="container_wrap">

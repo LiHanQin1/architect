@@ -23,7 +23,7 @@
                 dataType: "text",
                 success: function (data) {
                     initData(data);
-                    // console.log(data)
+                    console.log(data)
                 }
             })
         }
@@ -61,8 +61,10 @@
                 trNode.append("<td>" + jsonObj.items[i].CommentTypeId + "</td>");
                 trNode.append("<td>" + jsonObj.items[i].MovieId + "</td>");
                 trNode.append("<td>" + jsonObj.items[i].CommentUser + "</td>");
-                trNode.append("<td>" + jsonObj.items[i].CommentContent + "</td>");
+                trNode.append("<td style='width: 250px'>" + jsonObj.items[i].CommentContent + "</td>");
+
                 trNode.append("<td>" + jsonObj.items[i].CommentTime + "</td>");
+                trNode.append("<td></td>")
                 trNode.append(buttons);
                 $("#tbdoy1").append(trNode);
             }

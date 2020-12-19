@@ -106,9 +106,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="clearfix"></div>
                     <p class="m_4"><%=content%>
                     </p>
-                    <form action="http://localhost:8000/architect/AddNoticeServlet" method="post">
+                    <form action="http://localhost:8000/architect/AddCommentServlet">
+                        <input name="action" type="hidden" value="sendcomment"/>
                         <div class="text">
-                            <textarea id="message" class="message" value="Message:" onfocus="this.value = '';"
+                            <textarea name="message" id="message" class="message" value="Message:" onfocus="this.value = '';"
                                       onblur="this.value = 'Message:'">Message:</textarea>
                         </div>
                         <div class="form-submit1">

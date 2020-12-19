@@ -63,27 +63,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 type: "GET",
                                 dataType: "text",
                                 success: function (data) {
-
                                     movies(data);
                                 }
                             })
 
                             function movies(data) {
                                 let jsonObj = JSON.parse(data);
-                                for (var i = 3; i < jsonObj.length; i++) {
+                                for (var i = 0; i < jsonObj.length; i++) {
                                     let imgpath = jsonObj[i].PicAddress;
                                     let Hits = jsonObj[i].Hits;
                                     let movieId = jsonObj[i].MovieId;
                                     imgpath = "http://localhost:8000" + imgpath.substring(2).replaceAll("\\", "/");
                                     let trNode = $("<div class=\"movie movie-test movie-test-dark movie-test-left\">");
-                                    trNode.append("<div class=\"movie__images\"><a href=\"http://localhost:8000/architect/FilmServlet?action=queryOne&MovieId="+movieId+"\" id='show"+i+"' class=\"movie-beta__link\">" +
+                                    trNode.append("<div class=\"movie__images\"><a href=\"http://localhost:8000/architect/FilmServlet?action=queryOne&MovieId=" + movieId + "\" id='show" + i + "' class=\"movie-beta__link\">" +
                                         " <img alt=\"\" style='width: 250px;height: 240px;' src=\"" + imgpath + "\" class=\"img-responsive\" alt=\"\"/></a></div>" +
                                         "<div class=\"movie__info\"><a href=\"single.html\" style='font-size:19px' class=\"movie__title\">" + jsonObj[i].MovieName + "</a><br/>" +
                                         "<ul class=\"list_6\"><li><p>导演：" + jsonObj[i].DaoYan + "</p></li><li><p>主演：" + jsonObj[i].ZhuYan + "</p></li>" +
-                                        "<li><p>上映时间：" + jsonObj[i].ShowTime + "</p></li><li><p>浏览量：<label id='ydl"+i+"'>" + Hits + "</label></p></li>" +
+                                        "<li><p>上映时间：" + jsonObj[i].ShowTime + "</p></li><li><p>浏览量：<label id='ydl" + i + "'>" + Hits + "</label></p></li>" +
                                         "<div class=\"clearfix\"> </div></div><br/>");
                                     $("#tbody1").append(trNode);
-                                    window.onload = $(eval("show" + i)).click(function() {
+                                    window.onload = $(eval("show" + i)).click(function () {
                                         $.ajax({
                                             url: "http://localhost:8000/architect/FilmServlet",
                                             data: {action: "updateHit", MovieId: movieId},
@@ -93,15 +92,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 hits(data);
                                             }
                                         })
+
                                         function hits(data) {
                                             let jsonObj = JSON.parse(data);
-                                            Hits = Hits+1;
-                                            $(eval("ydl"+i)).html(Hits);
+                                            Hits = Hits + 1;
+                                            $(eval("ydl" + i)).html(Hits);
                                         }
                                     });
                                 }
 
                             }
+
                             $.ajax({
                                 url: "http://localhost:8000/architect/YuGaoServlet",
                                 data: {action: "queryAll"},
@@ -109,19 +110,55 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 dataType: "text",
                                 success: function (data) {
                                     movie(data);
+                                    movie2(data);
                                 }
                             })
+
                             function movie(data) {
                                 let jsonObj = JSON.parse(data);
                                 for (var i = 0; i < jsonObj.length; i++) {
                                     let imgpath = jsonObj[i].PicAddress;
                                     imgpath = "http://localhost:8000" + imgpath.substring(2).replaceAll("\\", "/");
                                     let trNode = $("<li></li>");
-                                    trNode.append("<img style='width: 240px;height: 300px' src=\""+imgpath+"\" class=\"img-responsive\"/>");
-                                    trNode.append("<div class=\"grid-flex\"><a href=\"#\">"+jsonObj[i].MovieName+"</a><p>"+jsonObj[i].ShowTime+"</p></div>")
+                                    trNode.append("<img style='width: 240px;height: 300px' src=\"" + imgpath + "\" class=\"img-responsive\"/>");
+                                    trNode.append("<div class=\"grid-flex\"><a href=\"#\">" + jsonObj[i].MovieName + "</a><p>" + jsonObj[i].ShowTime + "</p></div>")
                                     $("#flexiselDemo3").append(trNode);
                                 }
                                 $("#flexiselDemo3").flexisel({
+                                    visibleItems: 4,
+                                    animationSpeed: 1000,
+                                    autoPlay: true,
+                                    autoPlaySpeed: 3000,
+                                    pauseOnHover: true,
+                                    enableResponsiveBreakpoints: true,
+                                    responsiveBreakpoints: {
+                                        portrait: {
+                                            changePoint: 480,
+                                            visibleItems: 1
+                                        },
+                                        landscape: {
+                                            changePoint: 640,
+                                            visibleItems: 2
+                                        },
+                                        tablet: {
+                                            changePoint: 768,
+                                            visibleItems: 3
+                                        }
+                                    }
+                                });
+                            }
+
+                            function movie2(data) {
+                                let jsonObj = JSON.parse(data);
+                                for (var i = 0; i < jsonObj.length; i++) {
+                                    let imgpath = jsonObj[i].PicAddress;
+                                    imgpath = "http://localhost:8000" + imgpath.substring(2).replaceAll("\\", "/");
+                                    let trNode = $("<li></li>");
+                                    trNode.append("<img style='width: 240px;height: 300px' src=\"" + imgpath + "\" class=\"img-responsive\"/>");
+                                    trNode.append("<div class=\"grid-flex\"><a href=\"#\">" + jsonObj[i].MovieName + "</a><p>" + jsonObj[i].ShowTime + "</p></div>")
+                                    $("#flexiselDemo1").append(trNode);
+                                }
+                                $("#flexiselDemo1").flexisel({
                                     visibleItems: 4,
                                     animationSpeed: 1000,
                                     autoPlay: true,
@@ -192,65 +229,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <ul id="flexiselDemo3">
 
             </ul>
-            <!--<li><img src="images/1.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Syenergy 2mm</a><p>22.10.2014 | 14:40</p></div></li>-->
-            <!--<li><img src="images/2.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Surf Yoke</a><p>22.01.2015 | 14:40</p></div></li>-->
-            <!--<li><img src="images/3.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Salty Daiz</a><p>22.10.2013 | 14:40</p></div></li>-->
-            <!--<li><img src="images/4.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Cheeky Zane</a><p>22.10.2014 | 14:40</p></div></li>-->
-            <!--<li><img src="images/5.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Synergy</a><p>22.10.2013 | 14:40</p></div></li>-->
+
 
             <script type="text/javascript">
                 $(window).load(function () {
-
-
                 });
             </script>
             <ul id="flexiselDemo1">
-            <li><img src="images/8.jpg" class="img-responsive"/>
-            <div class="grid-flex"><a href="#">Syenergy 2mm</a>
-            <p>22.10.2014 | 14:40</p></div>
-            </li>
-            <li><img src="images/7.jpg" class="img-responsive"/>
-            <div class="grid-flex"><a href="#">Surf Yoke</a>
-            <p>22.01.2015 | 14:40</p></div>
-            </li>
-            <li><img src="images/6.jpg" class="img-responsive"/>
-            <div class="grid-flex"><a href="#">Salty Daiz</a>
-            <p>22.10.2013 | 14:40</p></div>
-            </li>
-            <li><img src="images/1.jpg" class="img-responsive"/>
-            <div class="grid-flex"><a href="#">Cheeky Zane</a>
-            <p>22.10.2014 | 14:40</p></div>
-            </li>
-            <li><img src="images/2.jpg" class="img-responsive"/>
-            <div class="grid-flex"><a href="#">Synergy</a>
-            <p>22.10.2013 | 14:40</p></div>
-            </li>
+
             </ul>
             <script type="text/javascript">
                 $(window).load(function () {
-                    $("#flexiselDemo1").flexisel({
-                        visibleItems: 4,
-                        animationSpeed: 1000,
-                        autoPlay: true,
-                        autoPlaySpeed: 3000,
-                        pauseOnHover: true,
-                        enableResponsiveBreakpoints: true,
-                        responsiveBreakpoints: {
-                            portrait: {
-                                changePoint: 480,
-                                visibleItems: 1
-                            },
-                            landscape: {
-                                changePoint: 640,
-                                visibleItems: 2
-                            },
-                            tablet: {
-                                changePoint: 768,
-                                visibleItems: 3
-                            }
-                        }
-                    });
-
                 });
             </script>
         </div>
