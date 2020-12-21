@@ -108,9 +108,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </p>
                     <form action="http://localhost:8000/architect/AddCommentServlet">
                         <input name="action" type="hidden" value="sendcomment"/>
+                        <%
+                            session.setAttribute("MovieId",film.getMovieId());
+                            session.setAttribute("CommentTypeId",film.getTypeId());
+                        %>
                         <div class="text">
-                            <textarea name="message" id="message" class="message" value="Message:" onfocus="this.value = '';"
-                                      onblur="this.value = 'Message:'">Message:</textarea>
+                            <textarea name="message" id="message" class="message"  onfocus="this.value = '';"
+                                     ></textarea>
                         </div>
                         <div class="form-submit1">
                             <button type="submit" name="submit" id="submit">发表评论</button>

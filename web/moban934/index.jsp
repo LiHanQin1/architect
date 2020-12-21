@@ -69,7 +69,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="container">
     <div class="container_wrap">
         <div class="header_top">
-            <div class="col-sm-3 logo"><a href="index.html"><img src="images/logo.png" alt=""/></a></div>
+            <div class="col-sm-3 logo"><a href="index.jsp"><img src="images/logo.png" alt=""/></a></div>
             <div class="col-sm-6 nav">
                 <ul>
                     <li> <span class="simptip-position-bottom simptip-movable" data-tooltip="影片"><a href="movie.html"> </a></span></li>
@@ -120,39 +120,86 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="box_1">
                 <h1 class="recent">热门电影</h1>
                 <ul id="flexiselDemo3">
-                    <li><img src="images/1.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Syenergy 2mm</a><p>22.10.2014 | 14:40</p></div></li>
-                    <li><img src="images/2.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Surf Yoke</a><p>22.01.2015 | 14:40</p></div></li>
-                    <li><img src="images/3.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Salty Daiz</a><p>22.10.2013 | 14:40</p></div></li>
-                    <li><img src="images/4.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Cheeky Zane</a><p>22.10.2014 | 14:40</p></div></li>
-                    <li><img src="images/5.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Synergy</a><p>22.10.2013 | 14:40</p></div></li>
+                    <%--<li><img src="images/1.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Syenergy 2mm</a><p>22.10.2014 | 14:40</p></div></li>--%>
+                    <%--<li><img src="images/2.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Surf Yoke</a><p>22.01.2015 | 14:40</p></div></li>--%>
+                    <%--<li><img src="images/3.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Salty Daiz</a><p>22.10.2013 | 14:40</p></div></li>--%>
+                    <%--<li><img src="images/4.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Cheeky Zane</a><p>22.10.2014 | 14:40</p></div></li>--%>
+                    <%--<li><img src="images/5.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Synergy</a><p>22.10.2013 | 14:40</p></div></li>--%>
                 </ul>
-                <script type="text/javascript">
-                    $(window).load(function() {
-                        $("#flexiselDemo3").flexisel({
-                            visibleItems: 4,
-                            animationSpeed: 1000,
-                            autoPlay: true,
-                            autoPlaySpeed: 3000,
-                            pauseOnHover: true,
-                            enableResponsiveBreakpoints: true,
-                            responsiveBreakpoints: {
-                                portrait: {
-                                    changePoint:480,
-                                    visibleItems: 1
-                                },
-                                landscape: {
-                                    changePoint:640,
-                                    visibleItems: 2
-                                },
-                                tablet: {
-                                    changePoint:768,
-                                    visibleItems: 3
-                                }
+                <script>
+                    $(function () {
+                        $.ajax({
+                            url: "http://localhost:8000/architect/FilmServlet",
+                            data: {action: "queryAll"},
+                            type: "GET",
+                            dataType: "text",
+                            success: function (data) {
+                                movie(data);
                             }
-                        });
-
-                    });
+                        })
+                        function movie(data) {
+                            let jsonObj = JSON.parse(data);
+                            for (var i = 3; i < jsonObj.length; i++) {
+                                let imgpath = jsonObj[i].PicAddress;
+                                imgpath = "http://localhost:8000" + imgpath.substring(2).replaceAll("\\", "/");
+                                let trNode = $("<li></li>");
+                                trNode.append("<img style='width: 240px;height: 300px' src=\"" + imgpath + "\" class=\"img-responsive\"/>");
+                                trNode.append("<div class=\"grid-flex\"><a href=\"#\">" + jsonObj[i].MovieName + "</a><p>" + jsonObj[i].ShowTime + "</p></div>")
+                                $("#flexiselDemo3").append(trNode);
+                            }
+                            $("#flexiselDemo3").flexisel({
+                                visibleItems: 4,
+                                animationSpeed: 1000,
+                                autoPlay: true,
+                                autoPlaySpeed: 3000,
+                                pauseOnHover: true,
+                                enableResponsiveBreakpoints: true,
+                                responsiveBreakpoints: {
+                                    portrait: {
+                                        changePoint: 480,
+                                        visibleItems: 1
+                                    },
+                                    landscape: {
+                                        changePoint: 640,
+                                        visibleItems: 2
+                                    },
+                                    tablet: {
+                                        changePoint: 768,
+                                        visibleItems: 3
+                                    }
+                                }
+                            });
+                        }
+                        })
                 </script>
+
+                <%--<script type="text/javascript">--%>
+                    <%--$(window).load(function() {--%>
+                        <%--$("#flexiselDemo3").flexisel({--%>
+                            <%--visibleItems: 4,--%>
+                            <%--animationSpeed: 1000,--%>
+                            <%--autoPlay: true,--%>
+                            <%--autoPlaySpeed: 3000,--%>
+                            <%--pauseOnHover: true,--%>
+                            <%--enableResponsiveBreakpoints: true,--%>
+                            <%--responsiveBreakpoints: {--%>
+                                <%--portrait: {--%>
+                                    <%--changePoint:480,--%>
+                                    <%--visibleItems: 1--%>
+                                <%--},--%>
+                                <%--landscape: {--%>
+                                    <%--changePoint:640,--%>
+                                    <%--visibleItems: 2--%>
+                                <%--},--%>
+                                <%--tablet: {--%>
+                                    <%--changePoint:768,--%>
+                                    <%--visibleItems: 3--%>
+                                <%--}--%>
+                            <%--}--%>
+                        <%--});--%>
+
+                    <%--});--%>
+                <%--</script>--%>
                 <script type="text/javascript" src="js/jquery.flexisel.js"></script>
                 <ul id="flexiselDemo1">
                     <li><img src="images/8.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Syenergy 2mm</a><p>22.10.2014 | 14:40</p></div></li>
