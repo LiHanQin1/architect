@@ -68,17 +68,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    Vip vip= (Vip) request.getSession().getAttribute("vip");
    if (vip!=null){   %>
             $("#vipInformation").empty();
-            $("#vipInformation").html("当前用户 : <%=vip.getUserName()%>");
+            $("#vipInformation").html("当前用户:<%=vip.getUserName()%>");
             $("#menu").append("<div class=\"dropdown\" style=\"z-index: 100; position: relative;\">\n" +
                 "                            <button class=\"dropbtn\">下拉菜单</button>\n" +
                 "                            <div class=\"dropdown-content\">\n" +
-                "                                <a href=\"#\" data-toggle=\"modal\" data-target=\"#myModal\">修改密码</a>\n" +
-                "                                <a href=\"#\">退出</a>\n" +
+                "                                <a href=\"moban934/updatepassword.jsp\" >修改密码</a>\n" +
+                "                                <a href=\"moban934/vipout.jsp\">退出</a>\n" +
                 "                            </div>\n" +
                 "                        </div>")
             <% }
             %>
         })
+
+
     </script>
 
     <script type="text/javascript">
@@ -105,6 +107,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     }
                 }
             });
+
         });
     </script>
 
@@ -205,6 +208,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="clearfix"> </div>
         </div>
+
+
+
+
 
         <div class="slider">
             <div class="callbacks_container">
