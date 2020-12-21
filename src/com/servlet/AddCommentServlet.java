@@ -1,6 +1,8 @@
 package com.servlet;
 
 import com.entity.Comment;
+import com.entity.User;
+import com.entity.Vip;
 import com.service.CommentService;
 import com.service.impl.CommentServiceImpl;
 import javafx.scene.input.DataFormat;
@@ -14,11 +16,6 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-/**
- * 作者：czw
- * 日期: 2020/12/20 1:37
- * 描述:
- */
 @WebServlet("/AddCommentServlet")
 public class AddCommentServlet extends BaseServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -30,20 +27,32 @@ public class AddCommentServlet extends BaseServlet {
         super.doGet(req, resp);
     }
 
-    public void sendcomment(HttpServletRequest request, HttpServletResponse response) {
-        String commentMessage = request.getParameter("message");
-        Integer movieId = (Integer) request.getSession().getAttribute("MovieId");
-        String commentTypeId = String.valueOf(request.getSession().getAttribute("CommentTypeId"));
-        Comment comment = new Comment();
-        comment.setCommentContent(commentMessage);
-        comment.setMovieId(movieId);
-        comment.setCommentTypeId(Integer.valueOf(commentTypeId));
-        Date date = new Date();
-        SimpleDateFormat  dataFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        String commentTime = dataFormat.format(date);
-        comment.setCommentTime(commentTime);
-        CommentService commentService = new CommentServiceImpl();
-        commentService.insert(comment);
+    public void sendcomment(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        Vip user = (Vip) request.getSession().getAttribute("vip");
+        System.out.println(user);
+        if (user != null) {
+            Comment comment = new Comment();
+            String user1=user.getUserName();
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            comment.setCommentTime(String.valueOf(simpleDateFormat.format(new Date())));
+            comment.setCommentUser(user1);
+            String commentMessage = request.getParameter("message");
+            comment.setCommentContent(commentMessage);
+            Integer movieId = Integer.valueOf(request.getParameter("MovieId"));
+            comment.setMovieId(movieId);
+            comment.setCommentTypeId(movieId);
+            CommentService commentService = new CommentServiceImpl();
+            Integer i= commentService.insert(comment);
+            if(i>0){
+                response.sendRedirect("/architect/FilmServlet?action=queryOne&MovieId="+movieId);
+            }{
+                response.getWriter().write("发布失败");
+            }
+        } else {
+            response.getWriter().print("<script> alert(\"您还没登录!\");" +
+                    "window.location.href=\"http://localhost:8000/architect/moban934/login.html\"" +
+                    " </script>");
+        }
     }
 
 
