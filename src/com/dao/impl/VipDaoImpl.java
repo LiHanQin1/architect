@@ -33,6 +33,13 @@ public class VipDaoImpl extends BaseDao implements VipDao {
     }
 
     @Override
+    public int updateByUsername(Vip vip) {
+        String sql="update vip set UserPwd=? where UserName=?";
+        return update(sql,vip.getUserPwd(),vip.getUserName());
+
+    }
+
+    @Override
     public List<Vip> queryAll() {
         String sql="select * from vip";
         return queryForList(Vip.class,sql);

@@ -204,4 +204,28 @@ public class VipServlet extends BaseServlet {
         String jsonStr = gson.toJson(page);
         response.getWriter().write(jsonStr);
     }
+
+    public void updatepassword(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        Vip vip=new Vip();
+        vip.setUserName(username);
+        vip.setUserPwd(password);
+        int i=vipService.updateByUsername(vip);
+        String str=(i==1)?"1":"";
+       response.getWriter().write(str);
+
+    }
+
+    public void queryIsExist(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String username = request.getParameter("username");
+        String usedpassword = request.getParameter("usedpassword");
+        Vip vip=new Vip();
+        vip.setUserName(username);
+        vip.setUserPwd(usedpassword);
+        Vip vip1=vipService.queryUserByNameAndPassword(vip);
+        String str=(vip1==null)?"":"1";
+        response.getWriter().write(str);
+
+    }
     }

@@ -14,6 +14,7 @@ public interface VipDao {
     int insert(Vip vip);
     int delete(int id);
     int update(Vip vip);
+    int updateByUsername(Vip vip);
     List<Vip> queryAll();
     Vip queryUserByNameAndPassword(Vip vip);
     Vip queryUserByName(Vip vip);

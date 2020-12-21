@@ -31,6 +31,11 @@ public class VipServiceImpl implements VipService {
     }
 
     @Override
+    public int updateByUsername(Vip vip) {
+        return vipDao.updateByUsername(vip);
+    }
+
+    @Override
     public List<Vip> queryAll() {
         return vipDao.queryAll();
     }
