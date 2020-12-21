@@ -69,6 +69,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    if (vip!=null){   %>
             $("#vipInformation").empty();
             $("#vipInformation").html("当前用户:<%=vip.getUserName()%>");
+            $("#menu").append("<div class=\"dropdown\" style=\"z-index: 100; position: relative;\">\n" +
+                "                            <button class=\"dropbtn\">下拉菜单</button>\n" +
+                "                            <div class=\"dropdown-content\">\n" +
+                "                                <a href=\"#\" data-toggle=\"modal\" data-target=\"#myModal\">修改密码</a>\n" +
+                "                                <a href=\"#\">退出</a>\n" +
+                "                            </div>\n" +
+                "                        </div>")
             <% }
             %>
         })
@@ -183,6 +190,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </style>
 </head>
 <body>
+
 <div class="container">
     <div class="container_wrap">
         <div class="header_top">
@@ -197,20 +205,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <ul class="header_right_box" >
                     <li id="vipInformation"><a href="/architect/moban934/login.html" >登  陆</a></li>
                     <%--<li class="last"><i class="edit"></i></li>--%>
-                    <li>
-                        <div class="dropdown" style="z-index: 100; position: relative;">
-                            <button class="dropbtn">下拉菜单</button>
-                            <div class="dropdown-content">
-                                <a href="#" data-toggle="modal" data-target="#myModal">修改密码</a>
-                                <a href="#">退出</a>
-                            </div>
-                        </div>
-                    </li>
+                    <li id="menu"></li>
                     <%--<div class="clearfix"> </div>--%>
                 </ul>
             </div>
             <div class="clearfix"> </div>
         </div>
+
+
+
 
 
         <div class="slider">
