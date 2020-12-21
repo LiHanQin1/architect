@@ -38,7 +38,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script type="text/javascript" src="/architect/moban934/js/jquery-1.11.1.min.js"></script>
     <link href='#css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
     <%
-        Vip vip= (Vip) request.getSession().getAttribute("vip");
+        Vip vip = (Vip) request.getSession().getAttribute("vip");
         Film film = (Film) request.getSession().getAttribute("film1");
         String imgpath = film.getPicAddress();
         imgpath = "http://localhost:8000" + imgpath.substring(2).replaceAll("\\\\", "/");
@@ -48,34 +48,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         String showTime = film.getShowTime();
         String content = film.getContent();
         Integer hits = film.getHits();
+        Integer movieId=film.getMovieId();
     %>
-
-<%--    投票--%>
+    <%--    投票--%>
     <script type="text/javascript">
-        $(function (){
-            $("#btn").on("click",function (){
-                let vipName=<%=vip.getUserName()%>;
-                let movieName="<%=film.getMovieName()%>";
+        $(function () {
+            $("#btn").on("click", function () {
+                let vipName =<%=vip.getUserName()%>;
+                let movieName = "<%=film.getMovieName()%>";
                 $.ajax({
                     url: "http://localhost:8000/architect/toupiao.do",
-                    data: {action: "query",vipName:vipName,movieName:movieName},
+                    data: {action: "query", vipName: vipName, movieName: movieName},
                     type: "GET",
                     dataType: "text",
                     success: function (data) {
-                       if (data>0){
-                          vote();
-                       }else {
-                           alert("您已经投过票")
-                       }
+                        if (data > 0) {
+                            vote();
+                        } else {
+                            alert("您已经投过票")
+                        }
                     }
                 })
             })
-            function vote(){
-                let vipName=<%=vip.getUserName()%>;
-                let movieName="<%=film.getMovieName()%>";
+
+            function vote() {
+                let vipName =<%=vip.getUserName()%>;
+                let movieName = "<%=film.getMovieName()%>";
                 $.ajax({
                     url: "http://localhost:8000/architect/toupiao.do",
-                    data: {action: "insert",vipName:vipName,movieName:movieName},
+                    data: {action: "insert", vipName: vipName, movieName: movieName},
                     type: "GET",
                     dataType: "text",
                     success: function (data) {
@@ -87,6 +88,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
 </head>
 <body>
+
 
 <div class="container">
     <div class="container_wrap">
@@ -142,12 +144,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </a></p>
                         <p class="movie_option"><strong>投票数: </strong><a href="#"><%=hits%>
                         </a></p>
-                        <div class="down_btn"><button id="btn">投票</button></div>
+                        <div class="down_btn">
+                            <button id="btn">投票</button>
+                        </div>
+
                     </div>
                     <div class="clearfix"></div>
                     <p class="m_4"><%=content%>
                     </p>
-                    <form action="http://localhost:8000/architect/AddCommentServlet">
+                    <form action="http://localhost:8000/architect/AddCommentServlet?MovieId=<%=movieId%>" method="post" >
                         <input name="action" type="hidden" value="sendcomment"/>
                         <%
                             session.setAttribute("MovieId",film.getMovieId());
@@ -166,9 +171,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     <%
                         Film film1 = (Film) request.getSession().getAttribute("film1");
-                        Integer movieId = film1.getMovieId();
+                        Integer movieId2 = film1.getMovieId();
                         CommentService commentService = new CommentServiceImpl();
-                        List<Comment> commentList = commentService.queryCommentByMovieId(movieId);
+                        List<Comment> commentList = commentService.queryCommentByMovieId(movieId2);
                     %>
 
 
@@ -179,7 +184,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <%
                                 for (int i = 0; i < commentList.size(); i++) {
                                     String commentTime = commentList.get(i).getCommentTime();
-                                    commentTime = commentTime.substring(0, 10);
+                                    commentTime = commentTime.substring(0, 19);
                             %>
                             <li>
                                 <div class="data">
