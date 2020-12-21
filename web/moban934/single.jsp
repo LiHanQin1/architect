@@ -2,7 +2,8 @@
 <%@ page import="com.service.CommentService" %>
 <%@ page import="com.service.impl.CommentServiceImpl" %>
 <%@ page import="java.util.List" %>
-<%@ page import="com.entity.Comment" %><%--
+<%@ page import="com.entity.Comment" %>
+<%@ page import="com.entity.Vip" %><%--
   Created by IntelliJ IDEA.
   User: 14286
   Date: 2020/12/18
@@ -34,21 +35,58 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="/architect/moban934/css/bootstrap.css" rel='stylesheet' type='text/css'/>
     <link href="/architect/moban934/css/style.css" rel="stylesheet" type="text/css" media="all"/>
     <!-- start plugins -->
-    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/architect/moban934/js/jquery-1.11.1.min.js"></script>
     <link href='#css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+    <%
+        Vip vip= (Vip) request.getSession().getAttribute("vip");
+        Film film = (Film) request.getSession().getAttribute("film1");
+        String imgpath = film.getPicAddress();
+        imgpath = "http://localhost:8000" + imgpath.substring(2).replaceAll("\\\\", "/");
+        String typeId = film.getTypeId();
+        String daoYan = film.getDaoYan();
+        String zhuYan = film.getZhuYan();
+        String showTime = film.getShowTime();
+        String content = film.getContent();
+        Integer hits = film.getHits();
+    %>
+
+<%--    投票--%>
+    <script type="text/javascript">
+        $(function (){
+            $("#btn").on("click",function (){
+                let vipName=<%=vip.getUserName()%>;
+                let movieName="<%=film.getMovieName()%>";
+                $.ajax({
+                    url: "http://localhost:8000/architect/toupiao.do",
+                    data: {action: "query",vipName:vipName,movieName:movieName},
+                    type: "GET",
+                    dataType: "text",
+                    success: function (data) {
+                       if (data>0){
+                          vote();
+                       }else {
+                           alert("您已经投过票")
+                       }
+                    }
+                })
+            })
+            function vote(){
+                let vipName=<%=vip.getUserName()%>;
+                let movieName="<%=film.getMovieName()%>";
+                $.ajax({
+                    url: "http://localhost:8000/architect/toupiao.do",
+                    data: {action: "insert",vipName:vipName,movieName:movieName},
+                    type: "GET",
+                    dataType: "text",
+                    success: function (data) {
+                        alert("投票成功");
+                    }
+                })
+            }
+        })
+    </script>
 </head>
 <body>
-<%
-    Film film = (Film) request.getSession().getAttribute("film1");
-    String imgpath = film.getPicAddress();
-    imgpath = "http://localhost:8000" + imgpath.substring(2).replaceAll("\\\\", "/");
-    String typeId = film.getTypeId();
-    String daoYan = film.getDaoYan();
-    String zhuYan = film.getZhuYan();
-    String showTime = film.getShowTime();
-    String content = film.getContent();
-    Integer hits = film.getHits();
-%>
 
 <div class="container">
     <div class="container_wrap">
@@ -102,6 +140,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </a></p>
                         <p class="movie_option"><strong>浏览量: </strong><a href="#"><%=hits%>
                         </a></p>
+                        <p class="movie_option"><strong>投票数: </strong><a href="#"><%=hits%>
+                        </a></p>
+                        <div class="down_btn"><button id="btn">投票</button></div>
                     </div>
                     <div class="clearfix"></div>
                     <p class="m_4"><%=content%>
