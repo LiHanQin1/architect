@@ -81,9 +81,12 @@ public class VipServlet extends BaseServlet {
         if (vip1 == null) {
             Integer result = vipService.insert(vip);
             if (result > 0) {
-                response.getWriter().write("注册成功！");
+                response.getWriter().print("<script> alert(\"注册成功!\");" +
+                        "window.location.href=\"http://localhost:8000/architect/moban934/register.html\"" +
+                        " </script>");
             } else {
-                response.getWriter().write("注册失败！");
+                response.getWriter().print("<script> alert(\"注册失败!\");" +
+                        " </script>");
             }
         }
     }
@@ -96,7 +99,7 @@ public class VipServlet extends BaseServlet {
         Vip vip = new Vip();
         vip.setUserName(registername);
         Vip vip1 = vipService.queryUserByName(vip);
-        String message = (vip1 == null) ? null : "1";
+        String message = (vip1 == null) ? "" : "1";
         response.getWriter().write(message);
     }
 
