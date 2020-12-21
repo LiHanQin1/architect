@@ -12,6 +12,78 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- start plugins -->
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 <link href='#css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+	<script type="text/javascript">
+        $(function () {
+            $("#registername").on('blur', function () {
+                var registername = $("#registername").val();
+                if (registername == "") {
+                    $("#registernametips").html("用户名不能为空");
+                    return false;
+                } else {
+                    $.ajax({
+                        url: "http://localhost:8000/architect/vip.do",
+                        data: {action: "queryUserByUsername", registername: registername},
+                        type: "GET",
+                        dataType: "text",//返回的数据类型
+                        success: function (data) {
+                            if (data > 0) {
+                                $("#registernametips").html("用户名已存在");
+                                return false;
+                            }else{
+                                $("#registernametips").html("用户名合法√");
+                                return true;
+							}
+                        }
+                    })
+                }
+            })
+            $("#registerpassword").on('blur', function () {
+                var registerpassword = $("#registerpassword").val();
+                if (registerpassword == "") {
+                    $("#registerpasswordtips").html("密码不能为空");
+                    return false;
+                }
+            })
+
+            $("#confirmregisterpassword").on('blur', function () {
+                var registerpassword = $("#registerpassword").val();
+                var confirmregisterpassword = $("#confirmregisterpassword").val();
+                if (confirmregisterpassword == "") {
+                    $("#confirmregisterpasswordtips").html("确认密码不能为空");
+                    return false;
+                } else {
+                    if (confirmregisterpassword != registerpassword) {
+                        $("#confirmregisterpasswordtips").html("确认密码与密码不一致");
+                        $("#confirmregisterpasswordtips").val("");
+                        return false;
+                    }
+                }
+            })
+
+            $("#tel").on('blur', function () {
+                var tel = $("#tel").val();
+                if (tel == "") {
+                    $("#teltips").html("手机号码不能为空");
+                    return false;
+                }
+            })
+            $("#qq").on('blur', function () {
+                var qq = $("#qq").val();
+                if (qq == "") {
+                    $("#qqtips").html("QQ不能为空");
+                    return false;
+                }
+            })
+            $("#email").on('blur', function () {
+                var email = $("#email").val();
+                if (email == "") {
+                    $("#emailtips").html("邮箱不能为空");
+                    return false;
+                }
+            })
+
+        })
+	</script>
 </head>
 <body>
 <div class="container">
@@ -40,45 +112,62 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	      </div>
 	      <div class="content">
       	     <div class="register">
-		  	  <form> 
-				 <div class="register-top-grid">
+		  	  <form method="post" action="/architect/vip.do">
+				  <input name="action" type="hidden" value="register"/>
+				 <div  style="width: 300px;text-align: center;">
 					<h3>Personal Information</h3>
-					 <div>
-						<span>First Name<label>*</label></span>
-						<input type="text"> 
+					 <div >
+						<span>UserName<label>*</label></span>
+						<input type="text" id="registername" name="registername" style="margin-left: 108px"><br>
+						 <span style="color: red" id="registernametips" ></span>
 					 </div>
-					 <div>
-						<span>Last Name<label>*</label></span>
-						<input type="text"> 
+					 <div style="margin-top: 20px">
+						<span >PassWord<label>*</label></span>
+						<input type="password" id="registerpassword" name="registerpassword" style="margin-left: 108px">
+						 <br>
+						 <span style="color: red" id="registerpasswordtips" ></span>
 					 </div>
-					 <div>
-						 <span>Email Address<label>*</label></span>
-						 <input type="text"> 
+					 <div style="margin-top: 20px">
+						 <span>Confirm Password<label>*</label></span>
+						 <input type="password" style="margin-left: 108px" id="confirmregisterpassword" name="confirmregisterpassword">
+						 <br>
+						 <span style="color: red" id="confirmregisterpasswordtips"></span>
+					 </div>
+					 <div style="margin-top: 20px">
+						 <span>Tel<label>*</label></span>
+						 <input type="tel" id="tel" name="tel" style="margin-left: 110px">
+						 <br>
+						 <span style="color: red" id="teltips" ></span>
+					 </div>
+					 <div style="margin-top: 20px">
+						 <span>QQ<label>*</label></span>
+						 <input type="text" id="qq" name="qq" style="margin-left: 110px">
+						 <br>
+						 <span style="color: red" id="qqtips" ></span>
+					 </div>
+					 <div style="margin-top: 20px">
+						 <span>Email<label>*</label></span>
+						 <input type="email" id="email" name="email" style="margin-left: 107px">
+						 <br>
+						 <span style="color: red" id="emailtips" ></span>
+					 </div>
+					 <div style="margin-top: 20px">
+						 <span>Sex<label>*</label></span>
+						 <select name="sex" id="sex" >
+							 <option value="男">男</option>
+							 <option value="女">女</option>
+						 </select>
 					 </div>
 					 <div class="clearfix"> </div>
-					   <a class="news-letter" href="#">
-						 <label class="checkbox"><input type="checkbox" name="checkbox" checked=""><i> </i>Sign Up for Newsletter</label>
-					   </a>
+
 					 </div>
-				     <div class="register-bottom-grid">
-						    <h3>Login Information</h3>
-							 <div>
-								<span>Password<label>*</label></span>
-								<input type="text">
-							 </div>
-							 <div>
-								<span>Confirm Password<label>*</label></span>
-								<input type="text">
-							 </div>
-							 <div class="clearfix"> </div>
-					 </div>
+
+					  <input style="font-size: 15px;margin-left: 150px;margin-top: 20px" type="submit" value="submit" id="sub" >
+
 				</form>
 				<div class="clearfix"> </div>
 				<div class="register-but">
-				   <form>
-					   <input type="submit" value="submit">
-					   <div class="clearfix"> </div>
-				   </form>
+
 				</div>
 		   </div>
            </div>
