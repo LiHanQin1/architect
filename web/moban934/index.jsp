@@ -1,5 +1,7 @@
 <%@ page import="com.entity.Film" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="com.entity.Vip" %>
+<%--
   Created by IntelliJ IDEA.
   User: 14286
   Date: 2020/12/18
@@ -7,6 +9,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <title>Home</title>
@@ -15,12 +18,12 @@
     <meta name="keywords" content="Movie_store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-    <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/architect/moban934/css/bootstrap.css" rel='stylesheet' type='text/css' />
+    <link href="/architect/moban934/css/style.css" rel="stylesheet" type="text/css" media="all" />
     <!-- start plugins -->
-    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="/architect/moban934/js/jquery-1.11.1.min.js"></script>
     <link href='#css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
-    <script src="js/responsiveslides.min.js"></script>
+    <script src="/architect/moban934/js/responsiveslides.min.js"></script>
     <script>
         $(function () {
             $("#slider").responsiveSlides({
@@ -57,31 +60,153 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 }
 
             }
+
+
+            <%
+   List<Film> films=(List<Film>) request.getSession().getAttribute("film");
+//   System.out.println(films.get(0).getPicAddress());
+   Vip vip= (Vip) request.getSession().getAttribute("vip");
+   if (vip!=null){   %>
+            $("#vipInformation").empty();
+            $("#vipInformation").html("当前用户:<%=vip.getUserName()%>");
+            <% }
+            %>
         })
+
+
+
+
+
     </script>
 
+    <script type="text/javascript">
+        $(window).load(function() {
+            $("#flexiselDemo3").flexisel({
+                visibleItems: 4,
+                animationSpeed: 1000,
+                autoPlay: true,
+                autoPlaySpeed: 3000,
+                pauseOnHover: true,
+                enableResponsiveBreakpoints: true,
+                responsiveBreakpoints: {
+                    portrait: {
+                        changePoint:480,
+                        visibleItems: 1
+                    },
+                    landscape: {
+                        changePoint:640,
+                        visibleItems: 2
+                    },
+                    tablet: {
+                        changePoint:768,
+                        visibleItems: 3
+                    }
+                }
+            });
+
+        });
+    </script>
+
+    <script type="text/javascript">
+        $(window).load(function() {
+            $("#flexiselDemo1").flexisel({
+                visibleItems: 4,
+                animationSpeed: 1000,
+                autoPlay: true,
+                autoPlaySpeed: 3000,
+                pauseOnHover: true,
+                enableResponsiveBreakpoints: true,
+                responsiveBreakpoints: {
+                    portrait: {
+                        changePoint:480,
+                        visibleItems: 1
+                    },
+                    landscape: {
+                        changePoint:640,
+                        visibleItems: 2
+                    },
+                    tablet: {
+                        changePoint:768,
+                        visibleItems: 3
+                    }
+                }
+            });
+
+        });
+    </script>
+    <style>
+        /* 下拉按钮样式 */
+        .dropbtn {
+            background-color: white;
+            color: black;
+            padding: 8px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* 容器 <div> - 需要定位下拉内容 */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* 下拉内容 (默认隐藏) */
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        }
+
+        /* 下拉菜单的链接 */
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* 鼠标移上去后修改下拉菜单链接颜色 */
+        .dropdown-content a:hover {background-color: #f1f1f1}
+
+        /* 在鼠标移上去后显示下拉菜单 */
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* 当下拉内容显示后修改下拉按钮的背景颜色 */
+        .dropdown:hover .dropbtn {
+            background-color: grey;
+        }
+    </style>
 </head>
 <body>
-<%
-    List<Film> films=(List<Film>) request.getSession().getAttribute("film");
-//    System.out.println(films.get(0).getPicAddress());
-%>
 <div class="container">
     <div class="container_wrap">
         <div class="header_top">
-            <div class="col-sm-3 logo"><a href="index.jsp"><img src="images/logo.png" alt=""/></a></div>
+            <div class="col-sm-3 logo"><a href="/architect/moban934/index.jsp"><img src="/architect/moban934/images/logo.png" alt=""/></a></div>
             <div class="col-sm-6 nav">
                 <ul>
-                    <li> <span class="simptip-position-bottom simptip-movable" data-tooltip="影片"><a href="movie.html"> </a></span></li>
+                    <li> <span class="simptip-position-bottom simptip-movable" data-tooltip="影片"><a href="/architect/moban934/movie.html"> </a></span></li>
 
                 </ul>
             </div>
-            <div class="col-sm-3 header_right">
-                <ul class="header_right_box">
-                    <li><img src="images/p1.png" alt=""/></li>
-                    <li><p><a href="login.html">Carol Varois</a></p></li>
-                    <li class="last"><i class="edit"> </i></li>
-                    <div class="clearfix"> </div>
+            <div class="col-sm-3 header_right" >
+                <ul class="header_right_box" >
+                    <li id="vipInformation"><a href="/architect/moban934/login.html" >登  陆</a></li>
+                    <%--<li class="last"><i class="edit"></i></li>--%>
+                    <li>
+                        <div class="dropdown" style="z-index: 100; position: relative;">
+                            <button class="dropbtn">下拉菜单</button>
+                            <div class="dropdown-content">
+                                <a href="#" data-toggle="modal" data-target="#myModal">修改密码</a>
+                                <a href="#">退出</a>
+                            </div>
+                        </div>
+                    </li>
+                    <%--<div class="clearfix"> </div>--%>
                 </ul>
             </div>
             <div class="clearfix"> </div>
@@ -104,7 +229,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="col-md-9">
                     <ul class="list_1">
                         <li>发布时间<span class="m_1">2015年5月1日</span></li>
-                        <li>评分 <span class="m_1"><img src="images/rating.png" alt=""/></span></li>
+                        <li>评分 <span class="m_1"><img src="/architect/moban934/images/rating.png" alt=""/></span></li>
                     </ul>
                 </div>
                 <div class="col-md-3 grid_1">
@@ -173,40 +298,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         })
                 </script>
 
-                <%--<script type="text/javascript">--%>
-                    <%--$(window).load(function() {--%>
-                        <%--$("#flexiselDemo3").flexisel({--%>
-                            <%--visibleItems: 4,--%>
-                            <%--animationSpeed: 1000,--%>
-                            <%--autoPlay: true,--%>
-                            <%--autoPlaySpeed: 3000,--%>
-                            <%--pauseOnHover: true,--%>
-                            <%--enableResponsiveBreakpoints: true,--%>
-                            <%--responsiveBreakpoints: {--%>
-                                <%--portrait: {--%>
-                                    <%--changePoint:480,--%>
-                                    <%--visibleItems: 1--%>
-                                <%--},--%>
-                                <%--landscape: {--%>
-                                    <%--changePoint:640,--%>
-                                    <%--visibleItems: 2--%>
-                                <%--},--%>
-                                <%--tablet: {--%>
-                                    <%--changePoint:768,--%>
-                                    <%--visibleItems: 3--%>
-                                <%--}--%>
-                            <%--}--%>
-                        <%--});--%>
 
-                    <%--});--%>
-                <%--</script>--%>
-                <script type="text/javascript" src="js/jquery.flexisel.js"></script>
+                <script type="text/javascript" src="/architect/moban934/js/jquery.flexisel.js"></script>
                 <ul id="flexiselDemo1">
-                    <li><img src="images/8.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Syenergy 2mm</a><p>22.10.2014 | 14:40</p></div></li>
-                    <li><img src="images/7.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Surf Yoke</a><p>22.01.2015 | 14:40</p></div></li>
-                    <li><img src="images/6.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Salty Daiz</a><p>22.10.2013 | 14:40</p></div></li>
-                    <li><img src="images/1.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Cheeky Zane</a><p>22.10.2014 | 14:40</p></div></li>
-                    <li><img src="images/2.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Synergy</a><p>22.10.2013 | 14:40</p></div></li>
+                    <li><img src="/architect/moban934/images/8.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Syenergy 2mm</a><p>22.10.2014 | 14:40</p></div></li>
+                    <li><img src="/architect/moban934/images/7.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Surf Yoke</a><p>22.01.2015 | 14:40</p></div></li>
+                    <li><img src="/architect/moban934/images/6.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Salty Daiz</a><p>22.10.2013 | 14:40</p></div></li>
+                    <li><img src="/architect/moban934/images/1.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Cheeky Zane</a><p>22.10.2014 | 14:40</p></div></li>
+                    <li><img src="/architect/moban934/images/2.jpg" class="img-responsive"/><div class="grid-flex"><a href="#">Synergy</a><p>22.10.2013 | 14:40</p></div></li>
                 </ul>
                 <script type="text/javascript">
                     $(window).load(function() {
@@ -247,7 +346,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="gp-container">
                                 <div class="footer-widget footer-1">
                                     <div class="wpb_wrapper">
-                                        <img src="images/f_logo.png" alt=""/>
+                                        <img src="/architect/moban934/images/f_logo.png" alt=""/>
                                     </div>
                                     <br>
                                     <p>公告</p>

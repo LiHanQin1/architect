@@ -38,7 +38,7 @@ public class VipServlet extends BaseServlet {
         super.doGet(request, response);
     }
 
-    public void login(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void login(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         Vip vip = new Vip();
@@ -47,15 +47,14 @@ public class VipServlet extends BaseServlet {
         Vip vip1 = vipService.queryUserByNameAndPassword(vip);
         if (vip1 != null) {
             vip1.setLoginCount(vip1.getLoginCount() + 1);
-            vipService.update(vip1);
+            int i=vipService.update(vip1);
             HttpSession session = request.getSession();
             session.setAttribute("vip", vip1);
-            response.getWriter().write("登陆成功！");
-
+//            response.getWriter().write("登陆成功！");
+            request.getRequestDispatcher("moban934/index.jsp").forward(request,response);
         } else {
-
             response.getWriter().write("用户名或密码错误");
-            response.sendRedirect(request.getContextPath() + "/index.html");
+//            response.sendRedirect(request.getContextPath() + "/moban934/index.jsp");
         }
     }
 
