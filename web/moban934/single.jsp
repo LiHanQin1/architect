@@ -131,6 +131,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         CommentService commentService = new CommentServiceImpl();
                         List<Comment> commentList = commentService.queryCommentByMovieId(movieId);
                     %>
+
+
                     <div class="single">
                         <h1><%=commentList.size()%> Comments</h1>
                         <ul class="single_list">
