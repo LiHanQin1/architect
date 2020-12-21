@@ -23,7 +23,6 @@ public interface CommentService {
     Integer queryCounts();
     //分页查询
     Page<Comment> queryUserBypage(int pageNo, int pageSize);
-
     List<Comment>  commentList(Film film);
     Page<Comment> queryKeyWordByPage(Film film,int pageNo, int pageSize);
 }

@@ -68,7 +68,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    Vip vip= (Vip) request.getSession().getAttribute("vip");
    if (vip!=null){   %>
             $("#vipInformation").empty();
-            $("#vipInformation").html("当前用户:<%=vip.getUserName()%>");
+            $("#vipInformation").html("当前用户 : <%=vip.getUserName()%>");
             $("#menu").append("<div class=\"dropdown\" style=\"z-index: 100; position: relative;\">\n" +
                 "                            <button class=\"dropbtn\">下拉菜单</button>\n" +
                 "                            <div class=\"dropdown-content\">\n" +
@@ -79,11 +79,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <% }
             %>
         })
-
-
-
-
-
     </script>
 
     <script type="text/javascript">
@@ -110,7 +105,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     }
                 }
             });
-
         });
     </script>
 
@@ -211,10 +205,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="clearfix"> </div>
         </div>
-
-
-
-
 
         <div class="slider">
             <div class="callbacks_container">

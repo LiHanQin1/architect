@@ -38,6 +38,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href='#css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
 </head>
 <body>
+
 <%
     Film film = (Film) request.getSession().getAttribute("film1");
     String imgpath = film.getPicAddress();
@@ -48,6 +49,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     String showTime = film.getShowTime();
     String content = film.getContent();
     Integer hits = film.getHits();
+    Integer movieid=film.getMovieId();
 %>
 
 <div class="container">
@@ -106,7 +108,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="clearfix"></div>
                     <p class="m_4"><%=content%>
                     </p>
-                    <form action="http://localhost:8000/architect/AddCommentServlet">
+                    <form action="http://localhost:8000/architect/AddCommentServlet?MovieId=<%=movieid%>" method="post" >
                         <input name="action" type="hidden" value="sendcomment"/>
                         <%
                             session.setAttribute("MovieId",film.getMovieId());
@@ -136,7 +138,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <%
                                 for (int i = 0; i < commentList.size(); i++) {
                                     String commentTime = commentList.get(i).getCommentTime();
-                                    commentTime = commentTime.substring(0, 10);
+                                    commentTime = commentTime.substring(0, 19);
                             %>
                             <li>
                                 <div class="data">
