@@ -10,4 +10,5 @@ import com.entity.Toupiao;
 public interface Toupiaoservice {
     int insert(Toupiao toupiao);
     Toupiao query(Toupiao toupiao);
+    Integer queryCounts(Toupiao toupiao);
 }

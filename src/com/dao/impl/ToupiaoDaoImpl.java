@@ -13,12 +13,19 @@ public class ToupiaoDaoImpl extends BaseDao implements ToupiaoDao {
     @Override
     public int insert(Toupiao toupiao) {
         String sql = "insert into toupiao(vipName,movieName,time) values(?,?,?)";
-        return update(sql,toupiao.getVipName(),toupiao.getMovieName(),toupiao.getTime());
+        return update(sql, toupiao.getVipName(), toupiao.getMovieName(), toupiao.getTime());
     }
 
     @Override
     public Toupiao query(Toupiao toupiao) {
-        String sql="select * from toupiao where vipName=? and movieName=?" ;
-        return queryForOne(Toupiao.class,sql,toupiao.getVipName(),toupiao.getMovieName());
+        String sql = "select * from toupiao where vipName=? and movieName=?";
+        return queryForOne(Toupiao.class, sql, toupiao.getVipName(), toupiao.getMovieName());
+    }
+
+    @Override
+    public Integer queryCounts(Toupiao toupiao) {
+        String sql = "select count(1) from toupiao WHERE movieName =?";
+        return Math.toIntExact((long) queryForSingleValue(sql, toupiao.getMovieName()));
+
     }
 }

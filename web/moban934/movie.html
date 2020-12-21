@@ -63,10 +63,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 type: "GET",
                                 dataType: "text",
                                 success: function (data) {
-
                                     movies(data);
                                 }
                             })
+
                             function movies(data) {
                                 let jsonObj = JSON.parse(data);
                                 for (var i = 0; i < jsonObj.length; i++) {
@@ -77,9 +77,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     let trNode = $("<div class=\"movie movie-test movie-test-dark movie-test-left\">");
                                     trNode.append("<div class=\"movie__images\"><a href=\"http://localhost:8000/architect/FilmServlet?action=queryOne&MovieId=" + movieId + "\" id='show" + i + "' class=\"movie-beta__link\">" +
                                         " <img alt=\"\" style='width: 250px;height: 240px;' src=\"" + imgpath + "\" class=\"img-responsive\" alt=\"\"/></a></div>" +
-                                        "<div class=\"movie__info\"><a href=\"single.html\" style='font-size:19px' class=\"movie__title\">" + jsonObj[i].MovieName + "</a><br/>" +
+                                        "<div class=\"movie__info\"><a href=\"single.jsp\" style='font-size:19px' class=\"movie__title\">" + jsonObj[i].MovieName + "</a><br/>" +
                                         "<ul class=\"list_6\"><li><p>导演：" + jsonObj[i].DaoYan + "</p></li><li><p>主演：" + jsonObj[i].ZhuYan + "</p></li>" +
-                                        "<li><p>上映时间：" + jsonObj[i].ShowTime + "</p></li><li><p>浏览量：<label id='ydl" + i + "'>" + Hits + "</label></p></li>" +
+                                        "<li><p>上映时间：" + jsonObj[i].ShowTime + "</p></li><li><p>浏览量：<label id='ydl" + i + "'>" + Hits + "</label></p></li>" + "" +
                                         "<div class=\"clearfix\"> </div></div><br/>");
                                     $("#tbody1").append(trNode);
                                     window.onload = $(eval("show" + i)).click(function () {
@@ -98,6 +98,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             let jsonObj = JSON.parse(data);
                                             Hits = Hits + 1;
                                             $(eval("ydl" + i)).html(Hits);
+
                                         }
                                     });
                                 }

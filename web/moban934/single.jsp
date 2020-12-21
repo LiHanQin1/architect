@@ -48,13 +48,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         String showTime = film.getShowTime();
         String content = film.getContent();
         Integer hits = film.getHits();
-        Integer movieId=film.getMovieId();
+        Integer movieId = film.getMovieId();
     %>
     <%--    投票--%>
     <script type="text/javascript">
         $(function () {
+            function init() {
+                let movieName = "<%=film.getMovieName()%>";
+                $.ajax({
+                    url: "http://localhost:8000/architect/toupiao.do",
+                    data: {action: "queryCount", movieName: movieName},
+                    type: "GET",
+                    dataType: "text",
+                    success: function (data) {
+                        let jsonObj = JSON.parse(data);
+                        $("#toupiao").html(jsonObj)
+                    }
+                })
+            }
+
             $("#btn").on("click", function () {
-                let vipName =<%=vip.getUserName()%>;
+                let vipName = "";
+                <%
+                if(vip!=null){%>
+                vipName ="<%=vip.getUserName()%>";
+                <%--<% } %>--%>
                 let movieName = "<%=film.getMovieName()%>";
                 $.ajax({
                     url: "http://localhost:8000/architect/toupiao.do",
@@ -69,10 +87,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         }
                     }
                 })
+                <% } %>
             })
 
+
+            init();
+
             function vote() {
-                let vipName =<%=vip.getUserName()%>;
+                let vipName = "";
+                <%
+                if(vip!=null){%>
+                vipName =<%=vip.getUserName()%>;
                 let movieName = "<%=film.getMovieName()%>";
                 $.ajax({
                     url: "http://localhost:8000/architect/toupiao.do",
@@ -81,9 +106,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     dataType: "text",
                     success: function (data) {
                         alert("投票成功");
+                        Hits = Hits + 1;
+                        $("#toupiao").html(Hits);
                     }
                 })
+                <% } %>
             }
+
         })
     </script>
 </head>
@@ -142,7 +171,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </a></p>
                         <p class="movie_option"><strong>浏览量: </strong><a href="#"><%=hits%>
                         </a></p>
-                        <p class="movie_option"><strong>投票数: </strong><a href="#"><%=hits%>
+                        <p class="movie_option"><strong>投票数: </strong><a id="toupiao" href="#">
                         </a></p>
                         <div class="down_btn">
                             <button id="btn">投票</button>
@@ -152,15 +181,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="clearfix"></div>
                     <p class="m_4"><%=content%>
                     </p>
-                    <form action="http://localhost:8000/architect/AddCommentServlet?MovieId=<%=movieId%>" method="post" >
+                    <form action="http://localhost:8000/architect/AddCommentServlet?MovieId=<%=movieId%>" method="post">
                         <input name="action" type="hidden" value="sendcomment"/>
                         <%
-                            session.setAttribute("MovieId",film.getMovieId());
-                            session.setAttribute("CommentTypeId",film.getTypeId());
+                            session.setAttribute("MovieId", film.getMovieId());
+                            session.setAttribute("CommentTypeId", film.getTypeId());
                         %>
                         <div class="text">
-                            <textarea name="message" id="message" class="message"  onfocus="this.value = '';"
-                                     ></textarea>
+                            <textarea name="message" id="message" class="message" onfocus="this.value = '';"
+                            ></textarea>
                         </div>
                         <div class="form-submit1">
                             <button type="submit" name="submit" id="submit">发表评论</button>

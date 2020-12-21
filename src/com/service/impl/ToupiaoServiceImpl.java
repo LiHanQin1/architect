@@ -22,4 +22,9 @@ public class ToupiaoServiceImpl implements Toupiaoservice {
     public Toupiao query(Toupiao toupiao) {
         return toupiaoDao.query(toupiao);
     }
+
+    @Override
+    public Integer queryCounts(Toupiao toupiao) {
+        return toupiaoDao.queryCounts(toupiao);
+    }
 }

@@ -32,7 +32,7 @@ public class AddCommentServlet extends BaseServlet {
         System.out.println(user);
         if (user != null) {
             Comment comment = new Comment();
-            String user1=user.getUserName();
+            String user1 = user.getUserName();
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             comment.setCommentTime(String.valueOf(simpleDateFormat.format(new Date())));
             comment.setCommentUser(user1);
@@ -42,18 +42,16 @@ public class AddCommentServlet extends BaseServlet {
             comment.setMovieId(movieId);
             comment.setCommentTypeId(movieId);
             CommentService commentService = new CommentServiceImpl();
-            Integer i= commentService.insert(comment);
-
-
-            if(i>0){
-                response.sendRedirect("/architect/FilmServlet?action=queryOne&MovieId="+movieId);
-            }{
+            Integer i = commentService.insert(comment);
+            if (i > 0) {
+                response.sendRedirect("/architect/FilmServlet?action=queryOne&MovieId=" + movieId);
+            }
+            {
                 response.getWriter().write("发布失败");
             }
         } else {
             response.getWriter().print("<script> alert(\"您还没登录!\");" +
-                    "window.location.href=\"http://localhost:8000/architect/moban934/login.html\"" +
-                    " </script>");
+                    "window.location.href=\"http://localhost:8000/architect/moban934/login.html\"" + " </script>");
         }
     }
 

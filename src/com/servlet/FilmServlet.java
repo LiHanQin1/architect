@@ -34,14 +34,12 @@ public class FilmServlet extends BaseServlet {
     }
 
     public void queryPicAddress(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-
         List<Film> film=filmService.queryAddress();
         request.getSession().setAttribute("film",film);
-        request.getRequestDispatcher("/moban934/index.jsp").forward(request,response);
-//        Gson gson = new Gson();
-//        String jsonStr = gson.toJson(film);
-//        response.getWriter().write(jsonStr);
-       // System.out.println(film.toString());
+        Gson gson = new Gson();
+        String jsonStr = gson.toJson(film);
+        response.getWriter().write(jsonStr);
+        System.out.println(film.toString());
 
     }
     public void queryAll(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -74,6 +72,16 @@ public class FilmServlet extends BaseServlet {
         response.getWriter().write(jsonStr);
         request.getSession().setAttribute("film1",film1);
         request.getRequestDispatcher("moban934/single.jsp").forward(request,response);
+    }
+    public void queryOne2(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        Integer movieId = Integer.valueOf(request.getParameter("id"));
+        Film film = new Film();
+        film.setMovieId(movieId);
+        Film film1=filmService.queryMovieByMovieId(film);
+        Gson gson=new Gson();
+        String jsonStr=gson.toJson(film1);
+        response.getWriter().write(jsonStr);
+
     }
     public void delete(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Integer userId= Integer.valueOf(request.getParameter("userId"));

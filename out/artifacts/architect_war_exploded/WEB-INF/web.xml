@@ -11,7 +11,9 @@
         <servlet-name>KaptchaServlet</servlet-name>
         <url-pattern>/kaptcha.jpg</url-pattern>
     </servlet-mapping>
-
+    <welcome-file-list>
+        <welcome-file>/moban934/index.jsp</welcome-file>
+    </welcome-file-list>
 
 
 </web-app>
