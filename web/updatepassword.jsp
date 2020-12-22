@@ -80,8 +80,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- start plugins -->
     <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
     <link href='#css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
-    <script type="text/javascript" src="../static/js/jquery.min.js"></script>
-    <script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
     <script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://www.huangwx.cn/css/sweetalert.css">
     <script type="text/javascript" src="https://www.huangwx.cn/js/sweetalert-dev.js"></script>
@@ -95,10 +95,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
     <script src="js/responsiveslides.min.js"></script>
     <script type="text/javascript">
+        <%
+                   Vip vip= (Vip) request.getSession().getAttribute("vip");
+                   %>
 
+
+        function check(){
+                var usedpassword=$("#usedpassword").val();
+                var username="<%=vip.getUserName()%>";
+                $.ajax({
+                    url: "http://localhost:8000/architect/vip.do",
+                    data: {action: "queryIsExist", username: username,usedpassword:usedpassword},
+                    type: "GET",
+                    dataType: "text",
+                    success: function (data) {
+                        if (data<=0){
+                            return false;
+                        }
+
+                    }
+                });
+                var password=$("#password").val();
+            if (password==""){
+                    return false;
+            }
+                var confirmpassword=$("#confirmpassword").val();
+                if (password!=confirmpassword) {
+                    return false;
+                }
+
+                return true;
+        }
         $(function () {
             <%
-                  Vip vip= (Vip) request.getSession().getAttribute("vip");
                   if (vip!=null){   %>
             $("#vipInformation").empty();
             $("#vipInformation").html("当前用户:<%=vip.getUserName()%>");
@@ -126,7 +155,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             return true;
                         } else{
                             $("#usedpasswordtips").html("原密码错误");
-                            $("#usedpassword").val("");
                             return false;
                         }
 
@@ -138,14 +166,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 var confirmpassword=$("#confirmpassword").val()
                 if (password!=confirmpassword){
                     $("#confirmpasswordtips").html("确认密码与新密码不一致");
-                    $("#confirmpasswordtips").val("");
                     return false;
                 }else{
                     $("#confirmpasswordtips").html("确认密码与新密码一致√");
                     return true;
                 }
             })
-            $("#sub").on("click",function () {
+
+
+        })
+
+
+        function subtion() {
+            var flag=check();
+            if (flag) {
+                $("#form").submit();
                 var username="<%=vip.getUserName()%>";
                 var password=$("#password").val();
                 $.ajax({
@@ -159,12 +194,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         } else{
                             alert("修改失败");
                         }
-
                     }
                 });
-            })
 
-        })
+            }
+        }
     </script>
 </head>
 <body>
@@ -196,7 +230,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                 <div class="col-md-6 login-right" style="text-align: center">
                     <h3>Update   Password</h3>
-                    <form  method="post">
+                    <form  id="form" method="post">
                         <div>
                             <span>UsedPassword<label>*</label></span>
                             <input type="password" id="usedpassword" name="usedpassword">
@@ -211,7 +245,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <input type="password" id="confirmpassword" name="confirmpassword">
                             <span id="confirmpasswordtips" style="color: red"></span>
                         </div>
-                        <button id="sub" type="submit">确认修改</button>
+                        <button id="sub" type="button" onclick="subtion()">确认修改</button>
                     </form>
                 </div>
                 <div class="clearfix"> </div>

@@ -63,8 +63,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             $("#menu").append("<div class=\"dropdown\" style=\"z-index: 100; position: relative;\">\n" +
                 "                            <button class=\"dropbtn\">下拉菜单</button>\n" +
                 "                            <div class=\"dropdown-content\">\n" +
-                "                                <a href=\"moban934/updatepassword.jsp\" data-toggle=\"modal\" data-target=\"#myModal\">修改密码</a>\n" +
-                "                                <a href=\"moban934/vipout.jsp\">退出</a>\n" +
+                "                                <a href=\"updatepassword.jsp\" data-toggle=\"modal\" data-target=\"#myModal\">修改密码</a>\n" +
+                "                                <a href=\"vipout.jsp\">退出</a>\n" +
                 "                            </div>\n" +
                 "                        </div>")
             <% }
