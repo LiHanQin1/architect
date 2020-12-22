@@ -23,6 +23,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     function hideURLbar() {
         window.scrollTo(0, 1);
     } </script>
+    <script src="js/responsiveslides.min.js"></script>
     <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
     <!-- start plugins -->
@@ -143,7 +144,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                             function movies(data) {
                                 let jsonObj = JSON.parse(data);
-                                for (var i = 0; i < jsonObj.length; i++) {
+                                for (var i = 3; i < jsonObj.length; i++) {
                                     let imgpath = jsonObj[i].PicAddress;
                                     let Hits = jsonObj[i].Hits;
                                     let movieId = jsonObj[i].MovieId;
@@ -313,28 +314,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </ul>
             <script type="text/javascript">
                 $(window).load(function () {
-                    $("#flexiselDemo1").flexisel({
-                        visibleItems: 4,
-                        animationSpeed: 1000,
-                        autoPlay: true,
-                        autoPlaySpeed: 3000,
-                        pauseOnHover: true,
-                        enableResponsiveBreakpoints: true,
-                        responsiveBreakpoints: {
-                            portrait: {
-                                changePoint: 480,
-                                visibleItems: 1
-                            },
-                            landscape: {
-                                changePoint: 640,
-                                visibleItems: 2
-                            },
-                            tablet: {
-                                changePoint: 768,
-                                visibleItems: 3
-                            }
-                        }
-                    });
+
 
                 });
             </script>

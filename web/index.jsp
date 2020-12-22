@@ -82,28 +82,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <script type="text/javascript">
         $(window).load(function () {
-            $("#flexiselDemo3").flexisel({
-                visibleItems: 4,
-                animationSpeed: 1000,
-                autoPlay: true,
-                autoPlaySpeed: 3000,
-                pauseOnHover: true,
-                enableResponsiveBreakpoints: true,
-                responsiveBreakpoints: {
-                    portrait: {
-                        changePoint: 480,
-                        visibleItems: 1
-                    },
-                    landscape: {
-                        changePoint: 640,
-                        visibleItems: 2
-                    },
-                    tablet: {
-                        changePoint: 768,
-                        visibleItems: 3
-                    }
-                }
-            });
+
 
         });
     </script>
@@ -394,40 +373,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <div class="footer_box">
                                     <div id="tbody" class="col_1_of_3 span_1_of_3">
                                         <h3 style="color: white;"> 网站公告</h3>
-                                        <%--<h3>Categories</h3>--%>
-                                        <%--<ul class="first">--%>
-                                        <%--<li><a href="#">Dance</a></li>--%>
-                                        <%--<li><a href="#">History</a></li>--%>
-                                        <%--<li><a href="#">Specials</a></li>--%>
-                                        <%--</ul>--%>
+
                                     </div>
-                                    <%--<div class="col_1_of_3 span_1_of_3">--%>
-                                    <%--&lt;%&ndash;<h3>Information</h3>&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;<ul class="first">&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;<li><a href="#">New products</a></li>&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;<li><a href="#">top sellers</a></li>&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;<li><a href="#">Specials</a></li>&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;</ul>&ndash;%&gt;--%>
-                                    <%--</div>--%>
-                                    <%--<div class="col_1_of_3 span_1_of_3">--%>
-                                    <%--&lt;%&ndash;<h3>Follow Us</h3>&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;<ul class="first">&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;<li><a href="#">Facebook</a></li>&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;<li><a href="#">Twitter</a></li>&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;<li><a href="#">Youtube</a></li>&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;</ul>&ndash;%&gt;--%>
-                                    <%--<div class="copy">--%>
-                                    <%--&lt;%&ndash;<p>Copyright &copy; 2020.Company name All rights reserved.<a target="_blank"&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;href="http://guantaow.taobao.com/"></a><a&ndash;%&gt;--%>
-                                    <%--&lt;%&ndash;target="_blank" href="http://www.moobnn.com">影评</a></p>&ndash;%&gt;--%>
-                                    <%--</div>--%>
+                                    <div class="col_1_of_3 span_1_of_3">
+
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
                             <div class="clearfix"></div>
                         </div>
-                </div>
+                <%--</div>--%>
                 </footer>
             </div>
+
 </body>
 </html>

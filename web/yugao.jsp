@@ -120,7 +120,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     String showTime = yuGao.getShowTime();
     String conTent = yuGao.getContent();
     String videopath= yuGao.getVideoAddress();
-    videopath = "http://localhost:8000" + videopath.substring(3).replaceAll("\\\\", "/");
+//    videopath = "http://localhost:8000" + videopath.substring(3).replaceAll("\\\\", "/");
 %>
 
 <div class="container">
@@ -153,7 +153,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="clearfix"></div>
         </div>
 
-        <div style="height: 1000px;" class="content">
+        <div style="height: 1200px;" class="content">
             <div class="movie_top">
                 <div class="col-md-9 movie_box">
                     <div class="grid images_3_of_2">
@@ -177,7 +177,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     </div>
                     <div id="tbody10">
-                        <video width="800px" src="<%=videopath%>" controls="controls"></video>
+                        <iframe width="800px" height="500px" src="<%=videopath%>" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+                        <%--<video width="700px" src="<%=videopath%>" controls="controls"></video>--%>
                     </div>
                     <div class="clearfix"></div>
                     </p>
