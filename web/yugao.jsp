@@ -117,6 +117,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     String daoYan = yuGao.getDaoYan();
     String zhuYan = yuGao.getZhuYan();
     String showTime = yuGao.getShowTime();
+    String conTent = yuGao.getContent();
 %>
 
 <div class="container">
@@ -166,8 +167,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </a></p>
                         <p class="movie_option"><strong>主演: </strong><%=zhuYan%>
                         </p>
-                        <p class="movie_option"><strong>上映时间: </strong><a href="#"><%=showTime%>
-                        </a></p>
+                        <p class="movie_option"><strong>上映时间: </strong><%=showTime%>
+                        </p>
+                        <p class="movie_option"><strong>剧情简介: </strong><%=conTent%>
+                        </p>
                     </div>
                     <div class="clearfix"></div>
                     </p>

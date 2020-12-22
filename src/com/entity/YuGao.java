@@ -13,18 +13,28 @@ public class YuGao {
     private String ZhuYan;
     private String ShowTime;
     private String PicAddress;
+    private String Content;
 
     @Override
     public String toString() {
         return "YuGao{" +
                 "MovieId=" + MovieId +
                 ", MovieName='" + MovieName + '\'' +
-                ", TypeId=" + TypeId +
+                ", TypeId='" + TypeId + '\'' +
                 ", DaoYan='" + DaoYan + '\'' +
                 ", ZhuYan='" + ZhuYan + '\'' +
                 ", ShowTime='" + ShowTime + '\'' +
                 ", PicAddress='" + PicAddress + '\'' +
+                ", Content='" + Content + '\'' +
                 '}';
+    }
+
+    public String getContent() {
+        return Content;
+    }
+
+    public void setContent(String content) {
+        Content = content;
     }
 
     public Integer getMovieId() {
@@ -83,7 +93,7 @@ public class YuGao {
         PicAddress = picAddress;
     }
 
-    public YuGao(Integer movieId, String movieName, String typeId, String daoYan, String zhuYan, String showTime, String picAddress) {
+    public YuGao(Integer movieId, String movieName, String typeId, String daoYan, String zhuYan, String showTime, String picAddress, String content) {
         MovieId = movieId;
         MovieName = movieName;
         TypeId = typeId;
@@ -91,6 +101,7 @@ public class YuGao {
         ZhuYan = zhuYan;
         ShowTime = showTime;
         PicAddress = picAddress;
+        Content = content;
     }
 
     public YuGao() {
