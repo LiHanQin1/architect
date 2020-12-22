@@ -58,6 +58,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             %>
         })
     </script>
+
     <style>
         /* 下拉按钮样式 */
         .dropbtn {
@@ -118,6 +119,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     String zhuYan = yuGao.getZhuYan();
     String showTime = yuGao.getShowTime();
     String conTent = yuGao.getContent();
+    String videopath= yuGao.getVideoAddress();
+    videopath = "http://localhost:8000" + videopath.substring(3).replaceAll("\\\\", "/");
 %>
 
 <div class="container">
@@ -167,10 +170,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </a></p>
                         <p class="movie_option"><strong>主演: </strong><%=zhuYan%>
                         </p>
-                        <p class="movie_option"><strong>上映时间: </strong><%=showTime%>
+                        <p class="movie_option"><strong>上映时间: </strong><a href="#"><%=showTime%>
+                        </a></p>
+                        <p class="movie_option"><strong>剧情简介: <%=conTent%>
                         </p>
-                        <p class="movie_option"><strong>剧情简介: </strong><%=conTent%>
-                        </p>
+
+                    </div>
+                    <div id="tbody10">
+                        <video width="800px" src="<%=videopath%>" controls="controls"></video>
                     </div>
                     <div class="clearfix"></div>
                     </p>
@@ -186,6 +193,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 movie(data);
                             }
                         })
+
                         function movie(data) {
                             let jsonObj = JSON.parse(data);
                             for (let i = 0; i < 3; i++) {
@@ -194,7 +202,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 let imgpath = jsonObj[i].PicAddress;
                                 let movieId = jsonObj[i].MovieId;
                                 imgpath = "http://localhost:8000" + imgpath.substring(2).replaceAll("\\", "/");
-                                let trNode="<a href=\"http://localhost:8000/architect/FilmServlet?action=queryOne&MovieId=" + movieId + "\">" +
+                                let trNode = "<a href=\"http://localhost:8000/architect/FilmServlet?action=queryOne&MovieId=" + movieId + "\">" +
                                     "<img style='width: 200px;height: 240px;margin-left: 30px' src=\"" + imgpath + "\" class=\"img-responsive\"/>" +
                                     "<div style='text-align: center;padding-right: 80px' class=\"grid-flex\"><a href=\"#\">" + movieName + "</a><p>浏览量：" + hits + "</p></div></a>";
                                 $("#tbody").append(trNode);

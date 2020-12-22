@@ -98,6 +98,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     dataType: "text",
                     success: function (data) {
                         if (data > 0) {
+                            //调用投票
                             vote();
                         } else {
                             alert("您已经投过票")
@@ -213,7 +214,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <ul class="header_right_box">
                     <li id="vipInformation"><a href="login.html">用户登陆</a></li>
                     <li id="menu"></li>
-                    <a href="login.html">管理员登录</a>
+                    <a href="adminlogin.html">管理员登录</a>
                 </ul>
             </div>
             <div class="clearfix"></div>
