@@ -20,6 +20,7 @@ public interface YuGaoDao {
     YuGao  queryMovieByTypeId(YuGao yuGao);
     YuGao  queryMovieByDaoYan(YuGao yuGao);
     YuGao  queryMovieByZhuYan(YuGao yuGao);
+    YuGao queryMovieByMovieId(YuGao yuGao);
     List<YuGao> queryAddress();
     YuGao query(int id);
     //查询当前表的总记录条数

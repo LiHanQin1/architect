@@ -794,15 +794,15 @@ padding: 30px;
 float: left;
 }
 .col_1_of_3:first-child {
-margin-left: 0;
+
 }
 .span_1_of_3 {
-width:19.8%;
+width:100%;
 }
 .col_1_of_3{
 display: block;
 float: left;
-margin:4% 0 1% 1.6%;
+margin:0% 0 1% 1.6%;
 }
 .span_1_of_3 h3 {
 margin-bottom:15px;

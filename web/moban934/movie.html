@@ -69,7 +69,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                             function movies(data) {
                                 let jsonObj = JSON.parse(data);
-                                for (var i = 0; i < jsonObj.length; i++) {
+                                for (var i = 3; i < jsonObj.length; i++) {
                                     let imgpath = jsonObj[i].PicAddress;
                                     let Hits = jsonObj[i].Hits;
                                     let movieId = jsonObj[i].MovieId;
@@ -120,9 +120,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 let jsonObj = JSON.parse(data);
                                 for (var i = 0; i < jsonObj.length; i++) {
                                     let imgpath = jsonObj[i].PicAddress;
+                                    let movieId = jsonObj[i].MovieId;
                                     imgpath = "http://localhost:8000" + imgpath.substring(2).replaceAll("\\", "/");
                                     let trNode = $("<li></li>");
-                                    trNode.append("<img style='width: 240px;height: 300px' src=\"" + imgpath + "\" class=\"img-responsive\"/>");
+                                    trNode.append("<a href=\"http://localhost:8000/architect/YuGaoServlet?action=queryOne&MovieId=" + movieId + "\"><img style='width: 240px;height: 300px' src=\"" + imgpath + "\" class=\"img-responsive\"/></a>");
                                     trNode.append("<div class=\"grid-flex\"><a href=\"#\">" + jsonObj[i].MovieName + "</a><p>" + jsonObj[i].ShowTime + "</p></div>")
                                     $("#flexiselDemo3").append(trNode);
                                 }
@@ -154,9 +155,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 let jsonObj = JSON.parse(data);
                                 for (var i = 0; i < jsonObj.length; i++) {
                                     let imgpath = jsonObj[i].PicAddress;
+                                    let movieId = jsonObj[i].MovieId;
                                     imgpath = "http://localhost:8000" + imgpath.substring(2).replaceAll("\\", "/");
                                     let trNode = $("<li></li>");
-                                    trNode.append("<img style='width: 240px;height: 300px' src=\"" + imgpath + "\" class=\"img-responsive\"/>");
+                                    trNode.append("<a href=\"http://localhost:8000/architect/YuGaoServlet?action=queryOne&MovieId=" + movieId + "\"><img style='width: 240px;height: 300px' src=\"" + imgpath + "\" class=\"img-responsive\"/></a>");
                                     trNode.append("<div class=\"grid-flex\"><a href=\"#\">" + jsonObj[i].MovieName + "</a><p>" + jsonObj[i].ShowTime + "</p></div>")
                                     $("#flexiselDemo1").append(trNode);
                                 }
@@ -281,46 +283,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
         <div id="footer-widgets" class="gp-footer-larger-first-col">
             <div class="gp-container">
-                <div class="footer-widget footer-1">
-                    <div class="wpb_wrapper">
-                        <img src="images/f_logo.png" alt=""/>
-                    </div>
-                    <br>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a
-                        page.</p>
-                    <p class="text">There are many variations of passages of Lorem Ipsum available, but the majority
-                        have suffered.</p>
-                </div>
-                <div class="footer_box">
-                    <div class="col_1_of_3 span_1_of_3">
-                        <h3>Categories</h3>
-                        <ul class="first">
-                            <li><a href="#">Dance</a></li>
-                            <li><a href="#">History</a></li>
-                            <li><a href="#">Specials</a></li>
-                        </ul>
-                    </div>
-                    <div class="col_1_of_3 span_1_of_3">
-                        <h3>Information</h3>
-                        <ul class="first">
-                            <li><a href="#">New products</a></li>
-                            <li><a href="#">top sellers</a></li>
-                            <li><a href="#">Specials</a></li>
-                        </ul>
-                    </div>
-                    <div class="col_1_of_3 span_1_of_3">
-                        <h3>Follow Us</h3>
-                        <ul class="first">
-                            <li><a href="#">Facebook</a></li>
-                            <li><a href="#">Twitter</a></li>
-                            <li><a href="#">Youtube</a></li>
-                        </ul>
-                        <div class="copy">
-                            <p>Copyright &copy; 2015.Company name All rights reserved.<a target="_blank"
-                                                                                         href="http://guantaow.taobao.com/">厚朴网络淘宝店</a><a
-                                    target="_blank" href="http://www.moobnn.com">网页模板</a></p>
-                        </div>
-                    </div>
+
                     <div class="clearfix"></div>
                 </div>
                 <div class="clearfix"></div>

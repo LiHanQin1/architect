@@ -357,60 +357,77 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         });
                     }
                 </script>
+                <script>
+                    $(function () {
+                        $.ajax({
+                            url: "http://localhost:8000/architect//notice.do",
+                            data: {action: "queryNoticeAll"},
+                            type: "GET",
+                            dataType: "text",
+                            success: function (data) {
+                                notice(data)
+                            }
+                        })
 
+                        function notice(data) {
+                            let jsonObj = JSON.parse(data);
+                            for (let i = 0; i < jsonObj.length; i++) {
+                                let neirong = jsonObj[i].neirong;
+                                let id = jsonObj[i].id;
+                                if (jsonObj[i].neirong.length>50){
+                                    let a = "...";
+                                    let b = jsonObj[i].neirong.substring(0,50);
+                                    neirong = b+a;
+                                }
+                                let trNode = "<div style='line-height: 35px'><a style='float: left' >" + jsonObj[i].title + "</a>" +
+                                    "<a style='padding-left: 100px' href=\'http://localhost:8000/architect/notice.do?action=queryNoticebyId&Id=" + id + "'>" + neirong + "</a>"+
+                                    "<a style='float: right;padding-right: 30px' >" + jsonObj[i].time + "</a><br></div>"
+                                $("#tbody").append(trNode);
+                            }
+                        }
+                    })
+                </script>
                 <div class="container">
-                    <footer id="footer">
-                        <div id="footer-3d">
-                            <div class="gp-container">
-                                <span class="first-widget-bend"></span>
-                            </div>
-                        </div>
+                    <footer style="width: 1040px;margin-top: 50px" id="footer">
                         <div id="footer-widgets" class="gp-footer-larger-first-col">
                             <div class="gp-container">
-                                <div class="footer-widget footer-1">
-                                    <div class="wpb_wrapper">
-                                        <img src="/architect/moban934/images/f_logo.png" alt=""/>
-                                    </div>
-                                    <br>
-                                    <p>公告</p>
-                                    <p class="text">公告</p>
-                                </div>
                                 <div class="footer_box">
-                                    <div class="col_1_of_3 span_1_of_3">
-                                        <h3>Categories</h3>
-                                        <ul class="first">
-                                            <li><a href="#">Dance</a></li>
-                                            <li><a href="#">History</a></li>
-                                            <li><a href="#">Specials</a></li>
-                                        </ul>
+                                    <div id="tbody" class="col_1_of_3 span_1_of_3">
+                                        <h3 style="color: white;"> 网站公告</h3>
+                                        <%--<h3>Categories</h3>--%>
+                                        <%--<ul class="first">--%>
+                                        <%--<li><a href="#">Dance</a></li>--%>
+                                        <%--<li><a href="#">History</a></li>--%>
+                                        <%--<li><a href="#">Specials</a></li>--%>
+                                        <%--</ul>--%>
                                     </div>
-                                    <div class="col_1_of_3 span_1_of_3">
-                                        <h3>Information</h3>
-                                        <ul class="first">
-                                            <li><a href="#">New products</a></li>
-                                            <li><a href="#">top sellers</a></li>
-                                            <li><a href="#">Specials</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col_1_of_3 span_1_of_3">
-                                        <h3>Follow Us</h3>
-                                        <ul class="first">
-                                            <li><a href="#">Facebook</a></li>
-                                            <li><a href="#">Twitter</a></li>
-                                            <li><a href="#">Youtube</a></li>
-                                        </ul>
-                                        <div class="copy">
-                                            <p>Copyright &copy; 2020.Company name All rights reserved.<a target="_blank"
-                                                                                                         href="http://guantaow.taobao.com/"></a><a
-                                                    target="_blank" href="http://www.moobnn.com">影评</a></p>
-                                        </div>
-                                    </div>
-                                    <div class="clearfix"></div>
+                                    <%--<div class="col_1_of_3 span_1_of_3">--%>
+                                    <%--&lt;%&ndash;<h3>Information</h3>&ndash;%&gt;--%>
+                                    <%--&lt;%&ndash;<ul class="first">&ndash;%&gt;--%>
+                                    <%--&lt;%&ndash;<li><a href="#">New products</a></li>&ndash;%&gt;--%>
+                                    <%--&lt;%&ndash;<li><a href="#">top sellers</a></li>&ndash;%&gt;--%>
+                                    <%--&lt;%&ndash;<li><a href="#">Specials</a></li>&ndash;%&gt;--%>
+                                    <%--&lt;%&ndash;</ul>&ndash;%&gt;--%>
+                                    <%--</div>--%>
+                                    <%--<div class="col_1_of_3 span_1_of_3">--%>
+                                    <%--&lt;%&ndash;<h3>Follow Us</h3>&ndash;%&gt;--%>
+                                    <%--&lt;%&ndash;<ul class="first">&ndash;%&gt;--%>
+                                    <%--&lt;%&ndash;<li><a href="#">Facebook</a></li>&ndash;%&gt;--%>
+                                    <%--&lt;%&ndash;<li><a href="#">Twitter</a></li>&ndash;%&gt;--%>
+                                    <%--&lt;%&ndash;<li><a href="#">Youtube</a></li>&ndash;%&gt;--%>
+                                    <%--&lt;%&ndash;</ul>&ndash;%&gt;--%>
+                                    <%--<div class="copy">--%>
+                                    <%--&lt;%&ndash;<p>Copyright &copy; 2020.Company name All rights reserved.<a target="_blank"&ndash;%&gt;--%>
+                                    <%--&lt;%&ndash;href="http://guantaow.taobao.com/"></a><a&ndash;%&gt;--%>
+                                    <%--&lt;%&ndash;target="_blank" href="http://www.moobnn.com">影评</a></p>&ndash;%&gt;--%>
+                                    <%--</div>--%>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
+                            <div class="clearfix"></div>
                         </div>
-                    </footer>
                 </div>
+                </footer>
+            </div>
 </body>
 </html>

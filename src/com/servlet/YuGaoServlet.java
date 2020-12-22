@@ -39,6 +39,18 @@ public class YuGaoServlet extends BaseServlet {
         response.getWriter().write(result.toString());
     }
 
+    public void queryOne(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        Integer movieId = Integer.valueOf(request.getParameter("MovieId"));
+        YuGao yuGao = new YuGao();
+        yuGao.setMovieId(movieId);
+        YuGao yuGao1=yuGaoService.queryMovieByMovieId(yuGao);
+        Gson gson=new Gson();
+        String jsonStr=gson.toJson(yuGao1);
+        response.getWriter().write(jsonStr);
+        request.getSession().setAttribute("yuGao1",yuGao1);
+        request.getRequestDispatcher("/moban934/yugao.jsp").forward(request,response);
+    }
+
     public void queryPicAddress(HttpServletRequest request, HttpServletResponse response) throws IOException {
         List<YuGao> film=yuGaoService.queryAddress();
         Gson gson = new Gson();

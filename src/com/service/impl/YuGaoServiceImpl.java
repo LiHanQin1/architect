@@ -27,6 +27,11 @@ public class YuGaoServiceImpl implements YuGaoService {
     }
 
     @Override
+    public YuGao queryMovieByMovieId(YuGao yuGao) {
+        return yuGaoDao.queryMovieByMovieId(yuGao);
+    }
+
+    @Override
     public int update(YuGao yuGao) {
         return yuGaoDao.update(yuGao);
     }

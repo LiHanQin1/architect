@@ -93,6 +93,12 @@ public class YuGaoimpl extends BaseDao implements YuGaoDao {
     }
 
     @Override
+    public YuGao queryMovieByMovieId(YuGao yuGao) {
+        String sql = "select * from yugao where MovieId=?";
+        return queryForOne(YuGao.class, sql, yuGao.getMovieId());
+    }
+
+    @Override
     public List<YuGao> yuGaoList(YuGao yuGao) {
         String sql="select * from yugao where MovieName like concat(\'%\', ?,\'%\')";
         return  queryForList(YuGao.class, sql, yuGao.getMovieName());

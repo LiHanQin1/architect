@@ -45,6 +45,17 @@ public class NoticeServlet extends BaseServlet {
         super.doGet(request, response);
     }
 
+    public void queryNoticebyId(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        Integer id = Integer.valueOf(request.getParameter("Id"));
+        Notice notice1 = noticeService.query(id);
+        Gson gson=new Gson();
+        String jsonStr=gson.toJson(notice1);
+        response.getWriter().write(jsonStr);
+        request.getSession().setAttribute("notice1",notice1);
+        request.getRequestDispatcher("moban934/notice.jsp").forward(request,response);
+
+    }
+
     public void queryNoticeAll(HttpServletRequest request, HttpServletResponse response) throws IOException {
         List<Notice> list = noticeService.queryAll();
         Gson gson = new Gson();

@@ -171,7 +171,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="container">
     <div class="container_wrap">
         <div class="header_top">
-            <div class="col-sm-3 logo"><a href="index.jsp"><img src="/architect/moban934/images/logo.png" alt=""/></a></div>
+            <div class="col-sm-3 logo"><a href="/architect/moban934/index.jsp"><img src="/architect/moban934/images/logo.png" alt=""/></a></div>
             <div class="col-sm-6 nav">
                 <ul>
                     <li> <span class="simptip-position-bottom simptip-movable" data-tooltip="comic"><a href="/architect/moban934/movie.html"> </a></span></li>
