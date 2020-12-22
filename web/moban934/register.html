@@ -1,248 +1,302 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Register</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="keywords" content="Movie_store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design"/>
-    <script type="application/x-javascript"> addEventListener("load", function () {
-        setTimeout(hideURLbar, 0);
-    }, false);
-
-    function hideURLbar() {
-        window.scrollTo(0, 1);
-    } </script>
-    <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
-    <!-- start plugins -->
-    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-    <link href='#css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
-    <script type="text/javascript">
+<title>Register</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Movie_store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- start plugins -->
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<link href='#css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
+	<script type="text/javascript">
         $(function () {
-            $("#registername").on('blur', function () {
-                var registername = $("#registername").val();
-                if (registername == "") {
-                    $("#registernametips").html("用户名不能为空");
-                    return false;
-                } else {
-                    $.ajax({
-                        url: "http://localhost:8000/architect/vip.do",
-                        data: {action: "queryUserByUsername", registername: registername},
-                        type: "GET",
-                        dataType: "text",//返回的数据类型
-                        success: function (data) {
-                            if (data > 0) {
-                                $("#registernametips").html("用户名已存在");
-                                return false;
-                            } else {
-                                $("#registernametips").html("用户名合法√");
-                                return true;
+            function check(){
+                $("#registername").on('blur', function () {
+                    var uPattern =/^[a-zA-Z0-9_]{6,11}$/;
+                    var registername = $("#registername").val();
+                    if (uPattern.test(registername)) {
+                        $.ajax({
+                            url: "http://localhost:8000/architect/vip.do",
+                            data: {action: "queryUserByUsername",registername: registername},
+                            type: "GET",
+                            dataType: "text",
+                            success: function (data) {
+                                if (data>0){
+                                    $("#registernametips").html("用户名已存在");
+                                    return false;
+                                } else{
+                                    $("#registernametips").html("用户名合法√");
+                                    return true;
+                                }
                             }
-                        }
-                    })
-                }
-            })
-            $("#registerpassword").on('blur', function () {
-                var registerpassword = $("#registerpassword").val();
-                if (registerpassword == "") {
-                    $("#registerpasswordtips").html("密码不能为空");
-                    return false;
-                }
-            })
-
-            $("#confirmregisterpassword").on('blur', function () {
-                var registerpassword = $("#registerpassword").val();
-                var confirmregisterpassword = $("#confirmregisterpassword").val();
-                if (confirmregisterpassword == "") {
-                    $("#confirmregisterpasswordtips").html("确认密码不能为空");
-                    return false;
-                } else {
-                    if (confirmregisterpassword != registerpassword) {
-                        $("#confirmregisterpasswordtips").html("确认密码与密码不一致");
-                        $("#confirmregisterpasswordtips").val("");
+                        });
+                    }else{
+                        $("#registernametips").html("用户名长度在6-11,包括字母，数字，下划线");
                         return false;
                     }
-                }
-            })
+                })
 
-            $("#tel").on('blur', function () {
-                var tel = $("#tel").val();
-                if (tel == "") {
-                    $("#teltips").html("手机号码不能为空");
-                    return false;
-                }
-            })
-            $("#qq").on('blur', function () {
-                var qq = $("#qq").val();
-                if (qq == "") {
-                    $("#qqtips").html("QQ不能为空");
-                    return false;
-                }
-            })
-            $("#email").on('blur', function () {
-                var email = $("#email").val();
-                if (email == "") {
-                    $("#emailtips").html("邮箱不能为空");
-                    return false;
-                }
-            })
+
+                $("#registerpassword").on('blur', function () {
+                    var registerpassword = $("#registerpassword").val();
+                    var uPattern =/^[a-zA-Z0-9_]{6,12}$/;
+                    if (uPattern.test(registerpassword)){
+                        $("#registerpasswordtips").html("密码合法✔");
+                        return true;
+                    }else{
+                        $("#registerpasswordtips").html("密码长度在6-12,包括字母，数字，下划线");
+                        return false;
+                    }
+                })
+
+
+                $("#confirmregisterpassword").on('blur', function () {
+                    var registerpassword = $("#registerpassword").val();
+                    var confirmregisterpassword = $("#confirmregisterpassword").val();
+                        if (confirmregisterpassword != registerpassword) {
+                            $("#confirmregisterpasswordtips").html("确认密码与密码不一致");
+                            $("#confirmregisterpassword").val("");
+                            return false;
+                        }else{
+                            $("#confirmregisterpasswordtips").html("确认密码合法√");
+                            return true;
+						}
+
+                })
+
+                $("#tel").on('blur', function () {
+                    var tel = $("#tel").val();
+                    var uPattern =/^(13[0-9]|14[5|7]|15[0|1|2|3|4|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+                    if (uPattern.test(tel)){
+                        $("#teltips").html("TEL合法✔");
+                        return true;
+                    }else {
+                        $("#teltips").html("TEL长度为11,仅数字");
+                        return false;
+                    }
+                })
+
+
+                $("#qq").on('blur', function () {
+                    var uPattern =/[1-9][0-9]{4,}/;                    var qq = $("#qq").val();
+                    if (uPattern.test(qq)){
+                        $("#qqtips").html("QQ合法✔");
+                        return true;
+                    }else{
+                        $("#qqtips").html("QQ长度在4-12,仅数字");
+                        return false;
+                    }
+                })
+
+
+                $("#email").on('blur', function () {
+                    var email = $("#email").val();
+                    var uPattern =/^\w+@[a-z0-9]+\.[a-z]{2,4}$/;
+                    if (uPattern.test(email)){
+                        $("#emailtips").html("Email合法✔");
+                        return true;
+                    }else{
+                        $("#emailtips").html("Email长度在4-12,仅数字");
+                        return false;
+                    }
+                })
+			}
+
+			check();
+
 
         })
-    </script>
+	</script>
+
 </head>
 <body>
 <div class="container">
-    <div class="container_wrap">
-        <div class="header_top">
-            <div class="col-sm-3 logo"><a href="index.jsp"><img src="images/logo.png" alt=""/></a></div>
-            <div class="col-sm-6 nav">
-                <ul>
-                    <li><span class="simptip-position-bottom simptip-movable" data-tooltip="comic"><a
-                            href="movie.html"> </a></span></li>
-                    <li><span class="simptip-position-bottom simptip-movable" data-tooltip="movie"><a
-                            href="movie.html"> </a> </span></li>
-                    <li><span class="simptip-position-bottom simptip-movable" data-tooltip="video"><a
-                            href="movie.html"> </a></span></li>
-                    <li><span class="simptip-position-bottom simptip-movable" data-tooltip="game"><a
-                            href="movie.html"> </a></span></li>
-                    <li><span class="simptip-position-bottom simptip-movable" data-tooltip="tv"><a
-                            href="movie.html"> </a></span></li>
-                    <li><span class="simptip-position-bottom simptip-movable" data-tooltip="more"><a
-                            href="movie.html"> </a></span></li>
-                </ul>
-            </div>
-            <div class="col-sm-3 header_right">
-                <ul class="header_right_box">
-                    <li><img src="images/p1.png" alt=""/></li>
-                    <li><p><a href="login.html">Carol Varois</a></p></li>
-                    <li class="last"><i class="edit"> </i></li>
-                    <div class="clearfix"></div>
-                </ul>
-            </div>
-            <div class="clearfix"></div>
-        </div>
-        <div class="content">
-            <div class="register">
-                <form method="post" action="/architect/vip.do">
-                    <input name="action" type="hidden" value="register"/>
-                    <div style="width: 300px;text-align: center;">
-                        <h3>Personal Information</h3>
-                        <div>
-                            <span>UserName<label>*</label></span>
-                            <input type="text" id="registername" name="registername" style="margin-left: 108px"><br>
-                            <span style="color: red" id="registernametips"></span>
-                        </div>
-                        <div style="margin-top: 20px">
-                            <span>PassWord<label>*</label></span>
-                            <input type="password" id="registerpassword" name="registerpassword"
-                                   style="margin-left: 108px">
-                            <br>
-                            <span style="color: red" id="registerpasswordtips"></span>
-                        </div>
-                        <div style="margin-top: 20px">
-                            <span>Confirm Password<label>*</label></span>
-                            <input type="password" style="margin-left: 108px" id="confirmregisterpassword"
-                                   name="confirmregisterpassword">
-                            <br>
-                            <span style="color: red" id="confirmregisterpasswordtips"></span>
-                        </div>
-                        <div style="margin-top: 20px">
-                            <span>Tel<label>*</label></span>
-                            <input type="tel" id="tel" name="tel" style="margin-left: 110px">
-                            <br>
-                            <span style="color: red" id="teltips"></span>
-                        </div>
-                        <div style="margin-top: 20px">
-                            <span>QQ<label>*</label></span>
-                            <input type="text" id="qq" name="qq" style="margin-left: 110px">
-                            <br>
-                            <span style="color: red" id="qqtips"></span>
-                        </div>
-                        <div style="margin-top: 20px">
-                            <span>Email<label>*</label></span>
-                            <input type="email" id="email" name="email" style="margin-left: 107px">
-                            <br>
-                            <span style="color: red" id="emailtips"></span>
-                        </div>
-                        <div style="margin-top: 20px">
-                            <span>Sex<label>*</label></span>
-                            <select name="sex" id="sex">
-                                <option value="男">男</option>
-                                <option value="女">女</option>
-                            </select>
-                        </div>
-                        <div class="clearfix"></div>
+	<div class="container_wrap">
+		<div class="header_top">
+		    <div class="col-sm-3 logo"><a href="index.jsp"><img src="images/logo.png" alt=""/></a></div>
+		    <div class="col-sm-6 nav">
+			  <ul>
+				 <li> <span class="simptip-position-bottom simptip-movable" data-tooltip="comic"><a href="movie.html"> </a></span></li>
+				 <li><span class="simptip-position-bottom simptip-movable" data-tooltip="movie"><a href="movie.html"> </a> </span></li>
+				 <li><span class="simptip-position-bottom simptip-movable" data-tooltip="video"><a href="movie.html"> </a></span></li>
+				 <li><span class="simptip-position-bottom simptip-movable" data-tooltip="game"><a href="movie.html"> </a></span></li>
+				 <li><span class="simptip-position-bottom simptip-movable" data-tooltip="tv"><a href="movie.html"> </a></span></li>
+				 <li><span class="simptip-position-bottom simptip-movable" data-tooltip="more"><a href="movie.html"> </a></span></li>
+			 </ul>
+			</div>
+			<div class="col-sm-3 header_right">
+			   <ul class="header_right_box">
+				 <li><img src="images/p1.png" alt=""/></li>
+				 <li><p><a href="login.html">Carol Varois</a></p></li>
+				 <li class="last"><i class="edit"> </i></li>
+				 <div class="clearfix"> </div>
+			   </ul>
+			</div>
+			<div class="clearfix"> </div>
+	      </div>
+	      <div class="content">
+      	     <div class="register">
+		  	  <form method="post" action="/architect/vip.do" onsubmit="return check();">
+				  <input name="action" type="hidden" value="register"/>
+				 <div  style="width: 300px;text-align: center;">
+					<h3>Personal Information</h3>
+					 <div >
+						<span>UserName<label>*</label></span>
+						<input type="text" id="registername" name="registername" style="margin-left: 108px"><br>
+						 <span style="color: red;margin-left: 100px" id="registernametips" ></span>
+					 </div>
+					 <div style="margin-top: 20px">
+						<span >PassWord<label>*</label></span>
+						<input type="password" id="registerpassword" name="registerpassword" style="margin-left: 108px">
+						 <br>
+						 <span style="color: red ;margin-left: 100px" id="registerpasswordtips" ></span>
+					 </div>
+					 <div style="margin-top: 20px">
+						 <span>Confirm Password<label>*</label></span>
+						 <input type="password" style="margin-left: 108px" id="confirmregisterpassword" name="confirmregisterpassword">
+						 <br>
+						 <span style="color: red ;margin-left: 100px" id="confirmregisterpasswordtips"></span>
+					 </div>
+					 <div style="margin-top: 20px">
+						 <span>Tel<label>*</label></span>
+						 <input type="tel" id="tel" name="tel" style="margin-left: 110px">
+						 <br>
+						 <span style="color: red ;margin-left: 100px" id="teltips" ></span>
+					 </div>
+					 <div style="margin-top: 20px">
+						 <span>QQ<label>*</label></span>
+						 <input type="text" id="qq" name="qq" style="margin-left: 110px">
+						 <br>
+						 <span style="color: red ;margin-left: 100px" id="qqtips" ></span>
+					 </div>
+					 <div style="margin-top: 20px">
+						 <span>Email<label>*</label></span>
+						 <input type="email" id="email" name="email" style="margin-left: 107px">
+						 <br>
+						 <span style="color: red ;margin-left: 100px" id="emailtips" ></span>
+					 </div>
+					 <div style="margin-top: 20px;margin-left: 95px;text-align: center;width:100px;height:35px">
+						 <select style="height: 30px;width: 70px" name="sex" id="sex" >
+							 <option value="男">男</option>
+							 <option value="女">女</option>
+						 </select>
+					 </div>
 
-                    </div>
+					 </div>
+                  <div style="margin-left: 150px;margin-top: 20px" ><button style="width: 90px;height: 30px" value="submit" id="sub" type="submit">提交</button></div>
 
-                    <input style="font-size: 15px;margin-left: 150px;margin-top: 20px" type="submit" value="submit"
-                           id="sub">
 
-                </form>
-                <div class="clearfix"></div>
-                <div class="register-but">
 
-                </div>
-            </div>
-        </div>
+				</form>
+                 <!--<form method="post" action="/architect/vip.do" onsubmit="return check();" >-->
+                     <!--<input name="action" type="hidden" value="register"/>-->
+                     <!--<div class="register-top-grid">-->
+                         <!--<h3>Personal Information</h3>-->
+                         <!--<div>-->
+                             <!--<span>UserName<label>*</label></span>-->
+                             <!--<input type="text" id="registername" name="registername">-->
+                             <!--<span style="color: red" id="registernametips" ></span>-->
+                         <!--</div>-->
+                         <!--<div>-->
+                             <!--<span>PassWord<label>*</label></span>-->
+                             <!--<input  id="registerpassword" name="registerpassword" type="te">-->
+                             <!--<span style="color: red" id="registerpasswordtips" ></span>-->
+                         <!--</div>-->
+                         <!--<div>-->
+                             <!--<span>Email Address<label>*</label></span>-->
+                             <!--<input type="text" id="email" name="email" >-->
+                             <!--<span style="color: red" id="emailtips" ></span>-->
+                         <!--</div>-->
+                         <!--<div>-->
+                             <!--<span>Confirm Password<label>*</label></span>-->
+                             <!--<input type="text"  id="confirmregisterpassword" name="confirmregisterpassword">-->
+                             <!--<span style="color: red" id="confirmregisterpasswordtips"></span>-->
+                         <!--</div>-->
+                         <!--<div>-->
+                             <!--<span>Tel<label>*</label></span>-->
+                             <!--<input type="text" id="tel" name="tel" >-->
+                             <!--<span style="color: red" id="teltips" ></span>-->
+                         <!--</div>-->
+                         <!--<div>-->
+                             <!--<span>QQ<label>*</label></span>-->
+                             <!--<input type="text" id="qq" name="qq">-->
+                             <!--<span style="color: red" id="qqtips" ></span>-->
+                         <!--</div>-->
+                         <!--<div>-->
+
+                             <!--<select name="sex" id="sex" style="text-align: center;color: #999;width: 100px;height: 30px">-->
+                                 <!--<option value="男">男</option>-->
+                                 <!--<option value="女">女</option>-->
+                             <!--</select>-->
+                         <!--</div>-->
+                         <!--<div class="clearfix"> </div>-->
+                     <!--</div >-->
+                     <!--<div style="text-align: center;color: #999;" > <button style="width: 100px;height: 30px" type="submit">提交<tton></div>-->
+
+                 <!--</form>-->
+				<div class="clearfix"> </div>
+				<div class="register-but">
+
+				</div>
+		   </div>
+           </div>
     </div>
 </div>
-<div class="container">
-    <footer id="footer">
-        <div id="footer-3d">
-            <div class="gp-container">
-                <span class="first-widget-bend"> </span>
-            </div>
-        </div>
-        <div id="footer-widgets" class="gp-footer-larger-first-col">
-            <div class="gp-container">
-                <div class="footer-widget footer-1">
-                    <div class="wpb_wrapper">
-                        <img src="images/f_logo.png" alt=""/>
-                    </div>
-                    <br>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a
-                        page.</p>
-                    <p class="text">There are many variations of passages of Lorem Ipsum available, but the majority
-                        have suffered.</p>
-                </div>
-                <div class="footer_box">
-                    <div class="col_1_of_3 span_1_of_3">
-                        <h3>Categories</h3>
-                        <ul class="first">
-                            <li><a href="#">Dance</a></li>
-                            <li><a href="#">History</a></li>
-                            <li><a href="#">Specials</a></li>
-                        </ul>
-                    </div>
-                    <div class="col_1_of_3 span_1_of_3">
-                        <h3>Information</h3>
-                        <ul class="first">
-                            <li><a href="#">New products</a></li>
-                            <li><a href="#">top sellers</a></li>
-                            <li><a href="#">Specials</a></li>
-                        </ul>
-                    </div>
-                    <div class="col_1_of_3 span_1_of_3">
-                        <h3>Follow Us</h3>
-                        <ul class="first">
-                            <li><a href="#">Facebook</a></li>
-                            <li><a href="#">Twitter</a></li>
-                            <li><a href="#">Youtube</a></li>
-                        </ul>
-                        <div class="copy">
-                            <p>Copyright &copy; 2015.Company name All rights reserved.<a target="_blank"
-                                                                                         href="http://guantaow.taobao.com/">厚朴网络淘宝店</a><a
-                                    target="_blank" href="http://www.moobnn.com">网页模板</a></p>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </footer>
-</div>
+<div class="container"> 
+ <footer id="footer">
+ 	<div id="footer-3d">
+		<div class="gp-container">
+			<span class="first-widget-bend"> </span>
+		</div>		
+	</div>
+    <div id="footer-widgets" class="gp-footer-larger-first-col">
+		<div class="gp-container">
+            <div class="footer-widget footer-1">
+            	<div class="wpb_wrapper">
+					<img src="images/f_logo.png" alt=""/>
+				</div> 
+	          <br>
+	          <p>It is a long established fact that a reader will be distracted by the readable content of a page.</p>
+			  <p class="text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered.</p>
+			 </div>
+			 <div class="footer_box">
+			  <div class="col_1_of_3 span_1_of_3">
+					<h3>Categories</h3>
+					<ul class="first">
+						<li><a href="#">Dance</a></li>
+						<li><a href="#">History</a></li>
+						<li><a href="#">Specials</a></li>
+					</ul>
+		     </div>
+		     <div class="col_1_of_3 span_1_of_3">
+					<h3>Information</h3>
+					<ul class="first">
+						<li><a href="#">New products</a></li>
+						<li><a href="#">top sellers</a></li>
+						<li><a href="#">Specials</a></li>
+					</ul>
+		     </div>
+		     <div class="col_1_of_3 span_1_of_3">
+					<h3>Follow Us</h3>
+					<ul class="first">
+						<li><a href="#">Facebook</a></li>
+						<li><a href="#">Twitter</a></li>
+						<li><a href="#">Youtube</a></li>
+					</ul>
+					<div class="copy">
+				      <p>Copyright &copy; 2015.Company name All rights reserved.<a target="_blank" href="http://guantaow.taobao.com/">厚朴网络淘宝店</a><a target="_blank" href="http://www.moobnn.com">网页模板</a></p>
+			        </div>
+		     </div>
+		    <div class="clearfix"> </div>
+	        </div>
+	        <div class="clearfix"> </div>
+		</div>
+	</div>
+  </footer>
+</div>		
 </body>
 </html>

@@ -6,6 +6,19 @@ html, body{
 	font-family: 'Roboto Condensed', sans-serif;
 	background:#3f444e;
 }
+input{
+	width: 96%;
+	font-size: 1.1em;
+	margin: 10px 0;
+	border: none;
+	color: #999;
+	outline: none;
+	background: #fff;
+	height: 37px;
+	padding: 10px;
+	resize: none;
+}
+
 body a{
 	transition:0.5s all;
 	-webkit-transition:0.5s all;
