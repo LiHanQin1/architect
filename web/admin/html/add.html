@@ -4,8 +4,73 @@
 		<meta charset="utf-8">
 		<title></title>
 		<link rel="stylesheet" href="../layuiadmin/layui/css/layui.css" />
-		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../static/js/jquery.min.js"></script>
 		<script type="text/javascript">
+            function subtion() {
+                var flag=check();
+                if (flag) {
+                    $("#form").submit();
+                }
+            }
+
+
+			function check(){
+                    //用户名校验
+                    var username=$("#username").val();
+                    var uPattern =/^[a-zA-Z0-9_]{6,11}$/;
+                    if (uPattern.test(username)) {
+                        $.ajax({
+                            url: "http://localhost:8000/architect/vip.do",
+                            data: {action: "queryByUsername",username:username},
+                            type: "GET",
+                            dataType: "text",
+                            success: function (data) {
+                                if (data>0){
+                                    return false;
+                                }
+                            }
+                        });
+                    }else{
+                        return false;
+                    }
+
+
+
+                    var password=$("#password").val();
+                    var uPattern =/^[a-zA-Z0-9_]{6,12}$/;
+                    if (!uPattern.test(password)){
+                        return false;
+                    }
+
+
+
+                    var qq=$("#qq").val();
+                    var uPattern =/[1-9][0-9]{4,}/;
+                    if (!uPattern.test(qq)){
+                        return false;
+                    }
+
+
+
+                    var tel=$("#tel").val();
+                    var uPattern =/^(13[0-9]|14[5|7]|15[0|1|2|3|4|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+                    if (!uPattern.test(tel)){
+                        return false;
+                    }
+
+
+
+                    var email=$("#email").val();
+                    var uPattern =/^\w+@[a-z0-9]+\.[a-z]{2,4}$/;
+                    if (!uPattern.test(email)){
+                        return false;
+                    }
+
+
+                    return true;
+            }
+
+
 			$(function () {
 
                 $("#username").on("blur", function () {
@@ -21,16 +86,13 @@
                             success: function (data) {
                                 if (data>0){
                                     $("#usernametips").html("用户名已存在");
-                                    return false;
                                 } else{
                                     $("#usernametips").html("用户名合法✔");
-                                    return true;
                                 }
                             }
                         });
 					}else{
                         $("#usernametips").html("用户名长度在6-11,包括字母，数字，下划线");
-                        return false;
 					}
                 })
 
@@ -39,10 +101,8 @@
                     var uPattern =/^[a-zA-Z0-9_]{6,12}$/;
                     if (uPattern.test(password)){
                         $("#passwordtips").html("密码合法✔");
-                        return true;
                     }else{
                         $("#passwordtips").html("密码长度在6-12,包括字母，数字，下划线");
-                        return false;
                     }
                 })
                 $("#qq").on("blur",function () {
@@ -50,10 +110,8 @@
                     var uPattern =/[1-9][0-9]{4,}/;
                     if (uPattern.test(qq)){
                         $("#qqtips").html("QQ合法✔");
-                        return true;
                     }else{
                         $("#qqtips").html("QQ长度在4-12,仅数字");
-                        return false;
                     }
                 })
 
@@ -62,10 +120,8 @@
                     var uPattern =/^(13[0-9]|14[5|7]|15[0|1|2|3|4|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
                     if (uPattern.test(tel)){
                         $("#teltips").html("TEL合法✔");
-                        return true;
                     }else{
                         $("#teltips").html("TEL长度为11,仅数字");
-                        return false;
                     }
                 })
 
@@ -74,10 +130,8 @@
                     var uPattern =/^\w+@[a-z0-9]+\.[a-z]{2,4}$/;
                     if (uPattern.test(email)){
                         $("#emailtips").html("Email合法✔");
-                        return true;
                     }else{
                         $("#emailtips").html("Email长度在4-12,仅数字");
-                        return false;
                     }
                 })
 
@@ -95,7 +149,7 @@
 						<label class="layui-form-label">用户名</label>
 						<div class="layui-input-inline">
 							<input type="text" id="username" name="username" required lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
-							<span id="usernametips"></span>
+							<span id="usernametips" style="color: red"></span>
 						</div>
 
 						<!-- <div class="layui-form-mid layui-word-aux">辅助文字</div> -->
@@ -105,7 +159,7 @@
 						<div class="layui-input-inline">
 							<input type="password" id="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off"
 							 class="layui-input">
-							<span id="passwordtips"></span>
+							<span id="passwordtips" style="color: red"></span>
 						</div>
 						<!-- <div class="layui-form-mid layui-word-aux">辅助文字</div> -->
 					</div>
@@ -113,7 +167,7 @@
 						<label class="layui-form-label">QQ</label>
 						<div class="layui-input-inline">
 							<input type="text" id="qq" name="QQ" required lay-verify="required" placeholder="请输入qq" autocomplete="off" class="layui-input">
-							<span id="qqtips"></span>
+							<span id="qqtips" style="color: red"></span>
 						</div>
 						<!-- <div class="layui-form-mid layui-word-aux">辅助文字</div> -->
 					</div>
@@ -121,7 +175,7 @@
 						<label class="layui-form-label">TEL</label>
 						<div class="layui-input-inline">
 							<input type="tel" id="tel" name="TEL" required lay-verify="required" placeholder="请输入电话" autocomplete="off" class="layui-input">
-							<span id="teltips"></span>
+							<span id="teltips" style="color: red"></span>
 						</div>
 						<!-- <div class="layui-form-mid layui-word-aux">辅助文字</div> -->
 					</div>
@@ -129,7 +183,7 @@
 						<label class="layui-form-label">Email</label>
 						<div class="layui-input-inline">
 							<input type="email" id="email" name="Email" required lay-verify="required" placeholder="请输入邮箱" autocomplete="off" class="layui-input">
-							<span id="emailtips"></span>
+							<span id="emailtips" style="color: red"></span>
 						</div>
 						<!-- <div class="layui-form-mid layui-word-aux">辅助文字</div> -->
 					</div>
@@ -143,7 +197,7 @@
 
 					<div class="layui-form-item">
 						<div class="layui-input-block">
-							<button type="submit" class="layui-btn" >立即提交</button>
+							<button type="button" onclick="subtion();" class="layui-btn" >立即提交</button>
 							<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 						</div>
 					</div>

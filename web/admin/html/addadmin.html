@@ -4,8 +4,44 @@
 		<meta charset="utf-8">
 		<title></title>
 		<link rel="stylesheet" href="../layuiadmin/layui/css/layui.css" />
-		<script type="text/javascript" src="../../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../static/js/jquery.min.js"></script>
 		<script type="text/javascript">
+
+            function subtion() {
+                var flag=check();
+                if (flag) {
+                    $("#form").submit();
+                }
+            }
+
+            function check(){
+                    var username=$("#username").val();
+                    var uPattern = /^[a-zA-Z0-9_-]{6,11}$/;
+                    if (uPattern.test(username)) {
+                        $.ajax({
+                            url: "http://localhost:8000/architect/user.do",
+                            data: {action: "queryByUsername", username: username},
+                            type: "GET",
+                            dataType: "text",
+                            success: function (data) {
+                                if (data > 0) {
+                                    return false;
+                                }
+                            }
+                        });
+                    }else{
+                        return false;
+                    }
+
+                    var password=$("#password").val();
+                    var uPattern =/^[a-zA-Z0-9_]{6,12}$/;
+                    if (!uPattern.test(password)){
+                        return false;
+                    }
+
+                    return true;
+			}
+
             $(function () {
 
                 $("#username").on("blur", function () {
@@ -20,10 +56,8 @@
                             success: function (data) {
                                 if (data > 0) {
                                     $("#usernametips").html("用户名已存在");
-                                    return false;
                                 } else {
                                     $("#usernametips").html("用户名合法✔");
-                                    return true;
                                 }
                             }
                         });
@@ -37,10 +71,8 @@
                     var uPattern =/^[a-zA-Z0-9_]{6,12}$/;
                     if (uPattern.test(password)){
                         $("#passwordtips").html("密码合法✔");
-                        return true;
                     }else{
                         $("#passwordtips").html("密码长度在6-12,包括字母，数字，下划线");
-                        return false;
                     }
                 })
             })
@@ -51,7 +83,7 @@
 		<div class="layui-body">
 			<!-- 内容主体区域 -->
 			<div style="padding: 15px;">
-				<form class="layui-form" action="/architect/user.do">
+				<form class="layui-form" id="form" action="/architect/user.do">
 					<input type="hidden" name="action" value="register">
 					<div class="layui-form-item">
 						<label class="layui-form-label">账号说明</label>
@@ -65,7 +97,7 @@
 						<div class="layui-input-inline">
 							<input type="text" id="username" name="username" required lay-verify="required" placeholder="请输入账号" autocomplete="off"
 							 class="layui-input">
-							<span id="usernametips"></span>
+							<span id="usernametips" style="color: red"></span>
 						</div>
 						<!-- <div class="layui-form-mid layui-word-aux">辅助文字</div> -->
 					</div>
@@ -74,7 +106,7 @@
 						<div class="layui-input-inline">
 							<input type="password" id="password" name="password" required lay-verify="required" placeholder="请输入密码" autocomplete="off"
 							 class="layui-input">
-							<span id="passwordtips"></span>
+							<span id="passwordtips" style="color: red"></span>
 						</div>
 						<!-- <div class="layui-form-mid layui-word-aux">辅助文字</div> -->
 					</div>
@@ -82,7 +114,7 @@
 		
 					<div class="layui-form-item">
 						<div class="layui-input-block">
-							<button class="layui-btn" type="submit">立即提交</button>
+							<button class="layui-btn" type="button" onclick="subtion();">立即提交</button>
 							<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 						</div>
 					</div>

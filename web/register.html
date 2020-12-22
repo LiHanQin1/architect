@@ -13,8 +13,77 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
 <link href='#css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
 	<script type="text/javascript">
-        $(function () {
-            function check(){
+
+		function subtion() {
+			var flag=check();
+			if (flag) {
+                $("#registerForm").submit();
+			}
+        }
+
+
+        function check(){
+            var uPattern =/^[a-zA-Z0-9_]{6,11}$/;
+            var registername = $("#registername").val();
+            if (uPattern.test(registername)) {
+                $.ajax({
+                    url: "http://localhost:8000/architect/vip.do",
+                    data: {action: "queryUserByUsername",registername: registername},
+                    type: "GET",
+                    dataType: "text",
+                    success: function (data) {
+                        if (data>0){
+                            return false;
+                        }
+                    }
+                });
+            }else{
+                return false;
+            }
+
+
+            var registerpassword = $("#registerpassword").val();
+            var uPattern =/^[a-zA-Z0-9_]{6,12}$/;
+            if (!uPattern.test(registerpassword)){
+                return false;
+            }
+
+
+            var registerpassword = $("#registerpassword").val();
+            var confirmregisterpassword = $("#confirmregisterpassword").val();
+            if (confirmregisterpassword != registerpassword) {
+                return false;
+            }
+
+
+            var tel = $("#tel").val();
+            var uPattern =/^(13[0-9]|14[5|7]|15[0|1|2|3|4|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
+            if (!uPattern.test(tel)) {
+                return false;
+            }
+
+
+            var uPattern =/[1-9][0-9]{4,}/;
+            var qq = $("#qq").val();
+            if (!uPattern.test(qq)){
+                return false;
+            }
+
+
+            var email = $("#email").val();
+            var uPattern =/^\w+@[a-z0-9]+\.[a-z]{2,4}$/;
+            if (!uPattern.test(email)){
+                return false;
+            }
+
+
+         return true;
+        }
+
+
+        //前端格式校验
+		$(function () {
+
                 $("#registername").on('blur', function () {
                     var uPattern =/^[a-zA-Z0-9_]{6,11}$/;
                     var registername = $("#registername").val();
@@ -27,16 +96,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             success: function (data) {
                                 if (data>0){
                                     $("#registernametips").html("用户名已存在");
-                                    return false;
                                 } else{
                                     $("#registernametips").html("用户名合法√");
-                                    return true;
                                 }
                             }
                         });
                     }else{
                         $("#registernametips").html("用户名长度在6-11,包括字母，数字，下划线");
-                        return false;
                     }
                 })
 
@@ -46,10 +112,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     var uPattern =/^[a-zA-Z0-9_]{6,12}$/;
                     if (uPattern.test(registerpassword)){
                         $("#registerpasswordtips").html("密码合法✔");
-                        return true;
                     }else{
                         $("#registerpasswordtips").html("密码长度在6-12,包括字母，数字，下划线");
-                        return false;
                     }
                 })
 
@@ -59,13 +123,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     var confirmregisterpassword = $("#confirmregisterpassword").val();
                         if (confirmregisterpassword != registerpassword) {
                             $("#confirmregisterpasswordtips").html("确认密码与密码不一致");
-                            $("#confirmregisterpassword").val("");
-                            return false;
                         }else{
                             $("#confirmregisterpasswordtips").html("确认密码合法√");
-                            return true;
 						}
-
                 })
 
                 $("#tel").on('blur', function () {
@@ -73,22 +133,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     var uPattern =/^(13[0-9]|14[5|7]|15[0|1|2|3|4|5|6|7|8|9]|18[0|1|2|3|5|6|7|8|9])\d{8}$/;
                     if (uPattern.test(tel)){
                         $("#teltips").html("TEL合法✔");
-                        return true;
                     }else {
                         $("#teltips").html("TEL长度为11,仅数字");
-                        return false;
                     }
                 })
 
 
                 $("#qq").on('blur', function () {
-                    var uPattern =/[1-9][0-9]{4,}/;                    var qq = $("#qq").val();
+                    var uPattern =/[1-9][0-9]{4,}/;
+                    var qq = $("#qq").val();
                     if (uPattern.test(qq)){
                         $("#qqtips").html("QQ合法✔");
-                        return true;
                     }else{
                         $("#qqtips").html("QQ长度在4-12,仅数字");
-                        return false;
                     }
                 })
 
@@ -98,15 +155,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     var uPattern =/^\w+@[a-z0-9]+\.[a-z]{2,4}$/;
                     if (uPattern.test(email)){
                         $("#emailtips").html("Email合法✔");
-                        return true;
                     }else{
                         $("#emailtips").html("Email长度在4-12,仅数字");
-                        return false;
                     }
                 })
-			}
 
-			check();
 
 
         })
@@ -130,17 +183,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="col-sm-3 header_right">
 			   <ul class="header_right_box">
-				 <li><img src="images/p1.png" alt=""/></li>
-				 <li><p><a href="login.html">Carol Varois</a></p></li>
-				 <li class="last"><i class="edit"> </i></li>
-				 <div class="clearfix"> </div>
+				   <li id="vipInformation"><a href="login.html">用户登陆</a></li>
+				   <li id="menu"></li>
+				   <a href="adminlogin.html">管理员登录</a>
 			   </ul>
 			</div>
 			<div class="clearfix"> </div>
 	      </div>
 	      <div class="content">
       	     <div class="register">
-		  	  <form method="post" action="/architect/vip.do" onsubmit="return check();">
+		  	  <form method="post" action="/architect/vip.do" id="registerForm" >
 				  <input name="action" type="hidden" value="register"/>
 				 <div  style="width: 300px;text-align: center;">
 					<h3>Personal Information</h3>
@@ -188,57 +240,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					 <div class="clearfix"> </div>
 
 					 </div>
-                  <div style="margin-left: 150px;margin-top: 20px" ><button style="width: 90px;height: 30px" value="submit" id="sub" type="submit">提交</button></div>
+                  <div style="margin-left: 150px;margin-top: 20px" ><button style="width: 90px;height: 30px" value="submit" id="sub" type="button" onclick="subtion();">提交</button></div>
 
 
 
 				</form>
-                 <!--<form method="post" action="/architect/vip.do" onsubmit="return check();" >-->
-                     <!--<input name="action" type="hidden" value="register"/>-->
-                     <!--<div class="register-top-grid">-->
-                         <!--<h3>Personal Information</h3>-->
-                         <!--<div>-->
-                             <!--<span>UserName<label>*</label></span>-->
-                             <!--<input type="text" id="registername" name="registername">-->
-                             <!--<span style="color: red" id="registernametips" ></span>-->
-                         <!--</div>-->
-                         <!--<div>-->
-                             <!--<span>PassWord<label>*</label></span>-->
-                             <!--<input  id="registerpassword" name="registerpassword" type="te">-->
-                             <!--<span style="color: red" id="registerpasswordtips" ></span>-->
-                         <!--</div>-->
-                         <!--<div>-->
-                             <!--<span>Email Address<label>*</label></span>-->
-                             <!--<input type="text" id="email" name="email" >-->
-                             <!--<span style="color: red" id="emailtips" ></span>-->
-                         <!--</div>-->
-                         <!--<div>-->
-                             <!--<span>Confirm Password<label>*</label></span>-->
-                             <!--<input type="text"  id="confirmregisterpassword" name="confirmregisterpassword">-->
-                             <!--<span style="color: red" id="confirmregisterpasswordtips"></span>-->
-                         <!--</div>-->
-                         <!--<div>-->
-                             <!--<span>Tel<label>*</label></span>-->
-                             <!--<input type="text" id="tel" name="tel" >-->
-                             <!--<span style="color: red" id="teltips" ></span>-->
-                         <!--</div>-->
-                         <!--<div>-->
-                             <!--<span>QQ<label>*</label></span>-->
-                             <!--<input type="text" id="qq" name="qq">-->
-                             <!--<span style="color: red" id="qqtips" ></span>-->
-                         <!--</div>-->
-                         <!--<div>-->
 
-                             <!--<select name="sex" id="sex" style="text-align: center;color: #999;width: 100px;height: 30px">-->
-                                 <!--<option value="男">男</option>-->
-                                 <!--<option value="女">女</option>-->
-                             <!--</select>-->
-                         <!--</div>-->
-                         <!--<div class="clearfix"> </div>-->
-                     <!--</div >-->
-                     <!--<div style="text-align: center;color: #999;" > <button style="width: 100px;height: 30px" type="submit">提交<tton></div>-->
-
-                 <!--</form>-->
 				<div class="clearfix"> </div>
 				<div class="register-but">
 
