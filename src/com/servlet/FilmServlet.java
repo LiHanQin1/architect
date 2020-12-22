@@ -42,6 +42,13 @@ public class FilmServlet extends BaseServlet {
         System.out.println(film.toString());
 
     }
+    public void orderByHits(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        List<Film> film =filmService.orderByHits();
+        Gson gson=new Gson();
+        String jsonStr=gson.toJson(film);
+        response.getWriter().write(jsonStr);
+    }
+
     public void queryAll(HttpServletRequest request, HttpServletResponse response) throws IOException {
         List<Film> film=filmService.queryAll();
         Gson gson=new Gson();

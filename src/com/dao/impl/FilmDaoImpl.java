@@ -26,6 +26,11 @@ public class FilmDaoImpl extends BaseDao implements FilmDao {
         String sql="delete from film where MovieId=?";
         return update(sql,id);
     }
+    @Override
+    public List<Film> orderByHits() {
+        String sql = "SELECT * FROM film ORDER BY Hits DESC";
+        return queryForList(Film.class,sql);
+    }
 
     @Override
     public int update(Film film) {

@@ -300,103 +300,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-3">
-                    <div class="movie_img">
-                        <div class="grid_2">
-                            <img src="images/pic6.jpg" class="img-responsive" alt="">
-                            <div class="caption1">
-                                <ul class="list_5 list_7">
-                                    <li><i class="icon5"> </i>
-                                        <p>3,548</p></li>
-                                </ul>
-                                <i class="icon4 icon6 icon7"> </i>
-                                <p class="m_3">Guardians of the Galaxy</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="grid_2 col_1">
-                        <img src="images/pic2.jpg" class="img-responsive" alt="">
-                        <div class="caption1">
-                            <ul class="list_3 list_7">
-                                <li><i class="icon5"> </i>
-                                    <p>3,548</p></li>
-                            </ul>
-                            <i class="icon4 icon7"> </i>
-                            <p class="m_3">Guardians of the Galaxy</p>
-                        </div>
-                    </div>
-                    <div class="grid_2 col_1">
-                        <img src="images/pic9.jpg" class="img-responsive" alt="">
-                        <div class="caption1">
-                            <ul class="list_3 list_7">
-                                <li><i class="icon5"> </i>
-                                    <p>3,548</p></li>
-                            </ul>
-                            <i class="icon4 icon7"> </i>
-                            <p class="m_3">Guardians of the Galaxy</p>
-                        </div>
-                    </div>
+                <script>
+                    $(function () {
+                        $.ajax({
+                            url: "http://localhost:8000/architect/FilmServlet",
+                            data: {action: "orderByHits"},
+                            type: "GET",
+                            dataType: "text",
+                            success: function (data) {
+                                movie(data);
+                            }
+                        })
+                        function movie(data) {
+                            let jsonObj = JSON.parse(data);
+                            for (let i = 0; i < 3; i++) {
+                                let movieName = jsonObj[i].MovieName;
+                                let hits = jsonObj[i].Hits;
+                                let imgpath = jsonObj[i].PicAddress;
+                                let movieId = jsonObj[i].MovieId;
+                                imgpath = "http://localhost:8000" + imgpath.substring(2).replaceAll("\\", "/");
+                                let trNode="<a href=\"http://localhost:8000/architect/FilmServlet?action=queryOne&MovieId=" + movieId + "\">" +
+                                    "<img style='width: 200px;height: 240px;margin-left: 30px' src=\"" + imgpath + "\" class=\"img-responsive\"/>" +
+                                    "<div style='text-align: center;padding-right: 80px' class=\"grid-flex\"><a href=\"#\">" + movieName + "</a><p>浏览量：" + hits + "</p></div></a>";
+                                $("#tbody").append(trNode);
+                            }
+                        }
+                    })
+                </script>
+                <div style="position: absolute;top:210px ;left: 1030px" id="tbody" class="col-md-3">
+                    <span style="padding-left: 95px;font-size:25px">热搜榜</span><br/>
+
                 </div>
                 <div class="clearfix"></div>
             </div>
         </div>
     </div>
-</div>
-<div class="container">
-    <footer id="footer">
-        <div id="footer-3d">
-            <div class="gp-container">
-                <span class="first-widget-bend"> </span>
-            </div>
-        </div>
-        <div id="footer-widgets" class="gp-footer-larger-first-col">
-            <div class="gp-container">
-                <div class="footer-widget footer-1">
-                    <div class="wpb_wrapper">
-                        <img src="images/f_logo.png" alt=""/>
-                    </div>
-                    <br>
-                    <p>It is a long established fact that a reader will be distracted by the readable content of a
-                        page.</p>
-                    <p class="text">There are many variations of passages of Lorem Ipsum available, but the majority
-                        have suffered.</p>
-                </div>
-                <div class="footer_box">
-                    <div class="col_1_of_3 span_1_of_3">
-                        <h3>Categories</h3>
-                        <ul class="first">
-                            <li><a href="#">Dance</a></li>
-                            <li><a href="#">History</a></li>
-                            <li><a href="#">Specials</a></li>
-                        </ul>
-                    </div>
-                    <div class="col_1_of_3 span_1_of_3">
-                        <h3>Information</h3>
-                        <ul class="first">
-                            <li><a href="#">New products</a></li>
-                            <li><a href="#">top sellers</a></li>
-                            <li><a href="#">Specials</a></li>
-                        </ul>
-                    </div>
-                    <div class="col_1_of_3 span_1_of_3">
-                        <h3>Follow Us</h3>
-                        <ul class="first">
-                            <li><a href="#">Facebook</a></li>
-                            <li><a href="#">Twitter</a></li>
-                            <li><a href="#">Youtube</a></li>
-                        </ul>
-                        <div class="copy">
-                            <p>Copyright &copy; 2015.Company name All rights reserved.<a target="_blank"
-                                                                                         href="http://guantaow.taobao.com/">厚朴网络淘宝店</a><a
-                                    target="_blank" href="http://www.moobnn.com">网页模板</a></p>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-        </div>
-    </footer>
 </div>
 </body>
 </html>

@@ -21,6 +21,7 @@ public interface FilmService {
     Film  queryMovieByDaoYan(Film film);
     Film  queryMovieByZhuYan(Film film);
     Film  queryMovieByMovieId(Film film);
+    List<Film> orderByHits();
     List<Film> queryAddress();
 
     Film query(int id);

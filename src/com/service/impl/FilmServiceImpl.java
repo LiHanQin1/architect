@@ -28,6 +28,11 @@ public class FilmServiceImpl implements FilmService {
     }
 
     @Override
+    public List<Film> orderByHits() {
+        return filmDao.orderByHits();
+    }
+
+    @Override
     public int update(Film film) {
         return filmDao.update(film);
     }
