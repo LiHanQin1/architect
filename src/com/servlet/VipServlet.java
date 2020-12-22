@@ -47,11 +47,11 @@ public class VipServlet extends BaseServlet {
         Vip vip1 = vipService.queryUserByNameAndPassword(vip);
         if (vip1 != null) {
             vip1.setLoginCount(vip1.getLoginCount() + 1);
-            int i=vipService.update(vip1);
+            int i = vipService.update(vip1);
             HttpSession session = request.getSession();
             session.setAttribute("vip", vip1);
 //            response.getWriter().write("登陆成功！");
-            request.getRequestDispatcher("moban934/index.jsp").forward(request,response);
+            request.getRequestDispatcher("moban934/index.jsp").forward(request, response);
         } else {
             response.getWriter().write("用户名或密码错误");
 //            response.sendRedirect(request.getContextPath() + "/moban934/index.jsp");
@@ -76,7 +76,6 @@ public class VipServlet extends BaseServlet {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         vip.setRegTime(String.valueOf(simpleDateFormat.format(new Date())));
         vip.setLoginCount(0);
-
         Vip vip1 = vipService.queryUserByName(vip);
         if (vip1 == null) {
             Integer result = vipService.insert(vip);
@@ -157,52 +156,55 @@ public class VipServlet extends BaseServlet {
             response.getWriter().write(result.toString());
         }
     }
-        //分页查询
-        public void queryPage(HttpServletRequest request, HttpServletResponse response) throws
-        ServletException, IOException {
-            Integer pageNo = Integer.valueOf(request.getParameter("pageNo"));
-            Page<Vip> page = vipService.queryByPage(pageNo, Page.PAGE_SIZE);
-            Gson gson = new Gson();
-            String jsonStr = gson.toJson(page);
-            response.getWriter().write(jsonStr);
-        }
-        //根据用户名查询
 
-        public void queryByUsername (HttpServletRequest request, HttpServletResponse response) throws IOException {
-            String username = request.getParameter("username");
-            Vip vip = new Vip();
-            vip.setUserName(username);
-            Vip vip1 = vipService.queryUserByName(vip);
-            String str1 = (vip1 == null) ? "" : "1";
-            response.getWriter().write(str1);
-        }
-        public void updata (HttpServletRequest request, HttpServletResponse response) throws IOException {
-            Integer MemberId = Integer.valueOf(request.getParameter("userId"));
-            Vip vip = vipService.query(MemberId);
-            System.out.println(vip);
-            String UserName = request.getParameter("username");
-            String UserPwd = request.getParameter("password");
-            String Tel = request.getParameter("tel");
-            String QQ = request.getParameter("qq");
-            String Email = request.getParameter("Email");
-            String Sex = request.getParameter("set");
-            vip.setUserName(UserName);
-            vip.setUserPwd(UserPwd);
-            vip.setTel(Tel);
-            vip.setQQ(QQ);
-            vip.setEmail(Email);
-            vip.setSex(Sex);
-            Integer vip1 = vipService.update(vip);
-            String str = (vip1 == 1) ? "1" : "";
-            response.getWriter().write(str);
+    //分页查询
+    public void queryPage(HttpServletRequest request, HttpServletResponse response) throws
+            ServletException, IOException {
+        Integer pageNo = Integer.valueOf(request.getParameter("pageNo"));
+        Page<Vip> page = vipService.queryByPage(pageNo, Page.PAGE_SIZE);
+        Gson gson = new Gson();
+        String jsonStr = gson.toJson(page);
+        response.getWriter().write(jsonStr);
+    }
+    //根据用户名查询
 
-        }
-    public void queryByKeyword (HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void queryByUsername(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String username = request.getParameter("username");
+        Vip vip = new Vip();
+        vip.setUserName(username);
+        Vip vip1 = vipService.queryUserByName(vip);
+        String str1 = (vip1 == null) ? "" : "1";
+        response.getWriter().write(str1);
+    }
+
+    public void updata(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        Integer MemberId = Integer.valueOf(request.getParameter("userId"));
+        Vip vip = vipService.query(MemberId);
+        System.out.println(vip);
+        String UserName = request.getParameter("username");
+        String UserPwd = request.getParameter("password");
+        String Tel = request.getParameter("tel");
+        String QQ = request.getParameter("qq");
+        String Email = request.getParameter("Email");
+        String Sex = request.getParameter("set");
+        vip.setUserName(UserName);
+        vip.setUserPwd(UserPwd);
+        vip.setTel(Tel);
+        vip.setQQ(QQ);
+        vip.setEmail(Email);
+        vip.setSex(Sex);
+        Integer vip1 = vipService.update(vip);
+        String str = (vip1 == 1) ? "1" : "";
+        response.getWriter().write(str);
+
+    }
+
+    public void queryByKeyword(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String keyword = request.getParameter("keyword");
         Vip vip = new Vip();
         vip.setUserName(keyword);
         Integer pageNo = Integer.valueOf(request.getParameter("pageNo"));
-        Page<Vip> page = vipService.queryKeyWordByPage(vip,pageNo, Page.PAGE_SIZE);
+        Page<Vip> page = vipService.queryKeyWordByPage(vip, pageNo, Page.PAGE_SIZE);
         Gson gson = new Gson();
         String jsonStr = gson.toJson(page);
         response.getWriter().write(jsonStr);
@@ -211,24 +213,24 @@ public class VipServlet extends BaseServlet {
     public void updatepassword(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        Vip vip=new Vip();
+        Vip vip = new Vip();
         vip.setUserName(username);
         vip.setUserPwd(password);
-        int i=vipService.updateByUsername(vip);
-        String str=(i==1)?"1":"";
-       response.getWriter().write(str);
+        int i = vipService.updateByUsername(vip);
+        String str = (i == 1) ? "1" : "";
+        response.getWriter().write(str);
 
     }
 
     public void queryIsExist(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String username = request.getParameter("username");
         String usedpassword = request.getParameter("usedpassword");
-        Vip vip=new Vip();
+        Vip vip = new Vip();
         vip.setUserName(username);
         vip.setUserPwd(usedpassword);
-        Vip vip1=vipService.queryUserByNameAndPassword(vip);
-        String str=(vip1==null)?"":"1";
+        Vip vip1 = vipService.queryUserByNameAndPassword(vip);
+        String str = (vip1 == null) ? "" : "1";
         response.getWriter().write(str);
 
     }
-    }
+}

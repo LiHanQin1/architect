@@ -71,7 +71,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 let vipName = "";
                 <%
                 if(vip!=null){%>
-                vipName ="<%=vip.getUserName()%>";
+                vipName = "<%=vip.getUserName()%>";
                 <%--<% } %>--%>
                 let movieName = "<%=film.getMovieName()%>";
                 $.ajax({
@@ -87,7 +87,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         }
                     }
                 })
-                <% } %>
+                <% } else if(vip==null){%>
+                alert("您还未登录");
+                window.location.href = "moban934/login.html";
+                <%  }%>
+
             })
 
 

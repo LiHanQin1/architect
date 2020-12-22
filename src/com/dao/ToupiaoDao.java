@@ -2,6 +2,8 @@ package com.dao;
 
 import com.entity.Toupiao;
 
+import java.util.List;
+
 /**
  * @author Lihanqin
  * @Description
@@ -11,4 +13,5 @@ public interface ToupiaoDao {
     int insert(Toupiao toupiao);
     Toupiao query(Toupiao toupiao);
     Integer queryCounts(Toupiao toupiao);
+    List<Toupiao> queryAll();
 }

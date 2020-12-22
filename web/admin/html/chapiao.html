@@ -16,7 +16,7 @@
     $(function () {
         function load(pageNo) {
             $.ajax({
-                url: "http://localhost:8000/architect/notice.do",
+                url: "http://localhost:8000/architect/toupiao.do",
                 data: {action: "queryPage1", pageNo: pageNo},
                 type: "GET",
                 dataType: "text",
@@ -130,12 +130,13 @@
 
 
         if ($("#keyword").val() != null) {
-            $("#keywordbtn").on("click",function () {
-                var keyword=$("#keyword").val();
-                function loads(pageNo){
+            $("#keywordbtn").on("click", function () {
+                var keyword = $("#keyword").val();
+
+                function loads(pageNo) {
                     $.ajax({
                         url: "http://localhost:8000/architect/notice.do",
-                        data: {action: "queryByKeyword",pageNo: pageNo,keyword:keyword},
+                        data: {action: "queryByKeyword", pageNo: pageNo, keyword: keyword},
                         type: "GET",
                         dataType: "text",
                         success: function (data) {
@@ -143,9 +144,10 @@
                         }
                     })
                 }
+
                 loads(1);
             })
-        }else{
+        } else {
             load(1);
         }
 
@@ -162,9 +164,15 @@
             <th lay-data="{field:'joinTime', width:150}">公告标题</th>
             <th lay-data="{field:'joinTime', width:150}">公告内容</th>
             <th lay-data="{field:'username', width:150}">时间</th>
-            <th width="150px" lay-data="{field:'joinTime', width:150}"><input type="text" id="keyword"  class="layui-input" style="height: 45px;width: auto;margin-top: 18px" placeholder="输入要查询的标题">&nbsp;&nbsp;</th>
+            <th width="150px" lay-data="{field:'joinTime', width:150}"><input type="text" id="keyword"
+                                                                              class="layui-input"
+                                                                              style="height: 45px;width: auto;margin-top: 18px"
+                                                                              placeholder="输入要查询的标题">&nbsp;&nbsp;
+            </th>
 
-            <th lay-data="{field:'joinTime', width:150}"><button class="layui-btn layui-btn-radius" id="keywordbtn" style="width: 50px;padding: 1px" >&nbsp;搜 索&nbsp; </button></th>
+            <th lay-data="{field:'joinTime', width:150}">
+                <button class="layui-btn layui-btn-radius" id="keywordbtn" style="width: 50px;padding: 1px">&nbsp;搜 索&nbsp;</button>
+            </th>
 
 
         </tr>

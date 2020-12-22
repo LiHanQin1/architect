@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author Lihanqin
@@ -70,5 +71,12 @@ public class ToupiaoServlet extends BaseServlet {
         String jsonStr = gson.toJson(integer);
         response.getWriter().write(jsonStr);
 
+    }
+
+    public void queryall(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        List<Toupiao> list = toupiaoservice.queryAll();
+        Gson gson = new Gson();
+        String jsonStr = gson.toJson(list);
+        response.getWriter().write(jsonStr);
     }
 }

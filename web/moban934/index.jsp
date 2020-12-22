@@ -60,6 +60,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 }
 
             }
+
             <%
    List<Film> films=(List<Film>) request.getSession().getAttribute("film");
 //   System.out.println(films.get(0).getPicAddress());
@@ -77,8 +78,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <% }
             %>
         })
-
-
     </script>
 
     <script type="text/javascript">
@@ -202,12 +201,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="col-sm-3 header_right">
                 <ul class="header_right_box">
-                    <li id="vipInformation"><a href="/architect/moban934/login.html">登 陆</a></li>
+                    <li id="vipInformation"><a href="/architect/moban934/login.html">用户登陆</a></li>
                     <%--<li class="last"><i class="edit"></i></li>--%>
                     <li id="menu"></li>
+                    <a href="login.html">管理员登录</a>
                     <%--<div class="clearfix"> </div>--%>
                 </ul>
             </div>
+
+
             <div class="clearfix"></div>
         </div>
 
@@ -218,11 +220,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li>
                         <div id="a2"></div>
                     </li>
-                    <li >
-                        <div  id="a1"></div>
+                    <li>
+                        <div id="a1"></div>
                     </li>
                     <li>
-                        <div  id="a0"></div>
+                        <div id="a0"></div>
                     </li>
                 </ul>
             </div>
@@ -237,19 +239,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             address(data);
                         }
                     })
-                    function address(data){
+
+                    function address(data) {
                         let jsonObj = JSON.parse(data);
-                        for (let i = 2; i >=0; i--) {
+                        for (let i = 2; i >= 0; i--) {
                             let hits = jsonObj[i].Hits;
                             let movieName = jsonObj[i].MovieName;
                             let showTime = jsonObj[i].ShowTime;
-                            showTime = showTime.substring(0,10);
-                            let trNode = "<img src='"+jsonObj[i].PicAddress.substring(2)+"' class=\"img-responsive\" alt=\"\">"
-                                +"<div class=\"banner_desc\"><div class=\"col-md-3 grid_1\">" +
-                                "<span style=\"color: white \">浏览量："+hits+"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>" +
-                                "<span style=\"color: white \">"+movieName+"</span>" +
+                            showTime = showTime.substring(0, 10);
+                            let trNode = "<img src='" + jsonObj[i].PicAddress.substring(2) + "' class=\"img-responsive\" alt=\"\">"
+                                + "<div class=\"banner_desc\"><div class=\"col-md-3 grid_1\">" +
+                                "<span style=\"color: white \">浏览量：" + hits + "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>" +
+                                "<span style=\"color: white \">" + movieName + "</span>" +
                                 "</div></div>";
-                            $(eval("a"+i)).append(trNode);
+                            $(eval("a" + i)).append(trNode);
                         }
                     }
                 })

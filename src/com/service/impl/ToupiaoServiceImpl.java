@@ -5,6 +5,8 @@ import com.dao.impl.ToupiaoDaoImpl;
 import com.entity.Toupiao;
 import com.service.Toupiaoservice;
 
+import java.util.List;
+
 /**
  * @author Lihanqin
  * @Description
@@ -26,5 +28,10 @@ public class ToupiaoServiceImpl implements Toupiaoservice {
     @Override
     public Integer queryCounts(Toupiao toupiao) {
         return toupiaoDao.queryCounts(toupiao);
+    }
+
+    @Override
+    public List<Toupiao> queryAll() {
+        return toupiaoDao.queryAll();
     }
 }

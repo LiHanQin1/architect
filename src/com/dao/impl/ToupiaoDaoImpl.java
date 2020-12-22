@@ -4,6 +4,8 @@ import com.dao.BaseDao;
 import com.dao.ToupiaoDao;
 import com.entity.Toupiao;
 
+import java.util.List;
+
 /**
  * @author Lihanqin
  * @Description
@@ -27,5 +29,19 @@ public class ToupiaoDaoImpl extends BaseDao implements ToupiaoDao {
         String sql = "select count(1) from toupiao WHERE movieName =?";
         return Math.toIntExact((long) queryForSingleValue(sql, toupiao.getMovieName()));
 
+    }
+
+    @Override
+    public List<Toupiao> queryAll() {
+        String sql = "SELECT\n" +
+                "    movieName,\n" +
+                "    count( * ) AS COUNT \n" +
+                "FROM\n" +
+                "   toupiao\n" +
+                "GROUP BY\n" +
+                "    movieName \n" +
+                "ORDER BY\n" +
+                "    COUNT DESC";
+        return queryForList(Toupiao.class, sql);
     }
 }
