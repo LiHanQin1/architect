@@ -52,10 +52,13 @@ public class UserServlet extends BaseServlet {
                 userService.update(user);
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
+                Gson gson = new Gson();
+                String jsonStr = gson.toJson(user);
+                response.getWriter().write(jsonStr);
                 response.sendRedirect(request.getContextPath() + "/admin/html/index2.html");
             } else {
                 response.getWriter().print("<script> alert(\"密码错误!\");" +
-                        "window.location.href=\"http://localhost:8000/architect/login.html\""+
+                        "window.location.href=\"http://localhost:8000/architect/adminlogin.html\""+
                         " </script>");
 //                response.sendRedirect(request.getContextPath() + "/login.html");
             }

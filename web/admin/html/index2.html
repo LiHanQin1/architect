@@ -8,10 +8,77 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
 		<link rel="stylesheet" href="../layuiadmin/layui/css/layui.css" media="all">
 		<link rel="stylesheet" href="../layuiadmin/style/admin.css" media="all">
+		<script type="text/javascript" src="../static/js/jquery.min.js"></script>
+		<style>
+			/* 下拉按钮样式 */
+			.dropbtn {
+				background-color: #009688;
+				color: white;
+				padding: 12px;
+				font-size: 12px;
+				border: none;
+				cursor: pointer;
+			}
 
+			/* 容器 <div> - 需要定位下拉内容 */
+			.dropdown {
+				position: relative;
+				display: inline-block;
+			}
+
+			/* 下拉内容 (默认隐藏) */
+			.dropdown-content {
+				display: none;
+				position: absolute;
+				background-color: #f9f9f9;
+				min-width: 160px;
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			}
+
+			/* 下拉菜单的链接 */
+			.dropdown-content a {
+				color: black;
+				padding: 10px 12px;
+				text-decoration: none;
+				display: block;
+			}
+
+			/* 鼠标移上去后修改下拉菜单链接颜色 */
+			.dropdown-content a:hover {background-color: #f1f1f1}
+
+			/* 在鼠标移上去后显示下拉菜单 */
+			.dropdown:hover .dropdown-content {
+				display: block;
+			}
+
+			/* 当下拉内容显示后修改下拉按钮的背景颜色 */
+			.dropdown:hover .dropbtn {
+				background-color:gainsboro;
+			}
+		</style>
 		<script>
 			/^http(s*):\/\//.test(location.href) || alert('请先部署到 localhost 下再访问');
   </script>
+		<script type="text/javascript">
+       $(function (){
+       	$.ajax({
+			url:"http://localhost:8000/architect/user.do",
+			data:{action:"login"},
+			type:"GET",
+			dataType:"text",
+			success:function (data){
+				initData(data);
+				console.log(data)
+			}
+		})
+       	function initData(data){
+       		var jsonObj=JSON.parse(data);
+			var trNode = $("<spen></spen>");
+			trNode.append(jsonObj.UserName);
+			$("#yonghu").append(trNode);
+		}
+	   })
+		</script>
 	</head>
 	<body class="layui-layout-body">
 		<div id="LAY_app">
@@ -37,34 +104,28 @@
 					</ul>
 					<ul class="layui-nav layui-layout-right" lay-filter="layadmin-layout-right">
 
-						<li class="layui-nav-item" lay-unselect>
-							<a lay-href="app/message/index.html" layadmin-event="message" lay-text="消息中心">
-								<i class="layui-icon layui-icon-notice"></i>
 
-								<!-- 如果有新消息，则显示小圆点 -->
-								<span class="layui-badge-dot"></span>
-							</a>
-						</li>
 						<li class="layui-nav-item layui-hide-xs" lay-unselect>
 							<a href="#" layadmin-event="fullscreen">
 								<i class="layui-icon layui-icon-screen-full"></i>
 							</a>
 						</li>
 						<li class="layui-nav-item" lay-unselect>
-							<a href="#">
-								<cite>超级管理员</cite>
-							</a>
-							<dl class="layui-nav-child">
-								<dd><a lay-href="#">基本资料</a></dd>
-								<dd><a lay-href="#">修改密码</a></dd>
-								<hr>
-								<dd layadmin-event="logout" style="text-align: center;"><a>退出</a></dd>
-							</dl>
+							<span style="color: black" id="yonghu">当前用户：</span>
+						</li>
+						<li class="layui-nav-item" lay-unselect>
+							<div class="dropdown">
+								<button class="dropbtn">资料管理</button>
+								<div class="dropdown-content">
+									<a href="#">修改资料</a>
+									<a href="#">退出</a>
+								</div>
+							</div>
 						</li>
 
-						<li class="layui-nav-item layui-hide-xs" lay-unselect>
-							<a href="#" layadmin-event="about"><i class="layui-icon layui-icon-more-vertical"></i></a>
-						</li>
+<!--						<li class="layui-nav-item layui-hide-xs" lay-unselect>-->
+<!--							<a href="#" layadmin-event="about"><i class="layui-icon layui-icon-more-vertical"></i></a>-->
+<!--						</li>-->
 						<!--          <li class="layui-nav-item layui-show-xs-inline-block layui-hide-sm" lay-unselect>
             <a href="javascript:;" layadmin-event="more"><i class="layui-icon layui-icon-more-vertical"></i></a>
           </li> -->
