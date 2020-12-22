@@ -3,6 +3,7 @@ package com.dao.impl;
 import com.dao.BaseDao;
 import com.dao.ToupiaoDao;
 import com.entity.Toupiao;
+import com.entity.Toupiao2;
 
 import java.util.List;
 
@@ -43,5 +44,21 @@ public class ToupiaoDaoImpl extends BaseDao implements ToupiaoDao {
                 "ORDER BY\n" +
                 "    COUNT DESC";
         return queryForList(Toupiao.class, sql);
+    }
+
+    @Override
+    public List<Toupiao2> queryAll2() {
+        String sql = "SELECT\n" +
+                "id,\n" +
+                "    movieName,\n" +
+                "    count( * ) AS COUNT \n" +
+                "FROM\n" +
+                "   toupiao\n" +
+                "GROUP BY\n" +
+                "    movieName \n" +
+                "ORDER BY\n" +
+                "    COUNT DESC";
+
+        return queryForList(Toupiao2.class, sql);
     }
 }

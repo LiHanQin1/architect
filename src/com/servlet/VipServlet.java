@@ -51,10 +51,10 @@ public class VipServlet extends BaseServlet {
             HttpSession session = request.getSession();
             session.setAttribute("vip", vip1);
 //            response.getWriter().write("登陆成功！");
-            request.getRequestDispatcher("moban934/index.jsp").forward(request, response);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         } else {
             response.getWriter().write("用户名或密码错误");
-//            response.sendRedirect(request.getContextPath() + "/moban934/index.jsp");
+//            response.sendRedirect(request.getContextPath() + "/index.jsp");
         }
     }
 
@@ -81,7 +81,7 @@ public class VipServlet extends BaseServlet {
             Integer result = vipService.insert(vip);
             if (result > 0) {
                 response.getWriter().print("<script> alert(\"注册成功!\");" +
-                        "window.location.href=\"http://localhost:8000/architect/moban934/register.html\"" +
+                        "window.location.href=\"http://localhost:8000/architect/register.html\"" +
                         " </script>");
             } else {
                 response.getWriter().print("<script> alert(\"注册失败!\");" +

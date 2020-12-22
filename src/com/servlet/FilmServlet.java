@@ -71,7 +71,7 @@ public class FilmServlet extends BaseServlet {
         String jsonStr=gson.toJson(film1);
         response.getWriter().write(jsonStr);
         request.getSession().setAttribute("film1",film1);
-        request.getRequestDispatcher("moban934/single.jsp").forward(request,response);
+        request.getRequestDispatcher("single.jsp").forward(request,response);
     }
     public void queryOne2(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         Integer movieId = Integer.valueOf(request.getParameter("id"));

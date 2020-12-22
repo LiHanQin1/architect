@@ -1,6 +1,7 @@
 package com.service;
 
 import com.entity.Toupiao;
+import com.entity.Toupiao2;
 
 import java.util.List;
 
@@ -14,4 +15,5 @@ public interface Toupiaoservice {
     Toupiao query(Toupiao toupiao);
     Integer queryCounts(Toupiao toupiao);
     List<Toupiao> queryAll();
+    List<Toupiao2> queryAll2();
 }

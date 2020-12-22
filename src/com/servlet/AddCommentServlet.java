@@ -51,7 +51,7 @@ public class AddCommentServlet extends BaseServlet {
             }
         } else {
             response.getWriter().print("<script> alert(\"您还没登录!\");" +
-                    "window.location.href=\"http://localhost:8000/architect/moban934/login.html\"" + " </script>");
+                    "window.location.href=\"http://localhost:8000/architect/login.html\"" + " </script>");
         }
     }
 

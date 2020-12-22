@@ -1,69 +1,147 @@
-<!--
-Author: W3layouts
-Author URL: http://w3layouts.com
--->
-<!DOCTYPE html>
-<html lang="zxx">
-
+<!DOCTYPE HTML>
+<%
+String path=request.getContextPath();
+String basePath=request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<base href="<%=basePath%>">
+<html>
 <head>
-    <title>管理员登录</title>
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="keywords" content="Movie_store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+        setTimeout(hideURLbar, 0);
+    }, false);
 
-    <!-- Meta tags -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <!-- Style -->
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="all"/>
-    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css"
-          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
-    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
-            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-            crossorigin="anonymous"></script>
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    } </script>
+    <link href="css/bootstrap.css" rel='stylesheet' type='text/css'/>
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <!-- start plugins -->
+    <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+    <link href='#css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
 </head>
-
 <body>
-<!-- login form -->
-<section class="w3l-login-form">
-    <div id="form-section">
-        <div class="wrapper">
-            <!-- logo -->
-            <div class="logo">
-                <a class="brand-logo" href="index.html">管理员登录</a>
+<div class="container">
+    <div class="container_wrap">
+        <div class="header_top">
+            <div class="col-sm-3 logo"><a href="index.jsp"><img src="images/logo.png" alt=""/></a></div>
+            <div class="col-sm-6 nav">
+                <ul>
+                    <li> <span class="simptip-position-bottom simptip-movable" data-tooltip="comic"><a href="movie.jsp"> </a></span></li>
+                    <li><span class="simptip-position-bottom simptip-movable" data-tooltip="movie"><a href="movie.jsp"> </a> </span></li>
+                    <li><span class="simptip-position-bottom simptip-movable" data-tooltip="video"><a href="movie.jsp"> </a></span></li>
+                    <li><span class="simptip-position-bottom simptip-movable" data-tooltip="game"><a href="movie.jsp"> </a></span></li>
+                    <li><span class="simptip-position-bottom simptip-movable" data-tooltip="tv"><a href="movie.jsp"> </a></span></li>
+                    <li><span class="simptip-position-bottom simptip-movable" data-tooltip="more"><a href="movie.jsp"> </a></span></li>
+                </ul>
             </div>
-            <!-- //logo -->
-
-            <!-- form -->
-            <div class="login-form">
-                <form action="/architect/user.do" method="post">
-                    <input name="action" type="hidden" value="login"/>
-                    <div class="form-fields d-grid">
-                        <!--<input name="action" type="hidden" value="login"/>-->
-                        <input type="text" name="username" placeholder="用户名" required="required"/>
-                        <input type="password" name="password" placeholder="密码" required="required"/>
-                        <input type="text" name="code" placeholder="验证码" id="code"/>
-                        <img src="/architect/kaptcha.jpg" style="width: 200px;height: 50px;"/>
-                    </div>
-
-                    <button type="submit">Login</button>
-                </form>
+            <div class="col-sm-3 header_right">
+                <ul class="header_right_box">
+                    <li><img src="images/p1.png" alt=""/></li>
+                    <li><p><a href="login.html">Carol Varois</a></p></li>
+                    <li class="last"><i class="edit"> </i></li>
+                    <div class="clearfix"> </div>
+                </ul>
             </div>
-            <div class="copy-right">
-                <p>&copy; 2020 管理员登录. All rights reserved</p>
+            <div class="clearfix"> </div>
+        </div>
+        <div class="content">
+            <div class="register">
+                <div class="col-md-6 login-left">
+                    <h3>New Customers</h3>
+                    <p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>
+                    <a class="acount-btn" href="register.html">Create an Account</a>
+                </div>
+                <div class="col-md-6 login-right">
+                    <h3>Registered Customers</h3>
+                    <p>If you have an account with us, please log in.</p>
+                    <form action="/architect/vip.do" >
+                        <input name="action" type="hidden" value="login"/>
+                        <div>
+                            <span>UserName<label>*</label></span>
+                            <input type="text" id="username" name="username">
+                        </div>
+                        <div>
+                            <span>Password<label>*</label></span>
+                            <input type="password" id="password" name="password" style="width: 96%;
+                                   font-size: 1.1em;
+                                   margin: 10px 0;
+                                   border: none;
+                                   color: #999;
+                                   outline: none;
+                                   background: #fff;
+                                   height: 37px;
+                                   padding: 10px;
+                                   resize: none;>" >
+                        </div>
+                        <a class="forgot" href="#">Forgot Your Password?</a>
+                        <button type="submit">登  陆</button>
+                    </form>
+                </div>
+                <div class="clearfix"> </div>
             </div>
-            <!-- //copyright -->
-
         </div>
     </div>
-</section>
-<!-- /login form -->
+</div>
+<div class="container">
+    <footer id="footer">
+        <div id="footer-3d">
+            <div class="gp-container">
+                <span class="first-widget-bend"> </span>
+            </div>
+        </div>
+        <div id="footer-widgets" class="gp-footer-larger-first-col">
+            <div class="gp-container">
+                <div class="footer-widget footer-1">
+                    <div class="wpb_wrapper">
+                        <img src="images/f_logo.png" alt=""/>
+                    </div>
+                    <br>
+                    <p>It is a long established fact that a reader will be distracted by the readable content of a
+                        page.</p>
+                    <p class="text">There are many variations of passages of Lorem Ipsum available, but the majority
+                        have suffered.</p>
+                </div>
+                <div class="footer_box">
+                    <div class="col_1_of_3 span_1_of_3">
+                        <h3>Categories</h3>
+                        <ul class="first">
+                            <li><a href="#">Dance</a></li>
+                            <li><a href="#">History</a></li>
+                            <li><a href="#">Specials</a></li>
+                        </ul>
+                    </div>
+                    <div class="col_1_of_3 span_1_of_3">
+                        <h3>Information</h3>
+                        <ul class="first">
+                            <li><a href="#">New products</a></li>
+                            <li><a href="#">top sellers</a></li>
+                            <li><a href="#">Specials</a></li>
+                        </ul>
+                    </div>
+                    <div class="col_1_of_3 span_1_of_3">
+                        <h3>Follow Us</h3>
+                        <ul class="first">
+                            <li><a href="#">Facebook</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Youtube</a></li>
+                        </ul>
+                        <div class="copy">
+                            <p>Copyright &copy; 2015.Company name All rights reserved.<a target="_blank"
+                                                                                         href="http://guantaow.taobao.com/">厚朴网络淘宝店</a><a
+                                    target="_blank" href="http://www.moobnn.com">网页模板</a></p>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </footer>
+</div>
 </body>
-
 </html>

@@ -2,6 +2,7 @@ package com.servlet;
 
 import com.dao.BaseDao;
 import com.entity.Toupiao;
+import com.entity.Toupiao2;
 import com.google.gson.Gson;
 import com.service.Toupiaoservice;
 import com.service.impl.ToupiaoServiceImpl;
@@ -75,6 +76,12 @@ public class ToupiaoServlet extends BaseServlet {
 
     public void queryall(HttpServletRequest request, HttpServletResponse response) throws IOException {
         List<Toupiao> list = toupiaoservice.queryAll();
+        Gson gson = new Gson();
+        String jsonStr = gson.toJson(list);
+        response.getWriter().write(jsonStr);
+    }
+    public void queryall1(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        List<Toupiao2> list = toupiaoservice.queryAll2();
         Gson gson = new Gson();
         String jsonStr = gson.toJson(list);
         response.getWriter().write(jsonStr);

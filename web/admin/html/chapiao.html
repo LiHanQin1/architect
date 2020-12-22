@@ -14,143 +14,40 @@
 </head>
 <script type="text/javascript">
     $(function () {
-        function load(pageNo) {
+        function load() {
             $.ajax({
                 url: "http://localhost:8000/architect/toupiao.do",
-                data: {action: "queryPage1", pageNo: pageNo},
+                data: {action: "queryall1"},
                 type: "GET",
                 dataType: "text",
                 success: function (data) {
                     initData(data);
-                    // console.log(data)
+
                 }
             })
         }
 
-        load(1);
+        load();
 
-        function page(jsonObj) {
-            //前端分页
-            $("#pageButton").empty();
-            $("#totalPageCount").html("共" + jsonObj.pageTotal + "页");
-            for (let i = 1; i <= jsonObj.pageTotal; i++) {
-                if (i == jsonObj.pageNo) {
-                    $("#pageButton").append('<button class="page-btn btn btn-primary">' + i + '</button>\n');
-                } else {
-                    $("#pageButton").append('<button class="page-btn btn btn-default">' + i + '</button>\n');
-                }
-            }
-            $(".page-btn").on("click", function () {
-                load($(this).text());
-            });
-        }
 
         function initData(data) {
             var jsonObj = JSON.parse(data);
-            // console.log(jsonObj);
-            var buttons = "<td>\n" +
-                "<button class=\"updatebtn layui-btn layui-btn-radius\" data-toggle=\"modal\" data-target=\"#myModal\">编辑</button>\n" +
-                "<button  class=\"delbtn layui-btn layui-btn-radius\" >删除</button>\n" +
-                "</td>";
-            $("#tbdoy1").empty();
-            page(jsonObj);
-            for (var i = 0; i < jsonObj.items.length; i++) {
+            console.log(data)
+
+
+
+            for (var i = 0; i < jsonObj.length; i++) {
                 var trNode = $("<tr></tr>");
-                trNode.append("<td>" + jsonObj.items[i].id + "</td>");
-                trNode.append("<td>" + jsonObj.items[i].title + "</td>");
-                trNode.append("<td>" + jsonObj.items[i].neirong + "</td>");
-                trNode.append("<td>" + jsonObj.items[i].time + "</td>");
+                trNode.append("<td style='height: 65px;'>" + jsonObj[i].id + "</td>");
+                trNode.append("<td>" + jsonObj[i].movieName + "</td>");
+                trNode.append("<td>" + jsonObj[i].COUNT + "</td>");
                 trNode.append("<td></td>")
-                trNode.append(buttons);
+                // trNode.append(buttons);
                 $("#tbdoy1").append(trNode);
             }
-            $(".delbtn").on("click", function () {
-                var id = $($(this).parents("tr").children("td")[0]).html().trim();
-                sweetAlert({
-                        title: "是否确认删除?",
-                        text: "You will not be able to recover this imaginary file!",
-                        type: "warning",
-                        showCancelButton: true,
-                        confirmButtonColor: "#DD6B55",
-                        confirmButtonText: "删除 ",
-                        closeOnConfirm: false
-                    },
-                    function () {
-                        $.ajax({
-                            url: "http://localhost:8000/architect/notice.do",
-                            data: {action: "delete", userId: id},
-                            type: "GET",
-                            dataType: "text",
-                            success: function (data) {
-                                if (data > 0) {
-                                    swal("删除成功!", "", "success");
-                                    load(jsonObj.pageNo);
-                                } else {
-                                    swal("删除失败!", "", "error");
-                                }
-                            }
-                        });
 
-                    });
-            });
-            $(".updatebtn").on("click", function () {
-                //回填
-                var id = $($(this).parents("tr").children("td")[0]).html().trim();
-                $("#myModalLabel").html("编辑用户");
-                let title = $($(this).parents("tr").children("td")[1]).html().trim();
-                let neirong = $($(this).parents("tr").children("td")[2]).html().trim();
-                let time = $($(this).parents("tr").children("td")[3]).html().trim();
-                $("#title").val(title);
-                $("#neirong").val(neirong);
-                $("#time").val(time);
-                $(".submit").unbind();
-                $(".submit").on("click", function () {
-                    var title = $("#title").val();
-                    let neirong = $("#neirong").val();
-                    let time = $("#time").val();
-                    $.ajax({
-                        url: "http://localhost:8000/architect/notice.do",
-                        data: {action: "updata", userId: id, title: title, neirong: neirong, time: time},
-                        type: "GET",
-                        dataType: "text",
-                        success: function (data) {
-                            console.log(data);
-                            if (data > 0) {
-                                swal("修改成功!", "", "success");
-                                load(jsonObj.pageNo);
 
-                            } else {
-                                swal("修改失败!", "", "error");
-                            }
-                        }
-                    });
-                });
-            });
         }
-
-
-        if ($("#keyword").val() != null) {
-            $("#keywordbtn").on("click", function () {
-                var keyword = $("#keyword").val();
-
-                function loads(pageNo) {
-                    $.ajax({
-                        url: "http://localhost:8000/architect/notice.do",
-                        data: {action: "queryByKeyword", pageNo: pageNo, keyword: keyword},
-                        type: "GET",
-                        dataType: "text",
-                        success: function (data) {
-                            initData(data);
-                        }
-                    })
-                }
-
-                loads(1);
-            })
-        } else {
-            load(1);
-        }
-
     })
 </script>
 <body>
@@ -161,13 +58,12 @@
         <thead>
         <tr>
             <th lay-data="{field:'joinTime', width:150}">编号</th>
-            <th lay-data="{field:'joinTime', width:150}">公告标题</th>
-            <th lay-data="{field:'joinTime', width:150}">公告内容</th>
-            <th lay-data="{field:'username', width:150}">时间</th>
+            <th lay-data="{field:'joinTime', width:150}">电影名</th>
+            <th lay-data="{field:'joinTime', width:150}">票数</th>
             <th width="150px" lay-data="{field:'joinTime', width:150}"><input type="text" id="keyword"
                                                                               class="layui-input"
                                                                               style="height: 45px;width: auto;margin-top: 18px"
-                                                                              placeholder="输入要查询的标题">&nbsp;&nbsp;
+                                                                              placeholder="输入要查询的电影">&nbsp;&nbsp;
             </th>
 
             <th lay-data="{field:'joinTime', width:150}">
@@ -181,64 +77,26 @@
 
         </tbody>
     </table>
-    <div align="center" id="pageButton">
-    </div>
-    <div style="text-align: center"><b id="totalPageCount">共页</b></div>
+
 </div>
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                    &times;
-                </button>
-                <h4 class="modal-title" id="myModalLabel">
-                    编辑用户
-                </h4>
-            </div>
-            <div class="modal-body">
-                <form method="post" enctype="multipart/form-data" action="/architect/vip.do">
 
-                    <div class="form-group">
-                        <label for="title">公告标题</label>
-                        <input type="text" name="title" class="form-control" id="title" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="neirong">公告内容</label>
-                        <input type="text" name="neirong" class="form-control" id="neirong" placeholder="">
-                    </div>
-                    <div class="form-group">
-                        <label for="time">发布时间</label>
-                        <input type="text" name="time" class="form-control" id="time" placeholder="">
-                    </div>
-
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
-                    </button>
-                    <button type="button" class="submit btn btn-default" data-dismiss="modal">提交</button>
-                </form>
-            </div>
-            <div class="modal-footer">
-
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal -->
-    <script src="../layuiadmin/layui/layui.js"></script>
-    <script type="text/javascript">
-        //Demo
-        layui.use('form', function () { //声明使用layUI的form
-            var form = layui.form;
-            form.render(); //刷新所有渲染效果，也可以单独熟悉某个效果
-            //监听提交
-            form.on('submit(formDemo)', function (data) {
-                layer.msg(JSON.stringify(data.field));
-                return false;
-            });
-
-            layui.use('element', function () {
-                var element = layui.element;
-
-            });
+<script src="../layuiadmin/layui/layui.js"></script>
+<script type="text/javascript">
+    //Demo
+    layui.use('form', function () { //声明使用layUI的form
+        var form = layui.form;
+        form.render(); //刷新所有渲染效果，也可以单独熟悉某个效果
+        //监听提交
+        form.on('submit(formDemo)', function (data) {
+            layer.msg(JSON.stringify(data.field));
+            return false;
         });
-    </script>
+
+        layui.use('element', function () {
+            var element = layui.element;
+
+        });
+    });
+</script>
 </body>
 </html>

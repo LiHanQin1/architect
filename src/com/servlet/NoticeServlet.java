@@ -52,7 +52,7 @@ public class NoticeServlet extends BaseServlet {
         String jsonStr=gson.toJson(notice1);
         response.getWriter().write(jsonStr);
         request.getSession().setAttribute("notice1",notice1);
-        request.getRequestDispatcher("moban934/notice.jsp").forward(request,response);
+        request.getRequestDispatcher("notice.jsp").forward(request,response);
 
     }
 

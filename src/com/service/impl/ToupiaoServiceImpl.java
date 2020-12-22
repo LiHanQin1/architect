@@ -3,6 +3,7 @@ package com.service.impl;
 import com.dao.ToupiaoDao;
 import com.dao.impl.ToupiaoDaoImpl;
 import com.entity.Toupiao;
+import com.entity.Toupiao2;
 import com.service.Toupiaoservice;
 
 import java.util.List;
@@ -33,5 +34,10 @@ public class ToupiaoServiceImpl implements Toupiaoservice {
     @Override
     public List<Toupiao> queryAll() {
         return toupiaoDao.queryAll();
+    }
+
+    @Override
+    public List<Toupiao2> queryAll2() {
+        return toupiaoDao.queryAll2();
     }
 }
