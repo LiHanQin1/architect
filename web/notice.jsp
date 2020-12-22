@@ -71,30 +71,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="clearfix"></div>
         </div>
 
-        <%--<script>--%>
-        <%--$(function () {--%>
-        <%--$.ajax({--%>
-        <%--url: "http://localhost:8000/architect//notice.do",--%>
-        <%--data: {action: "queryNoticeAll"},--%>
-        <%--type: "GET",--%>
-        <%--dataType: "text",--%>
-        <%--success: function (data) {--%>
-        <%--notice(data)--%>
-        <%--}--%>
-        <%--})--%>
-
-        <%--function notice(data) {--%>
-        <%--let jsonObj = JSON.parse(data);--%>
-
-        <%--let neirong = jsonObj[i].neirong;--%>
-        <%--let trNode = "<div style='line-height: 35px'><a style='float: left' >" + jsonObj[i].title + "</a>" +--%>
-        <%--"<a style='padding-left: 100px'>" + neirong + "</a>" +--%>
-        <%--"<a style='float: right;padding-right: 30px' >" + jsonObj[i].time + "</a><br></div>"--%>
-        <%--$("#tbody").append(trNode);--%>
-        <%--}--%>
-        <%--}--%>
-        <%--})--%>
-        <%--</script>--%>
         <%
             Notice notice = (Notice) request.getSession().getAttribute("notice1");
 
@@ -108,8 +84,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span style="text-align: center;font-size: 15px;line-height: 30px;letter-spacing: 1px"><%=notice.getNeirong()%></span><br/>
                         <p style="float: right;position: absolute;left: 800px;top: 800px"><%=notice.getTime()%></p>
                     </div>
-
-
 
                     <div class="clearfix"></div>
 

@@ -17,7 +17,7 @@ public class YuGaoimpl extends BaseDao implements YuGaoDao {
     @Override
     public int insert(YuGao yuGao) {
         String sql="insert into yugao(MovieName,TypeId,DaoYan,ZhuYan,ShowTime,PicAddress,Content) values(?,?,?,?,?,?,?)";
-        return update(sql,yuGao.getMovieName(),yuGao.getTypeId(),yuGao.getDaoYan(),yuGao.getZhuYan(),yuGao.getShowTime(),yuGao.getContent(),yuGao.getPicAddress());
+        return update(sql,yuGao.getMovieName(),yuGao.getTypeId(),yuGao.getDaoYan(),yuGao.getZhuYan(),yuGao.getShowTime(),yuGao.getPicAddress(),yuGao.getContent());
     }
 
     @Override
@@ -29,7 +29,7 @@ public class YuGaoimpl extends BaseDao implements YuGaoDao {
     @Override
     public int update(YuGao yuGao) {
         String sql="update yugao set MovieName=?,TypeId=?,DaoYan=?,ZhuYan=?,ShowTime=?,PicAddress=?,Content=? where MovieId=?";
-        return update(sql,yuGao.getMovieName(),yuGao.getTypeId(),yuGao.getDaoYan(),yuGao.getZhuYan(),yuGao.getShowTime(),yuGao.getPicAddress(),yuGao.getMovieId());
+        return update(sql,yuGao.getMovieName(),yuGao.getTypeId(),yuGao.getDaoYan(),yuGao.getZhuYan(),yuGao.getShowTime(),yuGao.getPicAddress(),yuGao.getContent(),yuGao.getMovieId());
     }
 
     @Override

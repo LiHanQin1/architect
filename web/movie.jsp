@@ -103,7 +103,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <ul class="header_right_box">
                     <li id="vipInformation" style="margin-right: 10px"><a href="login.html">用户登陆</a></li>
                     <li id="menu"></li>
-                    <a href="login.html">管理员登录</a>
+                    <a href="adminlogin.html">管理员登录</a>
                 </ul>
             </div>
             <div class="clearfix"></div>
@@ -143,7 +143,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                             function movies(data) {
                                 let jsonObj = JSON.parse(data);
-                                for (var i = 3; i < jsonObj.length; i++) {
+                                for (var i = 0; i < jsonObj.length; i++) {
                                     let imgpath = jsonObj[i].PicAddress;
                                     let Hits = jsonObj[i].Hits;
                                     let movieId = jsonObj[i].MovieId;
