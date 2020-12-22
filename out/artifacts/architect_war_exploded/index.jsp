@@ -204,7 +204,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li id="vipInformation"><a href="login.html">用户登陆</a></li>
                     <%--<li class="last"><i class="edit"></i></li>--%>
                     <li id="menu"></li>
-                    <a href="login.html">管理员登录</a>
+                    <a href="adminlogin.html">管理员登录</a>
                     <%--<div class="clearfix"> </div>--%>
                 </ul>
             </div>
