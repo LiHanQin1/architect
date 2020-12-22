@@ -177,7 +177,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     </div>
                     <div id="tbody10">
-                        <iframe width="800px" height="500px" src="<%=videopath%>" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+                        <iframe style="padding-top: 30px" width="800px" height="500px" src="<%=videopath%>" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
                         <%--<video width="700px" src="<%=videopath%>" controls="controls"></video>--%>
                     </div>
                     <div class="clearfix"></div>
