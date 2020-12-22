@@ -71,6 +71,9 @@ public class YuGaoFileUploadServlet extends HttpServlet {
                             case "ShowTime":
                                 yuGao.setShowTime(fileItem.getString("utf-8"));
                                 break;
+                            case "Content":
+                                yuGao.setContent(fileItem.getString("utf-8"));
+                                break;
                         }
                     } else {
                         //上传的文件

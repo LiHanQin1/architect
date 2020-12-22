@@ -55,6 +55,7 @@
                     trNode.append("<td>" + jsonObj.items[i].DaoYan + "</td>");
                     trNode.append("<td>" + jsonObj.items[i].ZhuYan + "</td>");
                     trNode.append("<td>" + jsonObj.items[i].ShowTime + "</td>");
+                    trNode.append("<td>"+"<div style='width: 150px;height: 150px;overflow-y:auto'>" + jsonObj.items[i].Content +"</div>"+ "</td>");
                     let imgpath = jsonObj.items[i].PicAddress;
                     imgpath = imgpath.substring(2);
                     imgpath = imgpath.replaceAll("\\", "/");
@@ -175,6 +176,7 @@
             <th lay-data="{field:'joinTime', width:150}">导演</th>
             <th lay-data="{field:'joinTime', width:150}">主演</th>
             <th lay-data="{field:'joinTime', width:150}">影评上映年份</th>
+            <th lay-data="{field:'joinTime', width:150}">电影简介</th>
             <th lay-data="{field:'joinTime', width:150}">影评缩略图片地址</th>
             <th width="200px" lay-data="{field:'joinTime', width:150}"><input type="text" id="keyword"  class="layui-input" style="height: 45px;margin-top: 18px" placeholder="输入要查询的电影">&nbsp;&nbsp;</th>
             <th lay-data="{field:'joinTime', width:150}"><button class="layui-btn layui-btn-radius" id="keywordbtn" style="width: 50px;padding: 1px" >搜 索</button></th>
@@ -223,6 +225,10 @@
                     <div class="form-group">
                         <label for="ShowTime">影评上映年份</label>
                         <input type="text" name="ShowTime" class="form-control" id="ShowTime" placeholder="请输入上映年份">
+                    </div>
+                    <div class="form-group">
+                        <label for="Content">详细介绍</label>
+                        <input type="text/plain" name="Content" class="form-control"  id="Content" placeholder="请输入详细介绍">
                     </div>
                     <div class="form-group">
                         <label for="PicAddress">影评图片</label>

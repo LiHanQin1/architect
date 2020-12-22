@@ -106,7 +106,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 })
                 <% } else if(vip==null){%>
                 alert("您还未登录");
-                window.location.href = "moban934/login.html";
+                window.location.href = "/login.html";
                 <%  }%>
 
             })
