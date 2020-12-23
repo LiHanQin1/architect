@@ -101,8 +101,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </ul>
             </div>
             <div class="col-sm-3 header_right">
-                <ul class="header_right_box">
-                    <li id="vipInformation" style="margin-right: 10px"><a href="login.html">用户登陆</a></li>
+                <ul class="header_right_box" style="margin-right: 10px;width: 170px">
+                    <li id="vipInformation" ><a href="login.html">用户登陆</a></li>
                     <li id="menu"></li>
                     <a href="adminlogin.html">管理员登录</a>
                 </ul>

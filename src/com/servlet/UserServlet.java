@@ -50,12 +50,13 @@ public class UserServlet extends BaseServlet {
             if (user != null) {
                 user.setLogCount(user.getLogCount()+1);
                 userService.update(user);
-                HttpSession session = request.getSession();
-                session.setAttribute("user", user);
                 Gson gson = new Gson();
                 String jsonStr = gson.toJson(user);
                 response.getWriter().write(jsonStr);
+                HttpSession session = request.getSession();
+                session.setAttribute("user", user);
                 response.sendRedirect(request.getContextPath() + "/admin/html/index2.html");
+
             } else {
                 response.getWriter().print("<script> alert(\"密码错误!\");" +
                         "window.location.href=\"http://localhost:8000/architect/adminlogin.html\""+

@@ -63,12 +63,12 @@
        $(function (){
        	$.ajax({
 			url:"http://localhost:8000/architect/user.do",
-			data:{action:"login"},
+			data:{},
 			type:"GET",
 			dataType:"text",
 			success:function (data){
 				initData(data);
-				console.log(data)
+				alert(data)
 			}
 		})
        	function initData(data){

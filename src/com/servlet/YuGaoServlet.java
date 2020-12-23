@@ -48,7 +48,7 @@ public class YuGaoServlet extends BaseServlet {
         String jsonStr=gson.toJson(yuGao1);
         response.getWriter().write(jsonStr);
         request.getSession().setAttribute("yuGao1",yuGao1);
-        request.getRequestDispatcher("/yugao.jsp").forward(request,response);
+        request.getRequestDispatcher("yugao.jsp").forward(request,response);
     }
 
     public void queryPicAddress(HttpServletRequest request, HttpServletResponse response) throws IOException {

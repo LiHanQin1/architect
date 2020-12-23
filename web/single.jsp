@@ -104,7 +104,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 })
                 <% } else if(vip==null){%>
                 alert("您还未登录");
-                window.location.href = "/login.html";
+                window.location.href = "login.html";
                 <%  }%>
 
             })
@@ -125,8 +125,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     dataType: "text",
                     success: function (data) {
                         alert("投票成功");
-                        Hits = Hits + 1;
-                        $("#toupiao").html(Hits);
+                        toupiao = toupiao + 1;
+                        $("#toupiao").html(toupiao);
+                        window.location.href="single.jsp"
                     }
                 })
                 <% } %>
