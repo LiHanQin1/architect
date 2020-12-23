@@ -140,7 +140,7 @@ ol {
     max-width: 600px;
     margin: 0px auto;
     box-shadow: 0px 9px 24px 5px rgba(0, 0, 0, 0.04);
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 .w3l-login-form .login-form form input[type="text"],
