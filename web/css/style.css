@@ -756,9 +756,9 @@ background-color:#d8232a;
 #footer-widgets.gp-footer-larger-first-col {
 padding: 0;
 }
-#footer-widgets {
-background-color:#262C38;
-}
+/*#footer-widgets {*/
+/*background-color:#262C38;*/
+/*}*/
 #footer-widgets {
 float: left;
 overflow: hidden;

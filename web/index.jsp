@@ -346,7 +346,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     let b = jsonObj[i].neirong.substring(0,50);
                                     neirong = b+a;
                                 }
-                                let trNode = "<div style='line-height: 35px;background-color: #edeff0'><a style='float: left;color: black' >" + jsonObj[i].title + "</a>" +
+                                let trNode = "<div style='line-height: 35px;background-color: #edeff0'><a style='float: left;width: 33% ;color: black' >" + jsonObj[i].title + "</a>" +
                                     "<a style='padding-left: 100px;color: black' href=\'http://localhost:8000/architect/notice.do?action=queryNoticebyId&Id=" + id + "'>" + neirong + "</a>"+
                                     "<a style='float: right;padding-right: 30px;color: black' >" + jsonObj[i].time + "</a><br></div>"
                                 $("#tbody").append(trNode);
@@ -355,8 +355,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     })
                 </script>
                 <div class="container">
-                    <footer style="width: 1040px;margin-top: 50px;background-color: #8c8c8c" id="footer">
-                        <div id="footer-widgets" class="gp-footer-larger-first-col">
+                    <footer style="width: 1040px;margin-top: 50px;" id="footer">
+                        <div id="footer-widgets"  class="gp-footer-larger-first-col">
                             <div class="gp-container">
                                 <div class="footer_box">
                                     <div id="tbody" class="col_1_of_3 span_1_of_3" style="background-color:#edeff0">
