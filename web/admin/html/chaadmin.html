@@ -12,6 +12,15 @@
 		<script type="text/javascript" src="https://www.huangwx.cn/js/sweetalert-dev.js"></script>
 		<script type="text/javascript">
       $(function (){
+          $("#Pwd").on("blur",function () {
+              var password=$("#Pwd").val();
+              var uPattern =/^[a-zA-Z0-9_]{6,12}$/;
+              if (uPattern.test(password)){
+                  $("#passwordtips").html("密码合法✔");
+              }else{
+                  $("#passwordtips").html("密码长度在6-12,包括字母，数字，下划线");
+              }
+          })
            function load(pageNo){
            	$.ajax({
 				url:"http://localhost:8000/architect/user.do",
@@ -100,7 +109,7 @@
 					  $("#Title").val(Title);
 
 					  $(".submit").on("click", function () {
-						  let username=$("#UserName").val();
+						  let username=UserName;
 						  let password=$("#Pwd").val();
 						  let title=$("#Title").val();
 						  $.ajax({
@@ -193,13 +202,14 @@
 								<label for="Title">用户说明</label>
 								<input type="text" name="Title" class="form-control" id="Title" placeholder="请输入用户说明">
 							</div>
-							<div class="form-group">
-								<label for="UserName">用户名</label>
-								<input type="text" name="UserName" class="form-control" id="UserName" placeholder="请输入用户名">
-							</div>
+							<!--<div class="form-group">-->
+								<!--<label for="UserName">用户名</label>-->
+								<!--<input type="text" name="UserName" class="form-control" id="UserName" placeholder="请输入用户名">-->
+							<!--</div>-->
 							<div class="form-group">
 								<label for="Pwd">密码</label>
 								<input type="password" name="Pwd" class="form-control" id="Pwd" placeholder="请输入密码">
+								<span id="passwordtips" style="color: red"></span>
 							</div>
 							<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 							</button>
