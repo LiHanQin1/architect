@@ -50,9 +50,6 @@ public class UserServlet extends BaseServlet {
             if (user != null) {
                 user.setLogCount(user.getLogCount()+1);
                 userService.update(user);
-                Gson gson = new Gson();
-                String jsonStr = gson.toJson(user);
-                response.getWriter().write(jsonStr);
                 HttpSession session = request.getSession();
                 session.setAttribute("user", user);
                 response.sendRedirect(request.getContextPath() + "/admin/html/index2.html");
@@ -69,7 +66,12 @@ public class UserServlet extends BaseServlet {
                     " </script>");
         }
     }
-
+    public  void login2(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        User user= (User) request.getSession().getAttribute("user");
+        Gson gson = new Gson();
+        String jsonStr = gson.toJson(user);
+        response.getWriter().write(jsonStr);
+    }
     public void register(HttpServletRequest request, HttpServletResponse response) throws IOException {
         String mean = request.getParameter("mean");
         String username = request.getParameter("username");
