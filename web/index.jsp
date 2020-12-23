@@ -341,24 +341,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             for (let i = 0; i < jsonObj.length; i++) {
                                 let neirong = jsonObj[i].neirong;
                                 let id = jsonObj[i].id;
-                                if (jsonObj[i].neirong.length>50){
+                                if (jsonObj[i].neirong.length > 50) {
                                     let a = "...";
-                                    let b = jsonObj[i].neirong.substring(0,50);
-                                    neirong = b+a;
+                                    let b = jsonObj[i].neirong.substring(0, 50);
+                                    neirong = b + a;
                                 }
-                                let trNode = "<div style='line-height: 35px;background-color: #edeff0'><a style='float: left;width: 33% ;color: black' >" + jsonObj[i].title + "</a>" +
-                                    "<a style='padding-left: 100px;color: black' href=\'http://localhost:8000/architect/notice.do?action=queryNoticebyId&Id=" + id + "'>" + neirong + "</a>"+
+                                let trNode = "<div style='line-height: 35px;background-color: #edeff0'><a style='float: left;font-size: 15px;width: 33% ;color: rebeccapurple' >" + jsonObj[i].title + " : </a></br>" + "<a style='padding-left: 100px;width: 500px;color: black' href=\'http://localhost:8000/architect/notice.do?action=queryNoticebyId&Id=" + id + "'>" + neirong + "</a>" +
                                     "<a style='float: right;padding-right: 30px;color: black' >" + jsonObj[i].time + "</a><br></div>"
                                 $("#tbody").append(trNode);
                             }
                         }
                     })
-
-
                 </script>
                 <div class="container">
                     <footer style="width: 1040px;margin-top: 50px;" id="footer">
-                        <div id="footer-widgets"  class="gp-footer-larger-first-col">
+                        <div id="footer-widgets" class="gp-footer-larger-first-col">
                             <div class="gp-container">
                                 <div class="footer_box">
                                     <div id="tbody" class="col_1_of_3 span_1_of_3" style="background-color:#edeff0">
@@ -367,14 +364,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </div>
                                     <div class="col_1_of_3 span_1_of_3">
 
+                                    </div>
+                                    <div class="clearfix"></div>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
-                            <div class="clearfix"></div>
-                        </div>
-                <%--</div>--%>
-                </footer>
-            </div>
+                            <%--</div>--%>
+                    </footer>
+                </div>
 
 </body>
 </html>
