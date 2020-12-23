@@ -127,7 +127,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         alert("投票成功");
                         toupiao = toupiao + 1;
                         $("#toupiao").html(toupiao);
-                        window.location.href="single.jsp"
+                        window.location.href = "single.jsp"
+
                     }
                 })
                 <% } %>
@@ -186,8 +187,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </style>
 </head>
 <body>
-
-
 <div class="container">
     <div class="container_wrap">
         <div class="header_top">

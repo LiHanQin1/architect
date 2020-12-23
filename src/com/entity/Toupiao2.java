@@ -7,7 +7,6 @@ package com.entity;
  */
 public class Toupiao2 {
     private int id;
-
     private String movieName;
     private Integer COUNT;
 
