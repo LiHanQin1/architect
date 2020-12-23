@@ -36,8 +36,8 @@
                     // imgpath = imgpath.replaceAll("\\", "/");
                     // imgpath = "http://localhost:8000" + imgpath;
                     console.log(imgpath)
-                    trNode.append("<img style=\"width: 200px\" src=\'" + imgpath + "\'>");
-                    trNode.append("<span style=\"font-size: 20px;padding-left: 50px\" >"+jsonObj[i].MovieName+"</span>")
+                    trNode.append("<img style=\"width: 180px\" src=\'" + imgpath + "\'>");
+                    trNode.append("<span style=\"font-size: 18px;padding-left: 50px\" >"+jsonObj[i].MovieName+"</span>")
 
                     $("#tbody1").append(trNode);
                 }
@@ -53,13 +53,13 @@
             });
             function address2(data) {
                 let jsonObj = JSON.parse(data);
-                for (let i = 0; i < 6; i++) {
+                for (let i = 3; i < 9; i++) {
                     let imgpath = jsonObj[i].PicAddress;
                     imgpath = "http://localhost:8000" + imgpath.substring(2).replaceAll("\\", "/");
 
                     let trNode = $("<div class=\"layui-col-xs12 layui-col-sm4\"></div>");
                     let trNode2=$("<div class=\"layuiadmin-card-text\"></div>");
-                    trNode2.append("<img style=\"width: 200px;\" src=\'" + imgpath + "\'>");
+                    trNode2.append("<img style=\"width: 200px;height: 310px\" src=\'" + imgpath + "\'>");
                     trNode2.append("<p style=\"font-size: 20px;margin-top: 10px;padding-left: 50px\" >"+jsonObj[i].MovieName+"</p>");
                     trNode.append(trNode2);
                     $("#tbody2").append(trNode);
