@@ -79,10 +79,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="movie_top">
                 <div style=" width: 1150px" class="col-md-9 movie_box">
                     <div style="margin-left: 200px;width: 680px">
-                        <h2 style="text-align: center">网站公告</h2><br/>
+                        <h2 style="text-align: center"><b>网站公告</b></h2><br/>
                         <h3 align="center"><%=notice.getTitle()%></h3>
+
+                    </div>
+                    <div style="padding-top: 100px;width: 900px">
                         <span style="text-align: center;font-size: 15px;line-height: 30px;letter-spacing: 1px"><%=notice.getNeirong()%></span><br/>
-                        <p style="float: right;position: absolute;left: 800px;top: 800px"><%=notice.getTime()%></p>
+                        <p style="float: right;padding-top: 80px;position: absolute;left: 800px;top: 400px"><%=notice.getTime()%></p>
                     </div>
 
                     <div class="clearfix"></div>
