@@ -32,8 +32,7 @@
 
         function initData(data) {
             var jsonObj = JSON.parse(data);
-            console.log(data)
-
+            // console.log(data);
 
 
             for (var i = 0; i < jsonObj.length; i++) {
@@ -41,12 +40,31 @@
                 trNode.append("<td style='height: 65px;'>" + jsonObj[i].id + "</td>");
                 trNode.append("<td>" + jsonObj[i].movieName + "</td>");
                 trNode.append("<td>" + jsonObj[i].COUNT + "</td>");
-                trNode.append("<td></td>")
                 // trNode.append(buttons);
                 $("#tbdoy1").append(trNode);
             }
 
 
+        }
+
+        if ($("#keyword").val() != null) {
+            $("#keywordbtn").on("click",function () {
+                var keyword=$("#keyword").val();
+                function loads(pageNo){
+                    $.ajax({
+                        url: "http://localhost:8000/architect/toupiao.do",
+                        data: {action: "queryByKeyword",pageNo: pageNo,keyword:keyword},
+                        type: "GET",
+                        dataType: "text",
+                        success: function (data) {
+                            initData(data);
+                        }
+                    })
+                }
+                loads();
+            })
+        }else{
+            load();
         }
     })
 </script>
@@ -66,7 +84,7 @@
                                                                               placeholder="输入要查询的电影">&nbsp;&nbsp;
             </th>
 
-            <th lay-data="{field:'joinTime', width:150}">
+            <th lay-data="{field:'joinTime', width:150}" >
                 <button class="layui-btn layui-btn-radius" id="keywordbtn" style="width: 50px;padding: 1px">&nbsp;搜 索&nbsp;</button>
             </th>
 

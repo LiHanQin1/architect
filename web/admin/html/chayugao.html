@@ -61,7 +61,6 @@
                     imgpath = imgpath.replaceAll("\\", "/");
                     imgpath = "http://localhost:8000" + imgpath;
                     trNode.append("<td><img width='160px' height='100px' src='" + imgpath + "'/></td>");
-                    trNode.append("<td></td>")
                     trNode.append(buttons);
                     $("#tbdoy1").append(trNode);
                 }
@@ -178,9 +177,7 @@
             <th lay-data="{field:'joinTime', width:150}">影评上映年份</th>
             <th lay-data="{field:'joinTime', width:150}">电影简介</th>
             <th lay-data="{field:'joinTime', width:150}">影评缩略图片地址</th>
-            <th width="200px" lay-data="{field:'joinTime', width:150}"><input type="text" id="keyword"  class="layui-input" style="height: 45px;margin-top: 18px" placeholder="输入要查询的电影">&nbsp;&nbsp;</th>
-            <th lay-data="{field:'joinTime', width:150}"><button class="layui-btn layui-btn-radius" id="keywordbtn" style="width: 50px;padding: 1px" >搜 索</button></th>
-            <th lay-data="{field:'joinTime', width:150}"></th>
+            <th width="200px" lay-data="{field:'joinTime', width:150}"><input type="text" id="keyword"  class="layui-input" style="height: 45px;margin-top: 18px" placeholder="输入要查询的电影"><button class="layui-btn layui-btn-radius" id="keywordbtn" style="width: 50px;padding: 1px" >搜 索</button></th>
         </tr>
         </thead>
         <tbody id="tbdoy1">

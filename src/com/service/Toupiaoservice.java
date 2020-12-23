@@ -1,7 +1,9 @@
 package com.service;
 
+import com.entity.Film;
 import com.entity.Toupiao;
 import com.entity.Toupiao2;
+import com.utils.Page;
 
 import java.util.List;
 
@@ -16,4 +18,8 @@ public interface Toupiaoservice {
     Integer queryCounts(Toupiao toupiao);
     List<Toupiao> queryAll();
     List<Toupiao2> queryAll2();
+    Integer queryCounts();
+    Page<Toupiao> queryByPage(int pageNo, int pageSize);
+    Page<Toupiao> queryUserByKeywordForPage(Toupiao toupiao,  int pageNo, int pageSize);
+    List<Toupiao>  piaoList(Toupiao toupiao);
 }

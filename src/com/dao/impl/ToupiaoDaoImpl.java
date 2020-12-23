@@ -2,6 +2,7 @@ package com.dao.impl;
 
 import com.dao.BaseDao;
 import com.dao.ToupiaoDao;
+import com.entity.Film;
 import com.entity.Toupiao;
 import com.entity.Toupiao2;
 
@@ -60,5 +61,29 @@ public class ToupiaoDaoImpl extends BaseDao implements ToupiaoDao {
                 "    COUNT DESC";
 
         return queryForList(Toupiao2.class, sql);
+    }
+
+    @Override
+    public Integer queryCounts() {
+        String sql="select count(1) from toupiao";
+        return Math.toIntExact((long)queryForSingleValue(sql));
+    }
+
+    @Override
+    public List<Toupiao> queryUserBypage(int begin, int pageSize) {
+        String sql="select * from toupiao limit ?,?";
+        return queryForList(Toupiao.class,sql,begin,pageSize);
+    }
+
+    @Override
+    public List<Toupiao> queryUserByKeywordForPage(Toupiao toupiao, int begin, int pageSize) {
+        String sql = "select * from toupiao where MovieName like concat(\'%\', ?,\'%\') limit ?,?";
+        return queryForList(Toupiao.class, sql, toupiao.getMovieName(),begin,pageSize);
+    }
+
+    @Override
+    public List<Toupiao> piaoList(Toupiao toupiao) {
+        String sql="select * from toupiao where MovieName like concat(\'%\', ?,\'%\')";
+        return  queryForList(Toupiao.class, sql, toupiao.getMovieName());
     }
 }

@@ -64,7 +64,6 @@
                 trNode.append("<td style='width: 250px'>" + jsonObj.items[i].CommentContent + "</td>");
 
                 trNode.append("<td>" + jsonObj.items[i].CommentTime + "</td>");
-                trNode.append("<td></td>")
                 trNode.append(buttons);
                 $("#tbdoy1").append(trNode);
             }
@@ -135,9 +134,7 @@
             <th lay-data="{field:'joinTime', width:150}">评论人名称</th>
             <th lay-data="{field:'joinTime', width:150}">评论内容</th>
             <th lay-data="{field:'joinTime', width:150}">评论时间</th>
-            <th lay-data="{field:'joinTime', width:150}"><input type="text" id="keyword"  class="layui-input" style="height: 45px;margin-top: 18px" placeholder="输入要查询的电影">&nbsp;&nbsp;</th>
-            <th lay-data="{field:'joinTime', width:150}"><button class="layui-btn layui-btn-radius" id="keywordbtn" style="width: 50px;padding: 1px" >搜 索</button></th>
-            <th lay-data="{field:'joinTime', width:150}"></th>
+            <th lay-data="{field:'joinTime', width:150}"><input type="text" id="keyword"  class="layui-input" style="width: 150px;height: 45px;margin-top: 18px" placeholder="输入要查询的电影"><button class="layui-btn layui-btn-radius" id="keywordbtn" style="width: 50px;padding: 1px" >搜 索</button></th>
         </tr>
         </thead>
         <tbody id="tbdoy1">

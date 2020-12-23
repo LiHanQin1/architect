@@ -1,5 +1,6 @@
 package com.dao;
 
+import com.entity.Film;
 import com.entity.Toupiao;
 import com.entity.Toupiao2;
 
@@ -16,4 +17,8 @@ public interface ToupiaoDao {
     Integer queryCounts(Toupiao toupiao);
     List<Toupiao> queryAll();
     List<Toupiao2> queryAll2();
+    Integer queryCounts();
+    List<Toupiao> queryUserBypage(int begin, int pageSize);
+    List<Toupiao> queryUserByKeywordForPage(Toupiao toupiao, int begin, int pageSize);
+    List<Toupiao>  piaoList(Toupiao toupiao);
 }
