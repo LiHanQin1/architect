@@ -64,7 +64,7 @@ public class UserServlet extends BaseServlet {
             }
         } else {
             response.getWriter().print("<script> alert(\"验证码错误!\");" +
-                    "window.location.href=\"http://localhost:8000/architect/login.html\""+
+                    "window.location.href=\"http://localhost:8000/architect/adminlogin.html\""+
                     " </script>");
         }
     }

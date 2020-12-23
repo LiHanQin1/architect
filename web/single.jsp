@@ -37,9 +37,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- start plugins -->
     <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
     <link href='#css?family=Roboto+Condensed:100,200,300,400,500,600,700,800,900' rel='stylesheet' type='text/css'>
-
-
-
     <%--    投票--%>
     <script type="text/javascript">
         $(function () {
@@ -312,6 +309,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 movie(data);
                             }
                         })
+
                         function movie(data) {
                             let jsonObj = JSON.parse(data);
                             for (let i = 0; i < 3; i++) {
@@ -320,7 +318,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 let imgpath = jsonObj[i].PicAddress;
                                 let movieId = jsonObj[i].MovieId;
                                 imgpath = "http://localhost:8000" + imgpath.substring(2).replaceAll("\\", "/");
-                                let trNode="<a href=\"http://localhost:8000/architect/FilmServlet?action=queryOne&MovieId=" + movieId + "\">" +
+                                let trNode = "<a href=\"http://localhost:8000/architect/FilmServlet?action=queryOne&MovieId=" + movieId + "\">" +
                                     "<img style='width: 200px;height: 240px;margin-left: 30px' src=\"" + imgpath + "\" class=\"img-responsive\"/>" +
                                     "<div style='text-align: center;padding-right: 80px' class=\"grid-flex\"><a href=\"#\">" + movieName + "</a><p>浏览量：" + hits + "</p></div></a>";
                                 $("#tbody").append(trNode);

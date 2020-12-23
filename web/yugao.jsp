@@ -119,8 +119,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     String zhuYan = yuGao.getZhuYan();
     String showTime = yuGao.getShowTime();
     String conTent = yuGao.getContent();
-    String videopath= yuGao.getVideoAddress();
-//    videopath = "http://localhost:8000" + videopath.substring(3).replaceAll("\\\\", "/");
+    String videopath = yuGao.getVideoAddress();
+
 %>
 
 <div class="container">
@@ -177,7 +177,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     </div>
                     <div id="tbody10">
-                        <iframe style="padding-top: 30px" width="800px" height="500px" src="<%=videopath%>" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+                        <iframe style="padding-top: 30px" width="800px" height="500px" src="<%=videopath%>"
+                                scrolling="no" border="0" frameborder="no" framespacing="0"
+                                allowfullscreen="true"></iframe>
                         <%--<video width="700px" src="<%=videopath%>" controls="controls"></video>--%>
                     </div>
                     <div class="clearfix"></div>
