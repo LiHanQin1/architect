@@ -151,7 +151,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     src="images/logo.png" alt=""/></a></div>
             <div class="col-sm-6 nav">
                 <ul>
-                    <li><span class="simptip-position-bottom simptip-movable" data-tooltip="影片"><a
+                    <li><span class="simptip-position-bottom simptip-movable" data-tooltip="comic"><a
+                            href="movie.jsp"> </a></span></li>
+                    <li><span class="simptip-position-bottom simptip-movable" data-tooltip="movie"><a
+                            href="movie.jsp"> </a> </span></li>
+                    <li><span class="simptip-position-bottom simptip-movable" data-tooltip="video"><a
+                            href="movie.jsp"> </a></span></li>
+                    <li><span class="simptip-position-bottom simptip-movable" data-tooltip="game"><a
+                            href="movie.jsp"> </a></span></li>
+                    <li><span class="simptip-position-bottom simptip-movable" data-tooltip="tv"><a
+                            href="movie.jsp"> </a></span></li>
+                    <li><span class="simptip-position-bottom simptip-movable" data-tooltip="more"><a
                             href="movie.jsp"> </a></span></li>
 
                 </ul>
@@ -336,21 +346,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     let b = jsonObj[i].neirong.substring(0,50);
                                     neirong = b+a;
                                 }
-                                let trNode = "<div style='line-height: 35px'><a style='float: left' >" + jsonObj[i].title + "</a>" +
-                                    "<a style='padding-left: 100px' href=\'http://localhost:8000/architect/notice.do?action=queryNoticebyId&Id=" + id + "'>" + neirong + "</a>"+
-                                    "<a style='float: right;padding-right: 30px' >" + jsonObj[i].time + "</a><br></div>"
+                                let trNode = "<div style='line-height: 35px;background-color: #edeff0'><a style='float: left;color: black' >" + jsonObj[i].title + "</a>" +
+                                    "<a style='padding-left: 100px;color: black' href=\'http://localhost:8000/architect/notice.do?action=queryNoticebyId&Id=" + id + "'>" + neirong + "</a>"+
+                                    "<a style='float: right;padding-right: 30px;color: black' >" + jsonObj[i].time + "</a><br></div>"
                                 $("#tbody").append(trNode);
                             }
                         }
                     })
                 </script>
                 <div class="container">
-                    <footer style="width: 1040px;margin-top: 50px" id="footer">
+                    <footer style="width: 1040px;margin-top: 50px;background-color: #8c8c8c" id="footer">
                         <div id="footer-widgets" class="gp-footer-larger-first-col">
                             <div class="gp-container">
                                 <div class="footer_box">
-                                    <div id="tbody" class="col_1_of_3 span_1_of_3">
-                                        <h3 style="color: white;"> 网站公告</h3>
+                                    <div id="tbody" class="col_1_of_3 span_1_of_3" style="background-color:#edeff0">
+                                        <h3 style="color: black;"> 网站公告</h3>
 
                                     </div>
                                     <div class="col_1_of_3 span_1_of_3">
