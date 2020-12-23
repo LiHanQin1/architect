@@ -353,6 +353,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             }
                         }
                     })
+
+
                 </script>
                 <div class="container">
                     <footer style="width: 1040px;margin-top: 50px;" id="footer">
